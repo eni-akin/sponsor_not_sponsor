@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Sponsor Not Sponsor — Scanner Preview",
+  "version": "0.1.0",
+  "description": "Recognize job postings and inspect role-specific page text locally. Sponsorship interpretation is coming next.",
+  "permissions": ["storage"],
+  "content_scripts": [{
+    "matches": ["https://*/*", "http://*/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "action": {
+    "default_title": "Inspect this job page",
+    "default_popup": "popup.html"
+  }
+}
