@@ -1,0 +1,4120 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-25T01:27:06.182Z",
+  "split": "development",
+  "evaluationUse": "development",
+  "provenance": "AI-authored constructed scenarios; provisional labels; independent human review pending; not a real-world accuracy estimate.",
+  "hashes": {
+    "corpus": "f3623231b10c504d9d1e43fbd26bd5e4bb2ac95352c4b7e9fcd2f236556a35be",
+    "selected": "77339a41af57798781cda0c3ed6d79c376a0a0cb4cc0a70fc075abd7042afef4",
+    "scanner": "cbc078f5a66882f7ca18ade6dd433157038f1ed2eabb1ac856779ccc25d91cef",
+    "interpreter": "4df00e6202e8a5885d805468663afdc2feb06cf9f2ee9f17f871e3865f08d395"
+  },
+  "numericTarget": {
+    "minimumPrecision": 0.95,
+    "minimumPredictions": 20,
+    "met": false
+  },
+  "betaReleaseGate": "pending-independent-human-reviewed-evaluation",
+  "metrics": {
+    "count": 80,
+    "policyOnlyCount": 64,
+    "pageCount": 16,
+    "casesWithoutErrors": {
+      "numerator": 76,
+      "denominator": 80,
+      "value": 0.95,
+      "interval95": [
+        0.878375474489178,
+        0.9803867628727044
+      ]
+    },
+    "fields": {
+      "sponsorship": {
+        "definitivePrecision": {
+          "numerator": 19,
+          "denominator": 19,
+          "value": 1,
+          "interval95": [
+            0.8318156346315496,
+            1
+          ]
+        },
+        "definitiveRecall": {
+          "numerator": 19,
+          "denominator": 23,
+          "value": 0.8260869565217391,
+          "interval95": [
+            0.6286194521470433,
+            0.9302145964938723
+          ]
+        },
+        "conclusionCoverage": {
+          "numerator": 29,
+          "denominator": 75,
+          "value": 0.38666666666666666,
+          "interval95": [
+            0.2845504777263397,
+            0.4998273126787256
+          ]
+        },
+        "exactAccuracy": {
+          "numerator": 76,
+          "denominator": 80,
+          "value": 0.95,
+          "interval95": [
+            0.878375474489178,
+            0.9803867628727044
+          ]
+        },
+        "confusion": {
+          "available": {
+            "available": 11,
+            "unclear": 4
+          },
+          "unclear": {
+            "unclear": 47
+          },
+          "conditional": {
+            "conditional": 10
+          },
+          "unavailable": {
+            "unavailable": 8
+          }
+        }
+      },
+      "cpt": {
+        "definitivePrecision": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1,
+          "interval95": [
+            0.6096569663469354,
+            0.9999999999999999
+          ]
+        },
+        "definitiveRecall": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1,
+          "interval95": [
+            0.6096569663469354,
+            0.9999999999999999
+          ]
+        },
+        "conclusionCoverage": {
+          "numerator": 6,
+          "denominator": 75,
+          "value": 0.08,
+          "interval95": [
+            0.03717961789436808,
+            0.16374984066557996
+          ]
+        },
+        "exactAccuracy": {
+          "numerator": 80,
+          "denominator": 80,
+          "value": 1,
+          "interval95": [
+            0.954180263735425,
+            1
+          ]
+        },
+        "confusion": {
+          "unclear": {
+            "unclear": 74
+          },
+          "explicitly-accepted": {
+            "explicitly-accepted": 3
+          },
+          "explicitly-excluded": {
+            "explicitly-excluded": 3
+          }
+        }
+      },
+      "opt": {
+        "definitivePrecision": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1,
+          "interval95": [
+            0.6096569663469354,
+            0.9999999999999999
+          ]
+        },
+        "definitiveRecall": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1,
+          "interval95": [
+            0.6096569663469354,
+            0.9999999999999999
+          ]
+        },
+        "conclusionCoverage": {
+          "numerator": 6,
+          "denominator": 75,
+          "value": 0.08,
+          "interval95": [
+            0.03717961789436808,
+            0.16374984066557996
+          ]
+        },
+        "exactAccuracy": {
+          "numerator": 80,
+          "denominator": 80,
+          "value": 1,
+          "interval95": [
+            0.954180263735425,
+            1
+          ]
+        },
+        "confusion": {
+          "unclear": {
+            "unclear": 74
+          },
+          "explicitly-accepted": {
+            "explicitly-accepted": 3
+          },
+          "explicitly-excluded": {
+            "explicitly-excluded": 3
+          }
+        }
+      }
+    },
+    "detection": {
+      "precision": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1,
+        "interval95": [
+          0.6456611570247934,
+          1
+        ]
+      },
+      "recall": {
+        "numerator": 7,
+        "denominator": 11,
+        "value": 0.6363636363636364,
+        "interval95": [
+          0.35379677689163724,
+          0.8483377638586862
+        ]
+      },
+      "kindAccuracy": {
+        "numerator": 12,
+        "denominator": 16,
+        "value": 0.75,
+        "interval95": [
+          0.5050123107060135,
+          0.8981809801576265
+        ]
+      }
+    },
+    "citationErrorCases": 0,
+    "failedCases": [
+      {
+        "id": "D-page-013",
+        "deferred": true,
+        "errors": [
+          "sponsorship: expected \"available\", got \"unclear\"",
+          "pageKind: expected job-posting, got non-job"
+        ]
+      },
+      {
+        "id": "D-page-014",
+        "deferred": true,
+        "errors": [
+          "sponsorship: expected \"available\", got \"unclear\"",
+          "pageKind: expected job-posting, got unreadable"
+        ]
+      },
+      {
+        "id": "D-page-015",
+        "deferred": true,
+        "errors": [
+          "sponsorship: expected \"available\", got \"unclear\"",
+          "pageKind: expected job-posting, got non-job"
+        ]
+      },
+      {
+        "id": "D-page-016",
+        "deferred": true,
+        "errors": [
+          "sponsorship: expected \"available\", got \"unclear\"",
+          "pageKind: expected job-posting, got non-job"
+        ]
+      }
+    ]
+  },
+  "byFamily": {
+    "offer": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 5,
+            "denominator": 8,
+            "value": 0.625,
+            "interval95": [
+              0.30573785458380187,
+              0.863158240538479
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "available": {
+              "available": 4
+            },
+            "unclear": {
+              "unclear": 3
+            },
+            "conditional": {
+              "conditional": 1
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "refusal": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1,
+            "interval95": [
+              0.6096569663469354,
+              0.9999999999999999
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1,
+            "interval95": [
+              0.6096569663469354,
+              0.9999999999999999
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 7,
+            "denominator": 8,
+            "value": 0.875,
+            "interval95": [
+              0.5291051942301386,
+              0.9775830911367038
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unavailable": {
+              "unavailable": 6
+            },
+            "conditional": {
+              "conditional": 1
+            },
+            "unclear": {
+              "unclear": 1
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "conditions": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 6,
+            "denominator": 8,
+            "value": 0.75,
+            "interval95": [
+              0.40926987910258916,
+              0.9285223111419724
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "conditional": {
+              "conditional": 6
+            },
+            "unclear": {
+              "unclear": 2
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "training-direct": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1,
+            "interval95": [
+              0.6096569663469354,
+              0.9999999999999999
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1,
+            "interval95": [
+              0.6096569663469354,
+              0.9999999999999999
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 6,
+            "denominator": 8,
+            "value": 0.75,
+            "interval95": [
+              0.40926987910258916,
+              0.9285223111419724
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 3
+            },
+            "unclear": {
+              "unclear": 2
+            },
+            "explicitly-excluded": {
+              "explicitly-excluded": 3
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1,
+            "interval95": [
+              0.6096569663469354,
+              0.9999999999999999
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1,
+            "interval95": [
+              0.6096569663469354,
+              0.9999999999999999
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 6,
+            "denominator": 8,
+            "value": 0.75,
+            "interval95": [
+              0.40926987910258916,
+              0.9285223111419724
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 2
+            },
+            "explicitly-accepted": {
+              "explicitly-accepted": 3
+            },
+            "explicitly-excluded": {
+              "explicitly-excluded": 3
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "questions": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1,
+            "interval95": [
+              0.20654329147389294,
+              1
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 1,
+            "denominator": 1,
+            "value": 1,
+            "interval95": [
+              0.20654329147389294,
+              1
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 1,
+            "denominator": 8,
+            "value": 0.125,
+            "interval95": [
+              0.02241690886329617,
+              0.4708948057698615
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 7
+            },
+            "available": {
+              "available": 1
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "context": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1,
+            "interval95": [
+              0.34237195288961925,
+              1
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1,
+            "interval95": [
+              0.34237195288961925,
+              1
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 2,
+            "denominator": 8,
+            "value": 0.25,
+            "interval95": [
+              0.07147768885802763,
+              0.5907301208974108
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 6
+            },
+            "unavailable": {
+              "unavailable": 2
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "requirements": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "conflicts": {
+      "count": 8,
+      "policyOnlyCount": 8,
+      "pageCount": 0,
+      "casesWithoutErrors": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1,
+        "interval95": [
+          0.6755843804891231,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 2,
+            "denominator": 8,
+            "value": 0.25,
+            "interval95": [
+              0.07147768885802763,
+              0.5907301208974108
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 6
+            },
+            "conditional": {
+              "conditional": 2
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 8,
+            "value": 0,
+            "interval95": [
+              0,
+              0.3244156195108769
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 8,
+            "denominator": 8,
+            "value": 1,
+            "interval95": [
+              0.6755843804891231,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 8
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "basic-layouts": {
+      "count": 4,
+      "policyOnlyCount": 0,
+      "pageCount": 4,
+      "casesWithoutErrors": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1,
+        "interval95": [
+          0.5100999795960008,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "available": {
+              "available": 4
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "interval95": [
+              0,
+              0.48990002040399916
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "interval95": [
+              0,
+              0.48990002040399916
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1,
+          "interval95": [
+            0.5100999795960008,
+            1
+          ]
+        },
+        "recall": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1,
+          "interval95": [
+            0.5100999795960008,
+            1
+          ]
+        },
+        "kindAccuracy": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1,
+          "interval95": [
+            0.5100999795960008,
+            1
+          ]
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "selected-layouts": {
+      "count": 4,
+      "policyOnlyCount": 0,
+      "pageCount": 4,
+      "casesWithoutErrors": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1,
+        "interval95": [
+          0.5100999795960008,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1,
+            "interval95": [
+              0.34237195288961925,
+              1
+            ]
+          },
+          "definitiveRecall": {
+            "numerator": 2,
+            "denominator": 2,
+            "value": 1,
+            "interval95": [
+              0.34237195288961925,
+              1
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 2,
+            "denominator": 3,
+            "value": 0.6666666666666666,
+            "interval95": [
+              0.2076549551264879,
+              0.9385096847238394
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "available": {
+              "available": 2
+            },
+            "unclear": {
+              "unclear": 2
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 3,
+            "value": 0,
+            "interval95": [
+              0,
+              0.5615060804490177
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 3,
+            "value": 0,
+            "interval95": [
+              0,
+              0.5615060804490177
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 3,
+          "denominator": 3,
+          "value": 1,
+          "interval95": [
+            0.43849391955098227,
+            1
+          ]
+        },
+        "recall": {
+          "numerator": 3,
+          "denominator": 3,
+          "value": 1,
+          "interval95": [
+            0.43849391955098227,
+            1
+          ]
+        },
+        "kindAccuracy": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1,
+          "interval95": [
+            0.5100999795960008,
+            1
+          ]
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "negative-layouts": {
+      "count": 4,
+      "policyOnlyCount": 0,
+      "pageCount": 4,
+      "casesWithoutErrors": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1,
+        "interval95": [
+          0.5100999795960008,
+          1
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "kindAccuracy": {
+          "numerator": 4,
+          "denominator": 4,
+          "value": 1,
+          "interval95": [
+            0.5100999795960008,
+            1
+          ]
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": []
+    },
+    "deferred-dev-layouts": {
+      "count": 4,
+      "policyOnlyCount": 0,
+      "pageCount": 4,
+      "casesWithoutErrors": {
+        "numerator": 0,
+        "denominator": 4,
+        "value": 0,
+        "interval95": [
+          0,
+          0.48990002040399916
+        ]
+      },
+      "fields": {
+        "sponsorship": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "interval95": [
+              0,
+              0.48990002040399916
+            ]
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "interval95": [
+              0,
+              0.48990002040399916
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "interval95": [
+              0,
+              0.48990002040399916
+            ]
+          },
+          "confusion": {
+            "available": {
+              "unclear": 4
+            }
+          }
+        },
+        "cpt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "interval95": [
+              0,
+              0.48990002040399916
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        },
+        "opt": {
+          "definitivePrecision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "definitiveRecall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null,
+            "interval95": null
+          },
+          "conclusionCoverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0,
+            "interval95": [
+              0,
+              0.48990002040399916
+            ]
+          },
+          "exactAccuracy": {
+            "numerator": 4,
+            "denominator": 4,
+            "value": 1,
+            "interval95": [
+              0.5100999795960008,
+              1
+            ]
+          },
+          "confusion": {
+            "unclear": {
+              "unclear": 4
+            }
+          }
+        }
+      },
+      "detection": {
+        "precision": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null,
+          "interval95": null
+        },
+        "recall": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0,
+          "interval95": [
+            0,
+            0.48990002040399916
+          ]
+        },
+        "kindAccuracy": {
+          "numerator": 0,
+          "denominator": 4,
+          "value": 0,
+          "interval95": [
+            0,
+            0.48990002040399916
+          ]
+        }
+      },
+      "citationErrorCases": 0,
+      "failedCases": [
+        {
+          "id": "D-page-013",
+          "deferred": true,
+          "errors": [
+            "sponsorship: expected \"available\", got \"unclear\"",
+            "pageKind: expected job-posting, got non-job"
+          ]
+        },
+        {
+          "id": "D-page-014",
+          "deferred": true,
+          "errors": [
+            "sponsorship: expected \"available\", got \"unclear\"",
+            "pageKind: expected job-posting, got unreadable"
+          ]
+        },
+        {
+          "id": "D-page-015",
+          "deferred": true,
+          "errors": [
+            "sponsorship: expected \"available\", got \"unclear\"",
+            "pageKind: expected job-posting, got non-job"
+          ]
+        },
+        {
+          "id": "D-page-016",
+          "deferred": true,
+          "errors": [
+            "sponsorship: expected \"available\", got \"unclear\"",
+            "pageKind: expected job-posting, got non-job"
+          ]
+        }
+      ]
+    }
+  },
+  "observations": [
+    {
+      "id": "D-policy-001",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "An explicit offer applies to the role.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-002",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "Employer provision is explicit.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-003",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "An explicit future commitment is scoped to future.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "future": "available",
+        "now": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "available",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-004",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "Negated relocation is unrelated.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-005",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "No immigration implication from applicant need.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-006",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "Unknown policy is not an offer.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-007",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "Double negation needs review, not a definite offer.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-008",
+      "family": "offer",
+      "deferred": false,
+      "rationale": "A conditional offer is not universal.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-009",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "The employer declines sponsorship.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-010",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "This role is excluded.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "work-authorization"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-011",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "Future-only refusal must not become current.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "future": "unavailable",
+        "now": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unavailable",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-012",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "Both time periods are explicit.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unavailable",
+        "future": "unavailable"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unavailable",
+        "future": "unavailable",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-013",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "Exception makes the refusal conditional.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-014",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "Contraction does not change exclusion.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-015",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "Absence of a requirement is not a refusal.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-016",
+      "family": "refusal",
+      "deferred": false,
+      "rationale": "Requiring no sponsorship excludes employer sponsorship.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "work-authorization"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-017",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "Case consideration is conditional.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-018",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "An adjacent sentence limits an offer.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-019",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "An adjacent paragraph limits an offer.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-020",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "An exception paragraph limits a refusal.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-021",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "A promise is explicitly withheld.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-022",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "A possible offer is not definite.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-023",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "A conditional training statement stays unclear.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "review": true
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": true
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-024",
+      "family": "conditions",
+      "deferred": false,
+      "rationale": "Training conditions survive paragraph breaks.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "review": true
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": true
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-025",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "CPT does not imply OPT.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-accepted",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-accepted",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-026",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "OPT does not imply CPT.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "explicitly-accepted"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "explicitly-accepted",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-027",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "CPT refusal stands alone.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-excluded",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-excluded",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-028",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "OPT refusal stands alone.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "explicitly-excluded"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "explicitly-excluded",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-029",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "Shared acceptance covers both.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-accepted",
+        "opt": "explicitly-accepted"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-accepted",
+        "opt": "explicitly-accepted",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-030",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "Shared exclusion covers both.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-excluded",
+        "opt": "explicitly-excluded"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-excluded",
+        "opt": "explicitly-excluded",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-031",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "Independent clauses must not transfer polarity.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-accepted",
+        "opt": "explicitly-excluded"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-accepted",
+        "opt": "explicitly-excluded",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-032",
+      "family": "training-direct",
+      "deferred": false,
+      "rationale": "The reverse contrast must also remain separate.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-excluded",
+        "opt": "explicitly-accepted"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "explicitly-excluded",
+        "opt": "explicitly-accepted",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-033",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "A question alone is not policy.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-034",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "A request for information is not policy.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-035",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "Current and future in a question are not exclusions.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-036",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "Training question establishes neither acceptance.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-037",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "A sponsorship survey is not an offer.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-038",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "A question does not cancel a separate policy.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-039",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "An answer-request stays unclassified.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-040",
+      "family": "questions",
+      "deferred": false,
+      "rationale": "Conditional question must not become conditional policy.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-041",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Historical support is not current support.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-042",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Other-role statement is not this role.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-043",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Company-wide support remains separately attributed.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-044",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Role exclusion wins over historical context.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-045",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Company context does not override the role.",
+      "expected": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-046",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Event funding is not immigration.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-047",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Page instructions cannot manufacture a finding.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-048",
+      "family": "context",
+      "deferred": false,
+      "rationale": "Quoted example is not an actual offer.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-049",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "Authorization does not imply refusal.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": [
+          "work-authorization"
+        ]
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "work-authorization"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-050",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "Citizenship is recorded separately.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": [
+          "citizenship"
+        ]
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "citizenship"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-051",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "Permanent residency is not citizenship.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": [
+          "permanent-residency"
+        ]
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "permanent-residency"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-052",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "US-person wording must remain distinct.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": [
+          "us-person"
+        ]
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "us-person"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-053",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "F1/J1 restriction does not establish CPT or OPT policy.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": [
+          "stated-condition"
+        ]
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "stated-condition"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-054",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "Negated citizenship requirement creates no restriction.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": []
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-055",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "Independent requirement survives a negated one.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": [
+          "permanent-residency"
+        ]
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [
+          "permanent-residency"
+        ],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-056",
+      "family": "requirements",
+      "deferred": false,
+      "rationale": "Question about citizenship is not a requirement.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictions": []
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-057",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "Same-time contradiction requires review.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "review": true
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": true
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-058",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "Different time periods are not a contradiction.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "available",
+        "future": "unavailable"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "available",
+        "future": "unavailable",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-059",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "Omitted repeated subject preserves timing.",
+      "expected": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unavailable",
+        "future": "available"
+      },
+      "actual": {
+        "sponsorship": "conditional",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unavailable",
+        "future": "available",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-060",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "CPT contradiction requires review.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "review": true
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": true
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-061",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "OPT contradiction requires review.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "review": true
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": true
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-062",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "Silence remains unclear.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-063",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "Support for relocation is not sponsorship.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-policy-064",
+      "family": "conflicts",
+      "deferred": false,
+      "rationale": "The word sponsorship alone is insufficient.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-001",
+      "family": "basic-layouts",
+      "deferred": false,
+      "rationale": "Conventional main posting.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "job-posting",
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-002",
+      "family": "basic-layouts",
+      "deferred": false,
+      "rationale": "Posting without main landmark.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "job-posting",
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-003",
+      "family": "basic-layouts",
+      "deferred": false,
+      "rationale": "Structured and displayed role agree.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "job-posting",
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-004",
+      "family": "basic-layouts",
+      "deferred": false,
+      "rationale": "Malformed metadata still permits visible detection.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "job-posting",
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-005",
+      "family": "selected-layouts",
+      "deferred": false,
+      "rationale": "Selected role isolated from other cards.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "job-posting",
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-006",
+      "family": "selected-layouts",
+      "deferred": false,
+      "rationale": "Several jobs must remain separate.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "multiple-jobs",
+      "actualKind": "multiple-jobs",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-007",
+      "family": "selected-layouts",
+      "deferred": false,
+      "rationale": "Application answers must not leak into policy.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-application",
+      "actualKind": "job-application",
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-008",
+      "family": "selected-layouts",
+      "deferred": false,
+      "rationale": "Hidden related policies cannot create conflict.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "job-posting",
+      "detected": true,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-009",
+      "family": "negative-layouts",
+      "deferred": false,
+      "rationale": "Ordinary corporate page is not a vacancy.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "non-job",
+      "actualKind": "non-job",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-010",
+      "family": "negative-layouts",
+      "deferred": false,
+      "rationale": "Career URL alone is insufficient.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "non-job",
+      "actualKind": "non-job",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-011",
+      "family": "negative-layouts",
+      "deferred": false,
+      "rationale": "Resume advice without an apply action is not a job.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "non-job",
+      "actualKind": "non-job",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-012",
+      "family": "negative-layouts",
+      "deferred": false,
+      "rationale": "Loading metadata has no visible role yet.",
+      "expected": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "unreadable",
+      "actualKind": "unreadable",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": []
+    },
+    {
+      "id": "D-page-013",
+      "family": "deferred-dev-layouts",
+      "deferred": true,
+      "rationale": "A genuine job wholly in a frame is currently missed.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "non-job",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": [
+        "sponsorship: expected \"available\", got \"unclear\"",
+        "pageKind: expected job-posting, got non-job"
+      ]
+    },
+    {
+      "id": "D-page-014",
+      "family": "deferred-dev-layouts",
+      "deferred": true,
+      "rationale": "A job title may be an h2; detection expansion is deferred.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "unreadable",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": [
+        "sponsorship: expected \"available\", got \"unclear\"",
+        "pageKind: expected job-posting, got unreadable"
+      ]
+    },
+    {
+      "id": "D-page-015",
+      "family": "deferred-dev-layouts",
+      "deferred": true,
+      "rationale": "Apply can be outside the main description.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "non-job",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": [
+        "sponsorship: expected \"available\", got \"unclear\"",
+        "pageKind: expected job-posting, got non-job"
+      ]
+    },
+    {
+      "id": "D-page-016",
+      "family": "deferred-dev-layouts",
+      "deferred": true,
+      "rationale": "Submit value labels can be the only Apply action.",
+      "expected": {
+        "sponsorship": "available",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "actual": {
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictions": [],
+        "review": false
+      },
+      "expectedKind": "job-posting",
+      "actualKind": "non-job",
+      "detected": false,
+      "evidenceErrors": [],
+      "errors": [
+        "sponsorship: expected \"available\", got \"unclear\"",
+        "pageKind: expected job-posting, got non-job"
+      ]
+    }
+  ]
+}

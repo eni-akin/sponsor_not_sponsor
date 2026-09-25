@@ -2,19 +2,25 @@
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sponsor Not Sponsor</title><link rel="stylesheet" href="popup.css"></head>
 <body>
-  <header><span class="eyebrow">SPONSOR NOT SPONSOR</span><h1>Know what the page says.</h1><p class="intro">Scanner preview · Section 1 of 6</p></header>
+  <header><span class="eyebrow">SPONSOR NOT SPONSOR</span><h1>Know what the page says.</h1><p class="intro">Local beta · Section 4 of 6</p></header>
   <main>
+    <section id="onboarding" class="onboarding" aria-label="Welcome and privacy" hidden>
+      <h2>A quick introduction</h2><p>Website access lets the extension recognize jobs automatically. A small badge appears for a detected role; click it for the evidence.</p><p>Scanning stays in your browser. Application answers and uploaded files are excluded. Only pause and site preferences are saved, along with this welcome screen’s status. Company research is not enabled.</p><p>You can dismiss a badge for the current role, pause scanning, or disable it for a site. If a badge is dismissed or cannot fit safely, use “Show on page” below.</p>
+      <button id="onboarding-done" type="button">Got it</button><button id="onboarding-pause" class="secondary" type="button">Pause scanning for now</button>
+    </section>
     <section class="status-card" aria-live="polite"><span id="status" class="status">Connecting…</span><h2 id="title">Reading the current page</h2><p id="metadata"></p></section>
-    <p class="notice">This preview identifies jobs and extracts text. Sponsorship, CPT, and OPT interpretation comes next.</p>
     <ul id="warnings"></ul>
-    <section id="evidence-section" hidden><div class="section-label"><h2>Extracted page text</h2><span id="count"></span></div><div id="evidence"></div></section>
+    <section id="findings" aria-label="Sponsorship and training findings" hidden></section>
+    <p class="notice">Expand a finding to read its evidence. Findings describe page wording, not personal eligibility.</p>
+    <details id="evidence-section" hidden><summary class="section-label"><span>All extracted page text</span><span id="count"></span></summary><div id="evidence"></div></details>
     <p id="feedback" role="status"></p>
   </main>
   <footer>
-    <button id="rescan" type="button">Scan again</button>
+    <div class="toolbar"><button id="rescan" type="button">Scan again</button><button id="show-panel" class="secondary" type="button" disabled>Show on page</button></div>
+    <p id="scan-feedback" role="status"></p>
     <label class="setting"><input id="pause" type="checkbox"> Pause scanning everywhere</label>
     <label class="setting"><input id="disable-site" type="checkbox" disabled> Disable on <span id="hostname">this site</span></label>
-    <p class="privacy">Page text stays in this tab’s memory. Only your scanning preferences are saved. No network requests.</p>
+    <p class="privacy">Page text stays in this tab’s memory. Preferences and welcome status are saved locally. No network requests.</p>
   </footer>
   <script src="popup.js"></script>
 </body>

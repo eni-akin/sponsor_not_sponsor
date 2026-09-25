@@ -92,3 +92,71 @@ test('navigation decoration and typed input do not repeatedly rescan', async () 
     assert.equal(controller.getSnapshot().result, result);
   } finally { close(); }
 });
+
+test('scrolling and cosmetic class/style changes retain the same stored result', async () => {
+  const { dom, controller, close } = setup();
+  try {
+    const result = controller.getSnapshot().result;
+    const main = dom.window.document.querySelector('main')!;
+    main.classList.add('scrolled');
+    main.style.transform = 'translateY(1px)';
+    dom.window.document.body.style.setProperty('--scroll-progress', '0.5');
+    dom.window.dispatchEvent(new dom.window.Event('scroll'));
+    await wait(550);
+    assert.equal(controller.getSnapshot().state, 'ready');
+    assert.equal(controller.getSnapshot().result, result);
+  } finally { close(); }
+});
+
+test('class changes that reveal job text still rescan and update interpretation', async () => {
+  const { dom, controller, close } = setup();
+  try {
+    const style = dom.window.document.createElement('style');
+    style.textContent = '.collapsed { display: none; }';
+    dom.window.document.head.append(style);
+    const policy = dom.window.document.createElement('p');
+    policy.className = 'collapsed';
+    policy.textContent = 'Visa sponsorship is not available.';
+    dom.window.document.querySelector('main')!.append(policy);
+    await wait(350);
+    assert.equal(controller.getSnapshot().result?.interpretation?.sponsorship.status, 'unclear');
+    policy.className = '';
+    await wait(550);
+    assert.equal(controller.getSnapshot().result?.interpretation?.sponsorship.status, 'unavailable');
+  } finally { close(); }
+});
+
+test('content changes outside the main role do not clear the stored result', async () => {
+  const { dom, controller, close } = setup();
+  try {
+    const result = controller.getSnapshot().result;
+    const toast = dom.window.document.createElement('div');
+    toast.textContent = 'Welcome back';
+    dom.window.document.body.append(toast);
+    await wait(350);
+    assert.equal(controller.getSnapshot().result, result);
+  } finally { close(); }
+});
+
+test('manual scan reruns analysis even when automatic scanning sees no change', () => {
+  const { controller, close } = setup();
+  try {
+    const old = controller.getSnapshot().result;
+    const fresh = controller.scan().result;
+    assert.notEqual(fresh, old);
+    assert.equal(fresh?.interpretation?.cpt.status, 'explicitly-accepted');
+    assert.deepEqual(fresh?.role?.evidence, old?.role?.evidence);
+  } finally { close(); }
+});
+
+test('subscribers immediately receive the current result and are cleared on pause', () => {
+  const { controller, close } = setup();
+  try {
+    const received: string[] = [];
+    const unsubscribe = controller.subscribe(value => received.push(value.state));
+    controller.updateSettings({ paused: true, disabledHosts: [] });
+    unsubscribe();
+    controller.updateSettings(DEFAULT_SETTINGS);
+    assert.deepEqual(received, ['ready', 'paused']);
+  } finally { close(); }
+});

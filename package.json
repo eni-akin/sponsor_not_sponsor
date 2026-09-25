@@ -1,6 +1,6 @@
 {
   "name": "sponsor-not-sponsor",
-  "version": "0.1.0",
+  "version": "0.4.1",
   "private": true,
   "packageManager": "pnpm@11.19.0",
   "type": "module",
@@ -9,6 +9,9 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "test:browser": "node scripts/browser-smoke.mjs",
+    "test:popup": "node scripts/popup-sizing.mjs",
+    "evaluate": "tsx evaluation/evaluate.ts",
+    "evaluate:regression": "tsx evaluation/evaluate.ts --holdout",
     "check": "pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {

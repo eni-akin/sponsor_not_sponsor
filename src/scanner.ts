@@ -122,6 +122,27 @@ function descriptionSignals(text: string): number {
   return [ /\b(responsibilities|what you.ll do|duties)\b/i, /\b(qualifications|requirements|what you.ll bring)\b/i, /\b(benefits|salary|compensation|employment type)\b/i ].filter(pattern => pattern.test(text)).length;
 }
 
+function scanRoot(doc: Document): { root: Element; details: Element[] } {
+  const candidates = [...doc.querySelectorAll(DETAILS)].filter(element => visible(element) && roleTitle(element));
+  const details = candidates.filter(element => !candidates.some(other => other !== element && other.contains(element)));
+  return { root: details.length === 1 ? details[0]! : doc.querySelector('main,[role="main"]') ?? doc.body, details };
+}
+
+/** Compare scanner inputs, not cosmetic DOM attributes or scrolling positions. */
+export function pageInputFingerprint(doc: Document): string {
+  if (!doc.body) return '';
+  const { root, details } = scanRoot(doc);
+  return hash(JSON.stringify({
+    title: roleTitle(root),
+    detailTitles: details.map(roleTitle),
+    blocks: extractBlocks(root).blocks.map(block => [block.text, block.kind]),
+    apply: hasApply(root),
+    forms: [...root.querySelectorAll('form,iframe')].filter(visible).map(element => element.tagName),
+    cards: [...root.querySelectorAll('article,[data-job-card],.job-card')].filter(visible).map(element => [!!element.querySelector('h2,h3,[data-job-title]'), hasApply(element)]),
+    metadata: [...doc.querySelectorAll('script[type="application/ld+json"]')].map(element => element.textContent),
+  }));
+}
+
 /** Deliberately conservative: ambiguity produces no combined vacancy record. */
 export function scanPage(doc: Document, href: string): ScanResult {
   const result: ScanResult = { version: 1, url: href, scannedAt: new Date().toISOString(), kind: 'non-job', role: null, signals: [], warnings: [] };
@@ -129,9 +150,7 @@ export function scanPage(doc: Document, href: string): ScanResult {
   const { jobs, malformed } = structuredJobs(doc);
   if (malformed) result.warnings.push('Some structured page data could not be read.');
   // Prefer a single explicit detail panel over a surrounding list of vacancies.
-  const detailCandidates = [...doc.querySelectorAll(DETAILS)].filter(element => visible(element) && roleTitle(element));
-  const details = detailCandidates.filter(element => !detailCandidates.some(other => other !== element && other.contains(element)));
-  const root = details.length === 1 ? details[0]! : doc.querySelector('main,[role="main"]') ?? doc.body;
+  const { root, details } = scanRoot(doc);
   const title = roleTitle(root);
   const extracted = extractBlocks(root);
   const text = extracted.blocks.map(block => block.text).join('\n');

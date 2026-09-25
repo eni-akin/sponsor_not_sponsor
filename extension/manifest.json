@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Sponsor Not Sponsor — Scanner Preview",
-  "version": "0.1.0",
-  "description": "Recognize job postings and inspect role-specific page text locally. Sponsorship interpretation is coming next.",
+  "name": "Sponsor Not Sponsor",
+  "version": "0.4.1",
+  "description": "Read explicit sponsorship, CPT, and OPT statements in job postings, with local analysis and supporting evidence.",
   "permissions": ["storage"],
   "content_scripts": [{
     "matches": ["https://*/*", "http://*/*"],

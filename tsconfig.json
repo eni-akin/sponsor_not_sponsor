@@ -10,5 +10,5 @@
     "skipLibCheck": true,
     "types": ["chrome", "node"]
   },
-  "include": ["src", "tests"]
+  "include": ["src", "tests", "evaluation"]
 }

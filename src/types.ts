@@ -28,22 +28,32 @@ export interface ScanResult {
   role: JobRecord | null;
   signals: string[];
   warnings: string[];
+  interpretation?: Interpretation;
 }
 
-// Shared contract for section 2. Section 1 never manufactures findings.
 export type SponsorshipStatus = 'available' | 'unavailable' | 'conditional' | 'unclear';
 export type TrainingStatus = 'explicitly-accepted' | 'explicitly-excluded' | 'unclear';
+export type Timing = 'unspecified' | 'now' | 'future' | 'now-and-future';
+export interface Citation {
+  evidenceId: string;
+  quote: string;
+  source: EvidenceBlock['source'];
+  timing: Timing;
+}
 export interface Finding<T> {
   status: T;
   evidenceIds: string[];
   explanation: string;
   requiresReview: boolean;
+  citations: Citation[];
 }
 export interface Interpretation {
   sponsorship: Finding<SponsorshipStatus>;
   cpt: Finding<TrainingStatus>;
   opt: Finding<TrainingStatus>;
-  restrictions: { text: string; evidenceIds: string[] }[];
+  sponsorshipByTiming: { now: Finding<SponsorshipStatus>; future: Finding<SponsorshipStatus> };
+  restrictions: { kind: 'citizenship' | 'permanent-residency' | 'us-person' | 'work-authorization' | 'stated-condition'; text: string; evidenceIds: string[]; citations: Citation[] }[];
+  context: { kind: 'question' | 'historical' | 'company' | 'other-role' | 'unrecognized'; citation: Citation }[];
 }
 
 export interface Settings {

@@ -9,6 +9,7 @@ await build({
   format: 'iife',
   target: 'chrome120',
   legalComments: 'none',
+  loader: { '.css': 'text' },
 });
 for (const file of ['manifest.json', 'popup.html', 'popup.css']) {
   await copyFile(`extension/${file}`, `dist/${file}`);

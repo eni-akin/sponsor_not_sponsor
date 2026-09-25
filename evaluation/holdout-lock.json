@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "split": "holdout",
+  "cases": 80,
+  "selectedSha256": "09d51196fdbdb8b36d4fc7d7f37a109e377e99f39e00c3d9657b4e23aabe91bd",
+  "purpose": "Freeze provisional expected labels before development fixes and first holdout execution. This is an authored engineering holdout, not independently collected or human-reviewed field data."
+}

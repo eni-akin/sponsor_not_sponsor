@@ -1,0 +1,54 @@
+:host { all: initial; }
+* { box-sizing: border-box; }
+.ui { font: 13px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #192e2a; color-scheme: light; overflow-wrap: anywhere; }
+[hidden] { display: none !important; }
+button, select { font: inherit; }
+button { cursor: pointer; border: 0; border-radius: 7px; padding: 9px 12px; background: #e8eeea; color: #1b3e31; }
+button:disabled { opacity: .55; cursor: default; }
+button:focus-visible, summary:focus-visible, a:focus-visible, select:focus-visible, [tabindex]:focus-visible { outline: 3px solid #b87720; outline-offset: 3px; }
+.badge { display: flex; align-items: stretch; width: max-content; max-width: min(340px, calc(100vw - 32px)); border-radius: 11px; border: 1px solid #bbcbc1; box-shadow: 0 4px 18px #142c2926; background: #f8fbf9; }
+.badge-main { display: flex; align-items: center; gap: 9px; text-align: left; background: transparent; font-size: 12px; font-weight: 650; max-width: 294px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #6c7774; flex-shrink: 0; }
+[data-tone='available'] .dot { background: #277448; }
+[data-tone='unavailable'] .dot { background: #b14135; }
+[data-tone='conditional'] .dot { background: #b07823; }
+.dismiss { border-left: 1px solid #d7e1d9; background: transparent; border-radius: 0 10px 10px 0; padding: 8px 11px; font-size: 18px; }
+.panel { position: fixed; width: min(380px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); border: 1px solid #c6d4c9; border-radius: 16px; background: #f5f6f2; box-shadow: 0 10px 50px #152e2938; display: flex; flex-direction: column; overflow: hidden; }
+.panel-header { padding: 18px 18px 12px; flex-shrink: 0; }
+.brand { font-size: 9px; letter-spacing: 1.5px; font-weight: 750; color: #416553; }
+.panel-close { float: right; margin: -4px -5px 0 4px; background: transparent; font-size: 18px; }
+h2 { font-size: 18px; line-height: 1.3; margin: 9px 0 4px; overflow-wrap: anywhere; }
+.metadata, .note { color: #58695f; font-size: 11px; margin: 6px 0; }
+.panel-body { overflow: auto; overscroll-behavior: contain; min-height: 0; padding: 0 18px 14px; }
+.panel-footer { padding: 12px 18px; border-top: 1px solid #d6ded7; flex-shrink: 0; }
+.controls { display: flex; gap: 6px; flex-wrap: wrap; }
+.controls button { font-size: 11px; padding: 7px 9px; }
+.primary { background: #254d3e; color: white; }
+.finding { background: white; border: 1px solid #d7dfd8; border-radius: 10px; margin: 8px 0; padding: 11px; }
+summary { cursor: pointer; }
+.finding summary { display: flex; gap: 8px; justify-content: space-between; font-weight: 600; }
+.finding summary::after { content: '+'; }
+.finding[open] summary::after { content: '−'; }
+.finding-value { margin-left: auto; color: #735221; font-size: 11px; }
+[data-status='available'] .finding-value, [data-status='explicitly-accepted'] .finding-value { color: #23613d; }
+[data-status='unavailable'] .finding-value, [data-status='explicitly-excluded'] .finding-value { color: #963b2f; }
+.explanation, .timing-summary { font-size: 11px; color: #576860; margin: 9px 0; }
+.citation { margin-top: 9px; }
+blockquote { margin: 0; padding: 5px 0 5px 9px; border-left: 2px solid #afc6b6; font-size: 12px; overflow-wrap: anywhere; }
+.source { color: #647568; font-size: 9px; line-height: 1.5; margin: 6px 0; }
+a { color: #285d48; text-decoration: underline; }
+.restrictions { background: #faf0df; border: 1px solid #dbc395; border-radius: 10px; padding: 11px; margin: 8px 0; }
+.restrictions h2 { font-size: 13px; margin: 0; }
+.review-label, .warnings { color: #885126; font-size: 11px; }
+.warnings { padding-left: 16px; }
+.context { font-size: 12px; margin-top: 12px; }
+.report { padding: 12px; margin-top: 12px; background: white; border: 1px solid #cbd8ce; border-radius: 10px; }
+.report label { display: block; font-size: 12px; }
+.report select { display: block; width: 100%; padding: 7px; margin: 7px 0; color: #192e2a; background: white; border: 1px solid #b8c7bc; border-radius: 5px; }
+.message { font-size: 11px; color: #35594f; margin: 8px 0 0; }
+/* At short viewport heights (including browser zoom), fixed header/footer space
+   can consume the entire evidence area. Let the whole dialog scroll instead. */
+@media (max-height: 480px) {
+  .panel { display: block; overflow: auto; overscroll-behavior: contain; }
+  .panel-body { overflow: visible; min-height: 48px; }
+}

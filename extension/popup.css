@@ -1,14 +1,18 @@
 :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #192e2a; background: #f5f6f2; }
 * { box-sizing: border-box; }
-body { width: 400px; margin: 0; font-size: 13px; line-height: 1.55; }
-header { padding: 24px 24px 16px; }
+/* Chrome sizes toolbar popups from their content. Viewport-relative width caps
+   create a feedback loop against its initially narrow popup viewport. */
+html { width: 400px; min-width: 400px; overflow: hidden; }
+body { width: 400px; max-height: 600px; display: flex; flex-direction: column; margin: 0; font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+header, footer { flex-shrink: 0; }
+header { padding: 18px 24px 12px; }
 .eyebrow { color: #4b6b60; font-size: 10px; letter-spacing: 1.6px; font-weight: 750; }
-h1 { font-size: 24px; line-height: 1.2; letter-spacing: -.7px; margin: 9px 0; }
+h1 { font-size: 22px; line-height: 1.2; letter-spacing: -.7px; margin: 7px 0; }
 h2 { font-size: 16px; line-height: 1.4; margin: 9px 0 4px; overflow-wrap: anywhere; }
 p { margin: 6px 0; }
 .intro, #metadata, .privacy { color: #576860; }
-main { padding: 0 24px; }
-.status-card { border: 1px solid #d7dfd8; border-radius: 14px; background: #fff; padding: 18px; }
+main { padding: 0 24px 12px; overflow-y: auto; min-height: 0; }
+.status-card { border: 1px solid #d7dfd8; border-radius: 14px; background: #fff; padding: 12px; }
 .status { display: inline-block; color: #35594f; background: #e9f0eb; border-radius: 5px; padding: 3px 7px; font-size: 11px; font-weight: 650; }
 .notice { margin-top: 15px; color: #626961; font-size: 12px; }
 #warnings { padding-left: 16px; color: #775a29; font-size: 12px; }
@@ -19,12 +23,35 @@ main { padding: 0 24px; }
 #evidence { max-height: 250px; overflow: auto; margin-top: 10px; border-top: 1px solid #d7dfd8; }
 .evidence { padding: 12px 0; border-bottom: 1px solid #d7dfd8; overflow-wrap: anywhere; white-space: pre-wrap; }
 .source { color: #68776e; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; }
-footer { padding: 16px 24px 22px; }
+footer { padding: 12px 24px 16px; border-top: 1px solid #d7dfd8; }
 button { width: 100%; background: #254d3e; border: 0; border-radius: 8px; padding: 10px; color: white; cursor: pointer; font: inherit; font-weight: 600; margin-bottom: 12px; }
 button:disabled { opacity: .5; cursor: default; }
-button:focus-visible, input:focus-visible { outline: 3px solid #ba7a28; outline-offset: 3px; }
+button:focus-visible, input:focus-visible, summary:focus-visible, a:focus-visible { outline: 3px solid #ba7a28; outline-offset: 3px; }
 .setting { display: flex; align-items: center; gap: 6px; padding: 5px 0; }
 input { accent-color: #254d3e; }
 .privacy { font-size: 10px; line-height: 1.6; margin-top: 14px; }
 #feedback { color: #8a342c; font-size: 12px; }
 [hidden] { display: none !important; }
+.finding { background: #fff; border: 1px solid #d7dfd8; border-radius: 10px; margin: 9px 0; padding: 12px; }
+summary { cursor: pointer; }
+.finding summary { display: flex; gap: 12px; align-items: baseline; justify-content: space-between; font-weight: 600; }
+.finding summary::after { content: '+'; color: #52695d; }
+.finding[open] summary::after { content: '−'; }
+.finding-value { margin-left: auto; font-size: 11px; color: #735221; }
+[data-status="available"] .finding-value, [data-status="explicitly-accepted"] .finding-value { color: #23613d; }
+[data-status="unavailable"] .finding-value, [data-status="explicitly-excluded"] .finding-value { color: #963b2f; }
+.explanation, .timing-summary { font-size: 11px; color: #576860; margin-top: 10px; }
+.citation { margin-top: 10px; }
+blockquote { margin: 0; padding: 6px 0 6px 10px; border-left: 2px solid #afc6b6; font-size: 12px; overflow-wrap: anywhere; }
+.citation .source { font-size: 9px; }
+.restrictions { background: #faf0df; border: 1px solid #dbc395; border-radius: 10px; padding: 12px; margin: 12px 0; }
+.restrictions h2 { font-size: 13px; margin: 0; }
+.review-label { font-size: 11px; font-weight: 650; color: #8a342c; }
+.context { font-size: 12px; margin: 14px 0; }
+#scan-feedback { font-size: 11px; color: #35594f; margin: 0 0 6px; }
+#scan-feedback:empty { display: none; }
+.toolbar { display: flex; gap: 8px; }
+.toolbar button { flex: 1; }
+.secondary { background: #e2eae4; color: #254d3e; }
+.onboarding { background: #edf3eb; border: 1px solid #c4d4c1; border-radius: 12px; padding: 14px; margin-bottom: 14px; font-size: 12px; }
+.onboarding button { margin-top: 8px; margin-bottom: 0; font-size: 12px; padding: 8px; }
