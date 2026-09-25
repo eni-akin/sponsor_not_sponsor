@@ -1,9 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Sponsor Not Sponsor",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Read explicit sponsorship, CPT, and OPT statements in job postings, with local analysis and supporting evidence.",
   "permissions": ["storage"],
+  "optional_host_permissions": ["http://127.0.0.1:4318/*"],
+  "background": { "service_worker": "background.js" },
   "content_scripts": [{
     "matches": ["https://*/*", "http://*/*"],
     "js": ["content.js"],

@@ -1,5 +1,7 @@
 import { parseSettings } from './settings';
 import { renderFindings } from './findings-view';
+import { renderResearch } from './research-view';
+import { RESEARCH_PERMISSION } from './research';
 import type { ScannerSnapshot } from './types';
 
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -13,6 +15,8 @@ let previousEvidence = '';
 let previousFindings = '';
 let renderedRoleKey = '';
 let settings = parseSettings(null);
+let previousResearch = '';
+const researchEnabled = element<HTMLInputElement>('research-enabled');
 const labels = { 'job-posting': 'Job posting detected', 'job-application': 'Application detected', 'multiple-jobs': 'Multiple roles on this page', 'non-job': 'No specific job detected', 'unreadable': 'Unable to identify the role' };
 
 function render(snapshot: ScannerSnapshot): void {
@@ -24,6 +28,11 @@ function render(snapshot: ScannerSnapshot): void {
   disable.disabled = !hostname;
   disable.checked = settings.disabledHosts.includes(hostname);
   const result = snapshot.result;
+  const researchFingerprint = JSON.stringify([result?.role?.key, snapshot.research]);
+  if (researchFingerprint !== previousResearch) renderResearch(element('research-results'), snapshot.research);
+  previousResearch = researchFingerprint;
+  element('research-results').hidden = !result?.role;
+  element<HTMLButtonElement>('research-retry').disabled = !researchEnabled.checked || snapshot.state !== 'ready' || !result?.role?.employer || snapshot.research?.state === 'pending';
   const role = result?.role;
   if (renderedRoleKey !== (role?.key ?? '') || snapshot.state !== 'ready') element('scan-feedback').textContent = '';
   renderedRoleKey = role?.key ?? '';
@@ -81,6 +90,8 @@ async function refresh(type = 'GET_SCAN'): Promise<void> {
       rescan.disabled = snapshot.state === 'paused' || snapshot.state === 'disabled';
     }
   } catch {
+    element('research-results').hidden = true;
+    element<HTMLButtonElement>('research-retry').disabled = true;
     element('status').textContent = 'Page unavailable';
     element('title').textContent = 'Open or reload a regular website.';
     element('metadata').textContent = 'Chrome’s internal pages, PDFs, and some protected pages cannot be scanned.';
@@ -111,6 +122,26 @@ async function saveSettings(change: 'pause' | 'site'): Promise<void> {
 }
 pause.addEventListener('change', () => void saveSettings('pause'));
 disable.addEventListener('change', () => void saveSettings('site'));
+researchEnabled.addEventListener('change', event => {
+  if (!event.isTrusted) return;
+  const enabled = researchEnabled.checked;
+  researchEnabled.disabled = true;
+  void (async () => {
+    if (enabled && !await chrome.permissions.request({ origins: [RESEARCH_PERMISSION] })) {
+      researchEnabled.checked = false;
+      element('research-feedback').textContent = 'Research stays off because service access was not granted.';
+      return;
+    }
+    await chrome.storage.local.set({ researchEnabled: enabled });
+    element('research-feedback').textContent = enabled ? 'Company research enabled for unclear findings.' : 'Company research turned off.';
+    previous = ''; await refresh();
+  })().catch(() => { researchEnabled.checked = !enabled; element('research-feedback').textContent = 'Could not save the research preference.'; })
+    .finally(() => { researchEnabled.disabled = false; });
+});
+element('research-retry').addEventListener('click', event => {
+  if (!event.isTrusted || tabId === undefined) return;
+  void chrome.tabs.sendMessage(tabId, { type: 'RETRY_RESEARCH' }).then(() => refresh()).catch(() => { element('research-feedback').textContent = 'Reload the job page and try again.'; });
+});
 rescan.addEventListener('click', () => void refresh('RESCAN'));
 element('show-panel').addEventListener('click', async () => {
   if (tabId === undefined) return;
@@ -132,6 +163,7 @@ element('onboarding-done').addEventListener('click', () => void finishOnboarding
 element('onboarding-pause').addEventListener('click', () => void finishOnboarding(true));
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local') return;
+  if (changes.researchEnabled) { researchEnabled.checked = changes.researchEnabled.newValue === true; previous = ''; void refresh(); }
   if (changes.onboardingSeen) element('onboarding').hidden = changes.onboardingSeen.newValue === true;
   if (changes.settings) {
     settings = parseSettings(changes.settings.newValue);
@@ -143,7 +175,8 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 async function start(): Promise<void> {
-  const saved = await chrome.storage.local.get(['settings', 'onboardingSeen']);
+  const saved = await chrome.storage.local.get(['settings', 'onboardingSeen', 'researchEnabled']);
+  researchEnabled.checked = saved.researchEnabled === true;
   element('onboarding').hidden = saved.onboardingSeen === true;
   settings = parseSettings(saved.settings);
   pause.checked = settings.paused;

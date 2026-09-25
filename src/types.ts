@@ -61,6 +61,7 @@ export interface Settings {
   disabledHosts: string[];
 }
 export interface ScannerSnapshot {
+  research?: import('./research').ResearchView;
   state: 'scanning' | 'ready' | 'paused' | 'disabled' | 'error';
   hostname: string;
   result: ScanResult | null;

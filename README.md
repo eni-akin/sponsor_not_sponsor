@@ -1,6 +1,6 @@
 # Sponsor Not Sponsor
 
-A local-first Chrome extension for inspecting job sponsorship requirements. **Sections 1–3 and Section 4's evaluation tooling/reliability fixes are implemented.** The extension identifies a job, shows an automatic on-page badge, and explains separate sponsorship, CPT, and OPT findings with exact supporting quotations. Independent real-world beta validation remains pending.
+A local-first Chrome extension for inspecting job sponsorship requirements. **Sections 1–3, Section 4's evaluation tooling/reliability fixes, and Section 5's company research preview are implemented.** The extension explains separate sponsorship, CPT, and OPT findings with exact quotations. Optional research adds separately scoped official-source and historical context. Independent real-world beta validation remains pending.
 
 See [the implementation roadmap](IMPLEMENTATION.md), [evaluation results and limitations](evaluation/README.md), and [the original plan](job-sponsorship-extension-plan.md).
 
@@ -13,9 +13,15 @@ See [the implementation roadmap](IMPLEMENTATION.md), [evaluation results and lim
 5. Use **Scan again** for an immediate new scan with visible completion feedback. Cosmetic scrolling changes retain the stored result; new relevant text still triggers analysis. Pause and site controls work from both the panel and popup.
 6. The badge’s **×** dismisses it for the current role until the page reloads. A different role gets its own badge. Use **Show on page** in the toolbar popup to restore a dismissed badge and open its panel.
 
-**Updating an existing installation:** click the extension’s reload button in `chrome://extensions`, then reload the job-page tab. Version 0.4.1 displays “Local beta · Section 4 of 6” and fixes the toolbar popup collapsing into a narrow column.
+**Updating an existing installation:** click the extension’s reload button in `chrome://extensions`, then reload the job-page tab. Version 0.5.0 displays “Research preview · Section 5 of 6” and retains the fixed-width toolbar popup.
 
-The extension asks for access to HTTP and HTTPS pages so it can scan automatically. Scanning runs in the top-level page only. It does not send network requests, use AI, or require an API key. Pause/site preferences and welcome-screen status are persisted; page text stays in memory unless you explicitly download a report. Chrome internal pages and other protected pages are unavailable. Reload existing website tabs after installing or reloading the extension.
+The extension asks for access to HTTP and HTTPS pages so it can scan automatically. Scanning runs in the top-level page only and stays local. Optional company research starts off and requires explicit enablement plus access to the local research service. No AI is used. Preferences and welcome-screen status are persisted; page text stays in memory unless you explicitly download a report. Enabled research caches limited role metadata and public-source excerpts. Chrome internal pages and other protected pages are unavailable.
+
+## Optional company research
+
+Run `pnpm research:serve`, then enable **Company research settings → Enable automatic company research** in the popup. The disclosure explains the limited role details shared with the service. It checks unclear findings and presents sources separately without changing the posting's badge. Research failures leave local scanning available.
+
+The preview includes one verified employer mapping (Atlassian), no preloaded historical records, and optional Brave Search integration requiring a server-side key for wider discovery. Other employers need reviewed mappings. See [research setup, data handling, and limitations](server/README.md). No API credentials or historical claims have been invented.
 
 The badge checks four corners for room around application controls. If none is clear, it hides; the toolbar popup and **Show on page** remain available. The panel opens only on request, does not trap keyboard focus, and closes when you return to the webpage to type. Placement handles ordinary light-DOM controls; unusual embedded/shadow controls and complex layouts still need broader beta testing.
 
@@ -36,11 +42,11 @@ python3 -m venv .venv
 cp .env.example .env
 ```
 
-The Python environment is ready for future Python tooling; the extension uses TypeScript and does not require Python packages. `.env` is reserved for local tooling and is **not loaded or bundled into the extension**. `APP_ENV=development` is an initial placeholder, not an active feature flag. Future research-service secrets must remain on the backend.
+The Python environment is ready for future Python tooling; the extension uses TypeScript and does not require Python packages. `.env` is loaded only by the research service and is **never bundled into the extension**. `APP_ENV=development` remains a tooling placeholder. Optional search credentials stay on the backend; see `.env.example` for settings.
 
 ## Build and test
 
-Install Node.js 22 or later and pnpm 11.19.0 (the pinned package manager), then:
+Install Node.js 22.9 or later and pnpm 11.19.0 (the pinned package manager), then:
 
 ```sh
 pnpm install --frozen-lockfile
@@ -74,6 +80,8 @@ Section 4 adds short/narrow viewport and 200% browser zoom checks. Run `pnpm eva
 | `src/badge-state.ts` | Badge labels, colors, and placement |
 | `src/report.ts` | Local report download, without automatic transmission |
 | `src/content.ts` | Extension messaging and saved preferences |
+| `src/background.ts`, `src/research*.ts` | Opt-in research coordination, request validation, caching, and source display |
+| `server/` | Local research service, official-source retrieval, employer mappings, and historical-record adapter |
 | `src/types.ts` | Scan records and future interpretation contracts |
 | `src/popup.ts`, `extension/` | Inspection interface and manifest |
 | `tests/` | Scanner/controller tests and local HTML fixtures |

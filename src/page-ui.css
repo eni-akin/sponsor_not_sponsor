@@ -46,6 +46,10 @@ a { color: #285d48; text-decoration: underline; }
 .report label { display: block; font-size: 12px; }
 .report select { display: block; width: 100%; padding: 7px; margin: 7px 0; color: #192e2a; background: white; border: 1px solid #b8c7bc; border-radius: 5px; }
 .message { font-size: 11px; color: #35594f; margin: 8px 0 0; }
+.research { border-top: 1px solid #c6d4c9; margin-top: 16px; padding-top: 8px; font-size: 11px; }
+.research h2 { font-size: 14px; }
+.research .finding summary { display: block; }
+.research blockquote { margin: 8px 0; }
 /* At short viewport heights (including browser zoom), fixed header/footer space
    can consume the entire evidence area. Let the whole dialog scroll instead. */
 @media (max-height: 480px) {

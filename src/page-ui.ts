@@ -1,6 +1,7 @@
 import styles from './page-ui.css';
 import { badgePosition, badgeState } from './badge-state';
 import { renderFindings } from './findings-view';
+import { renderResearch } from './research-view';
 import { downloadReport, reportReasons } from './report';
 import type { ScannerSnapshot } from './types';
 
@@ -14,6 +15,7 @@ export class PageUI {
   private dismissed = new Set<string>();
   private lastKey = '';
   private lastContent = '';
+  private lastResearch = '';
   private open = false;
   private frame = 0;
   private seenJob = false;
@@ -31,7 +33,7 @@ export class PageUI {
       <div class="badge" id="badge"><button class="badge-main" id="toggle" type="button" aria-expanded="false" aria-controls="panel"><span class="dot" aria-hidden="true"></span><span id="badge-text"></span></button><button class="dismiss" id="dismiss" type="button" aria-label="Dismiss badge for this role" title="Dismiss for this role">×</button></div>
       <section class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="role-title" hidden>
         <div class="panel-header"><button class="panel-close" id="close" type="button" aria-label="Close evidence panel">×</button><div class="brand">SPONSOR NOT SPONSOR</div><h2 id="role-title"></h2><p class="metadata" id="metadata"></p></div>
-        <div class="panel-body" tabindex="0" role="region" aria-label="Evidence and explanations"><ul class="warnings" id="warnings"></ul><div id="findings"></div><p class="note">These findings describe page wording, not personal eligibility. No company research has been performed.</p>
+        <div class="panel-body" tabindex="0" role="region" aria-label="Evidence and explanations"><ul class="warnings" id="warnings"></ul><div id="findings"></div><p class="note">These findings describe page wording, not personal eligibility.</p><section id="research" class="research" aria-label="Company research"></section>
           <div class="report" id="report-form" hidden><label for="reason">What looks wrong?</label><select id="reason"></select><p class="note">The report includes the role, findings, cited wording, and page address without its query or fragment. It excludes application answers and the full page text. Review the downloaded file before sharing. Nothing is sent automatically.</p><button id="download" type="button" class="primary">Download report</button></div>
         </div>
         <div class="panel-footer"><div class="controls"><button class="primary" id="rescan" type="button">Scan again</button><button id="report" type="button">Report incorrect result</button><button id="pause" type="button">Pause everywhere</button><button id="disable" type="button">Disable this site</button></div><p id="message" class="message" role="status"></p></div>
@@ -117,6 +119,11 @@ export class PageUI {
   }
   update(snapshot: ScannerSnapshot): void {
     this.snapshot = snapshot;
+    const researchKey = JSON.stringify([snapshot.result?.role?.key, snapshot.research]);
+    if (researchKey !== this.lastResearch) {
+      renderResearch(this.get('research'), snapshot.research);
+      this.lastResearch = researchKey;
+    }
     const state = badgeState(snapshot);
     const role = snapshot.result?.role;
     if (!state || (!role && !this.seenJob)) { this.close(false); this.hide(); this.seenJob = false; return; }

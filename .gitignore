@@ -10,3 +10,4 @@ dist/
 test-results/
 *.log
 .DS_Store
+.research-cache/

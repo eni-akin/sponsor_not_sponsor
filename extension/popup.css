@@ -55,3 +55,6 @@ blockquote { margin: 0; padding: 6px 0 6px 10px; border-left: 2px solid #afc6b6;
 .secondary { background: #e2eae4; color: #254d3e; }
 .onboarding { background: #edf3eb; border: 1px solid #c4d4c1; border-radius: 12px; padding: 14px; margin-bottom: 14px; font-size: 12px; }
 .onboarding button { margin-top: 8px; margin-bottom: 0; font-size: 12px; padding: 8px; }
+.research, .research-settings { border-top: 1px solid #c6d4c9; margin-top: 16px; padding-top: 10px; font-size: 12px; }
+.research .finding summary { display: block; }
+.research blockquote { margin: 8px 0; }
