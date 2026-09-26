@@ -11,3 +11,6 @@ test-results/
 *.log
 .DS_Store
 .research-cache/
+release/*.zip
+release/*.zip.sha256
+release/*.zip.inventory.json

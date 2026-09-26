@@ -1,4 +1,4 @@
-# Section 7: post-completion job detection improvements
+# Section 7: post-completion detection and interpretation improvements
 
 Date: September 24, 2026. Status: deferred until all six core project sections are complete; detection behavior has not been changed by this investigation.
 
@@ -84,6 +84,19 @@ Acceptance: blocked or unsupported pages explain the limit and offer an actionab
 - Keep the existing sponsorship-label precision goal separate from detection metrics. A detected job can still have unclear sponsorship evidence.
 - Proposed section 7 detection targets: at least 95% precision and 95% recall on the held-out supported-layout sample, with sample counts and uncertainty reported. These are acceptance targets for the future improvements, not core-release requirements, achieved results, or guarantees for the whole web.
 - Require every confirmed miss to gain a sanitized regression fixture. Include frame races, multiple jobs, inaccessible content, hidden frames, private inputs, and interaction with other extensions in browser checks.
+
+### 7F. Major improvement: recognize sponsorship wording more effectively
+
+Added September 26, 2026 at the user's request. This is a major improvement milestone, not a claim that the current phrase rules understand arbitrary language. Keep it deferred with the rest of section 7 while section 6 release preparation proceeds.
+
+- Expand beyond a small set of explicit phrases: collect independently reviewed real wording for sponsorship offers/refusals, immigration assistance, exceptions, and indirect formulations. Include difficult negatives such as relocation support, general work authorization, and non-immigration sponsorship.
+- Preserve meaning across sentences, paragraphs, bullets, and headings. Resolve who a statement concerns, which role/location/program it covers, negation, exceptions, and current versus future timing. Never broaden a restricted offer by dropping its conditions.
+- Keep sponsorship, CPT, and OPT independent; distinguish application questions, applicant preferences, company policy, historical statements, and current-role policy. Conflicts and unsupported conclusions must remain reviewable.
+- Improve employer extraction alongside language recognition, including reviewed careers-domain/platform fallbacks. Add the observed Atlassian "Employer not identified" case as a regression fixture; preserve explicit employer metadata and do not collapse subsidiaries or staffing entities.
+- Evaluate stronger local rules against an optional structured AI interpretation approach on the same reviewed examples. AI is a design option to assess, not approved automatic transmission or a required dependency. Any future external processing needs an explicit disclosure/opt-in, minimized input, verified verbatim citations, and an unclear fallback when evidence is unsupported.
+- Split new examples by employer/template before tuning. Measure definitive-label precision and useful coverage separately for sponsorship, CPT, and OPT, with sample counts, uncertainty, false positives/negatives, and review rates. Preserve a fresh held-out set; do not call exposed regression examples independent validation.
+
+Acceptance: demonstrate better recognition of varied real phrasing without sacrificing evidence accuracy; target at least 95% definitive sponsorship precision on fresh held-out examples with adequate sample counts, and publish coverage beside precision. Every definitive claim must retain exact supporting evidence and conditions. Add adversarial and regression cases for each confirmed interpretation failure. These are future targets, not achieved results.
 
 ## Product promise and first deferred deliverable
 

@@ -30,6 +30,8 @@ button:focus-visible, input:focus-visible, summary:focus-visible, a:focus-visibl
 .setting { display: flex; align-items: center; gap: 6px; padding: 5px 0; }
 input { accent-color: #254d3e; }
 .privacy { font-size: 10px; line-height: 1.6; margin-top: 14px; }
+.help-links { font-size: 11px; margin: 6px 0 0; }
+.help-links a { color: #254d3e; text-underline-offset: 2px; }
 #feedback { color: #8a342c; font-size: 12px; }
 [hidden] { display: none !important; }
 .finding { background: #fff; border: 1px solid #d7dfd8; border-radius: 10px; margin: 9px 0; padding: 12px; }

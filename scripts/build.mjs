@@ -1,5 +1,7 @@
 import { build } from 'esbuild';
 import { mkdir, copyFile } from 'node:fs/promises';
+import { dirname } from 'node:path';
+import { staticFiles } from './release-files.mjs';
 
 await mkdir('dist', { recursive: true });
 await build({
@@ -11,7 +13,8 @@ await build({
   legalComments: 'none',
   loader: { '.css': 'text' },
 });
-for (const file of ['manifest.json', 'popup.html', 'popup.css']) {
+for (const file of staticFiles) {
+  await mkdir(dirname(`dist/${file}`), { recursive: true });
   await copyFile(`extension/${file}`, `dist/${file}`);
 }
 console.log('Extension built in dist/. Load that folder in chrome://extensions.');

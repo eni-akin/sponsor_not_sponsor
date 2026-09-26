@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve('node_modules/.cache/playwright');
 const { chromium } = await import('playwright');
-const extensionPath = await realpath('dist');
+const extensionPath = await realpath(process.env.EXTENSION_DIR ?? 'dist');
 const extensionId = createHash('sha256').update(extensionPath).digest('hex').slice(0, 32).replace(/[0-9a-f]/g, char => 'abcdefghijklmnop'[parseInt(char, 16)]);
 // A real toolbar popup uses Chrome's preferred-size negotiation. A normal tab
 // (even a narrow one) cannot reproduce that behavior. Use a disposable profile.

@@ -1,6 +1,6 @@
 # Sponsor Not Sponsor
 
-A local-first Chrome extension for inspecting job sponsorship requirements. **Sections 1–3, Section 4's evaluation tooling/reliability fixes, and Section 5's company research preview are implemented.** The extension explains separate sponsorship, CPT, and OPT findings with exact quotations. Optional research adds separately scoped official-source and historical context. Independent real-world beta validation remains pending.
+A local-first Chrome extension for inspecting job sponsorship requirements. **Sections 1–3, Section 4's evaluation tooling/reliability fixes, Section 5's company research preview, and Section 6's release package/materials are implemented.** The extension explains separate sponsorship, CPT, and OPT findings with exact quotations. Optional research adds separately scoped official-source and historical context. Independent real-world beta validation remains pending.
 
 See [the implementation roadmap](IMPLEMENTATION.md), [evaluation results and limitations](evaluation/README.md), and [the original plan](job-sponsorship-extension-plan.md).
 
@@ -13,9 +13,15 @@ See [the implementation roadmap](IMPLEMENTATION.md), [evaluation results and lim
 5. Use **Scan again** for an immediate new scan with visible completion feedback. Cosmetic scrolling changes retain the stored result; new relevant text still triggers analysis. Pause and site controls work from both the panel and popup.
 6. The badge’s **×** dismisses it for the current role until the page reloads. A different role gets its own badge. Use **Show on page** in the toolbar popup to restore a dismissed badge and open its panel.
 
-**Updating an existing installation:** click the extension’s reload button in `chrome://extensions`, then reload the job-page tab. Version 0.5.0 displays “Research preview · Section 5 of 6” and retains the fixed-width toolbar popup.
+**Updating an existing installation:** click the extension’s reload button in `chrome://extensions`, then reload the job-page tab. Version 0.6.0 displays “Preview · Evidence from the job posting”, adds Help and Privacy links, and retains the fixed-width toolbar popup.
 
 The extension asks for access to HTTP and HTTPS pages so it can scan automatically. Scanning runs in the top-level page only and stays local. Optional company research starts off and requires explicit enablement plus access to the local research service. No AI is used. Preferences and welcome-screen status are persisted; page text stays in memory unless you explicitly download a report. Enabled research caches limited role metadata and public-source excerpts. Chrome internal pages and other protected pages are unavailable.
+
+## Release preview
+
+Run `pnpm package` to build and verify `release/sponsor-not-sponsor-0.6.0.zip`, with a checksum and file inventory. Extract the ZIP into a new folder and load that folder as an unpacked extension, or keep using `dist` for development. The ZIP includes only extension runtime assets; the optional research service is installed separately from this source project.
+
+[Release instructions](release/README.md) and [store listing materials](release/STORE_LISTING.md) explain installation, validation, and remaining publication steps. Independent real-world beta validation is pending; this package has not been submitted to the Chrome Web Store.
 
 ## Optional company research
 

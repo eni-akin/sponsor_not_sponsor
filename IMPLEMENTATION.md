@@ -9,8 +9,8 @@ This roadmap turns the original [development plan](job-sponsorship-extension-pla
 | **3. Everyday browsing interface** | Automatic on-page badge, accessible evidence panel, dismiss control, explicit restrictions, feedback action, onboarding; connect existing pause/site settings | End-to-end local prototype that explains findings without obstructing applications | Implemented; broader layout validation remains in section 4 |
 | **4. Accuracy and reliability beta** | Approximately 150–200 manually reviewed examples, held-out evaluation, expanded layouts, accessibility and browser checks | Report precision, coverage, sample counts, and errors; aim for ≥95% definitive-label precision on held-out examples | Tooling and reliability fixes implemented; independent real-world review pending |
 | **5. Company research** | Official vacancy and policy lookup, careful employer matching, historical context, backend credentials, persistent request/cache coordination, source dates, opt-in research | Sourced context that never converts historical activity into a promise about the current role | Implemented as a local-service preview; wider registry/search/history configuration required |
-| **6. Release preparation** | Production packaging, icons, onboarding and permission explanations, privacy disclosures, regression checks, store materials | Installable release ready for review and submission | Next; independent beta validation remains open |
-| **7. Post-completion detection improvements** | Embedded-frame scanning, recruiting-platform readers, stronger generic detection, recovery options, and detection coverage evaluation | Implement and evaluate the deferred detection plan after sections 1–6 are complete | Deferred until core project completion |
+| **6. Release preparation** | Production packaging, icons, onboarding and permission explanations, privacy disclosures, regression checks, store materials | Installable release ready for review and submission | Release package and review materials prepared; publication and independent beta validation remain open |
+| **7. Post-completion detection improvements** | Embedded-frame scanning, recruiting-platform readers, stronger generic detection, major wording-recognition improvements, recovery options, and coverage evaluation | Implement and evaluate the deferred detection plan after sections 1–6 are complete | Deferred until core project completion |
 
 ## Section 1: what is implemented
 
@@ -67,6 +67,20 @@ The rules deliberately support a bounded set of English formulations. They do no
 - Worker session storage preserves pending leases and cached results across suspension; the backend deduplicates requests and persists bounded, expiring caches. Navigation, pause, and opt-out prevent stale responses from appearing on another role.
 - Source retrieval uses reviewed HTTPS domains, public-address checks, pinned DNS, redirect validation, and bounded responses. The local HTTP service validates the calling extension origin, host, request shape, size, and rate. Page text/answers/uploads and provider keys are excluded from extension requests.
 - See [research setup and limitations](server/README.md). This is a functioning local preview, not a hosted service or a claim of comprehensive employer coverage. Paid-provider validation and populated historical datasets require configuration. Section 4's independent human validation and Section 7's detection improvements remain outstanding.
+
+## Section 6: release preparation
+
+Version 0.6.0 prepares an installable private preview and review materials:
+
+- Extension/action icons at 16, 32, 48, and 128 pixels, with an editable SVG source and reproducible rendering script; minimum Chrome version 120 is declared.
+- Bundled help and privacy pages linked from the popup. They explain automatic access, controls, limitations, report downloads, research opt-in, providers, cache retention, and deletion. Existing onboarding and explicit research consent remain in place.
+- A runtime-only ZIP with verified manifest references, icon dimensions, matching versions, archive contents, per-file hashes, and a SHA-256 checksum. It excludes the local service, credentials, caches, and development files.
+- A store listing draft, permission explanations, reviewer steps, promotional artwork, and screenshots of the actual UI on an explicitly fictional posting.
+- See [release instructions and remaining publication work](release/README.md) and [store materials](release/STORE_LISTING.md).
+
+Section 6 validation: **147 automated tests pass**, along with TypeScript checks and production build. The 13-file release ZIP passed archive/hash validation and the existing browser suite after extraction into a fresh directory. Actual toolbar sizing remains 400 pixels, with no horizontal overflow. Help/privacy narrow layouts and store screenshots were checked and visually reviewed. The optional research integration rerun was blocked by occupied port 4318; the existing service was not stopped. See the release validation notes for exact commands and environment details.
+
+Independent real-world beta and human accessibility review remain open. Public submission also needs real publisher/support details, a hosted privacy disclosure, optional-service setup/source access, and a release-audience decision. No store listing has been submitted or published, and no independent accuracy claim is made. Section 7 remains deferred; section 7F records the user's requested major improvement to sponsorship wording recognition.
 
 ## Section 7: post-completion detection improvements
 

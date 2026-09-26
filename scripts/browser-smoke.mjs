@@ -17,7 +17,7 @@ await new Promise((resolve, reject) => { server.once('error', reject); server.li
 const origin = `http://127.0.0.1:${server.address().port}`;
 let context;
 try {
-  const extensionPath = await realpath('dist');
+  const extensionPath = await realpath(process.env.EXTENSION_DIR ?? 'dist');
   // Unpacked extensions without a manifest key derive their ID from their absolute path.
   const extensionId = createHash('sha256').update(extensionPath).digest('hex').slice(0, 32).replace(/[0-9a-f]/g, char => 'abcdefghijklmnop'[parseInt(char, 16)]);
   context = await chromium.launchPersistentContext('', {
@@ -33,6 +33,8 @@ try {
   await page.bringToFront();
   await popup.goto(`chrome-extension://${extensionId}/popup.html`);
   await popup.locator('#onboarding').waitFor({ state: 'visible' });
+  assert.equal(await popup.locator('a[href="help.html"]').getAttribute('target'), '_blank');
+  assert.equal(await popup.locator('a[href="privacy.html"]').getAttribute('target'), '_blank');
   await popup.locator('#onboarding-done').click();
   await popup.locator('#onboarding').waitFor({ state: 'hidden' });
   const status = async expected => popup.waitForFunction(value => document.querySelector('#status').textContent === value, expected, { timeout: 10000 });
