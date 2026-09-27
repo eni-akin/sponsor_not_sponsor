@@ -155,20 +155,20 @@ export function interpretJob(role: JobRecord): Interpretation {
       const previousSponsor = sponsorship.filter(claim => claim.citation.evidenceId === previousBlockId);
       if (previousSponsor.length) {
         previousSponsor.forEach(claim => { claim.status = 'conditional'; });
-        sponsorship.push({ status: 'conditional', citation: { evidenceId: block.id, quote: block.text, source: block.source, timing: previousSponsor[0]!.citation.timing } });
+        sponsorship.push({ status: 'conditional', citation: { evidenceId: block.id, quote: block.text, source: block.source, sourceUrl: block.source === 'official-overview' ? block.sourceUrl : undefined, timing: previousSponsor[0]!.citation.timing } });
       }
       for (const topic of ['cpt', 'opt'] as const) {
         const previous = training[topic].filter(claim => claim.citation.evidenceId === previousBlockId);
         if (previous.length) {
           previous.forEach(claim => { claim.status = 'unclear'; });
-          training[topic].push({ status: 'unclear', citation: { evidenceId: block.id, quote: block.text, source: block.source, timing: 'unspecified' } });
+          training[topic].push({ status: 'unclear', citation: { evidenceId: block.id, quote: block.text, source: block.source, sourceUrl: block.source === 'official-overview' ? block.sourceUrl : undefined, timing: 'unspecified' } });
         }
       }
     }
     for (const { quote, text } of sentences(block)) {
       const relevant = sponsorTopic.test(text) || matches(text, trainingTerms.cpt) || matches(text, trainingTerms.opt) || /\b(?:citizenship|citizens?|permanent residen\w*|green card|us persons?|authorized to work|f-?1|j-?1)\b/.test(text);
       if (!relevant) continue;
-      const citation: Citation = { evidenceId: block.id, quote, source: block.source, timing: timing(text) };
+      const citation: Citation = { evidenceId: block.id, quote, source: block.source, sourceUrl: block.source === 'official-overview' ? block.sourceUrl : undefined, timing: timing(text) };
       const question = block.kind === 'application-question' || quote.endsWith('?') || /^(?:will|would|do|does|did|are|is|can|could|have)\s+(?:you|the applicant)\b|^(?:please\s+)?(?:indicate|select|confirm|answer)\b/.test(text);
       if (question) { context.push({ kind: 'question', citation }); continue; }
       if (/\b(?:ignore (?:previous|prior|all|the|settings)|pretend|output|classify this|label this)\b/.test(text)) { context.push({ kind: 'unrecognized', citation }); continue; }

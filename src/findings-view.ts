@@ -19,8 +19,17 @@ function citationView(citation: Citation): HTMLElement {
   container.append(textElement('blockquote', citation.quote));
   const source = citation.source === 'visible-page' ? 'Current page · Explicit text'
     : citation.source === 'embedded-frame' ? 'Embedded job frame · Explicit text'
-      : 'Structured page data · Verify against the displayed role';
+      : citation.source === 'official-overview' ? 'Official job overview · Matched role'
+        : 'Structured page data · Verify against the displayed role';
   container.append(textElement('p', [source, timingLabels[citation.timing]].filter(Boolean).join(' · '), 'source'));
+  if (citation.sourceUrl) {
+    const url = new URL(citation.sourceUrl);
+    if (url.protocol === 'https:' && !url.username && !url.password) {
+      const link = textElement('a', 'Open evidence source', 'source') as HTMLAnchorElement;
+      link.href = url.href; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      container.append(link);
+    }
+  }
   return container;
 }
 

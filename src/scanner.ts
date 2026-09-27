@@ -1,4 +1,4 @@
-import type { EvidenceBlock, ScanResult } from './types';
+import type { DescriptionCoverage, EvidenceBlock, ScanResult } from './types';
 
 const EXCLUDED = 'script,style,noscript,nav,svg,iframe,input,textarea,select,button,[contenteditable]:not([contenteditable="false"]),[role="textbox"],[data-sns-ignore],.related-jobs,.recommended-jobs,[data-recommended-jobs]';
 const DETAILS = '[data-job-detail],#job-detail,#job-details,.job-details,.job-description,[itemtype="https://schema.org/JobPosting"],[itemtype="http://schema.org/JobPosting"],[role="tabpanel"]';
@@ -181,7 +181,10 @@ function embeddedJob(doc: Document, href: string, depth: number): ScanResult | n
   const child = found[0]!;
   return { ...child, url: href, signals: [...child.signals, 'Job read from an embedded frame'],
     warnings: [...child.warnings, 'This job description was read from a same-origin embedded frame.'],
-    role: { ...child.role!, evidence: child.role!.evidence.map(block => ({ ...block,
+    role: { ...child.role!, coverage: child.role!.coverage && { ...child.role!.coverage,
+      sources: child.role!.coverage.sources.map(source => ({ ...source,
+        kind: source.kind === 'visible-page' ? 'embedded-frame' as const : source.kind, url: child.url })) },
+      evidence: child.role!.evidence.map(block => ({ ...block, sourceUrl: child.url,
       source: block.source === 'visible-page' ? 'embedded-frame' as const : block.source,
       locator: `iframe:${new URL(child.url).pathname} > ${block.locator}` })) } };
 }
@@ -270,28 +273,45 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
   // Application forms often contain a full, matching JobPosting description even
   // when the visible form itself has no overview. Keep its source explicit.
   let hasStructuredDescription = false;
+  let structuredPassages = 0;
+  let structuredTruncated = false;
   if (structured && typeof structured.description === 'string') {
     const detached = doc.implementation.createHTMLDocument('');
     detached.body.innerHTML = structured.description;
     const structuredExtraction = extractBlocks(detached.body, false, true);
     const structuredText = structuredExtraction.blocks;
     const plain = structuredText.map(block => block.text).join(' ');
-    hasStructuredDescription = plain.length >= 300 && !structuredExtraction.truncated;
+    structuredTruncated = structuredExtraction.truncated;
+    hasStructuredDescription = plain.length >= 300 && !structuredTruncated;
     const visible = normalize(text).toLowerCase();
     const missing = structuredText.filter(block => block.text.length > 20 && !visible.includes(normalize(block.text).toLowerCase()));
     if (hasStructuredDescription && missing.length) {
       evidence.push(...missing.map((block, index): EvidenceBlock =>
         ({ ...block, id: `structured-${index}-${hash(block.text)}`, source: 'structured-data', locator: 'JobPosting.description' })));
+      structuredPassages = missing.length;
       result.warnings.push('Additional description read from matching structured job data on this page; check its source when reviewing a finding.');
     } else if (!hasStructuredDescription && !hasVisibleDescription && structuredText.length) {
       evidence.push(...structuredText.map((block, index): EvidenceBlock =>
         ({ ...block, id: `structured-${index}-${hash(block.text)}`, source: 'structured-data', locator: 'JobPosting.description' })));
+      structuredPassages = structuredText.length;
       result.warnings.push('Partial description comes from structured page data; verify it against the displayed vacancy.');
     }
-    if (structuredExtraction.truncated) result.warnings.push('Structured job description was truncated.');
+    if (structuredTruncated) result.warnings.push('Structured job description was truncated.');
   }
-  if (root.querySelector('iframe')) result.warnings.push('Embedded form content is not scanned in this preview.');
+  const embeddedContent = [...root.querySelectorAll('iframe')].some(visible);
+  if (embeddedContent) result.warnings.push('Embedded form content is not scanned in this preview.');
   if (!hasVisibleDescription && !hasStructuredDescription) result.warnings.push('The job description is incomplete. Findings are not carried over from other pages.');
+  const coverageStatus = (hasVisibleDescription || hasStructuredDescription) && !extracted.truncated && !structuredTruncated ? 'description-found' : 'incomplete';
+  const gaps: DescriptionCoverage['gaps'] = [];
+  if (!hasVisibleDescription) gaps.push('displayed-overview-missing');
+  if (!hasVisibleDescription && !hasStructuredDescription) gaps.push('description-not-found');
+  if (extracted.truncated || structuredTruncated) gaps.push('truncated');
+  if (embeddedContent) gaps.push('embedded-content-unread');
+  const coverage: DescriptionCoverage = { status: coverageStatus,
+    sources: [
+      { kind: 'visible-page', url: href, passages: extracted.blocks.length, descriptionFound: hasVisibleDescription },
+      ...(structuredPassages ? [{ kind: 'structured-data' as const, url: href, passages: structuredPassages, descriptionFound: hasStructuredDescription }] : []),
+    ], gaps };
   const organization = object(structured?.hiringOrganization);
   const jobLocation = object(Array.isArray(structured?.jobLocation) ? structured.jobLocation[0] : structured?.jobLocation);
   const address = object(jobLocation.address);
@@ -304,7 +324,7 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
     key: hash(`${href}|${titleKey(title)}|${employer ?? ''}|${identifier ?? ''}`),
     title: title.replace(/^(apply (now )?(for|to)|application for)\s*:?\s*/i, ''),
     employer, location, identifier, employmentTypes, evidence,
-    completeness: (hasVisibleDescription || hasStructuredDescription) && !extracted.truncated ? 'description-found' : 'incomplete',
+    completeness: coverageStatus, coverage,
   };
   return result;
 }

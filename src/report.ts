@@ -9,7 +9,10 @@ export function reportData(result: ScanResult, version: string, reason: string) 
     formatVersion: 1, extensionVersion: version, createdAt: new Date().toISOString(),
     reason: reportReasons.find(value => value === reason) ?? reportReasons[0],
     sourceUrl: source.toString(), scannedAt: result.scannedAt, pageKind: result.kind,
-    role: result.role ? { title: result.role.title, employer: result.role.employer, location: result.role.location, completeness: result.role.completeness } : null,
+    role: result.role ? { title: result.role.title, employer: result.role.employer, location: result.role.location,
+      completeness: result.role.completeness,
+      descriptionSources: result.role.coverage?.sources.map(item => ({ kind: item.kind, descriptionFound: item.descriptionFound })) ?? [],
+      descriptionGaps: result.role.coverage?.gaps ?? [] } : null,
     findings: result.interpretation ?? null,
     warnings: result.warnings,
     // Deliberately omit the full extraction, role key, URL query/hash, settings, and form values.

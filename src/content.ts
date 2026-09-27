@@ -3,6 +3,7 @@ import { parseSettings } from './settings';
 import { PageUI } from './page-ui';
 import type { Settings, ScannerSnapshot } from './types';
 import { ResearchClient } from './research-client';
+import { recoverOverview } from './overview-recovery';
 
 let controller: ScanController | undefined;
 let settingsFailed = false;
@@ -13,7 +14,7 @@ const research = new ResearchClient(request => chrome.runtime.sendMessage({ type
 });
 const withResearch = (snapshot: ScannerSnapshot) => ({ ...snapshot, research: research.view });
 function start(settings: Settings): void {
-  controller = new ScanController(document, window, settings);
+  controller = new ScanController(document, window, settings, recoverOverview);
   pageUI = new PageUI({
     rescan: () => controller!.scan(),
     pause: async () => {

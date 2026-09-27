@@ -1,6 +1,7 @@
 import { hash, pageInputFingerprint, scanPage } from './scanner';
 import { interpretJob } from './interpreter';
-import type { ScannerSnapshot, Settings } from './types';
+import { overviewCandidate, type OverviewOutcome } from './overview-recovery';
+import type { ScanResult, ScannerSnapshot, Settings } from './types';
 
 const IGNORED_CHANGES = 'nav,footer,aside,input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"],[data-sns-ignore]';
 
@@ -18,6 +19,7 @@ export class ScanController {
   private probeTimer: ReturnType<typeof setTimeout> | undefined;
   private frameObservers = new Map<HTMLIFrameElement, { doc: Document; observer: MutationObserver }>();
   private listeners = new Set<(snapshot: ScannerSnapshot) => void>();
+  private recovery: AbortController | undefined;
 
   subscribe(listener: (snapshot: ScannerSnapshot) => void): () => void {
     this.listeners.add(listener);
@@ -26,7 +28,8 @@ export class ScanController {
   }
   private publish(): void { this.listeners.forEach(listener => listener(this.snapshot)); }
 
-  constructor(private doc: Document, private win: Window, settings: Settings) {
+  constructor(private doc: Document, private win: Window, settings: Settings,
+    private recover?: (result: ScanResult, signal: AbortSignal) => Promise<OverviewOutcome>) {
     this.settings = settings;
     this.url = win.location.href;
     this.snapshot = { state: 'scanning', hostname: win.location.hostname, result: null };
@@ -104,6 +107,8 @@ export class ScanController {
     return this.settings.paused ? 'paused' : this.settings.disabledHosts.includes(this.win.location.hostname) ? 'disabled' : null;
   }
   private schedule(): void {
+    this.recovery?.abort();
+    this.recovery = undefined;
     this.snapshot = { state: this.stopped() ?? 'scanning', hostname: this.win.location.hostname, result: null };
     this.publish();
     clearTimeout(this.timer);
@@ -113,6 +118,8 @@ export class ScanController {
     this.timer = setTimeout(() => this.scan(), Math.max(0, Math.min(300, 1500 - (now - this.pendingSince))));
   }
   scan(): ScannerSnapshot {
+    this.recovery?.abort();
+    this.recovery = undefined;
     clearTimeout(this.timer);
     this.pendingSince = 0;
     if (this.url !== this.win.location.href) this.navigationSignature = this.lastRoleSignature;
@@ -124,7 +131,8 @@ export class ScanController {
         const result = scanPage(this.doc, this.url);
         this.inputFingerprint = pageInputFingerprint(this.doc);
         if (result.role) result.interpretation = interpretJob(result.role);
-        const signature = result.role ? hash(JSON.stringify({ ...result.role, key: undefined })) : '';
+        // Coverage contains the current URL; it must not make stale DOM look new after SPA navigation.
+        const signature = result.role ? hash(JSON.stringify({ ...result.role, key: undefined, coverage: undefined })) : '';
         if (signature && signature === this.navigationSignature) {
           // Navigation can precede the new DOM. Never relabel the old content with a new URL.
           this.snapshot = { state: 'scanning', hostname: this.win.location.hostname, result: null };
@@ -132,6 +140,7 @@ export class ScanController {
           this.navigationSignature = '';
           this.lastRoleSignature = signature;
           this.snapshot = { state: 'ready', hostname: this.win.location.hostname, result };
+          if (this.recover && overviewCandidate(result)) this.startRecovery(result);
         }
       } catch {
         this.snapshot = { state: 'error', hostname: this.win.location.hostname, result: null };
@@ -139,6 +148,18 @@ export class ScanController {
     }
     this.publish();
     return this.snapshot;
+  }
+  private startRecovery(result: ScanResult): void {
+    const recovery = new AbortController();
+    this.recovery = recovery;
+    void this.recover!(result, recovery.signal).then(outcome => {
+      if (recovery.signal.aborted || this.recovery !== recovery || this.stopped()
+        || this.url !== this.win.location.href || this.snapshot.result !== result) return;
+      this.recovery = undefined;
+      if (outcome.kind === 'not-applicable') return;
+      this.snapshot = { ...this.snapshot, result: outcome.result };
+      this.publish();
+    }).catch(() => { if (this.recovery === recovery) this.recovery = undefined; });
   }
   getSnapshot(): ScannerSnapshot { this.checkNavigation(); return this.snapshot; }
   updateSettings(settings: Settings): void {
@@ -150,6 +171,8 @@ export class ScanController {
     this.scan();
   }
   dispose(): void {
+    this.recovery?.abort();
+    this.recovery = undefined;
     this.observer.disconnect();
     for (const entry of this.frameObservers.values()) entry.observer.disconnect();
     this.frameObservers.clear();

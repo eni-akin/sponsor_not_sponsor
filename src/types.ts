@@ -3,10 +3,19 @@ export type PageKind = 'job-posting' | 'job-application' | 'multiple-jobs' | 'no
 export interface EvidenceBlock {
   id: string;
   text: string;
-  source: 'visible-page' | 'structured-data' | 'embedded-frame';
+  source: 'visible-page' | 'structured-data' | 'embedded-frame' | 'official-overview';
+  /** Public source page for evidence collected outside the current document. */
+  sourceUrl?: string;
   kind: 'text' | 'application-question';
   /** A location hint, never executable page content. */
   locator: string;
+}
+
+export interface DescriptionCoverage {
+  /** This reports inspected sources, not a guarantee that an employer disclosed every policy. */
+  status: 'description-found' | 'incomplete';
+  sources: { kind: EvidenceBlock['source']; url: string; passages: number; descriptionFound: boolean }[];
+  gaps: ('displayed-overview-missing' | 'description-not-found' | 'truncated' | 'embedded-content-unread' | 'overview-unavailable' | 'overview-identity-mismatch')[];
 }
 
 export interface JobRecord {
@@ -18,6 +27,7 @@ export interface JobRecord {
   employmentTypes: string[];
   evidence: EvidenceBlock[];
   completeness: 'description-found' | 'incomplete';
+  coverage?: DescriptionCoverage;
 }
 
 export interface ScanResult {
@@ -38,6 +48,7 @@ export interface Citation {
   evidenceId: string;
   quote: string;
   source: EvidenceBlock['source'];
+  sourceUrl?: string;
   timing: Timing;
 }
 export interface Finding<T> {

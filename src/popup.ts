@@ -2,6 +2,7 @@ import { parseSettings } from './settings';
 import { renderFindings } from './findings-view';
 import { renderResearch } from './research-view';
 import { RESEARCH_PERMISSION } from './research';
+import { coverageLabel, evidenceSourceLabel } from './coverage-view';
 import type { ScannerSnapshot } from './types';
 
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -40,7 +41,7 @@ function render(snapshot: ScannerSnapshot): void {
     scanning: 'Scanning…', paused: 'Scanning paused', disabled: 'Disabled for this site', error: 'Unable to read this page', ready: 'No result available',
   }[snapshot.state];
   element('title').textContent = role?.title ?? (snapshot.state === 'paused' || snapshot.state === 'disabled' ? 'You control where we scan.' : 'Open a specific job or application.');
-  element('metadata').textContent = role ? [role.employer ?? 'Employer not identified', role.location, role.completeness === 'incomplete' ? 'Incomplete description' : null].filter(Boolean).join(' · ') : '';
+  element('metadata').textContent = role ? [role.employer ?? 'Employer not identified', role.location, coverageLabel(role)].filter(Boolean).join(' · ') : '';
   const warnings = element('warnings');
   warnings.replaceChildren(...(result?.warnings ?? []).map(warning => { const item = document.createElement('li'); item.textContent = warning; return item; }));
   const evidence = role?.evidence ?? [];
@@ -59,7 +60,7 @@ function render(snapshot: ScannerSnapshot): void {
     container.className = 'evidence';
     const source = document.createElement('div');
     source.className = 'source';
-    source.textContent = `${block.source === 'visible-page' ? 'Visible page' : block.source === 'embedded-frame' ? 'Embedded job frame' : 'Structured page data'}${block.kind === 'application-question' ? ' · Question wording' : ''}`;
+    source.textContent = `${evidenceSourceLabel(block.source)}${block.kind === 'application-question' ? ' · Question wording' : ''}`;
     const text = document.createElement('p');
     text.textContent = block.text;
     container.append(source, text);
