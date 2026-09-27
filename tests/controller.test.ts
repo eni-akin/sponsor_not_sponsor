@@ -26,6 +26,21 @@ test('delayed relevant text invalidates the old result and triggers a new scan',
   } finally { close(); }
 });
 
+test('same-origin embedded job changes invalidate and refresh the wrapper result', async () => {
+  const dom = new JSDOM('<h1>Careers</h1><iframe src="https://example.com/jobs/embedded"></iframe>', { url: 'https://example.com/careers' });
+  const child = dom.window.document.querySelector('iframe')!.contentDocument!;
+  child.write('<body><h1>Engineer Intern</h1><h2>Responsibilities</h2><p>Build tools.</p><h2>Qualifications</h2><p>Current student.</p><a>Apply</a></body>');
+  const controller = new ScanController(dom.window.document, dom.window as unknown as Window, DEFAULT_SETTINGS);
+  try {
+    assert.equal(controller.getSnapshot().result?.role?.title, 'Engineer Intern');
+    child.body.append(Object.assign(child.createElement('p'), { textContent: 'Visa sponsorship is not available for this role.' }));
+    await wait(0);
+    assert.equal(controller.getSnapshot().result, null);
+    await wait(350);
+    assert.equal(controller.getSnapshot().result?.interpretation?.sponsorship.status, 'unavailable');
+  } finally { controller.dispose(); dom.window.close(); }
+});
+
 test('SPA navigation clears old results immediately, even before the new DOM arrives', async () => {
   const { dom, controller, close } = setup();
   try {

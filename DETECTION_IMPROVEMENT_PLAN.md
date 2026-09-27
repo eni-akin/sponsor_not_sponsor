@@ -1,8 +1,12 @@
 # Section 7: post-completion detection and interpretation improvements
 
-Date: September 24, 2026. Status: deferred until all six core project sections are complete; detection behavior has not been changed by this investigation.
+Date: September 24, 2026. Current status: initial recognition and extraction implementation underway; see the linked checkpoint below. The original investigation was planning only.
 
-Scheduling: this entire action plan is a future improvement to the finished project. Complete sections 4 (accuracy and reliability beta), 5 (company research), and 6 (release preparation) before starting it. It is not a prerequisite for completing those sections. The diagnosis and research below are retained to guide section 7; recheck the code and platform behavior when implementation begins.
+September 26 planning update: the [job recognition and complete-extraction research plan](JOB_RECOGNITION_EXTRACTION_PLAN.md) expands sections 7A–7E using the 30-posting audit, current source-code inspection, Simplify's public documentation, and official browser/ATS references. It defines candidate recognition, source coverage, frame coordination, verified overview/API recovery, implementation phases, and acceptance criteria. Its phased order prioritizes the newly observed title and description-coverage failures. Section 7F remains separate language-interpretation work.
+
+The [first implementation checkpoint](evaluation/live-2026-09-26/IMPLEMENTATION_CHECKPOINT.md) records the code changes, 30-page rerun, tests, and outstanding work.
+
+Scheduling: the original deferral was superseded by the user's September 26 request to begin recognition and extraction work. Sections 7A–7E are being implemented in phases. The remaining items and section 7F still need their own tests and review; this checkpoint does not complete the accuracy beta.
 
 ## Confirmed failure on the Liberty Mutual posting
 

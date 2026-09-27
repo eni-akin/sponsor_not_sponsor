@@ -3,7 +3,7 @@ export type PageKind = 'job-posting' | 'job-application' | 'multiple-jobs' | 'no
 export interface EvidenceBlock {
   id: string;
   text: string;
-  source: 'visible-page' | 'structured-data';
+  source: 'visible-page' | 'structured-data' | 'embedded-frame';
   kind: 'text' | 'application-question';
   /** A location hint, never executable page content. */
   locator: string;

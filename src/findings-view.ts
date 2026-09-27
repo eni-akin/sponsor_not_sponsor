@@ -17,7 +17,10 @@ function citationView(citation: Citation): HTMLElement {
   const container = document.createElement('div');
   container.className = 'citation';
   container.append(textElement('blockquote', citation.quote));
-  container.append(textElement('p', [citation.source === 'visible-page' ? 'Current page · Explicit text' : 'Structured page data · Verify against the displayed role', timingLabels[citation.timing]].filter(Boolean).join(' · '), 'source'));
+  const source = citation.source === 'visible-page' ? 'Current page · Explicit text'
+    : citation.source === 'embedded-frame' ? 'Embedded job frame · Explicit text'
+      : 'Structured page data · Verify against the displayed role';
+  container.append(textElement('p', [source, timingLabels[citation.timing]].filter(Boolean).join(' · '), 'source'));
   return container;
 }
 

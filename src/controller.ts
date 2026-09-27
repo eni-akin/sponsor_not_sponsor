@@ -16,6 +16,7 @@ export class ScanController {
   private navigationSignature = '';
   private inputFingerprint = '';
   private probeTimer: ReturnType<typeof setTimeout> | undefined;
+  private frameObservers = new Map<HTMLIFrameElement, { doc: Document; observer: MutationObserver }>();
   private listeners = new Set<(snapshot: ScannerSnapshot) => void>();
 
   subscribe(listener: (snapshot: ScannerSnapshot) => void): () => void {
@@ -41,6 +42,7 @@ export class ScanController {
         return true;
       });
       if (!relevant || this.stopped()) return;
+      this.refreshFrames();
       if (mutations.some(mutation => mutation.type !== 'attributes' || !['class', 'style'].includes(mutation.attributeName ?? ''))) this.checkContent();
       else if (!this.probeTimer) {
         // Scroll-driven style changes are common. Inspect their semantic effect in a batch,
@@ -49,6 +51,8 @@ export class ScanController {
       }
     });
     this.observer.observe(doc.documentElement, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['hidden', 'aria-hidden', 'aria-selected', 'class', 'style'] });
+    if (!this.stopped()) this.refreshFrames();
+    doc.addEventListener('load', this.frameLoad, true);
     // pushState does not emit popstate. Check the address cheaply, without reading page text.
     this.polling = setInterval(() => this.checkNavigation(), 500);
     this.win.addEventListener('popstate', this.navigation);
@@ -57,6 +61,28 @@ export class ScanController {
   }
 
   private navigation = () => this.checkNavigation();
+  private frameLoad = (event: Event) => {
+    if (!this.stopped() && (event.target as Element | null)?.tagName === 'IFRAME') { this.refreshFrames(); this.checkContent(); }
+  };
+  private refreshFrames(): void {
+    const present = new Set(this.doc.querySelectorAll('iframe'));
+    for (const [frame, entry] of this.frameObservers) {
+      if (present.has(frame) && frame.contentDocument === entry.doc) continue;
+      entry.observer.disconnect();
+      this.frameObservers.delete(frame);
+    }
+    for (const frame of present) {
+      if (this.frameObservers.has(frame)) continue;
+      try {
+        const child = frame.contentDocument;
+        if (!child?.documentElement || child.defaultView?.location.origin !== this.win.location.origin) continue;
+        const observer = new (child.defaultView.MutationObserver)(() => this.checkContent());
+        observer.observe(child.documentElement, { subtree: true, childList: true, characterData: true,
+          attributes: true, attributeFilter: ['hidden', 'aria-hidden', 'class', 'style'] });
+        this.frameObservers.set(frame, { doc: child, observer });
+      } catch { /* Cross-origin and inaccessible frames stay unscanned. */ }
+    }
+  }
   private checkContent(): void {
     if (this.stopped()) return;
     try {
@@ -115,9 +141,19 @@ export class ScanController {
     return this.snapshot;
   }
   getSnapshot(): ScannerSnapshot { this.checkNavigation(); return this.snapshot; }
-  updateSettings(settings: Settings): void { this.settings = settings; this.scan(); }
+  updateSettings(settings: Settings): void {
+    this.settings = settings;
+    if (this.stopped()) {
+      for (const entry of this.frameObservers.values()) entry.observer.disconnect();
+      this.frameObservers.clear();
+    } else this.refreshFrames();
+    this.scan();
+  }
   dispose(): void {
     this.observer.disconnect();
+    for (const entry of this.frameObservers.values()) entry.observer.disconnect();
+    this.frameObservers.clear();
+    this.doc.removeEventListener('load', this.frameLoad, true);
     clearTimeout(this.timer);
     clearInterval(this.polling);
     clearTimeout(this.probeTimer);

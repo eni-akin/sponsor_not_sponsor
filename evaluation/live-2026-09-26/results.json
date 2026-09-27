@@ -1,0 +1,1876 @@
+{
+  "source": {
+    "sourceUrl": "https://github.com/SimplifyJobs/Summer2027-Internships",
+    "readmeUrl": "https://raw.githubusercontent.com/SimplifyJobs/Summer2027-Internships/dev/README.md",
+    "retrievedAt": "2026-09-26T16:48:41.949Z",
+    "readmeSha256": "fb859bce146d36261776191f6fd71870e159c00570d27dce1eac889518a9dc64",
+    "extensionCommit": "3cb47e77ec8a4505f1ebabf615e2b4fc06d5b560",
+    "method": "First 30 distinct employers with application links, in README software-engineering table order; no filtering by outcome. All selected rows have U.S. locations. Includes co-ops listed in the repository.",
+    "records": [
+      {
+        "id": 1,
+        "repositoryRow": 1,
+        "company": "Flint",
+        "title": "Engineering Intern - Summer 2027",
+        "location": "SF",
+        "url": "https://jobs.ashbyhq.com/flint/39f9e665-7037-4dff-b77a-ff7039df2bfc/application?embed=true",
+        "mirror": "https://simplify.jobs/p/ec241207-37cb-48f4-aa65-cf19d960f7a2"
+      },
+      {
+        "id": 2,
+        "repositoryRow": 2,
+        "company": "Waymo",
+        "title": "Software Engineer Intern - Driver Refinement Foundations",
+        "location": "Mountain View, CA",
+        "url": "https://careers.withwaymo.com/jobs?gh_jid=8224900",
+        "mirror": "https://simplify.jobs/p/44631389-4603-4cbc-bb24-596433854282"
+      },
+      {
+        "id": 3,
+        "repositoryRow": 3,
+        "company": "Bedrock Robotics",
+        "title": "Safety Engineer Intern - Agentic Safety Case Assessment",
+        "location": "SF",
+        "url": "https://jobs.ashbyhq.com/bedrock-robotics/cb06dc4f-3e78-4546-897d-b39ba12a9178/application?embed=true",
+        "mirror": "https://simplify.jobs/p/468b84e5-6585-46ca-a0bc-c17392fa706d"
+      },
+      {
+        "id": 4,
+        "repositoryRow": 6,
+        "company": "AbbVie",
+        "title": "Business Technology Solutions Intern - Data & Software Engineering",
+        "location": "Irvine, CA",
+        "url": "https://jobs.smartrecruiters.com/AbbVie/3743990015684476",
+        "mirror": "https://simplify.jobs/p/fec9533c-b5cc-4a22-b148-01e36f9516d4"
+      },
+      {
+        "id": 5,
+        "repositoryRow": 7,
+        "company": "RRS Group",
+        "title": "Associate Software Engineer Intern - Sophomore Only",
+        "location": "SF",
+        "url": "https://jobs.smartrecruiters.com/RRSGroup/744000151931819",
+        "mirror": "https://simplify.jobs/p/d750fe7b-cab1-448d-87f7-d9cc9f2ad969"
+      },
+      {
+        "id": 6,
+        "repositoryRow": 8,
+        "company": "Lutron Electronics",
+        "title": "Software Engineering Co-op",
+        "location": "Philadelphia, PA",
+        "url": "https://careers.lutron.com/jobs/5616?icims=1",
+        "mirror": "https://simplify.jobs/p/06121173-b783-44a5-bd34-4a7465768bbb"
+      },
+      {
+        "id": 7,
+        "repositoryRow": 9,
+        "company": "First Citizens BancShares",
+        "title": "IT Intern - Software Developer",
+        "location": "Raleigh, NC",
+        "url": "https://firstcitizens.jibeapply.com/jobs/35709?icims=1",
+        "mirror": "https://simplify.jobs/p/074a0da6-73e2-402d-90a7-ca4bf302d862"
+      },
+      {
+        "id": 8,
+        "repositoryRow": 10,
+        "company": "Electronic Arts",
+        "title": "Gameplay Engineer Intern",
+        "location": "LA",
+        "url": "https://jobs.ea.com/en_US/careers/JobDetail/Gameplay-Engineer-Intern/216245",
+        "mirror": "https://simplify.jobs/p/8309b5a0-8e75-434e-b1e6-419b51f357ae"
+      },
+      {
+        "id": 9,
+        "repositoryRow": 11,
+        "company": "The Aerospace Corporation",
+        "title": "Software Systems Engineer Intern - Acquisition",
+        "location": "Chantilly, VAEl Segundo, CA",
+        "url": "https://aero.wd5.myworkdayjobs.com/external/job/El-Segundo-CA/XMLNAME-2027-Software-Systems-Engineer-and-Acquisition-Intern_R016431",
+        "mirror": "https://simplify.jobs/p/6db9023a-15b9-4dfa-a544-4779d19c4277"
+      },
+      {
+        "id": 10,
+        "repositoryRow": 12,
+        "company": "RTX",
+        "title": "Software Engineer Intern - Summer 2027",
+        "location": "West Valley City, UT",
+        "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-UT-WEST-VALLEY-CITY-338--1127--1128-w-2400-S--BLDG-338/Software-Engineering-Intern--Summer-2027-_01875358",
+        "mirror": "https://simplify.jobs/p/6ea50b0f-5bb0-46f9-9acf-2cb906b4da62"
+      },
+      {
+        "id": 11,
+        "repositoryRow": 13,
+        "company": "Rockwell Automation",
+        "title": "AI Software Engineer Intern",
+        "location": "Mayfield Heights, OHMilwaukee, WI",
+        "url": "https://rockwellautomation.wd1.myworkdayjobs.com/External-Rockwell-Automation-Early-Careers/job/Mayfield-Heights-Ohio-United-States/Intern--AI-Software-Engineering--June-August-2027-_R26-6980",
+        "mirror": "https://simplify.jobs/p/f9cecf37-3d67-4284-acf1-bce7d8f9994e"
+      },
+      {
+        "id": 12,
+        "repositoryRow": 17,
+        "company": "Pacific Life",
+        "title": "Software Engineering Intern",
+        "location": "Newport Beach, CA",
+        "url": "https://pacificlife.wd1.myworkdayjobs.com/en-US/PacificLifeCareers/job/Newport-Beach-CA-700/Summer-2027-Software-Engineering-Internship_R17826",
+        "mirror": "https://simplify.jobs/p/68e6a9de-b100-4023-b025-dddbc6addbeb"
+      },
+      {
+        "id": 13,
+        "repositoryRow": 18,
+        "company": "Northwestern Mutual",
+        "title": "Actuarial Systems Intern",
+        "location": "Milwaukee, WI",
+        "url": "https://northwesternmutual.wd5.myworkdayjobs.com/corporate-careers/job/Milwaukee-WI-Corporate/Actuarial-Systems-Intern--Summer-2027_JR-46073",
+        "mirror": "https://simplify.jobs/p/d37558d5-18db-46de-a3b9-2e33b19e8b91"
+      },
+      {
+        "id": 14,
+        "repositoryRow": 19,
+        "company": "Motorola",
+        "title": "Software Engineer Intern - Summer 2027",
+        "location": "Elgin, IL",
+        "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Greater-Chicago-Area/Software-Engineer-Intern---Summer-2027_R68679",
+        "mirror": "https://simplify.jobs/p/2f66f3c8-4ff6-4ae9-a40e-ab8552e65340"
+      },
+      {
+        "id": 15,
+        "repositoryRow": 20,
+        "company": "Intel",
+        "title": "Software Research Intern - PhD 🎓",
+        "location": "Hillsboro, OR",
+        "url": "https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-Oregon-Hillsboro/Software-Solutions-PhD-Intern-New-2027_JR0287314",
+        "mirror": "https://simplify.jobs/p/ef2297ca-14a3-41d1-b09c-4297b662e9f6"
+      },
+      {
+        "id": 16,
+        "repositoryRow": 22,
+        "company": "Greenheck Group",
+        "title": "Application Developer Co-op",
+        "location": "Schofield, WI",
+        "url": "https://greenheckgroup.wd5.myworkdayjobs.com/external/job/Schofield-WI/Application-Developer-Co-op_JR104721",
+        "mirror": "https://simplify.jobs/p/f8aa999f-66d3-4ae6-b0bf-286944064197"
+      },
+      {
+        "id": 17,
+        "repositoryRow": 23,
+        "company": "Cencora",
+        "title": "Software Intern",
+        "location": "Remote in USA",
+        "url": "https://myhrabc.wd5.myworkdayjobs.com/Global/job/Remote-USA/Software-Intern_R2613763",
+        "mirror": "https://simplify.jobs/p/85ec94f8-b794-406d-b74b-06e49b725a08"
+      },
+      {
+        "id": 18,
+        "repositoryRow": 24,
+        "company": "American Century Investments",
+        "title": "Software Developer Intern",
+        "location": "Kansas City, MO",
+        "url": "https://americancentury.wd5.myworkdayjobs.com/AmericanCenturyInvestments/job/Kansas-City-Missouri/Software-Developer-Intern_R0005749-1",
+        "mirror": "https://simplify.jobs/p/099a34f8-de36-4008-b851-c1546eb7f942"
+      },
+      {
+        "id": 19,
+        "repositoryRow": 25,
+        "company": "DRW",
+        "title": "Software Developer Intern",
+        "location": "Chicago, IL",
+        "url": "https://job-boards.greenhouse.io/drwuniversityjobs/jobs/8220587",
+        "mirror": "https://simplify.jobs/p/8f85be1b-0295-405b-b168-84fc834d7d8a"
+      },
+      {
+        "id": 20,
+        "repositoryRow": 26,
+        "company": "Boston Scientific",
+        "title": "Software Engineer Intern - R&D",
+        "location": "Arden Hills, MN",
+        "url": "https://bostonscientific.eightfold.ai/careers/job/563602813542900",
+        "mirror": "https://simplify.jobs/p/521a56a4-f683-4861-8565-e081a72736c1"
+      },
+      {
+        "id": 21,
+        "repositoryRow": 29,
+        "company": "Lazard",
+        "title": "AI and Data Transformation Intern",
+        "location": "NYC",
+        "url": "https://icbpjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LazardProfessionalCareers/job/6650",
+        "mirror": "https://simplify.jobs/p/63f4d5fe-1a58-43dc-8299-1dcb69b5b2f6"
+      },
+      {
+        "id": 22,
+        "repositoryRow": 30,
+        "company": "Astranis",
+        "title": "Network Software Intern",
+        "location": "SF",
+        "url": "https://job-boards.greenhouse.io/astranis/jobs/4705597006",
+        "mirror": "https://simplify.jobs/p/2b447abf-4a95-4c48-a2bb-10f5a7870bdc"
+      },
+      {
+        "id": 23,
+        "repositoryRow": 31,
+        "company": "Arconic",
+        "title": "Software Developer Intern",
+        "location": "Davenport, IA",
+        "url": "https://hdnn.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/114233",
+        "mirror": "https://simplify.jobs/p/60174f6d-1cb4-49c4-93db-3cf3d5dc9382"
+      },
+      {
+        "id": 24,
+        "repositoryRow": 32,
+        "company": "Radiance Technologies",
+        "title": "Software Engineer Intern",
+        "location": "Dayton, OH",
+        "url": "https://radiancetech.wd12.myworkdayjobs.com/Radiance_External/job/Dayton-Office/Software-Engineer-Intern-Spring-Summer-2027_HR102442",
+        "mirror": "https://simplify.jobs/p/544076ef-ca22-485c-8793-4770c7d30023"
+      },
+      {
+        "id": 25,
+        "repositoryRow": 45,
+        "company": "Illinois Tool Works",
+        "title": "Software Engineer Intern",
+        "location": "Eden Prairie, MN",
+        "url": "https://careers.itw.com/global/en/job/JR10261",
+        "mirror": "https://simplify.jobs/p/9e770238-e3ff-491f-baa6-08a85518e661"
+      },
+      {
+        "id": 26,
+        "repositoryRow": 46,
+        "company": "Qumulo",
+        "title": "Software Development Engineer Intern",
+        "location": "Seattle, WA",
+        "url": "https://jobs.ashbyhq.com/qumulo/43855947-3a85-4d1c-8b8e-e0c0ddcaf183/application?embed=true",
+        "mirror": "https://simplify.jobs/p/c2cbd149-9096-42ca-b785-b8ab7d96e3cf"
+      },
+      {
+        "id": 27,
+        "repositoryRow": 47,
+        "company": "GM financial",
+        "title": "Software Development Engineer Intern",
+        "location": "Arlington, TX",
+        "url": "https://fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/260943",
+        "mirror": "https://simplify.jobs/p/c101ff9c-9897-4854-bc18-a135671acfc2"
+      },
+      {
+        "id": 28,
+        "repositoryRow": 48,
+        "company": "AMD",
+        "title": "AI Engineering Intern 🎓",
+        "location": "Santa Clara, CA",
+        "url": "https://careers.amd.com/jobs/91005?icims=1",
+        "mirror": "https://simplify.jobs/p/4dd92b4d-fcb3-4e7f-ab7e-984aa0260f5e"
+      },
+      {
+        "id": 29,
+        "repositoryRow": 50,
+        "company": "State Farm",
+        "title": "Software Developer Intern - HR&D",
+        "location": "4 locationsTempe, AZDunwoody, GARichardson, TXBloomington, IL",
+        "url": "https://jobs.statefarm.com/jobs/45689?icims=1",
+        "mirror": "https://simplify.jobs/p/d824265f-dd15-4d91-8ad3-661f123098c7"
+      },
+      {
+        "id": 30,
+        "repositoryRow": 51,
+        "company": "Ralliant",
+        "title": "Research and Development Co-op",
+        "location": "Fairport, NY",
+        "url": "https://ibwujb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/10637",
+        "mirror": "https://simplify.jobs/p/772904d0-c686-441a-b5dd-5c8e650d5b36"
+      }
+    ]
+  },
+  "metrics": {
+    "sample": 30,
+    "llmUnavailable": 14,
+    "llmUnclear": 16,
+    "llmAvailable": 0,
+    "llmConditional": 0,
+    "primaryAccessBlocked": 4,
+    "primaryRedirectedToLanding": 1,
+    "primaryReadableVacancies": 25,
+    "primaryToolRoleRecords": 11,
+    "primaryToolWrongRoleTitles": 2,
+    "primaryToolUnavailable": 2,
+    "primaryToolUnclear": 9,
+    "primaryToolNoRole": 19,
+    "comparablePrimaryRefusals": 9,
+    "primaryRefusalsRecognized": 2,
+    "phraseGaps": 6,
+    "missingResearchIdentity": 23,
+    "unmappedResearchEmployer": 7
+  },
+  "items": [
+    {
+      "id": 1,
+      "repositoryRow": 1,
+      "company": "Flint",
+      "title": "Engineering Intern - Summer 2027",
+      "location": "SF",
+      "url": "https://jobs.ashbyhq.com/flint/39f9e665-7037-4dff-b77a-ff7039df2bfc/application?embed=true",
+      "mirror": "https://simplify.jobs/p/ec241207-37cb-48f4-aa65-cf19d960f7a2",
+      "review": {
+        "id": 1,
+        "status": "unavailable",
+        "evidenceSuffix": "-description",
+        "basis": "Official job overview",
+        "quote": "We don't sponsor visas for internships",
+        "rationale": "The internship overview explicitly refuses visa sponsorship and requires authorization for the whole term. The application page alone does not contain that refusal.",
+        "category": "application-description-gap",
+        "diagnosis": "The repository links directly to Ashby's application view. The extension reads that view and labels it description-found, although its relevant job overview is elsewhere. On the overview it still returns unclear: the refusal patterns recognize sponsoring applicants/candidates but not the formulation sponsor visas for internships. Both content coverage and interpretation need improvement.",
+        "samePageRefusal": false,
+        "phraseGap": true,
+        "restriction": "Existing work authorization required for the full internship term."
+      },
+      "source": {
+        "url": "https://jobs.ashbyhq.com/flint/39f9e665-7037-4dff-b77a-ff7039df2bfc",
+        "capturedAt": "2026-09-26T16:52:14.419Z",
+        "textSha256": "0e45bd68ff2049cb8f60dd811667e934115d490a143f0f69eeab39e9ad2ec555"
+      },
+      "primary": {
+        "finalUrl": "https://jobs.ashbyhq.com/flint/39f9e665-7037-4dff-b77a-ff7039df2bfc/application?embed=true",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:12.320Z",
+        "textSha256": "3d489e6a32261ac465957129460afd554a0c9507e130526013158de1ce5494aa",
+        "pageKind": "job-posting",
+        "roleTitle": "Engineering Intern — Summer 2027",
+        "employer": "Flint",
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Unique visible role title",
+          "Apply action",
+          "1 job-description section signals"
+        ],
+        "warnings": [],
+        "researchEligibility": "Employer not in supplied registry"
+      },
+      "alternates": [
+        {
+          "kind": "Official overview",
+          "url": "https://jobs.ashbyhq.com/flint/39f9e665-7037-4dff-b77a-ff7039df2bfc",
+          "capturedAt": "2026-09-26T16:52:14.419Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "Engineering Intern — Summer 2027",
+          "toolSponsorship": "unclear"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "repositoryRow": 2,
+      "company": "Waymo",
+      "title": "Software Engineer Intern - Driver Refinement Foundations",
+      "location": "Mountain View, CA",
+      "url": "https://careers.withwaymo.com/jobs?gh_jid=8224900",
+      "mirror": "https://simplify.jobs/p/44631389-4603-4cbc-bb24-596433854282",
+      "review": {
+        "id": 2,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting and application",
+        "quote": "Do you require work authorization?",
+        "rationale": "The application asks about work authorization and offers several status choices. Asking which status an applicant holds does not promise sponsorship. The job text reviewed supplies no explicit offer or refusal.",
+        "category": "appropriate-uncertainty",
+        "diagnosis": "The extension identifies the role and employer and correctly keeps sponsorship, CPT, and OPT unclear. It also surfaces an export-related condition. This is not a missed sponsorship offer.",
+        "restriction": "Country-specific export-license wording is present; it is not a blanket U.S.-citizenship-only requirement."
+      },
+      "source": {
+        "url": "https://careers.withwaymo.com/jobs/2027-summer-intern-bs-software-engineer-driver-refinement-foundations-mountain-view-california-united-states?gh_jid=8224900",
+        "capturedAt": "2026-09-26T16:51:01.892Z",
+        "textSha256": "fedc35a0008a162e15ec766530cdf9b17a3e2a4c9d541c997db11de6d0b9622b"
+      },
+      "primary": {
+        "finalUrl": "https://careers.withwaymo.com/jobs/2027-summer-intern-bs-software-engineer-driver-refinement-foundations-mountain-view-california-united-states?gh_jid=8224900",
+        "httpStatus": 202,
+        "capturedAt": "2026-09-26T16:51:01.892Z",
+        "textSha256": "fedc35a0008a162e15ec766530cdf9b17a3e2a4c9d541c997db11de6d0b9622b",
+        "pageKind": "job-application",
+        "roleTitle": "2027 Summer Intern, BS, Software Engineer, Driver Refinement Foundations",
+        "employer": "Waymo",
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [
+          "citizenship"
+        ],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "2 job-description section signals",
+          "Application form wording"
+        ],
+        "warnings": [
+          "Embedded form content is not scanned in this preview."
+        ],
+        "researchEligibility": "Employer not in supplied registry"
+      },
+      "alternates": []
+    },
+    {
+      "id": 3,
+      "repositoryRow": 3,
+      "company": "Bedrock Robotics",
+      "title": "Safety Engineer Intern - Agentic Safety Case Assessment",
+      "location": "SF",
+      "url": "https://jobs.ashbyhq.com/bedrock-robotics/cb06dc4f-3e78-4546-897d-b39ba12a9178/application?embed=true",
+      "mirror": "https://simplify.jobs/p/468b84e5-6585-46ca-a0bc-c17392fa706d",
+      "review": {
+        "id": 3,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official application plus separately reviewed overview",
+        "quote": "Will you now or in the future require visa sponsorship to work in the United States?",
+        "rationale": "This is an applicant question. The separate role overview also contains no explicit sponsorship commitment or refusal. The company's background and equal-opportunity language do not establish an offer.",
+        "category": "appropriate-uncertainty",
+        "diagnosis": "The unclear label is justified. However, the application view is labeled description-found despite omitting the overview. The separate overview also returns unclear. Employer metadata identifies Bedrock Robotics Inc, which would still need a reviewed research registry entry."
+      },
+      "source": {
+        "url": "https://jobs.ashbyhq.com/bedrock-robotics/cb06dc4f-3e78-4546-897d-b39ba12a9178/application?embed=true",
+        "capturedAt": "2026-09-26T16:51:00.907Z",
+        "textSha256": "13ad2cd8536f1eecdd103513b108c987c53674ee9b3bb592105548abe775d033"
+      },
+      "primary": {
+        "finalUrl": "https://jobs.ashbyhq.com/bedrock-robotics/cb06dc4f-3e78-4546-897d-b39ba12a9178/application?embed=true",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:00.907Z",
+        "textSha256": "13ad2cd8536f1eecdd103513b108c987c53674ee9b3bb592105548abe775d033",
+        "pageKind": "job-posting",
+        "roleTitle": "2027 Internship Safety Engineer, Agentic Safety Case Assessment",
+        "employer": "Bedrock Robotics Inc",
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Structured JobPosting data",
+          "Unique visible role title",
+          "Apply action",
+          "1 job-description section signals"
+        ],
+        "warnings": [
+          "Embedded form content is not scanned in this preview."
+        ],
+        "researchEligibility": "Employer not in supplied registry"
+      },
+      "alternates": [
+        {
+          "kind": "Official overview",
+          "url": "https://jobs.ashbyhq.com/bedrock-robotics/cb06dc4f-3e78-4546-897d-b39ba12a9178",
+          "capturedAt": "2026-09-26T16:52:14.886Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "2027 Internship Safety Engineer, Agentic Safety Case Assessment",
+          "toolSponsorship": "unclear"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "repositoryRow": 6,
+      "company": "AbbVie",
+      "title": "Business Technology Solutions Intern - Data & Software Engineering",
+      "location": "Irvine, CA",
+      "url": "https://jobs.smartrecruiters.com/AbbVie/3743990015684476",
+      "mirror": "https://simplify.jobs/p/fec9533c-b5cc-4a22-b148-01e36f9516d4",
+      "review": {
+        "id": 4,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": null,
+        "rationale": "The description discusses responsibilities, degree requirements, pay, and relocation support but does not establish visa sponsorship. Relocation support does not imply immigration support.",
+        "category": "apply-wording",
+        "diagnosis": "The actual vacancy is readable, but the SmartRecruiters action says I'm interested. hasApply only recognizes Apply or Submit application. With no usable structured JobPosting in the captured DOM, the generic detector's Apply requirement fails and it returns non-job."
+      },
+      "source": {
+        "url": "https://jobs.smartrecruiters.com/AbbVie/3743990015684476",
+        "capturedAt": "2026-09-26T16:51:03.506Z",
+        "textSha256": "833615f495b72062750ee363bd14c14297ffdca746287259bed75b20b31890fe"
+      },
+      "primary": {
+        "finalUrl": "https://jobs.smartrecruiters.com/AbbVie/3743990015684476",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:03.506Z",
+        "textSha256": "833615f495b72062750ee363bd14c14297ffdca746287259bed75b20b31890fe",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 5,
+      "repositoryRow": 7,
+      "company": "RRS Group",
+      "title": "Associate Software Engineer Intern - Sophomore Only",
+      "location": "SF",
+      "url": "https://jobs.smartrecruiters.com/RRSGroup/744000151931819",
+      "mirror": "https://simplify.jobs/p/d750fe7b-cab1-448d-87f7-d9cc9f2ad969",
+      "review": {
+        "id": 5,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Linked recruiting-platform posting",
+        "quote": null,
+        "rationale": "The posting describes a sophomore internship and international collaboration, but contains no explicit sponsorship policy. Working with international colleagues does not establish visa support. Employer legitimacy was not independently investigated in this audit.",
+        "category": "apply-wording",
+        "diagnosis": "As with AbbVie, SmartRecruiters uses I'm interested for the application action. The scanner misses this action and has no matched structured job record, so the readable vacancy becomes non-job."
+      },
+      "source": {
+        "url": "https://jobs.smartrecruiters.com/RRSGroup/744000151931819",
+        "capturedAt": "2026-09-26T16:51:04.572Z",
+        "textSha256": "3b54bbda56ab02e1f3354b5b80bd9fa44f0dc4b19fe2f48999319405e994fb3a"
+      },
+      "primary": {
+        "finalUrl": "https://jobs.smartrecruiters.com/RRSGroup/744000151931819",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:04.572Z",
+        "textSha256": "3b54bbda56ab02e1f3354b5b80bd9fa44f0dc4b19fe2f48999319405e994fb3a",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 6,
+      "repositoryRow": 8,
+      "company": "Lutron Electronics",
+      "title": "Software Engineering Co-op",
+      "location": "Philadelphia, PA",
+      "url": "https://careers.lutron.com/jobs/5616?icims=1",
+      "mirror": "https://simplify.jobs/p/06121173-b783-44a5-bd34-4a7465768bbb",
+      "review": {
+        "id": 6,
+        "status": "unavailable",
+        "evidenceSuffix": "-mirror-full",
+        "basis": "Secondary full-posting copy; official URL returned HTTP 403",
+        "quote": "Lutron does not offer work visa sponsorship for this position.",
+        "rationale": "The linked full-posting copy explicitly refuses sponsorship, and its surrounding wording covers present and future work-visa needs. This conclusion is provisional because the live employer page was inaccessible in this browser.",
+        "category": "access-blocked",
+        "diagnosis": "The employer URL served only a 403 Forbidden page. No job wording reached the extension, which reports non-job. That is an access outcome, not proof of a language-rule failure. A separate visit to the mirror returns unavailable, but the mirror also contains a publisher-supplied sponsorship tag; its result must retain secondary-source attribution.",
+        "restriction": "No present or future work-visa sponsorship in the copied posting."
+      },
+      "source": {
+        "url": "https://simplify.jobs/p/06121173-b783-44a5-bd34-4a7465768bbb/Software-Engineering-Co-op",
+        "capturedAt": "2026-09-26T16:55:19.567Z",
+        "textSha256": "9e9bb3d3949550ac16f6719a56469a6b1d83ba8631629bd216fce8adb36f40f4"
+      },
+      "primary": {
+        "finalUrl": "https://careers.lutron.com/jobs/5616?icims=1",
+        "httpStatus": 403,
+        "capturedAt": "2026-09-26T16:51:17.688Z",
+        "textSha256": "58404bdf6dc25c24fedd979469e69bfb8dc9ebca64a469929a858a12b12b9c30",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": [
+        {
+          "kind": "Secondary full-posting view",
+          "url": "https://simplify.jobs/p/06121173-b783-44a5-bd34-4a7465768bbb/Software-Engineering-Co-op",
+          "capturedAt": "2026-09-26T16:55:19.567Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "Software Engineering Co-op",
+          "toolSponsorship": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "repositoryRow": 9,
+      "company": "First Citizens BancShares",
+      "title": "IT Intern - Software Developer",
+      "location": "Raleigh, NC",
+      "url": "https://firstcitizens.jibeapply.com/jobs/35709?icims=1",
+      "mirror": "https://simplify.jobs/p/074a0da6-73e2-402d-90a7-ca4bf302d862",
+      "review": {
+        "id": 7,
+        "status": "unclear",
+        "evidenceSuffix": "-mirror-full",
+        "basis": "Secondary full-posting copy; official URL returned HTTP 403",
+        "quote": null,
+        "rationale": "The accessible copy of this specific IT internship provides duties, academic qualifications, dates, and benefits but no sponsorship policy. The blocked employer page prevents confirming whether the copy is complete and current.",
+        "category": "access-blocked",
+        "diagnosis": "The primary browser visit received 403 Forbidden, so the extension had no vacancy to analyze and returned non-job. On the secondary copy it detects the internship and returns unclear. Neither result establishes a refusal."
+      },
+      "source": {
+        "url": "https://simplify.jobs/p/074a0da6-73e2-402d-90a7-ca4bf302d862/IT-Intern",
+        "capturedAt": "2026-09-26T16:55:19.486Z",
+        "textSha256": "b69dac29280d961cbd1121065f378f64dcaeb806ff9bb44316b821bc1eee79f3"
+      },
+      "primary": {
+        "finalUrl": "https://firstcitizens.jibeapply.com/jobs/35709?icims=1",
+        "httpStatus": 403,
+        "capturedAt": "2026-09-26T16:51:18.725Z",
+        "textSha256": "58404bdf6dc25c24fedd979469e69bfb8dc9ebca64a469929a858a12b12b9c30",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": [
+        {
+          "kind": "Secondary full-posting view",
+          "url": "https://simplify.jobs/p/074a0da6-73e2-402d-90a7-ca4bf302d862/IT-Intern",
+          "capturedAt": "2026-09-26T16:55:19.486Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "IT Intern - Software Developer",
+          "toolSponsorship": "unclear"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "repositoryRow": 10,
+      "company": "Electronic Arts",
+      "title": "Gameplay Engineer Intern",
+      "location": "LA",
+      "url": "https://jobs.ea.com/en_US/careers/JobDetail/Gameplay-Engineer-Intern/216245",
+      "mirror": "https://simplify.jobs/p/8309b5a0-8e75-434e-b1e6-419b51f357ae",
+      "review": {
+        "id": 8,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "Visa sponsorship is not available for this position.",
+        "rationale": "The exclusion is explicit and is attached to this internship's eligibility paragraph. The surrounding requirement for authorization during the internship reinforces its scope.",
+        "category": "title-recognition",
+        "diagnosis": "The job title is an h2. The page's h1 is the employer branding outside the relevant job area; the scanner does not accept an ordinary h2 as the role title. It stops with unreadable before interpretation. Feeding the extracted body passages directly to the unchanged interpreter recognizes the refusal, isolating this as a detection failure.",
+        "samePageRefusal": true,
+        "restriction": "Authorization required throughout the 12-week internship."
+      },
+      "source": {
+        "url": "https://jobs.ea.com/en_US/careers/JobDetail/Gameplay-Engineer-Intern/216245",
+        "capturedAt": "2026-09-26T16:51:16.479Z",
+        "textSha256": "bd8ec7385772e04d8824165de720def28ae7f9d3edad3ef0b53c4a79fd3a2f8d"
+      },
+      "primary": {
+        "finalUrl": "https://jobs.ea.com/en_US/careers/JobDetail/Gameplay-Engineer-Intern/216245",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:16.479Z",
+        "textSha256": "bd8ec7385772e04d8824165de720def28ae7f9d3edad3ef0b53c4a79fd3a2f8d",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unavailable",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 9,
+      "repositoryRow": 11,
+      "company": "The Aerospace Corporation",
+      "title": "Software Systems Engineer Intern - Acquisition",
+      "location": "Chantilly, VAEl Segundo, CA",
+      "url": "https://aero.wd5.myworkdayjobs.com/external/job/El-Segundo-CA/XMLNAME-2027-Software-Systems-Engineer-and-Acquisition-Intern_R016431",
+      "mirror": "https://simplify.jobs/p/6db9023a-15b9-4dfa-a544-4779d19c4277",
+      "review": {
+        "id": 9,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting; company sidebar context",
+        "quote": "U.S. citizenship is required for those positions.",
+        "rationale": "The vacancy lists an active clearance as a preferred qualification. Separate company context says technical positions require clearance and citizenship. That is relevant context to verify for this role, not an explicit role-specific sponsorship offer or refusal.",
+        "category": "title-recognition",
+        "diagnosis": "The visible role title is h2, while the visible h1 is Welcome!. It does not match the structured job title, and detection ends at non-job. The company-context citizenship sentence is also absent from the body extraction diagnostic, so it would need separately scoped extraction rather than being silently applied to this vacancy.",
+        "restriction": "Company-context citizenship/clearance condition; applicability to this internship needs confirmation."
+      },
+      "source": {
+        "url": "https://aero.wd5.myworkdayjobs.com/external/job/El-Segundo-CA/XMLNAME-2027-Software-Systems-Engineer-and-Acquisition-Intern_R016431",
+        "capturedAt": "2026-09-26T16:51:20.723Z",
+        "textSha256": "76ce9b3da176b9c6eb2587bd9f15cb7ff8c692d1cc6c633aedc90bf79f25d3f7"
+      },
+      "primary": {
+        "finalUrl": "https://aero.wd5.myworkdayjobs.com/external/job/El-Segundo-CA/XMLNAME-2027-Software-Systems-Engineer-and-Acquisition-Intern_R016431",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:20.723Z",
+        "textSha256": "76ce9b3da176b9c6eb2587bd9f15cb7ff8c692d1cc6c633aedc90bf79f25d3f7",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 10,
+      "repositoryRow": 12,
+      "company": "RTX",
+      "title": "Software Engineer Intern - Summer 2027",
+      "location": "West Valley City, UT",
+      "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-UT-WEST-VALLEY-CITY-338--1127--1128-w-2400-S--BLDG-338/Software-Engineering-Intern--Summer-2027-_01875358",
+      "mirror": "https://simplify.jobs/p/6ea50b0f-5bb0-46f9-9acf-2cb906b4da62",
+      "review": {
+        "id": 10,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting with explicit eligibility restriction",
+        "quote": "U.S. citizenship is required",
+        "rationale": "This role explicitly requires citizenship. That is a decisive stated restriction for a noncitizen applicant, but it is a different claim from whether RTX sponsors other positions. The sponsorship field itself is not explicitly answered.",
+        "category": "title-recognition",
+        "diagnosis": "The Workday role title is h2 and the h1 is empty, so the scanner reports unreadable even though JobPosting metadata exists. The body-only diagnostic does recognize the citizenship restriction, showing that this particular restriction is blocked primarily by job recognition.",
+        "restriction": "U.S. citizenship expressly required for this program/contract."
+      },
+      "source": {
+        "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-UT-WEST-VALLEY-CITY-338--1127--1128-w-2400-S--BLDG-338/Software-Engineering-Intern--Summer-2027-_01875358",
+        "capturedAt": "2026-09-26T16:51:21.652Z",
+        "textSha256": "e25aa98cd8b2c3f71ffd909aca19aab1e566a615dd92be40cb3559a231921be8"
+      },
+      "primary": {
+        "finalUrl": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-UT-WEST-VALLEY-CITY-338--1127--1128-w-2400-S--BLDG-338/Software-Engineering-Intern--Summer-2027-_01875358",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:21.652Z",
+        "textSha256": "e25aa98cd8b2c3f71ffd909aca19aab1e566a615dd92be40cb3559a231921be8",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 11,
+      "repositoryRow": 13,
+      "company": "Rockwell Automation",
+      "title": "AI Software Engineer Intern",
+      "location": "Mayfield Heights, OHMilwaukee, WI",
+      "url": "https://rockwellautomation.wd1.myworkdayjobs.com/External-Rockwell-Automation-Early-Careers/job/Mayfield-Heights-Ohio-United-States/Intern--AI-Software-Engineering--June-August-2027-_R26-6980",
+      "mirror": "https://simplify.jobs/p/f9cecf37-3d67-4284-acf1-bce7d8f9994e",
+      "review": {
+        "id": 11,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "We will not sponsor individuals for employment visas, now or in the future, for this job opening.",
+        "rationale": "The sentence directly refuses sponsorship for this opening, covering both present and future needs. No company-history inference is required.",
+        "category": "title-recognition",
+        "diagnosis": "The Workday title is h2 with an empty h1, so no role is produced. There is a second failure: the unchanged interpreter still returns unclear when given the extracted body. Its sponsor-verb refusal rule enumerates applicants, candidates, workers, employees, or this role, but not individuals for employment visas.",
+        "samePageRefusal": true,
+        "phraseGap": true,
+        "restriction": "No present or future employment-visa sponsorship."
+      },
+      "source": {
+        "url": "https://rockwellautomation.wd1.myworkdayjobs.com/External-Rockwell-Automation-Early-Careers/job/Mayfield-Heights-Ohio-United-States/Intern--AI-Software-Engineering--June-August-2027-_R26-6980",
+        "capturedAt": "2026-09-26T16:51:22.888Z",
+        "textSha256": "3bdae0e793338b0303b38c19dcb6edeae0cbc98faf1a160cbd20950c90bc1be3"
+      },
+      "primary": {
+        "finalUrl": "https://rockwellautomation.wd1.myworkdayjobs.com/External-Rockwell-Automation-Early-Careers/job/Mayfield-Heights-Ohio-United-States/Intern--AI-Software-Engineering--June-August-2027-_R26-6980",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:22.888Z",
+        "textSha256": "3bdae0e793338b0303b38c19dcb6edeae0cbc98faf1a160cbd20950c90bc1be3",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 12,
+      "repositoryRow": 17,
+      "company": "Pacific Life",
+      "title": "Software Engineering Intern",
+      "location": "Newport Beach, CA",
+      "url": "https://pacificlife.wd1.myworkdayjobs.com/en-US/PacificLifeCareers/job/Newport-Beach-CA-700/Summer-2027-Software-Engineering-Internship_R17826",
+      "mirror": "https://simplify.jobs/p/68e6a9de-b100-4023-b025-dddbc6addbeb",
+      "review": {
+        "id": 12,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": null,
+        "rationale": "The posting describes the software internship, compensation, and a relocation stipend, without an explicit sponsorship policy. A relocation stipend is insufficient evidence of visa support.",
+        "category": "title-recognition",
+        "diagnosis": "The role appears as h2 and the h1 is empty. Although structured job metadata and an Apply link exist, the scanner requires a supported visible title before it can use that metadata. It returns unreadable."
+      },
+      "source": {
+        "url": "https://pacificlife.wd1.myworkdayjobs.com/en-US/PacificLifeCareers/job/Newport-Beach-CA-700/Summer-2027-Software-Engineering-Internship_R17826",
+        "capturedAt": "2026-09-26T16:51:24.333Z",
+        "textSha256": "2a72b48f73c69a12a120a1129ec6167ee3148b79eec16a2e55db4526434477e2"
+      },
+      "primary": {
+        "finalUrl": "https://pacificlife.wd1.myworkdayjobs.com/en-US/PacificLifeCareers/job/Newport-Beach-CA-700/Summer-2027-Software-Engineering-Internship_R17826",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:24.333Z",
+        "textSha256": "2a72b48f73c69a12a120a1129ec6167ee3148b79eec16a2e55db4526434477e2",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 13,
+      "repositoryRow": 18,
+      "company": "Northwestern Mutual",
+      "title": "Actuarial Systems Intern",
+      "location": "Milwaukee, WI",
+      "url": "https://northwesternmutual.wd5.myworkdayjobs.com/corporate-careers/job/Milwaukee-WI-Corporate/Actuarial-Systems-Intern--Summer-2027_JR-46073",
+      "mirror": "https://simplify.jobs/p/d37558d5-18db-46de-a3b9-2e33b19e8b91",
+      "review": {
+        "id": 13,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "Employer immigration sponsorship is not available for this role.",
+        "rationale": "This is an explicit refusal within the internship qualifications. The extension's sponsorship label agrees with the evidence.",
+        "category": "wrong-role-title",
+        "diagnosis": "The label is correct, but the tool selects Northwestern Mutual, the employer-brand h1, as the role title instead of the Actuarial Systems Intern h2. It therefore discards the mismatching structured job metadata and loses the employer field. This is a label success with an identity defect, not a fully correct job record.",
+        "samePageRefusal": true
+      },
+      "source": {
+        "url": "https://northwesternmutual.wd5.myworkdayjobs.com/corporate-careers/job/Milwaukee-WI-Corporate/Actuarial-Systems-Intern--Summer-2027_JR-46073",
+        "capturedAt": "2026-09-26T16:51:25.010Z",
+        "textSha256": "0bddfffe3ba397ae32222b4017ec75ba4e6c4e520d5ed24b4fc5c53caeee941d"
+      },
+      "primary": {
+        "finalUrl": "https://northwesternmutual.wd5.myworkdayjobs.com/corporate-careers/job/Milwaukee-WI-Corporate/Actuarial-Systems-Intern--Summer-2027_JR-46073",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:25.010Z",
+        "textSha256": "0bddfffe3ba397ae32222b4017ec75ba4e6c4e520d5ed24b4fc5c53caeee941d",
+        "pageKind": "job-posting",
+        "roleTitle": "Northwestern Mutual",
+        "employer": null,
+        "completeness": "description-found",
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unavailable",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "2 job-description section signals"
+        ],
+        "warnings": [
+          "Structured data did not uniquely match the displayed role and was ignored."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 14,
+      "repositoryRow": 19,
+      "company": "Motorola",
+      "title": "Software Engineer Intern - Summer 2027",
+      "location": "Elgin, IL",
+      "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Greater-Chicago-Area/Software-Engineer-Intern---Summer-2027_R68679",
+      "mirror": "https://simplify.jobs/p/2f66f3c8-4ff6-4ae9-a40e-ab8552e65340",
+      "review": {
+        "id": 14,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": null,
+        "rationale": "The description states degree requirements, location, and no relocation assistance, but no sponsorship policy. Relocation and visa sponsorship are separate questions.",
+        "category": "title-recognition",
+        "diagnosis": "The visible Workday title is h2 and the h1 is empty. The scanner returns unreadable before it interprets the job description. This is a job-detection miss even though the correct sponsorship assessment remains unclear."
+      },
+      "source": {
+        "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Greater-Chicago-Area/Software-Engineer-Intern---Summer-2027_R68679",
+        "capturedAt": "2026-09-26T16:51:26.518Z",
+        "textSha256": "1a9964265776e804d26daaa07c26c8909e3d30978f9dc48a5b5a56438b13b72d"
+      },
+      "primary": {
+        "finalUrl": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Greater-Chicago-Area/Software-Engineer-Intern---Summer-2027_R68679",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:26.518Z",
+        "textSha256": "1a9964265776e804d26daaa07c26c8909e3d30978f9dc48a5b5a56438b13b72d",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 15,
+      "repositoryRow": 20,
+      "company": "Intel",
+      "title": "Software Research Intern - PhD 🎓",
+      "location": "Hillsboro, OR",
+      "url": "https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-Oregon-Hillsboro/Software-Solutions-PhD-Intern-New-2027_JR0287314",
+      "mirror": "https://simplify.jobs/p/ef2297ca-14a3-41d1-b09c-4297b662e9f6",
+      "review": {
+        "id": 15,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": null,
+        "rationale": "The PhD internship's technical qualifications, compensation, and general employment statement do not explicitly answer sponsorship. Intel's reputation or history cannot fill that gap for this requisition.",
+        "category": "title-recognition",
+        "diagnosis": "The job title is h2. Branding and cookie-dialog headings do not provide the unique supported role title required by the scanner, which returns unreadable despite matching-looking structured job information."
+      },
+      "source": {
+        "url": "https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-Oregon-Hillsboro/Software-Solutions-PhD-Intern-New-2027_JR0287314",
+        "capturedAt": "2026-09-26T16:51:28.257Z",
+        "textSha256": "8d339292a936efb89de5a12fbc671878637078053a8e89625b0f94eca7a56c96"
+      },
+      "primary": {
+        "finalUrl": "https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-Oregon-Hillsboro/Software-Solutions-PhD-Intern-New-2027_JR0287314",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:28.257Z",
+        "textSha256": "8d339292a936efb89de5a12fbc671878637078053a8e89625b0f94eca7a56c96",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 16,
+      "repositoryRow": 22,
+      "company": "Greenheck Group",
+      "title": "Application Developer Co-op",
+      "location": "Schofield, WI",
+      "url": "https://greenheckgroup.wd5.myworkdayjobs.com/external/job/Schofield-WI/Application-Developer-Co-op_JR104721",
+      "mirror": "https://simplify.jobs/p/f8aa999f-66d3-4ae6-b0bf-286944064197",
+      "review": {
+        "id": 16,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": null,
+        "rationale": "The January–August 2027 co-op lists degree requirements and housing/sign-on support but does not state a visa-sponsorship policy. Financial assistance alone is not sponsorship evidence.",
+        "category": "title-recognition",
+        "diagnosis": "The Workday role heading is h2 and does not satisfy roleTitle. The scanner reports unreadable. A title fix would restore a job record; the reviewed wording would still justify unclear.",
+        "seasonNote": "January–August 2027 co-op, not a summer-only internship."
+      },
+      "source": {
+        "url": "https://greenheckgroup.wd5.myworkdayjobs.com/external/job/Schofield-WI/Application-Developer-Co-op_JR104721",
+        "capturedAt": "2026-09-26T16:51:28.888Z",
+        "textSha256": "d2c2fdf1faaf7fe1dcb000ea31b41c2c45565e58f3e360cbbeee5ccd0a25d920"
+      },
+      "primary": {
+        "finalUrl": "https://greenheckgroup.wd5.myworkdayjobs.com/external/job/Schofield-WI/Application-Developer-Co-op_JR104721",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:28.888Z",
+        "textSha256": "d2c2fdf1faaf7fe1dcb000ea31b41c2c45565e58f3e360cbbeee5ccd0a25d920",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 17,
+      "repositoryRow": 23,
+      "company": "Cencora",
+      "title": "Software Intern",
+      "location": "Remote in USA",
+      "url": "https://myhrabc.wd5.myworkdayjobs.com/Global/job/Remote-USA/Software-Intern_R2613763",
+      "mirror": "https://simplify.jobs/p/85ec94f8-b794-406d-b74b-06e49b725a08",
+      "review": {
+        "id": 17,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "Must not require sponsorship to work in the United States now or in the future.",
+        "rationale": "Under the role's qualifications, applicants must have no present or future sponsorship need. That establishes an exclusion for applicants requiring employer sponsorship.",
+        "category": "title-recognition",
+        "diagnosis": "Workday's h2 title blocks job recognition. A body-only run also stays unclear: the phrase rules handle several employer-refusal sentences but not this requirement-style formulation. Both job-title recognition and the interpretation of qualification bullets need work.",
+        "samePageRefusal": true,
+        "phraseGap": true,
+        "restriction": "No present or future sponsorship need."
+      },
+      "source": {
+        "url": "https://myhrabc.wd5.myworkdayjobs.com/Global/job/Remote-USA/Software-Intern_R2613763",
+        "capturedAt": "2026-09-26T16:51:30.038Z",
+        "textSha256": "10b4c6b767ba9fa30bea039156569fbc8ab744199e3897fd2d8d7ec53501536e"
+      },
+      "primary": {
+        "finalUrl": "https://myhrabc.wd5.myworkdayjobs.com/Global/job/Remote-USA/Software-Intern_R2613763",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:30.038Z",
+        "textSha256": "10b4c6b767ba9fa30bea039156569fbc8ab744199e3897fd2d8d7ec53501536e",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 18,
+      "repositoryRow": 24,
+      "company": "American Century Investments",
+      "title": "Software Developer Intern",
+      "location": "Kansas City, MO",
+      "url": "https://americancentury.wd5.myworkdayjobs.com/AmericanCenturyInvestments/job/Kansas-City-Missouri/Software-Developer-Intern_R0005749-1",
+      "mirror": "https://simplify.jobs/p/099a34f8-de36-4008-b851-c1546eb7f942",
+      "review": {
+        "id": 18,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "This position is not eligible for visa sponsorship.",
+        "rationale": "The posting explicitly excludes sponsorship, with surrounding wording extending the authorization requirement to present and future needs.",
+        "category": "title-recognition",
+        "diagnosis": "The h2 role heading blocks the scanner, which returns unreadable. The body-only interpreter correctly returns unavailable. Fixing recognition would expose a refusal that the existing language rules already understand.",
+        "samePageRefusal": true,
+        "restriction": "Work authorization without sponsorship now or in the future."
+      },
+      "source": {
+        "url": "https://americancentury.wd5.myworkdayjobs.com/AmericanCenturyInvestments/job/Kansas-City-Missouri/Software-Developer-Intern_R0005749-1",
+        "capturedAt": "2026-09-26T16:51:31.703Z",
+        "textSha256": "9e734eef1a7309a7871d089266fd78d0db4649eeceaa256ced3f0c52bc5b0166"
+      },
+      "primary": {
+        "finalUrl": "https://americancentury.wd5.myworkdayjobs.com/AmericanCenturyInvestments/job/Kansas-City-Missouri/Software-Developer-Intern_R0005749-1",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:31.703Z",
+        "textSha256": "9e734eef1a7309a7871d089266fd78d0db4649eeceaa256ced3f0c52bc5b0166",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unavailable",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 19,
+      "repositoryRow": 25,
+      "company": "DRW",
+      "title": "Software Developer Intern",
+      "location": "Chicago, IL",
+      "url": "https://job-boards.greenhouse.io/drwuniversityjobs/jobs/8220587",
+      "mirror": "https://simplify.jobs/p/8f85be1b-0295-405b-b168-84fc834d7d8a",
+      "review": {
+        "id": 19,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting and application",
+        "quote": "Will you now or in the future require sponsorship for employment visa status",
+        "rationale": "The application asks about sponsorship needs and requests an explanation. That is information collection, not an offer or refusal. No explicit policy was established in the reviewed vacancy.",
+        "category": "appropriate-uncertainty",
+        "diagnosis": "The extension correctly detects the role and keeps the question from becoming policy. It does not identify DRW as the employer because the Greenhouse page lacks the particular employer markup it uses. This would block optional research despite a valid job record.",
+        "seasonNote": "Live title is Spring 2027 City Scholars Software Developer Intern; the repository's shortened title omits that program and season."
+      },
+      "source": {
+        "url": "https://job-boards.greenhouse.io/drwuniversityjobs/jobs/8220587",
+        "capturedAt": "2026-09-26T16:51:31.234Z",
+        "textSha256": "6e59d36c040e0c7bd7dac9a5d69276ccfadd522c22a1b383cae9b5654cd358a8"
+      },
+      "primary": {
+        "finalUrl": "https://job-boards.greenhouse.io/drwuniversityjobs/jobs/8220587",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:31.234Z",
+        "textSha256": "6e59d36c040e0c7bd7dac9a5d69276ccfadd522c22a1b383cae9b5654cd358a8",
+        "pageKind": "job-application",
+        "roleTitle": "Spring 2027 City Scholars Software Developer Intern",
+        "employer": null,
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "1 job-description section signals",
+          "Application form wording"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 20,
+      "repositoryRow": 26,
+      "company": "Boston Scientific",
+      "title": "Software Engineer Intern - R&D",
+      "location": "Arden Hills, MN",
+      "url": "https://bostonscientific.eightfold.ai/careers/job/563602813542900",
+      "mirror": "https://simplify.jobs/p/521a56a4-f683-4861-8565-e081a72736c1",
+      "review": {
+        "id": 20,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "Boston Scientific will not offer sponsorship or take over sponsorship",
+        "rationale": "The posting directly refuses sponsorship or transfer at present. Its qualification list additionally requires work eligibility without company sponsorship now or in the future.",
+        "category": "wrong-role-title",
+        "diagnosis": "The scanner calls the role Single Position, a template h1, instead of the h2 internship title. It discards the real job metadata and loses the employer. It extracts both restriction passages but leaves sponsorship unclear: the patterns do not support this named-company subject, and company sponsorship is absent from the generic without-sponsorship expression.",
+        "samePageRefusal": true,
+        "phraseGap": true,
+        "restriction": "Present refusal plus a qualification requiring no current/future company sponsorship."
+      },
+      "source": {
+        "url": "https://bostonscientific.eightfold.ai/careers/job/563602813542900",
+        "capturedAt": "2026-09-26T16:51:33.668Z",
+        "textSha256": "d4976ee1b0ee7f11902b95e3177fd0b3209577212423e1e17efa3e69de21f991"
+      },
+      "primary": {
+        "finalUrl": "https://bostonscientific.eightfold.ai/careers/job/563602813542900",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:33.668Z",
+        "textSha256": "d4976ee1b0ee7f11902b95e3177fd0b3209577212423e1e17efa3e69de21f991",
+        "pageKind": "job-posting",
+        "roleTitle": "Single Position",
+        "employer": null,
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [
+          "work-authorization"
+        ],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "3 job-description section signals"
+        ],
+        "warnings": [
+          "Structured data did not uniquely match the displayed role and was ignored."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 21,
+      "repositoryRow": 29,
+      "company": "Lazard",
+      "title": "AI and Data Transformation Intern",
+      "location": "NYC",
+      "url": "https://icbpjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LazardProfessionalCareers/job/6650",
+      "mirror": "https://simplify.jobs/p/63f4d5fe-1a58-43dc-8299-1dcb69b5b2f6",
+      "review": {
+        "id": 21,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting; requirement interpreted in context",
+        "quote": "Authorization to work in the United States without visa sponsorship",
+        "rationale": "This appears in the role's eligibility list, making independent work authorization a condition of the internship. I interpret it as no sponsorship for the role. It does not establish a separate lifetime or future-employment policy.",
+        "category": "interpretation",
+        "diagnosis": "Title, employer, and the relevant passage are extracted. The rules require a formulation such as must be authorized or an explicit offer/refusal sentence, and do not carry the eligibility-list context into this noun-phrase bullet. The result remains unclear.",
+        "samePageRefusal": true,
+        "phraseGap": true
+      },
+      "source": {
+        "url": "https://icbpjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LazardStudentCareers/job/6650",
+        "capturedAt": "2026-09-26T16:51:36.058Z",
+        "textSha256": "fafd148b399b1b9848490f5e504b3ee998dfb9f02aac21362440dd9089526370"
+      },
+      "primary": {
+        "finalUrl": "https://icbpjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LazardStudentCareers/job/6650",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:36.058Z",
+        "textSha256": "fafd148b399b1b9848490f5e504b3ee998dfb9f02aac21362440dd9089526370",
+        "pageKind": "job-posting",
+        "roleTitle": "AI & Data Transformation Intern",
+        "employer": "Lazard Student",
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "3 job-description section signals"
+        ],
+        "warnings": [],
+        "researchEligibility": "Employer not in supplied registry"
+      },
+      "alternates": []
+    },
+    {
+      "id": 22,
+      "repositoryRow": 30,
+      "company": "Astranis",
+      "title": "Network Software Intern",
+      "location": "SF",
+      "url": "https://job-boards.greenhouse.io/astranis/jobs/4705597006",
+      "mirror": "https://simplify.jobs/p/2b447abf-4a95-4c48-a2bb-10f5a7870bdc",
+      "review": {
+        "id": 22,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting with explicit eligibility restriction",
+        "quote": "U.S. Citizenship, Lawful Permanent Residency, or Refugee/Asylee Status Required",
+        "rationale": "The posting states a restricted set of immigration/citizenship categories. It does not offer visa sponsorship. Preserve the full alternatives: this is broader than a citizens-only rule, and sponsorship willingness is not directly stated.",
+        "category": "appropriate-uncertainty",
+        "diagnosis": "The extension detects the role, keeps sponsorship unclear, and surfaces the restriction. Its generic Citizenship condition label should not be read as citizens-only; the full quote matters. Employer extraction is missing, which would block research.",
+        "restriction": "Citizenship, lawful permanent residence, refugee/asylee or other stated protected-individual status; not citizens only."
+      },
+      "source": {
+        "url": "https://job-boards.greenhouse.io/astranis/jobs/4705597006",
+        "capturedAt": "2026-09-26T16:51:33.870Z",
+        "textSha256": "8c3d10a6f08f66e0bae19ee92aaea40dd05d455cfc4daeffcd2efac9b64b1c08"
+      },
+      "primary": {
+        "finalUrl": "https://job-boards.greenhouse.io/astranis/jobs/4705597006",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:33.870Z",
+        "textSha256": "8c3d10a6f08f66e0bae19ee92aaea40dd05d455cfc4daeffcd2efac9b64b1c08",
+        "pageKind": "job-application",
+        "roleTitle": "Software Developer, Network Software Intern (Summer 2027)",
+        "employer": null,
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [
+          "citizenship",
+          "citizenship"
+        ],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "2 job-description section signals",
+          "Application form wording"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 23,
+      "repositoryRow": 31,
+      "company": "Arconic",
+      "title": "Software Developer Intern",
+      "location": "Davenport, IA",
+      "url": "https://hdnn.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/114233",
+      "mirror": "https://simplify.jobs/p/60174f6d-1cb4-49c4-93db-3cf3d5dc9382",
+      "review": {
+        "id": 23,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "Visa sponsorship is not available for this position.",
+        "rationale": "The posting explicitly refuses sponsorship for this vacancy. Its separate U.S.-person restriction should remain separate from that refusal and should not be rewritten as citizens-only.",
+        "category": "correct-definitive-result",
+        "diagnosis": "The tool identifies the role and employer, recognizes the explicit refusal, and records the U.S.-person condition. This is a successful end-to-end example in the audited sample.",
+        "samePageRefusal": true,
+        "restriction": "U.S.-person condition stated separately."
+      },
+      "source": {
+        "url": "https://hdnn.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/114233",
+        "capturedAt": "2026-09-26T16:51:38.586Z",
+        "textSha256": "92d80ddec07608ae4fbc71abf51e1e4be90915e09ad802f7890b1e44eb89354c"
+      },
+      "primary": {
+        "finalUrl": "https://hdnn.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/114233",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:38.586Z",
+        "textSha256": "92d80ddec07608ae4fbc71abf51e1e4be90915e09ad802f7890b1e44eb89354c",
+        "pageKind": "job-posting",
+        "roleTitle": "Software Developer Intern",
+        "employer": "Arconic",
+        "completeness": "description-found",
+        "sponsorship": "unavailable",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [
+          "work-authorization",
+          "us-person"
+        ],
+        "bodyOnlySponsorship": "unavailable",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "2 job-description section signals"
+        ],
+        "warnings": [],
+        "researchEligibility": "Employer not in supplied registry"
+      },
+      "alternates": []
+    },
+    {
+      "id": 24,
+      "repositoryRow": 32,
+      "company": "Radiance Technologies",
+      "title": "Software Engineer Intern",
+      "location": "Dayton, OH",
+      "url": "https://radiancetech.wd12.myworkdayjobs.com/Radiance_External/job/Dayton-Office/Software-Engineer-Intern-Spring-Summer-2027_HR102442",
+      "mirror": "https://simplify.jobs/p/544076ef-ca22-485c-8793-4770c7d30023",
+      "review": {
+        "id": 24,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting with explicit eligibility restriction",
+        "quote": "US Citizenship with the ability to obtain a security clearance",
+        "rationale": "This bullet appears under Requirements, making citizenship a stated condition. It is not an explicit sponsorship policy and should not be generalized to the whole employer.",
+        "category": "title-recognition",
+        "diagnosis": "The h2 title prevents job detection. Even the body-only diagnostic misses the restriction because restrictionKind expects a word such as must, required, or only inside the same clause. The obligation is instead carried by the preceding Requirements heading, whose context is lost.",
+        "restriction": "U.S. citizenship and ability to obtain a clearance are required."
+      },
+      "source": {
+        "url": "https://radiancetech.wd12.myworkdayjobs.com/Radiance_External/job/Dayton-Office/Software-Engineer-Intern-Spring-Summer-2027_HR102442",
+        "capturedAt": "2026-09-26T16:51:37.152Z",
+        "textSha256": "533de0c723086fbdb78a2fa74752667d25191d928c0b066254b4f2731d1b9b08"
+      },
+      "primary": {
+        "finalUrl": "https://radiancetech.wd12.myworkdayjobs.com/Radiance_External/job/Dayton-Office/Software-Engineer-Intern-Spring-Summer-2027_HR102442",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:37.152Z",
+        "textSha256": "533de0c723086fbdb78a2fa74752667d25191d928c0b066254b4f2731d1b9b08",
+        "pageKind": "unreadable",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [
+          "A unique visible role title could not be identified."
+        ],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    },
+    {
+      "id": 25,
+      "repositoryRow": 45,
+      "company": "Illinois Tool Works",
+      "title": "Software Engineer Intern",
+      "location": "Eden Prairie, MN",
+      "url": "https://careers.itw.com/global/en/job/JR10261",
+      "mirror": "https://simplify.jobs/p/9e770238-e3ff-491f-baa6-08a85518e661",
+      "review": {
+        "id": 25,
+        "status": "unclear",
+        "evidenceSuffix": "-mirror-full",
+        "basis": "Secondary full-posting copy; primary URL redirected to careers homepage",
+        "quote": null,
+        "rationale": "The copied MTS/ITW internship description has no explicit sponsorship policy. The repository's employer link no longer opened that vacancy in the audited visit, so the live primary policy could not be confirmed.",
+        "category": "redirected-listing",
+        "diagnosis": "The primary URL redirects to the general ITW careers page. Returning non-job for that destination is appropriate; it does not mean the extension missed a visible vacancy. The mirror detects the job and returns unclear. The copy identifies MTS as an ITW company, so future research must preserve the operating-entity distinction."
+      },
+      "source": {
+        "url": "https://simplify.jobs/p/9e770238-e3ff-491f-baa6-08a85518e661/Software-Engineer-Intern",
+        "capturedAt": "2026-09-26T16:55:19.474Z",
+        "textSha256": "77d45649ded55baccfbbd76cc42f7d6a06df219ac377fca37b6d1496a50d2ded"
+      },
+      "primary": {
+        "finalUrl": "https://careers.itw.com/us/en",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:39.874Z",
+        "textSha256": "a46d48c61f6277095abce6144bb3b1a14c0320484cc655faf530d7aba400a467",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": [
+        {
+          "kind": "Secondary full-posting view",
+          "url": "https://simplify.jobs/p/9e770238-e3ff-491f-baa6-08a85518e661/Software-Engineer-Intern",
+          "capturedAt": "2026-09-26T16:55:19.474Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "Software Engineer Intern",
+          "toolSponsorship": "unclear"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "repositoryRow": 46,
+      "company": "Qumulo",
+      "title": "Software Development Engineer Intern",
+      "location": "Seattle, WA",
+      "url": "https://jobs.ashbyhq.com/qumulo/43855947-3a85-4d1c-8b8e-e0c0ddcaf183/application?embed=true",
+      "mirror": "https://simplify.jobs/p/c2cbd149-9096-42ca-b785-b8ab7d96e3cf",
+      "review": {
+        "id": 26,
+        "status": "unavailable",
+        "evidenceSuffix": "-description",
+        "basis": "Official job overview",
+        "quote": "We are unable to provide visa sponsorship or transfer.",
+        "rationale": "The separate job overview expressly refuses sponsorship and transfer. The repository's application view only asks about the applicant's visa situation, so that view alone cannot establish the refusal.",
+        "category": "application-description-gap",
+        "diagnosis": "The actual application-page scan returns unclear; the overview scan returns unavailable with the correct role and employer. This isolates missing description/navigation coverage rather than a phrase-rule defect. The application is also incorrectly marked description-found, so the UI understates the missing context."
+      },
+      "source": {
+        "url": "https://jobs.ashbyhq.com/qumulo/43855947-3a85-4d1c-8b8e-e0c0ddcaf183",
+        "capturedAt": "2026-09-26T16:52:14.107Z",
+        "textSha256": "52f1b840c8372c667c26c219513ba725f074575ac77bbaf86d4131ce6dceb609"
+      },
+      "primary": {
+        "finalUrl": "https://jobs.ashbyhq.com/qumulo/43855947-3a85-4d1c-8b8e-e0c0ddcaf183/application?embed=true",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:39.527Z",
+        "textSha256": "d3238cf3bbbb5764bf5d8cc6336f15fd98b24b7a9e3ed8cd773462f1fd99211f",
+        "pageKind": "job-posting",
+        "roleTitle": "Software Development Engineer (Seattle) - Internship 2027",
+        "employer": "Qumulo",
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Structured JobPosting data",
+          "Unique visible role title",
+          "Apply action",
+          "2 job-description section signals"
+        ],
+        "warnings": [
+          "Embedded form content is not scanned in this preview."
+        ],
+        "researchEligibility": "Employer not in supplied registry"
+      },
+      "alternates": [
+        {
+          "kind": "Official overview",
+          "url": "https://jobs.ashbyhq.com/qumulo/43855947-3a85-4d1c-8b8e-e0c0ddcaf183",
+          "capturedAt": "2026-09-26T16:52:14.107Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "Software Development Engineer (Seattle) - Internship 2027",
+          "toolSponsorship": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "repositoryRow": 47,
+      "company": "GM financial",
+      "title": "Software Development Engineer Intern",
+      "location": "Arlington, TX",
+      "url": "https://fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/260943",
+      "mirror": "https://simplify.jobs/p/c101ff9c-9897-4854-bc18-a135671acfc2",
+      "review": {
+        "id": 27,
+        "status": "unavailable",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": "GM FINANCIAL DOES NOT PROVIDE IMMIGRATION-RELATED SPONSORSHIP FOR THIS ROLE.",
+        "rationale": "This explicitly refuses sponsorship. The following sentence also declines employer-of-record and paperwork support for listed arrangements including OPT, STEM OPT, and CPT. That support restriction must be preserved rather than simplified into an unsupported claim about every person's eligibility.",
+        "category": "interpretation",
+        "diagnosis": "The correct role and employer are extracted, including the complete restriction paragraph. The rules do not recognize the named-company subject and immigration-related wording, and they do not connect the next sentence's This includes list to the refusal. Sponsorship, CPT, and OPT all remain unclear.",
+        "samePageRefusal": true,
+        "phraseGap": true,
+        "restriction": "Explicit refusal of employer immigration support, including the listed CPT/OPT arrangements."
+      },
+      "source": {
+        "url": "https://fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/260943",
+        "capturedAt": "2026-09-26T16:51:42.919Z",
+        "textSha256": "530c884bf3350f7b91d4872113a979e835b6332c03929d2b72d4531d76706ff0"
+      },
+      "primary": {
+        "finalUrl": "https://fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/260943",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:42.919Z",
+        "textSha256": "530c884bf3350f7b91d4872113a979e835b6332c03929d2b72d4531d76706ff0",
+        "pageKind": "job-posting",
+        "roleTitle": "Intern - Software Development Engineer",
+        "employer": "GM Financial United States",
+        "completeness": "description-found",
+        "sponsorship": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": true,
+        "signals": [
+          "Structured JobPosting data",
+          "Job-related page address (supporting signal only)",
+          "Unique visible role title",
+          "Apply action",
+          "3 job-description section signals"
+        ],
+        "warnings": [],
+        "researchEligibility": "Employer not in supplied registry"
+      },
+      "alternates": []
+    },
+    {
+      "id": 28,
+      "repositoryRow": 48,
+      "company": "AMD",
+      "title": "AI Engineering Intern 🎓",
+      "location": "Santa Clara, CA",
+      "url": "https://careers.amd.com/jobs/91005?icims=1",
+      "mirror": "https://simplify.jobs/p/4dd92b4d-fcb3-4e7f-ab7e-984aa0260f5e",
+      "review": {
+        "id": 28,
+        "status": "unavailable",
+        "evidenceSuffix": "-mirror-full",
+        "basis": "Search-indexed official posting, corroborated by secondary full-posting copy; browser URL returned HTTP 403",
+        "quote": "This role is not eligible for visa sponsorship.",
+        "officialIndexedUrl": "https://careers.amd.com/careers-home/jobs/91005",
+        "rationale": "The indexed official page matches requisition 91005 and directly excludes sponsorship. The linked full-posting copy contains the same exclusion. The direct browser could not retrieve the employer content.",
+        "category": "access-blocked",
+        "diagnosis": "The exact repository destination returned 403, leaving the extension no job text. It returns unavailable on the readable mirror, but that is a different source and is not counted as a primary-page success. The indexed source and live browser have different access paths."
+      },
+      "source": {
+        "url": "https://simplify.jobs/p/4dd92b4d-fcb3-4e7f-ab7e-984aa0260f5e/AI-Engineering-Intern",
+        "capturedAt": "2026-09-26T16:55:23.664Z",
+        "textSha256": "731de6a0fc077c74ff2456119fad1f8371a375d371da3303144f13c5715a3ee8"
+      },
+      "primary": {
+        "finalUrl": "https://careers.amd.com/jobs/91005?icims=1",
+        "httpStatus": 403,
+        "capturedAt": "2026-09-26T16:51:53.687Z",
+        "textSha256": "58404bdf6dc25c24fedd979469e69bfb8dc9ebca64a469929a858a12b12b9c30",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": [
+        {
+          "kind": "Secondary full-posting view",
+          "url": "https://simplify.jobs/p/4dd92b4d-fcb3-4e7f-ab7e-984aa0260f5e/AI-Engineering-Intern",
+          "capturedAt": "2026-09-26T16:55:23.664Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "AI Engineering Intern",
+          "toolSponsorship": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "repositoryRow": 50,
+      "company": "State Farm",
+      "title": "Software Developer Intern - HR&D",
+      "location": "4 locationsTempe, AZDunwoody, GARichardson, TXBloomington, IL",
+      "url": "https://jobs.statefarm.com/jobs/45689?icims=1",
+      "mirror": "https://simplify.jobs/p/d824265f-dd15-4d91-8ad3-661f123098c7",
+      "review": {
+        "id": 29,
+        "status": "unavailable",
+        "evidenceSuffix": "-mirror-full",
+        "basis": "Secondary full-posting copy; official URL returned HTTP 403",
+        "quote": "employer will not sponsor applicants for U.S. work authorization",
+        "rationale": "The full-posting copy expressly refuses employer work-authorization sponsorship for this opportunity. The same requisition is also reproduced elsewhere, but the live employer page was inaccessible; keep the conclusion marked as secondary-source evidence.",
+        "category": "access-blocked",
+        "diagnosis": "The browser receives a 403 page, so the extension returns non-job without access to the policy. On the mirror it returns unavailable. This is an access limitation, not evidence that the phrase interpreter failed on the original policy."
+      },
+      "source": {
+        "url": "https://simplify.jobs/p/d824265f-dd15-4d91-8ad3-661f123098c7/Software-Developer-Intern",
+        "capturedAt": "2026-09-26T16:55:23.672Z",
+        "textSha256": "1c0d0558a5eb626222b1f854ce02f1ca7bfbfa08a54a008f832274510a13acb4"
+      },
+      "primary": {
+        "finalUrl": "https://jobs.statefarm.com/jobs/45689?icims=1",
+        "httpStatus": 403,
+        "capturedAt": "2026-09-26T16:51:54.126Z",
+        "textSha256": "58404bdf6dc25c24fedd979469e69bfb8dc9ebca64a469929a858a12b12b9c30",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": [
+        {
+          "kind": "Secondary full-posting view",
+          "url": "https://simplify.jobs/p/d824265f-dd15-4d91-8ad3-661f123098c7/Software-Developer-Intern",
+          "capturedAt": "2026-09-26T16:55:23.672Z",
+          "toolPageKind": "job-posting",
+          "toolRole": "Software Developer Intern - HR&D",
+          "toolSponsorship": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "repositoryRow": 51,
+      "company": "Ralliant",
+      "title": "Research and Development Co-op",
+      "location": "Fairport, NY",
+      "url": "https://ibwujb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/10637",
+      "mirror": "https://simplify.jobs/p/772904d0-c686-441a-b5dd-5c8e650d5b36",
+      "review": {
+        "id": 30,
+        "status": "unclear",
+        "evidenceSuffix": "-verified",
+        "basis": "Official posting",
+        "quote": null,
+        "rationale": "The Qualitrol/Ralliant posting describes the co-op and its qualifications but does not establish sponsorship. The live role is a fall co-op despite appearing in the summer repository.",
+        "category": "description-threshold",
+        "diagnosis": "A valid h1 and Apply Now button exist, but the DOM has no usable JobPosting metadata. The generic detector requires two prescribed description keyword groups; this page supplies only the duties group and uses Who We're Looking For for qualifications. It is therefore labeled non-job.",
+        "seasonNote": "Live posting is a six-month Fall 2027 co-op; operating company is Qualitrol."
+      },
+      "source": {
+        "url": "https://ibwujb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/10637",
+        "capturedAt": "2026-09-26T16:51:46.728Z",
+        "textSha256": "94b587d1f0dc3edc525be2281f1c1faaadb633daef7c388a1951c21c29000731"
+      },
+      "primary": {
+        "finalUrl": "https://ibwujb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/10637",
+        "httpStatus": 200,
+        "capturedAt": "2026-09-26T16:51:46.728Z",
+        "textSha256": "94b587d1f0dc3edc525be2281f1c1faaadb633daef7c388a1951c21c29000731",
+        "pageKind": "non-job",
+        "roleTitle": null,
+        "employer": null,
+        "completeness": null,
+        "sponsorship": null,
+        "cpt": null,
+        "opt": null,
+        "restrictionKinds": [],
+        "bodyOnlySponsorship": "unclear",
+        "citationPresentInExtraction": false,
+        "signals": [
+          "Job-related page address (supporting signal only)"
+        ],
+        "warnings": [],
+        "researchEligibility": "Missing role or employer"
+      },
+      "alternates": []
+    }
+  ]
+}

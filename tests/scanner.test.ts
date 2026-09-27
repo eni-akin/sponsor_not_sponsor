@@ -2,7 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
-import { scanPage } from '../src/scanner';
+import { pageInputFingerprint, scanPage } from '../src/scanner';
+import { interpretJob } from '../src/interpreter';
 import { parseSettings } from '../src/settings';
 
 const fixture = (name: string) => readFileSync(new URL(`./fixtures/${name}.html`, import.meta.url), 'utf8');
@@ -93,6 +94,101 @@ test('structured-only description has its own attribution and remains incomplete
   const result = scan('<script type="application/ld+json">{"@type":"JobPosting","title":"Engineer","description":"<p>Sponsorship available only for senior positions.</p>"}</script><main><h1>Engineer</h1></main>');
   assert.equal(result.role?.completeness, 'incomplete');
   assert.ok(result.role?.evidence.some(block => block.source === 'structured-data' && block.text === 'Sponsorship available only for senior positions.'));
+});
+
+test('application form uses its matching full JobPosting description instead of calling the form complete', () => {
+  const description = `<h2>About the role</h2><p>${'Build reliable software with the engineering team. '.repeat(9)}</p><h2>Eligibility</h2><p>Visa sponsorship is not available for this internship.</p>`;
+  const job = { '@type': 'JobPosting', title: 'Engineering Intern', identifier: { value: 'abc-123' }, description };
+  const result = scan(`<script type="application/ld+json">${JSON.stringify(job)}</script><main><h1>Engineering Intern</h1><p>Location: New York. Employment Type: Intern.</p><form><label>Do you require sponsorship?<input value="PRIVATE ANSWER"></label><button>Submit application</button></form></main>`);
+  assert.equal(result.kind, 'job-application');
+  assert.equal(result.role?.completeness, 'description-found');
+  assert.ok(result.role?.evidence.some(block => block.source === 'structured-data' && block.text.includes('Visa sponsorship is not available')));
+  assert.equal(interpretJob(result.role!).sponsorship.status, 'unavailable');
+  assert.ok(!JSON.stringify(result).includes('PRIVATE ANSWER'));
+  assert.ok(result.warnings.some(warning => warning.includes('structured job data')));
+});
+
+test('Ashby application route uses the full matching description even when the form is embedded', () => {
+  const description = `<h2>About the role</h2><p>${'Build reliable software with mentors. '.repeat(10)}</p><p>Visa sponsorship is not available for this position.</p>`;
+  const job = { '@type': 'JobPosting', title: 'Software Intern', identifier: { value: '39f9e665-7037-4dff-b77a-ff7039df2bfc' }, description };
+  const result = scan(`<script type="application/ld+json">${JSON.stringify(job)}</script><main><h1>Software Intern</h1><p>Location: San Francisco. Employment Type: Intern.</p><iframe src="/application-form"></iframe><a href="/submit">Apply</a></main>`,
+    'https://jobs.ashbyhq.com/example/39f9e665-7037-4dff-b77a-ff7039df2bfc/application?embed=true');
+  assert.equal(result.kind, 'job-application');
+  assert.equal(result.role?.completeness, 'description-found');
+  assert.ok(result.role?.evidence.some(block => block.source === 'structured-data' && block.text.includes('Visa sponsorship is not available')));
+});
+
+test('Ashby metadata for a different requisition cannot supply the description', () => {
+  const job = { '@type': 'JobPosting', title: 'Software Intern', identifier: { value: 'other-role' },
+    description: `<p>${'Software internship details. '.repeat(20)}</p><p>Visa sponsorship is not available for this position.</p>` };
+  const result = scan(`<script type="application/ld+json">${JSON.stringify(job)}</script><main><h1>Software Intern</h1><p>Location and employment type</p><a>Apply</a></main>`,
+    'https://jobs.ashbyhq.com/example/current-role/application');
+  assert.equal(result.role?.completeness, 'incomplete');
+  assert.ok(!result.role?.evidence.some(block => block.text.includes('Visa sponsorship is not available')));
+});
+
+test('a visible partial overview is supplemented by its matching structured closing notice', () => {
+  const closing = 'Employer sponsorship is not available for this internship.';
+  const job = { '@type': 'JobPosting', title: 'Software Intern', description: `<h2>Responsibilities</h2><p>${'Build internal tools with the team. '.repeat(12)}</p><p>${closing}</p>` };
+  const result = scan(`<script type="application/ld+json">${JSON.stringify(job)}</script><main><h1>Software Intern</h1><h2>Responsibilities</h2><p>Build internal tools with the team.</p><h2>Qualifications</h2><p>Currently enrolled students.</p><a>Apply</a></main>`);
+  assert.ok(result.role?.evidence.some(block => block.source === 'structured-data' && block.text === closing));
+  assert.equal(interpretJob(result.role!).sponsorship.status, 'unavailable');
+});
+
+test('job-scoped closing notice is read but the site footer is excluded', () => {
+  const result = scan('<main><section data-job-detail><h1>Software Intern</h1><h2>Responsibilities</h2><p>Build tools.</p><h2>Qualifications</h2><p>Current student.</p><footer><p>Visa sponsorship is not available for this role.</p></footer><a>Apply</a></section></main><footer><p>Other company jobs may sponsor visas.</p></footer>');
+  assert.ok(result.role?.evidence.some(block => block.text.includes('Visa sponsorship is not available')));
+  assert.ok(!result.role?.evidence.some(block => block.text.includes('Other company jobs')));
+});
+
+test('matching metadata and visible h2 beat a company h1 or template heading', () => {
+  for (const heading of ['Northwestern Mutual', 'Single Position']) {
+    const job = { '@type': 'JobPosting', title: 'Software Engineer Intern', hiringOrganization: { name: 'Northwestern Mutual' },
+      description: `<p>${'Build software and work with mentors. '.repeat(12)}</p><p>Visa sponsorship is not available for this role.</p>` };
+    const result = scan(`<script type="application/ld+json">${JSON.stringify(job)}</script><main><h1>${heading}</h1><h2>Software Engineer Intern</h2><h2>Responsibilities</h2><p>Build software.</p><h2>Qualifications</h2><p>Current students.</p><a href="/apply">Apply now</a></main>`);
+    assert.equal(result.role?.title, 'Software Engineer Intern');
+    assert.equal(result.role?.employer, 'Northwestern Mutual');
+  }
+});
+
+test('unstructured job h2, alternate application action, and distinct description headings are recognized', () => {
+  const result = scan('<main><h1>Electronic Arts</h1><h2>Gameplay Engineer Intern</h2><h3>Description & Requirements</h3><p>Build and test features with experienced engineers.</p><h3>Who We’re Looking For</h3><p>Students with relevant coursework.</p><button>I’m interested</button></main>');
+  assert.equal(result.role?.title, 'Gameplay Engineer Intern');
+  assert.equal(result.kind, 'job-posting');
+});
+
+test('a job outside an unrelated main is selected from the body', () => {
+  const result = scan('<main><p>Site navigation and account links</p></main><div><h1>Electronic Arts</h1><h2>Gameplay Engineer Intern</h2><h3>Description & Requirements</h3><p>Build game systems.</p><h3>Qualifications</h3><p>Software coursework.</p><a href="/apply">Apply</a></div>');
+  assert.equal(result.role?.title, 'Gameplay Engineer Intern');
+});
+
+test('same-origin embedded job is read with its own evidence and incomplete wrappers stay separate', () => {
+  const dom = new JSDOM('<h1>Careers</h1><iframe src="https://example.com/jobs/embedded"></iframe>', { url: 'https://example.com/careers' });
+  try {
+    const child = dom.window.document.querySelector('iframe')!.contentDocument!;
+    child.write('<body><h1>Software Engineer Intern</h1><h2>Responsibilities</h2><p>Build tools for users.</p><h2>Qualifications</h2><p>Students may apply.</p><p>Visa sponsorship is not available for this role.</p><a href="/apply">Apply</a></body>');
+    const before = pageInputFingerprint(dom.window.document);
+    const result = scanPage(dom.window.document, dom.window.location.href);
+    assert.equal(result.role?.title, 'Software Engineer Intern');
+    assert.ok(result.role?.evidence.some(block => block.source === 'embedded-frame' && block.text.includes('Visa sponsorship is not available')));
+    assert.equal(interpretJob(result.role!).sponsorship.status, 'unavailable');
+    child.querySelector('p')!.textContent = 'Build safer tools for users.';
+    assert.notEqual(pageInputFingerprint(dom.window.document), before);
+  } finally { dom.window.close(); }
+});
+
+test('hidden embedded job does not become the current vacancy', () => {
+  const dom = new JSDOM('<h1>Careers</h1><iframe hidden src="https://example.com/jobs/embedded"></iframe>', { url: 'https://example.com/careers' });
+  try {
+    dom.window.document.querySelector('iframe')!.contentDocument!.write('<body><h1>Engineer Intern</h1><h2>Responsibilities</h2><p>Build tools.</p><h2>Qualifications</h2><p>Students apply.</p><a>Apply</a></body>');
+    assert.equal(scanPage(dom.window.document, dom.window.location.href).role, null);
+  } finally { dom.window.close(); }
+});
+
+test('visible cross-origin job frame is reported as unreadable instead of a non-job page', () => {
+  const result = scan('<h1>Careers</h1><iframe src="https://example.icims.com/jobs/123/job"></iframe>', 'https://example.com/careers');
+  assert.equal(result.kind, 'unreadable');
+  assert.ok(result.warnings.some(warning => warning.includes('embedded job could not be read')));
 });
 
 test('hidden and recommended content never appears in evidence', () => {

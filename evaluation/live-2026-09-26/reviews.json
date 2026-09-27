@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1, "status": "unavailable", "evidenceSuffix": "-description", "basis": "Official job overview", "quote": "We don't sponsor visas for internships",
+    "rationale": "The internship overview explicitly refuses visa sponsorship and requires authorization for the whole term. The application page alone does not contain that refusal.",
+    "category": "application-description-gap", "diagnosis": "The repository links directly to Ashby's application view. The extension reads that view and labels it description-found, although its relevant job overview is elsewhere. On the overview it still returns unclear: the refusal patterns recognize sponsoring applicants/candidates but not the formulation sponsor visas for internships. Both content coverage and interpretation need improvement.",
+    "samePageRefusal": false, "phraseGap": true, "restriction": "Existing work authorization required for the full internship term."
+  },
+  {
+    "id": 2, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting and application", "quote": "Do you require work authorization?",
+    "rationale": "The application asks about work authorization and offers several status choices. Asking which status an applicant holds does not promise sponsorship. The job text reviewed supplies no explicit offer or refusal.",
+    "category": "appropriate-uncertainty", "diagnosis": "The extension identifies the role and employer and correctly keeps sponsorship, CPT, and OPT unclear. It also surfaces an export-related condition. This is not a missed sponsorship offer.",
+    "restriction": "Country-specific export-license wording is present; it is not a blanket U.S.-citizenship-only requirement."
+  },
+  {
+    "id": 3, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official application plus separately reviewed overview", "quote": "Will you now or in the future require visa sponsorship to work in the United States?",
+    "rationale": "This is an applicant question. The separate role overview also contains no explicit sponsorship commitment or refusal. The company's background and equal-opportunity language do not establish an offer.",
+    "category": "appropriate-uncertainty", "diagnosis": "The unclear label is justified. However, the application view is labeled description-found despite omitting the overview. The separate overview also returns unclear. Employer metadata identifies Bedrock Robotics Inc, which would still need a reviewed research registry entry."
+  },
+  {
+    "id": 4, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": null,
+    "rationale": "The description discusses responsibilities, degree requirements, pay, and relocation support but does not establish visa sponsorship. Relocation support does not imply immigration support.",
+    "category": "apply-wording", "diagnosis": "The actual vacancy is readable, but the SmartRecruiters action says I'm interested. hasApply only recognizes Apply or Submit application. With no usable structured JobPosting in the captured DOM, the generic detector's Apply requirement fails and it returns non-job."
+  },
+  {
+    "id": 5, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Linked recruiting-platform posting", "quote": null,
+    "rationale": "The posting describes a sophomore internship and international collaboration, but contains no explicit sponsorship policy. Working with international colleagues does not establish visa support. Employer legitimacy was not independently investigated in this audit.",
+    "category": "apply-wording", "diagnosis": "As with AbbVie, SmartRecruiters uses I'm interested for the application action. The scanner misses this action and has no matched structured job record, so the readable vacancy becomes non-job."
+  },
+  {
+    "id": 6, "status": "unavailable", "evidenceSuffix": "-mirror-full", "basis": "Secondary full-posting copy; official URL returned HTTP 403", "quote": "Lutron does not offer work visa sponsorship for this position.",
+    "rationale": "The linked full-posting copy explicitly refuses sponsorship, and its surrounding wording covers present and future work-visa needs. This conclusion is provisional because the live employer page was inaccessible in this browser.",
+    "category": "access-blocked", "diagnosis": "The employer URL served only a 403 Forbidden page. No job wording reached the extension, which reports non-job. That is an access outcome, not proof of a language-rule failure. A separate visit to the mirror returns unavailable, but the mirror also contains a publisher-supplied sponsorship tag; its result must retain secondary-source attribution.",
+    "restriction": "No present or future work-visa sponsorship in the copied posting."
+  },
+  {
+    "id": 7, "status": "unclear", "evidenceSuffix": "-mirror-full", "basis": "Secondary full-posting copy; official URL returned HTTP 403", "quote": null,
+    "rationale": "The accessible copy of this specific IT internship provides duties, academic qualifications, dates, and benefits but no sponsorship policy. The blocked employer page prevents confirming whether the copy is complete and current.",
+    "category": "access-blocked", "diagnosis": "The primary browser visit received 403 Forbidden, so the extension had no vacancy to analyze and returned non-job. On the secondary copy it detects the internship and returns unclear. Neither result establishes a refusal."
+  },
+  {
+    "id": 8, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "Visa sponsorship is not available for this position.",
+    "rationale": "The exclusion is explicit and is attached to this internship's eligibility paragraph. The surrounding requirement for authorization during the internship reinforces its scope.",
+    "category": "title-recognition", "diagnosis": "The job title is an h2. The page's h1 is the employer branding outside the relevant job area; the scanner does not accept an ordinary h2 as the role title. It stops with unreadable before interpretation. Feeding the extracted body passages directly to the unchanged interpreter recognizes the refusal, isolating this as a detection failure.",
+    "samePageRefusal": true, "restriction": "Authorization required throughout the 12-week internship."
+  },
+  {
+    "id": 9, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting; company sidebar context", "quote": "U.S. citizenship is required for those positions.",
+    "rationale": "The vacancy lists an active clearance as a preferred qualification. Separate company context says technical positions require clearance and citizenship. That is relevant context to verify for this role, not an explicit role-specific sponsorship offer or refusal.",
+    "category": "title-recognition", "diagnosis": "The visible role title is h2, while the visible h1 is Welcome!. It does not match the structured job title, and detection ends at non-job. The company-context citizenship sentence is also absent from the body extraction diagnostic, so it would need separately scoped extraction rather than being silently applied to this vacancy.",
+    "restriction": "Company-context citizenship/clearance condition; applicability to this internship needs confirmation."
+  },
+  {
+    "id": 10, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting with explicit eligibility restriction", "quote": "U.S. citizenship is required",
+    "rationale": "This role explicitly requires citizenship. That is a decisive stated restriction for a noncitizen applicant, but it is a different claim from whether RTX sponsors other positions. The sponsorship field itself is not explicitly answered.",
+    "category": "title-recognition", "diagnosis": "The Workday role title is h2 and the h1 is empty, so the scanner reports unreadable even though JobPosting metadata exists. The body-only diagnostic does recognize the citizenship restriction, showing that this particular restriction is blocked primarily by job recognition.",
+    "restriction": "U.S. citizenship expressly required for this program/contract."
+  },
+  {
+    "id": 11, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "We will not sponsor individuals for employment visas, now or in the future, for this job opening.",
+    "rationale": "The sentence directly refuses sponsorship for this opening, covering both present and future needs. No company-history inference is required.",
+    "category": "title-recognition", "diagnosis": "The Workday title is h2 with an empty h1, so no role is produced. There is a second failure: the unchanged interpreter still returns unclear when given the extracted body. Its sponsor-verb refusal rule enumerates applicants, candidates, workers, employees, or this role, but not individuals for employment visas.",
+    "samePageRefusal": true, "phraseGap": true, "restriction": "No present or future employment-visa sponsorship."
+  },
+  {
+    "id": 12, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": null,
+    "rationale": "The posting describes the software internship, compensation, and a relocation stipend, without an explicit sponsorship policy. A relocation stipend is insufficient evidence of visa support.",
+    "category": "title-recognition", "diagnosis": "The role appears as h2 and the h1 is empty. Although structured job metadata and an Apply link exist, the scanner requires a supported visible title before it can use that metadata. It returns unreadable."
+  },
+  {
+    "id": 13, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "Employer immigration sponsorship is not available for this role.",
+    "rationale": "This is an explicit refusal within the internship qualifications. The extension's sponsorship label agrees with the evidence.",
+    "category": "wrong-role-title", "diagnosis": "The label is correct, but the tool selects Northwestern Mutual, the employer-brand h1, as the role title instead of the Actuarial Systems Intern h2. It therefore discards the mismatching structured job metadata and loses the employer field. This is a label success with an identity defect, not a fully correct job record.",
+    "samePageRefusal": true
+  },
+  {
+    "id": 14, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": null,
+    "rationale": "The description states degree requirements, location, and no relocation assistance, but no sponsorship policy. Relocation and visa sponsorship are separate questions.",
+    "category": "title-recognition", "diagnosis": "The visible Workday title is h2 and the h1 is empty. The scanner returns unreadable before it interprets the job description. This is a job-detection miss even though the correct sponsorship assessment remains unclear."
+  },
+  {
+    "id": 15, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": null,
+    "rationale": "The PhD internship's technical qualifications, compensation, and general employment statement do not explicitly answer sponsorship. Intel's reputation or history cannot fill that gap for this requisition.",
+    "category": "title-recognition", "diagnosis": "The job title is h2. Branding and cookie-dialog headings do not provide the unique supported role title required by the scanner, which returns unreadable despite matching-looking structured job information."
+  },
+  {
+    "id": 16, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": null,
+    "rationale": "The January–August 2027 co-op lists degree requirements and housing/sign-on support but does not state a visa-sponsorship policy. Financial assistance alone is not sponsorship evidence.",
+    "category": "title-recognition", "diagnosis": "The Workday role heading is h2 and does not satisfy roleTitle. The scanner reports unreadable. A title fix would restore a job record; the reviewed wording would still justify unclear.",
+    "seasonNote": "January–August 2027 co-op, not a summer-only internship."
+  },
+  {
+    "id": 17, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "Must not require sponsorship to work in the United States now or in the future.",
+    "rationale": "Under the role's qualifications, applicants must have no present or future sponsorship need. That establishes an exclusion for applicants requiring employer sponsorship.",
+    "category": "title-recognition", "diagnosis": "Workday's h2 title blocks job recognition. A body-only run also stays unclear: the phrase rules handle several employer-refusal sentences but not this requirement-style formulation. Both job-title recognition and the interpretation of qualification bullets need work.",
+    "samePageRefusal": true, "phraseGap": true, "restriction": "No present or future sponsorship need."
+  },
+  {
+    "id": 18, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "This position is not eligible for visa sponsorship.",
+    "rationale": "The posting explicitly excludes sponsorship, with surrounding wording extending the authorization requirement to present and future needs.",
+    "category": "title-recognition", "diagnosis": "The h2 role heading blocks the scanner, which returns unreadable. The body-only interpreter correctly returns unavailable. Fixing recognition would expose a refusal that the existing language rules already understand.",
+    "samePageRefusal": true, "restriction": "Work authorization without sponsorship now or in the future."
+  },
+  {
+    "id": 19, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting and application", "quote": "Will you now or in the future require sponsorship for employment visa status",
+    "rationale": "The application asks about sponsorship needs and requests an explanation. That is information collection, not an offer or refusal. No explicit policy was established in the reviewed vacancy.",
+    "category": "appropriate-uncertainty", "diagnosis": "The extension correctly detects the role and keeps the question from becoming policy. It does not identify DRW as the employer because the Greenhouse page lacks the particular employer markup it uses. This would block optional research despite a valid job record.",
+    "seasonNote": "Live title is Spring 2027 City Scholars Software Developer Intern; the repository's shortened title omits that program and season."
+  },
+  {
+    "id": 20, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "Boston Scientific will not offer sponsorship or take over sponsorship",
+    "rationale": "The posting directly refuses sponsorship or transfer at present. Its qualification list additionally requires work eligibility without company sponsorship now or in the future.",
+    "category": "wrong-role-title", "diagnosis": "The scanner calls the role Single Position, a template h1, instead of the h2 internship title. It discards the real job metadata and loses the employer. It extracts both restriction passages but leaves sponsorship unclear: the patterns do not support this named-company subject, and company sponsorship is absent from the generic without-sponsorship expression.",
+    "samePageRefusal": true, "phraseGap": true, "restriction": "Present refusal plus a qualification requiring no current/future company sponsorship."
+  },
+  {
+    "id": 21, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting; requirement interpreted in context", "quote": "Authorization to work in the United States without visa sponsorship",
+    "rationale": "This appears in the role's eligibility list, making independent work authorization a condition of the internship. I interpret it as no sponsorship for the role. It does not establish a separate lifetime or future-employment policy.",
+    "category": "interpretation", "diagnosis": "Title, employer, and the relevant passage are extracted. The rules require a formulation such as must be authorized or an explicit offer/refusal sentence, and do not carry the eligibility-list context into this noun-phrase bullet. The result remains unclear.",
+    "samePageRefusal": true, "phraseGap": true
+  },
+  {
+    "id": 22, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting with explicit eligibility restriction", "quote": "U.S. Citizenship, Lawful Permanent Residency, or Refugee/Asylee Status Required",
+    "rationale": "The posting states a restricted set of immigration/citizenship categories. It does not offer visa sponsorship. Preserve the full alternatives: this is broader than a citizens-only rule, and sponsorship willingness is not directly stated.",
+    "category": "appropriate-uncertainty", "diagnosis": "The extension detects the role, keeps sponsorship unclear, and surfaces the restriction. Its generic Citizenship condition label should not be read as citizens-only; the full quote matters. Employer extraction is missing, which would block research.",
+    "restriction": "Citizenship, lawful permanent residence, refugee/asylee or other stated protected-individual status; not citizens only."
+  },
+  {
+    "id": 23, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "Visa sponsorship is not available for this position.",
+    "rationale": "The posting explicitly refuses sponsorship for this vacancy. Its separate U.S.-person restriction should remain separate from that refusal and should not be rewritten as citizens-only.",
+    "category": "correct-definitive-result", "diagnosis": "The tool identifies the role and employer, recognizes the explicit refusal, and records the U.S.-person condition. This is a successful end-to-end example in the audited sample.",
+    "samePageRefusal": true, "restriction": "U.S.-person condition stated separately."
+  },
+  {
+    "id": 24, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting with explicit eligibility restriction", "quote": "US Citizenship with the ability to obtain a security clearance",
+    "rationale": "This bullet appears under Requirements, making citizenship a stated condition. It is not an explicit sponsorship policy and should not be generalized to the whole employer.",
+    "category": "title-recognition", "diagnosis": "The h2 title prevents job detection. Even the body-only diagnostic misses the restriction because restrictionKind expects a word such as must, required, or only inside the same clause. The obligation is instead carried by the preceding Requirements heading, whose context is lost.",
+    "restriction": "U.S. citizenship and ability to obtain a clearance are required."
+  },
+  {
+    "id": 25, "status": "unclear", "evidenceSuffix": "-mirror-full", "basis": "Secondary full-posting copy; primary URL redirected to careers homepage", "quote": null,
+    "rationale": "The copied MTS/ITW internship description has no explicit sponsorship policy. The repository's employer link no longer opened that vacancy in the audited visit, so the live primary policy could not be confirmed.",
+    "category": "redirected-listing", "diagnosis": "The primary URL redirects to the general ITW careers page. Returning non-job for that destination is appropriate; it does not mean the extension missed a visible vacancy. The mirror detects the job and returns unclear. The copy identifies MTS as an ITW company, so future research must preserve the operating-entity distinction."
+  },
+  {
+    "id": 26, "status": "unavailable", "evidenceSuffix": "-description", "basis": "Official job overview", "quote": "We are unable to provide visa sponsorship or transfer.",
+    "rationale": "The separate job overview expressly refuses sponsorship and transfer. The repository's application view only asks about the applicant's visa situation, so that view alone cannot establish the refusal.",
+    "category": "application-description-gap", "diagnosis": "The actual application-page scan returns unclear; the overview scan returns unavailable with the correct role and employer. This isolates missing description/navigation coverage rather than a phrase-rule defect. The application is also incorrectly marked description-found, so the UI understates the missing context."
+  },
+  {
+    "id": 27, "status": "unavailable", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": "GM FINANCIAL DOES NOT PROVIDE IMMIGRATION-RELATED SPONSORSHIP FOR THIS ROLE.",
+    "rationale": "This explicitly refuses sponsorship. The following sentence also declines employer-of-record and paperwork support for listed arrangements including OPT, STEM OPT, and CPT. That support restriction must be preserved rather than simplified into an unsupported claim about every person's eligibility.",
+    "category": "interpretation", "diagnosis": "The correct role and employer are extracted, including the complete restriction paragraph. The rules do not recognize the named-company subject and immigration-related wording, and they do not connect the next sentence's This includes list to the refusal. Sponsorship, CPT, and OPT all remain unclear.",
+    "samePageRefusal": true, "phraseGap": true, "restriction": "Explicit refusal of employer immigration support, including the listed CPT/OPT arrangements."
+  },
+  {
+    "id": 28, "status": "unavailable", "evidenceSuffix": "-mirror-full", "basis": "Search-indexed official posting, corroborated by secondary full-posting copy; browser URL returned HTTP 403", "quote": "This role is not eligible for visa sponsorship.",
+    "officialIndexedUrl": "https://careers.amd.com/careers-home/jobs/91005",
+    "rationale": "The indexed official page matches requisition 91005 and directly excludes sponsorship. The linked full-posting copy contains the same exclusion. The direct browser could not retrieve the employer content.",
+    "category": "access-blocked", "diagnosis": "The exact repository destination returned 403, leaving the extension no job text. It returns unavailable on the readable mirror, but that is a different source and is not counted as a primary-page success. The indexed source and live browser have different access paths."
+  },
+  {
+    "id": 29, "status": "unavailable", "evidenceSuffix": "-mirror-full", "basis": "Secondary full-posting copy; official URL returned HTTP 403", "quote": "employer will not sponsor applicants for U.S. work authorization",
+    "rationale": "The full-posting copy expressly refuses employer work-authorization sponsorship for this opportunity. The same requisition is also reproduced elsewhere, but the live employer page was inaccessible; keep the conclusion marked as secondary-source evidence.",
+    "category": "access-blocked", "diagnosis": "The browser receives a 403 page, so the extension returns non-job without access to the policy. On the mirror it returns unavailable. This is an access limitation, not evidence that the phrase interpreter failed on the original policy."
+  },
+  {
+    "id": 30, "status": "unclear", "evidenceSuffix": "-verified", "basis": "Official posting", "quote": null,
+    "rationale": "The Qualitrol/Ralliant posting describes the co-op and its qualifications but does not establish sponsorship. The live role is a fall co-op despite appearing in the summer repository.",
+    "category": "description-threshold", "diagnosis": "A valid h1 and Apply Now button exist, but the DOM has no usable JobPosting metadata. The generic detector requires two prescribed description keyword groups; this page supplies only the duties group and uses Who We're Looking For for qualifications. It is therefore labeled non-job.",
+    "seasonNote": "Live posting is a six-month Fall 2027 co-op; operating company is Qualitrol."
+  }
+]

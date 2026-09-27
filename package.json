@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "test:browser": "node scripts/browser-smoke.mjs",
+    "test:browser:embedded": "node scripts/browser-embedded.mjs",
     "test:popup": "node scripts/popup-sizing.mjs",
     "test:research": "tsx scripts/research-smoke.ts",
     "research:serve": "node --env-file-if-exists=.env --import tsx server/index.ts",

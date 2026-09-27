@@ -1,0 +1,280 @@
+{
+  "sourceUrl": "https://github.com/SimplifyJobs/Summer2027-Internships",
+  "readmeUrl": "https://raw.githubusercontent.com/SimplifyJobs/Summer2027-Internships/dev/README.md",
+  "retrievedAt": "2026-09-26T16:48:41.949Z",
+  "readmeSha256": "fb859bce146d36261776191f6fd71870e159c00570d27dce1eac889518a9dc64",
+  "extensionCommit": "3cb47e77ec8a4505f1ebabf615e2b4fc06d5b560",
+  "method": "First 30 distinct employers with application links, in README software-engineering table order; no filtering by outcome. All selected rows have U.S. locations. Includes co-ops listed in the repository.",
+  "records": [
+    {
+      "id": 1,
+      "repositoryRow": 1,
+      "company": "Flint",
+      "title": "Engineering Intern - Summer 2027",
+      "location": "SF",
+      "url": "https://jobs.ashbyhq.com/flint/39f9e665-7037-4dff-b77a-ff7039df2bfc/application?embed=true",
+      "mirror": "https://simplify.jobs/p/ec241207-37cb-48f4-aa65-cf19d960f7a2"
+    },
+    {
+      "id": 2,
+      "repositoryRow": 2,
+      "company": "Waymo",
+      "title": "Software Engineer Intern - Driver Refinement Foundations",
+      "location": "Mountain View, CA",
+      "url": "https://careers.withwaymo.com/jobs?gh_jid=8224900",
+      "mirror": "https://simplify.jobs/p/44631389-4603-4cbc-bb24-596433854282"
+    },
+    {
+      "id": 3,
+      "repositoryRow": 3,
+      "company": "Bedrock Robotics",
+      "title": "Safety Engineer Intern - Agentic Safety Case Assessment",
+      "location": "SF",
+      "url": "https://jobs.ashbyhq.com/bedrock-robotics/cb06dc4f-3e78-4546-897d-b39ba12a9178/application?embed=true",
+      "mirror": "https://simplify.jobs/p/468b84e5-6585-46ca-a0bc-c17392fa706d"
+    },
+    {
+      "id": 4,
+      "repositoryRow": 6,
+      "company": "AbbVie",
+      "title": "Business Technology Solutions Intern - Data & Software Engineering",
+      "location": "Irvine, CA",
+      "url": "https://jobs.smartrecruiters.com/AbbVie/3743990015684476",
+      "mirror": "https://simplify.jobs/p/fec9533c-b5cc-4a22-b148-01e36f9516d4"
+    },
+    {
+      "id": 5,
+      "repositoryRow": 7,
+      "company": "RRS Group",
+      "title": "Associate Software Engineer Intern - Sophomore Only",
+      "location": "SF",
+      "url": "https://jobs.smartrecruiters.com/RRSGroup/744000151931819",
+      "mirror": "https://simplify.jobs/p/d750fe7b-cab1-448d-87f7-d9cc9f2ad969"
+    },
+    {
+      "id": 6,
+      "repositoryRow": 8,
+      "company": "Lutron Electronics",
+      "title": "Software Engineering Co-op",
+      "location": "Philadelphia, PA",
+      "url": "https://careers.lutron.com/jobs/5616?icims=1",
+      "mirror": "https://simplify.jobs/p/06121173-b783-44a5-bd34-4a7465768bbb"
+    },
+    {
+      "id": 7,
+      "repositoryRow": 9,
+      "company": "First Citizens BancShares",
+      "title": "IT Intern - Software Developer",
+      "location": "Raleigh, NC",
+      "url": "https://firstcitizens.jibeapply.com/jobs/35709?icims=1",
+      "mirror": "https://simplify.jobs/p/074a0da6-73e2-402d-90a7-ca4bf302d862"
+    },
+    {
+      "id": 8,
+      "repositoryRow": 10,
+      "company": "Electronic Arts",
+      "title": "Gameplay Engineer Intern",
+      "location": "LA",
+      "url": "https://jobs.ea.com/en_US/careers/JobDetail/Gameplay-Engineer-Intern/216245",
+      "mirror": "https://simplify.jobs/p/8309b5a0-8e75-434e-b1e6-419b51f357ae"
+    },
+    {
+      "id": 9,
+      "repositoryRow": 11,
+      "company": "The Aerospace Corporation",
+      "title": "Software Systems Engineer Intern - Acquisition",
+      "location": "Chantilly, VAEl Segundo, CA",
+      "url": "https://aero.wd5.myworkdayjobs.com/external/job/El-Segundo-CA/XMLNAME-2027-Software-Systems-Engineer-and-Acquisition-Intern_R016431",
+      "mirror": "https://simplify.jobs/p/6db9023a-15b9-4dfa-a544-4779d19c4277"
+    },
+    {
+      "id": 10,
+      "repositoryRow": 12,
+      "company": "RTX",
+      "title": "Software Engineer Intern - Summer 2027",
+      "location": "West Valley City, UT",
+      "url": "https://globalhr.wd5.myworkdayjobs.com/rec_rtx_ext_gateway/job/US-UT-WEST-VALLEY-CITY-338--1127--1128-w-2400-S--BLDG-338/Software-Engineering-Intern--Summer-2027-_01875358",
+      "mirror": "https://simplify.jobs/p/6ea50b0f-5bb0-46f9-9acf-2cb906b4da62"
+    },
+    {
+      "id": 11,
+      "repositoryRow": 13,
+      "company": "Rockwell Automation",
+      "title": "AI Software Engineer Intern",
+      "location": "Mayfield Heights, OHMilwaukee, WI",
+      "url": "https://rockwellautomation.wd1.myworkdayjobs.com/External-Rockwell-Automation-Early-Careers/job/Mayfield-Heights-Ohio-United-States/Intern--AI-Software-Engineering--June-August-2027-_R26-6980",
+      "mirror": "https://simplify.jobs/p/f9cecf37-3d67-4284-acf1-bce7d8f9994e"
+    },
+    {
+      "id": 12,
+      "repositoryRow": 17,
+      "company": "Pacific Life",
+      "title": "Software Engineering Intern",
+      "location": "Newport Beach, CA",
+      "url": "https://pacificlife.wd1.myworkdayjobs.com/en-US/PacificLifeCareers/job/Newport-Beach-CA-700/Summer-2027-Software-Engineering-Internship_R17826",
+      "mirror": "https://simplify.jobs/p/68e6a9de-b100-4023-b025-dddbc6addbeb"
+    },
+    {
+      "id": 13,
+      "repositoryRow": 18,
+      "company": "Northwestern Mutual",
+      "title": "Actuarial Systems Intern",
+      "location": "Milwaukee, WI",
+      "url": "https://northwesternmutual.wd5.myworkdayjobs.com/corporate-careers/job/Milwaukee-WI-Corporate/Actuarial-Systems-Intern--Summer-2027_JR-46073",
+      "mirror": "https://simplify.jobs/p/d37558d5-18db-46de-a3b9-2e33b19e8b91"
+    },
+    {
+      "id": 14,
+      "repositoryRow": 19,
+      "company": "Motorola",
+      "title": "Software Engineer Intern - Summer 2027",
+      "location": "Elgin, IL",
+      "url": "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Greater-Chicago-Area/Software-Engineer-Intern---Summer-2027_R68679",
+      "mirror": "https://simplify.jobs/p/2f66f3c8-4ff6-4ae9-a40e-ab8552e65340"
+    },
+    {
+      "id": 15,
+      "repositoryRow": 20,
+      "company": "Intel",
+      "title": "Software Research Intern - PhD 🎓",
+      "location": "Hillsboro, OR",
+      "url": "https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-Oregon-Hillsboro/Software-Solutions-PhD-Intern-New-2027_JR0287314",
+      "mirror": "https://simplify.jobs/p/ef2297ca-14a3-41d1-b09c-4297b662e9f6"
+    },
+    {
+      "id": 16,
+      "repositoryRow": 22,
+      "company": "Greenheck Group",
+      "title": "Application Developer Co-op",
+      "location": "Schofield, WI",
+      "url": "https://greenheckgroup.wd5.myworkdayjobs.com/external/job/Schofield-WI/Application-Developer-Co-op_JR104721",
+      "mirror": "https://simplify.jobs/p/f8aa999f-66d3-4ae6-b0bf-286944064197"
+    },
+    {
+      "id": 17,
+      "repositoryRow": 23,
+      "company": "Cencora",
+      "title": "Software Intern",
+      "location": "Remote in USA",
+      "url": "https://myhrabc.wd5.myworkdayjobs.com/Global/job/Remote-USA/Software-Intern_R2613763",
+      "mirror": "https://simplify.jobs/p/85ec94f8-b794-406d-b74b-06e49b725a08"
+    },
+    {
+      "id": 18,
+      "repositoryRow": 24,
+      "company": "American Century Investments",
+      "title": "Software Developer Intern",
+      "location": "Kansas City, MO",
+      "url": "https://americancentury.wd5.myworkdayjobs.com/AmericanCenturyInvestments/job/Kansas-City-Missouri/Software-Developer-Intern_R0005749-1",
+      "mirror": "https://simplify.jobs/p/099a34f8-de36-4008-b851-c1546eb7f942"
+    },
+    {
+      "id": 19,
+      "repositoryRow": 25,
+      "company": "DRW",
+      "title": "Software Developer Intern",
+      "location": "Chicago, IL",
+      "url": "https://job-boards.greenhouse.io/drwuniversityjobs/jobs/8220587",
+      "mirror": "https://simplify.jobs/p/8f85be1b-0295-405b-b168-84fc834d7d8a"
+    },
+    {
+      "id": 20,
+      "repositoryRow": 26,
+      "company": "Boston Scientific",
+      "title": "Software Engineer Intern - R&D",
+      "location": "Arden Hills, MN",
+      "url": "https://bostonscientific.eightfold.ai/careers/job/563602813542900",
+      "mirror": "https://simplify.jobs/p/521a56a4-f683-4861-8565-e081a72736c1"
+    },
+    {
+      "id": 21,
+      "repositoryRow": 29,
+      "company": "Lazard",
+      "title": "AI and Data Transformation Intern",
+      "location": "NYC",
+      "url": "https://icbpjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LazardProfessionalCareers/job/6650",
+      "mirror": "https://simplify.jobs/p/63f4d5fe-1a58-43dc-8299-1dcb69b5b2f6"
+    },
+    {
+      "id": 22,
+      "repositoryRow": 30,
+      "company": "Astranis",
+      "title": "Network Software Intern",
+      "location": "SF",
+      "url": "https://job-boards.greenhouse.io/astranis/jobs/4705597006",
+      "mirror": "https://simplify.jobs/p/2b447abf-4a95-4c48-a2bb-10f5a7870bdc"
+    },
+    {
+      "id": 23,
+      "repositoryRow": 31,
+      "company": "Arconic",
+      "title": "Software Developer Intern",
+      "location": "Davenport, IA",
+      "url": "https://hdnn.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/114233",
+      "mirror": "https://simplify.jobs/p/60174f6d-1cb4-49c4-93db-3cf3d5dc9382"
+    },
+    {
+      "id": 24,
+      "repositoryRow": 32,
+      "company": "Radiance Technologies",
+      "title": "Software Engineer Intern",
+      "location": "Dayton, OH",
+      "url": "https://radiancetech.wd12.myworkdayjobs.com/Radiance_External/job/Dayton-Office/Software-Engineer-Intern-Spring-Summer-2027_HR102442",
+      "mirror": "https://simplify.jobs/p/544076ef-ca22-485c-8793-4770c7d30023"
+    },
+    {
+      "id": 25,
+      "repositoryRow": 45,
+      "company": "Illinois Tool Works",
+      "title": "Software Engineer Intern",
+      "location": "Eden Prairie, MN",
+      "url": "https://careers.itw.com/global/en/job/JR10261",
+      "mirror": "https://simplify.jobs/p/9e770238-e3ff-491f-baa6-08a85518e661"
+    },
+    {
+      "id": 26,
+      "repositoryRow": 46,
+      "company": "Qumulo",
+      "title": "Software Development Engineer Intern",
+      "location": "Seattle, WA",
+      "url": "https://jobs.ashbyhq.com/qumulo/43855947-3a85-4d1c-8b8e-e0c0ddcaf183/application?embed=true",
+      "mirror": "https://simplify.jobs/p/c2cbd149-9096-42ca-b785-b8ab7d96e3cf"
+    },
+    {
+      "id": 27,
+      "repositoryRow": 47,
+      "company": "GM financial",
+      "title": "Software Development Engineer Intern",
+      "location": "Arlington, TX",
+      "url": "https://fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/260943",
+      "mirror": "https://simplify.jobs/p/c101ff9c-9897-4854-bc18-a135671acfc2"
+    },
+    {
+      "id": 28,
+      "repositoryRow": 48,
+      "company": "AMD",
+      "title": "AI Engineering Intern 🎓",
+      "location": "Santa Clara, CA",
+      "url": "https://careers.amd.com/jobs/91005?icims=1",
+      "mirror": "https://simplify.jobs/p/4dd92b4d-fcb3-4e7f-ab7e-984aa0260f5e"
+    },
+    {
+      "id": 29,
+      "repositoryRow": 50,
+      "company": "State Farm",
+      "title": "Software Developer Intern - HR&D",
+      "location": "4 locationsTempe, AZDunwoody, GARichardson, TXBloomington, IL",
+      "url": "https://jobs.statefarm.com/jobs/45689?icims=1",
+      "mirror": "https://simplify.jobs/p/d824265f-dd15-4d91-8ad3-661f123098c7"
+    },
+    {
+      "id": 30,
+      "repositoryRow": 51,
+      "company": "Ralliant",
+      "title": "Research and Development Co-op",
+      "location": "Fairport, NY",
+      "url": "https://ibwujb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/10637",
+      "mirror": "https://simplify.jobs/p/772904d0-c686-441a-b5dd-5c8e650d5b36"
+    }
+  ]
+}

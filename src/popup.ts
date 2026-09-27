@@ -59,7 +59,7 @@ function render(snapshot: ScannerSnapshot): void {
     container.className = 'evidence';
     const source = document.createElement('div');
     source.className = 'source';
-    source.textContent = `${block.source === 'visible-page' ? 'Visible page' : 'Structured page data'}${block.kind === 'application-question' ? ' · Question wording' : ''}`;
+    source.textContent = `${block.source === 'visible-page' ? 'Visible page' : block.source === 'embedded-frame' ? 'Embedded job frame' : 'Structured page data'}${block.kind === 'application-question' ? ' · Question wording' : ''}`;
     const text = document.createElement('p');
     text.textContent = block.text;
     container.append(source, text);
