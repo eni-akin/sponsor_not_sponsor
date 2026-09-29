@@ -7,6 +7,8 @@ export function badgeState(snapshot: ScannerSnapshot): { label: string; tone: st
   if (snapshot.state === 'error') return { label: 'Unable to read job', tone: 'neutral' };
   if (result?.kind === 'unreadable') return { label: 'Unable to identify job', tone: 'neutral' };
   if (!result?.role || !result.interpretation) return null;
+  if (result.interpretation.decision?.state === 'pending') return { label: 'Laya is reading this job…', tone: 'neutral' };
+  if (result.interpretation.decision?.state === 'error') return { label: 'Laya unavailable · Unclear', tone: 'neutral' };
   const finding = result.interpretation.sponsorship;
   const time = finding.citations.length && finding.citations.every(citation => citation.timing === 'future') ? 'Future sponsorship'
     : finding.citations.length && finding.citations.every(citation => citation.timing === 'now') ? 'Current sponsorship' : 'Sponsorship';

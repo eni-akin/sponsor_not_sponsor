@@ -1,46 +1,58 @@
-import { ResearchCoordinator } from './research-coordinator';
-import { parseResearchRequest, publicUrl, RESEARCH_ORIGIN, RESEARCH_PERMISSION } from './research';
 import { parseSettings } from './settings';
-
-const permitted = async () => {
-  const saved = await chrome.storage.local.get(['settings', 'researchEnabled']);
-  return saved.researchEnabled === true && !parseSettings(saved.settings).paused
-    && await chrome.permissions.contains({ origins: [RESEARCH_PERMISSION] });
-};
-const coordinator = new ResearchCoordinator({
-  get: async key => (await chrome.storage.session.get(key))[key],
-  set: async (key, value) => {
-    await chrome.storage.session.set({ [key]: value });
-    const all = await chrome.storage.session.get(null);
-    const keys = Object.keys(all).filter(key => key.startsWith('research:'));
-    if (keys.length > 50) await chrome.storage.session.remove(keys.filter(k => k !== key).slice(0, keys.length - 50));
-  },
-}, async request => {
-  const response = await fetch(`${RESEARCH_ORIGIN}/research`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(request), credentials: 'omit', redirect: 'error', signal: AbortSignal.timeout(22_000) });
-  if (!response.ok) throw new Error('Service unavailable');
-  const text = await response.text();
-  if (text.length > 150_000) throw new Error('Oversized response');
-  return JSON.parse(text) as unknown;
-}, permitted);
+import { DECISION_ORIGIN, DECISION_PERMISSION, parseDecisionRequest } from './decision';
 
 chrome.runtime.onMessage.addListener((message, sender, respond) => {
-  if (message?.type !== 'RESEARCH') return;
-  const request = parseResearchRequest(message.request);
-  if (sender.id !== chrome.runtime.id || sender.tab?.id === undefined || sender.frameId !== 0 || !request
-    || !sender.url || publicUrl(sender.url) !== request.url) { respond({ state: 'error', message: 'Invalid research request.' }); return; }
-  void (async () => {
-    const settings = parseSettings((await chrome.storage.local.get('settings')).settings);
-    if (settings.disabledHosts.includes(new URL(sender.url!).hostname)) return { state: 'error', message: 'Scanning is disabled on this site.' };
-    const reply = await coordinator.run(request);
-    const latest = parseSettings((await chrome.storage.local.get('settings')).settings);
-    if (!await permitted() || latest.disabledHosts.includes(new URL(sender.url!).hostname)) return { state: 'error', message: 'Company research is disabled.' };
-    return reply;
-  })().then(respond, () => respond({ state: 'error', message: 'Company research is unavailable.' }));
-  return true;
-});
-chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === 'local' && changes.researchEnabled?.newValue !== true && changes.researchEnabled) {
-    void chrome.storage.session.get(null).then(saved => chrome.storage.session.remove(Object.keys(saved).filter(key => key.startsWith('research:'))));
+  if (message?.type === 'DECISION') {
+    const request = parseDecisionRequest(message.request);
+    if (sender.id !== chrome.runtime.id || sender.tab?.id === undefined || sender.frameId !== 0 || !sender.url || !request) {
+      respond({ state: 'error', message: 'Invalid decision request.' }); return;
+    }
+    const allowed = async () => {
+      const saved = await chrome.storage.local.get(['settings', 'decisionEnabled']);
+      const settings = parseSettings(saved.settings);
+      return saved.decisionEnabled === true && !settings.paused && !settings.disabledHosts.includes(new URL(sender.url!).hostname)
+        && await chrome.permissions.contains({ origins: [DECISION_PERMISSION] });
+    };
+    void (async () => {
+      if (!await allowed()) return { state: 'error', message: 'Enable Local Laya in the extension popup and grant local service access.' };
+      const response = await fetch(`${DECISION_ORIGIN}/decision`, { method: 'POST', credentials: 'omit', redirect: 'error',
+        headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(request), signal: AbortSignal.timeout(8000) });
+      if (!response.ok) throw new Error('Unavailable');
+      const body = await response.text();
+      if (body.length > 1_000_000 || !await allowed()) throw new Error('Invalid response');
+      return JSON.parse(body);
+    })().then(respond, () => respond({ state: 'error', message: 'Local Laya is unavailable. Start pnpm decision:serve, then scan again.' }));
+    return true;
+  }
+  if (message?.type === 'FRAME_AVAILABLE') {
+    if (sender.id === chrome.runtime.id && sender.tab?.id !== undefined && (sender.frameId ?? 0) > 0
+      && sender.documentId && sender.url && /^https?:\/\//.test(sender.url)) {
+      void chrome.tabs.sendMessage(sender.tab.id, { type: 'FRAME_AVAILABLE', frameId: sender.frameId,
+        documentId: sender.documentId, url: sender.url }, { frameId: 0 }).catch(() => {});
+    }
+    respond({ received: true });
+    return;
+  }
+  if (message?.type === 'FRAME_POLL') {
+    if (sender.id === chrome.runtime.id && sender.tab?.id !== undefined && sender.frameId === 0) {
+      void chrome.tabs.sendMessage(sender.tab.id, { type: 'FRAME_POLL_CHILDREN' }).catch(() => {});
+    }
+    respond({ requested: true });
+    return;
+  }
+  if (message?.type === 'FRAME_READ') {
+    const frameId = message.frameId;
+    const documentId = message.documentId;
+    const url = message.url;
+    if (sender.id !== chrome.runtime.id || sender.tab?.id === undefined || sender.frameId !== 0
+      || !sender.url || !Number.isInteger(frameId) || frameId <= 0 || typeof documentId !== 'string'
+      || !documentId || typeof url !== 'string' || !/^https?:\/\//.test(url)) { respond(null); return; }
+    void (async () => {
+      const settings = parseSettings((await chrome.storage.local.get('settings')).settings);
+      if (settings.paused || settings.disabledHosts.includes(new URL(sender.url!).hostname)) return null;
+      const result = await chrome.tabs.sendMessage(sender.tab!.id!, { type: 'FRAME_READ_CHILD' }, { frameId, documentId });
+      return result?.url === url ? result : null;
+    })().then(respond, () => respond(null));
+    return true;
   }
 });

@@ -1,5 +1,7 @@
 # Job recognition and description extraction: research and implementation plan
 
+Historical extraction diagnosis and evidence. This document is retained for history; [PLAN.md](PLAN.md) is the current roadmap.
+
 Date: September 26, 2026. Status: implementation underway. See [the first implementation checkpoint](evaluation/live-2026-09-26/IMPLEMENTATION_CHECKPOINT.md) for completed work, measured results, and remaining phases. The phases and targets below remain the broader plan.
 
 This expands sections 7A–7E of [the detection improvement plan](DETECTION_IMPROVEMENT_PLAN.md). The initial implementation follows this research plan; the full program and accuracy beta remain in progress. Section 7F remains the separate work on understanding sponsorship language.
@@ -248,4 +250,6 @@ After recognition and extraction are reliable, address section 7F's six observed
 
 **Implementation progress:** title/root selection, relevant application actions, matching structured-description recovery, and same-origin embedded jobs are measured in the [first checkpoint](evaluation/live-2026-09-26/IMPLEMENTATION_CHECKPOINT.md). Source-specific description coverage and exact-path Ashby overview recovery are implemented in the next package. The overview reader only fetches the same-origin public job URL derived from an Ashby application URL, requires matching title and requisition identity, bounds the response, and attributes recovered evidence to that overview. A failed or mismatched overview remains incomplete. This recovery path passes unit fixtures and a mocked Ashby URL in Chromium, but has not yet been measured on a live application page that lacks local structured description data.
 
-The remaining work is cross-origin frame coordination, broader provider overview/API readers, hidden/open-shadow-root coverage, the separate sponsorship language-rule failures, and a fresh labeled holdout. These require separate browser and outcome measurements before claiming improved accuracy beyond the previous checkpoint.
+**Cross-origin frame stage:** the extension now runs a small frame-local reader in HTTP(S) frames. The top page requests a frame scan only after matching one visible direct iframe to that frame's exact URL. Frame text remains attributed to its own URL, changes inside the frame refresh the result, and removal, navigation, pause, or site disable clears stale results. Two visible cross-origin frames remain unresolved rather than selecting the first reply. A local Chromium test covers the single-frame, update, removal, ambiguity, and pause paths. Redirected frame URLs, nested cross-origin frames, and pages with multiple visible non-job iframes still need broader coordination and live-site measurement.
+
+The remaining work is broader provider overview/API readers, hidden/open-shadow-root coverage, the separate sponsorship language-rule failures, and a fresh labeled holdout. These require separate browser and outcome measurements before claiming improved accuracy beyond the previous checkpoint.

@@ -1,5 +1,7 @@
 # Company research preview (Section 5)
 
+> Deferred as of September 29, 2026. The service and tests remain available for development, but the active extension no longer includes research settings, requests or results. The integration instructions below describe the historical preview and cannot be followed in the current popup. See [the active plan](../PLAN.md). Local Laya setup is separate in [DECISIONS.md](DECISIONS.md).
+
 This local TypeScript service looks for the same official vacancy, then official hiring policies, then reviewed historical employer records. Research is displayed separately from the current posting. It never changes the page's sponsorship/CPT/OPT findings or badge based on company history or general policy.
 
 ## Start and enable
@@ -78,7 +80,7 @@ The service accepts JSON POST requests only from the configured extension origin
 ## Verification
 
 - `pnpm check`: source type checking, unit/regression tests, build.
-- `pnpm test:research`: real extension worker → local HTTP service → fixture source integration, using an isolated temporary browser and cache. No external searches. Port 4318 must be free; stop your running research service first.
+- `scripts/research-smoke.ts` is retained as a historical integration runner for the retired research-enabled extension. Its package command was removed; it does not pass against the current extension. Backend unit tests still run through `pnpm test`.
 - `pnpm test:browser`: existing scanning, popup, panel, zoom, privacy, and navigation checks with research off by default.
 - `pnpm test:popup`: actual toolbar sizing before and after onboarding.
 

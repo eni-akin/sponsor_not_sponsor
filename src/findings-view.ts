@@ -19,6 +19,7 @@ function citationView(citation: Citation): HTMLElement {
   container.append(textElement('blockquote', citation.quote));
   const source = citation.source === 'visible-page' ? 'Current page · Explicit text'
     : citation.source === 'embedded-frame' ? 'Embedded job frame · Explicit text'
+      : citation.source === 'embedded-structured-data' ? 'Structured data in embedded frame · Verify against the displayed role'
       : citation.source === 'official-overview' ? 'Official job overview · Matched role'
         : 'Structured page data · Verify against the displayed role';
   container.append(textElement('p', [source, timingLabels[citation.timing]].filter(Boolean).join(' · '), 'source'));
@@ -53,6 +54,7 @@ function findingView(name: string, finding: Finding<SponsorshipStatus | Training
 
 export function renderFindings(container: HTMLElement, interpretation: Interpretation, source?: { url: string; scannedAt: string }): void {
   const nodes: HTMLElement[] = [];
+  if (interpretation.decision) nodes.push(textElement('p', interpretation.decision.message, 'source'));
   if (interpretation.restrictions.length) {
     const restrictions = document.createElement('section');
     restrictions.className = 'restrictions';
