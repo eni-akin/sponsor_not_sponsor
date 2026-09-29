@@ -1,4 +1,6 @@
-# Section 7: post-completion detection and interpretation improvements
+# Historical detection and interpretation improvement plan
+
+This document preserves the earlier Section 7 investigation and evidence. It is retained for history; [PLAN.md](PLAN.md) is the current roadmap.
 
 Date: September 24, 2026. Current status: initial recognition and extraction implementation underway; see the linked checkpoint below. The original investigation was planning only.
 

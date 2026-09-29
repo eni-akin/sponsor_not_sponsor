@@ -1,5 +1,7 @@
 # Job Sponsorship Chrome Extension — Development Plan
 
+This is the original product plan, retained as historical context. [PLAN.md](PLAN.md) is the current roadmap; [README.md](README.md) has current install and usage instructions.
+
 Implementation is organized into [six deliverable sections](IMPLEMENTATION.md). Setup, build, and preview instructions are in [README.md](README.md).
 
 Build this as a **Chrome extension that automatically recognizes job postings and application pages, checks the employer’s requirements, and shows a small badge with evidence.** It should work with links from any source and cover internships, full-time jobs, part-time jobs, and contract roles.

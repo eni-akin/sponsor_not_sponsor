@@ -183,9 +183,11 @@ function embeddedJob(doc: Document, href: string, depth: number): ScanResult | n
     warnings: [...child.warnings, 'This job description was read from a same-origin embedded frame.'],
     role: { ...child.role!, coverage: child.role!.coverage && { ...child.role!.coverage,
       sources: child.role!.coverage.sources.map(source => ({ ...source,
-        kind: source.kind === 'visible-page' ? 'embedded-frame' as const : source.kind, url: child.url })) },
+        kind: source.kind === 'visible-page' ? 'embedded-frame' as const
+          : source.kind === 'structured-data' ? 'embedded-structured-data' as const : source.kind, url: child.url })) },
       evidence: child.role!.evidence.map(block => ({ ...block, sourceUrl: child.url,
-      source: block.source === 'visible-page' ? 'embedded-frame' as const : block.source,
+      source: block.source === 'visible-page' ? 'embedded-frame' as const
+        : block.source === 'structured-data' ? 'embedded-structured-data' as const : block.source,
       locator: `iframe:${new URL(child.url).pathname} > ${block.locator}` })) } };
 }
 

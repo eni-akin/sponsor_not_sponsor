@@ -3,7 +3,7 @@ export type PageKind = 'job-posting' | 'job-application' | 'multiple-jobs' | 'no
 export interface EvidenceBlock {
   id: string;
   text: string;
-  source: 'visible-page' | 'structured-data' | 'embedded-frame' | 'official-overview';
+  source: 'visible-page' | 'structured-data' | 'embedded-frame' | 'embedded-structured-data' | 'official-overview';
   /** Public source page for evidence collected outside the current document. */
   sourceUrl?: string;
   kind: 'text' | 'application-question';
@@ -59,6 +59,7 @@ export interface Finding<T> {
   citations: Citation[];
 }
 export interface Interpretation {
+  decision?: { engine: 'laya'; state: 'pending' | 'ready' | 'error'; message: string; model?: string };
   sponsorship: Finding<SponsorshipStatus>;
   cpt: Finding<TrainingStatus>;
   opt: Finding<TrainingStatus>;
@@ -72,7 +73,6 @@ export interface Settings {
   disabledHosts: string[];
 }
 export interface ScannerSnapshot {
-  research?: import('./research').ResearchView;
   state: 'scanning' | 'ready' | 'paused' | 'disabled' | 'error';
   hostname: string;
   result: ScanResult | null;

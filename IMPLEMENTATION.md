@@ -1,4 +1,6 @@
-# Implementation sections
+# Historical implementation roadmap
+
+This document records the earlier section-based plan and its progress. It is retained for history; [PLAN.md](PLAN.md) is the current roadmap.
 
 This roadmap turns the original [development plan](job-sponsorship-extension-plan.md) into six core deliverable sections, followed by a deferred improvement section after the core project is complete. Initial scope: English-language U.S. job postings and applications across all employment types.
 

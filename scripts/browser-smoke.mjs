@@ -33,6 +33,8 @@ try {
   await page.bringToFront();
   await popup.goto(`chrome-extension://${extensionId}/popup.html`);
   await popup.locator('#onboarding').waitFor({ state: 'visible' });
+  assert.equal(await popup.locator('.research-settings').count(), 0, 'Company research is outside the active extension UI');
+  assert.equal(await popup.locator('#decision-enabled').count(), 1, 'The Local Laya control remains available');
   assert.equal(await popup.locator('a[href="help.html"]').getAttribute('target'), '_blank');
   assert.equal(await popup.locator('a[href="privacy.html"]').getAttribute('target'), '_blank');
   await popup.locator('#onboarding-done').click();

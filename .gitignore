@@ -1,6 +1,8 @@
 node_modules/
 .pnpm-store/
 .venv/
+.decision-venv/
+.model-cache/
 .env
 .env.*
 !.env.example

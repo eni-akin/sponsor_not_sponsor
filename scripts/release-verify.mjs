@@ -11,7 +11,7 @@ const unpacked = await mkdtemp(join(tmpdir(), 'sns-release-review-'));
 execFileSync('unzip', ['-q', archive, '-d', unpacked]);
 const environment = { ...process.env, EXTENSION_DIR: unpacked };
 const checks = [];
-for (const script of ['browser-smoke.mjs', 'popup-sizing.mjs', 'store-screenshots.mjs']) {
+for (const script of ['browser-smoke.mjs', 'browser-embedded.mjs', 'browser-overview.mjs', 'browser-cross-origin.mjs', 'popup-sizing.mjs', 'store-screenshots.mjs']) {
   console.log(`Checking packaged extension: ${script}`);
   execFileSync(process.execPath, [`scripts/${script}`], { stdio: 'inherit', env: environment });
   checks.push(script);
