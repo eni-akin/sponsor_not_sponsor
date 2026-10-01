@@ -6,7 +6,7 @@ const sponsorTopic = /\bsponsor(?:ship|ing|ed|s)?\b|\bh-?1b\b/i;
 const trainingTerms = { cpt: String.raw`(?:\bcpt\b|\bcurricular practical training\b)`, opt: String.raw`(?:\b(?:stem\s+)?opt\b|\boptional practical training\b)` };
 const normalize = (text: string) => text.toLowerCase().replace(/[’‘]/g, "'").replace(/\bu\.\s*s\./g, 'us').replace(/\bwon't\b/g, 'will not').replace(/\bcan't\b/g, 'cannot').replace(/\bdon't\b/g, 'do not').replace(/\bdoesn't\b/g, 'does not').replace(/\bisn't\b/g, 'is not').replace(/\baren't\b/g, 'are not').replace(/\s+/g, ' ').trim();
 const matches = (text: string, expression: string) => new RegExp(expression, 'i').test(text);
-const conditional = /\b(?:if|unless|except|only|depending|subject to|case.by.case|may|might|could|limited to|not guaranteed|cannot guarantee|do not guarantee)\b/i;
+const conditional = /\b(?:if|unless|except|only|depending|subject to|case.by.case|may(?!\s+\d)|might|could|limited to|not guaranteed|cannot guarantee|do not guarantee)\b/i;
 const ambiguousNegation = /\bnot\s+(?:unavailable|unable|ineligible|excluded|only|necessarily)|\b(?:cannot|do not)\s+rule out/;
 const continuation = /^(?:only\b|except\b|unless\b|exceptions\b|subject to\b|this (?:is |will be )?(?:subject to|not guaranteed)|we cannot guarantee (?:this|it)\b)/i;
 const segmenter = new Intl.Segmenter('en', { granularity: 'sentence' });

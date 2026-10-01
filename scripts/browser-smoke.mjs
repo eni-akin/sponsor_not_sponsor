@@ -84,7 +84,7 @@ try {
   await panel.waitFor({ state: 'hidden' });
   assert.equal(await badge.evaluate(element => element.getRootNode().activeElement === element), true);
 
-  // Move the badge around an application button, rather than covering it.
+  // Keep the badge in one predictable corner even when a page control is there.
   await page.evaluate(() => {
     const button = document.createElement('button');
     button.id = 'fixed-apply'; button.textContent = 'Apply';
@@ -95,8 +95,7 @@ try {
   await page.waitForFunction(() => {
     const host = document.querySelector('#sponsor-not-sponsor-ui');
     const badge = host.shadowRoot.getElementById('badge').getBoundingClientRect();
-    const control = document.getElementById('fixed-apply').getBoundingClientRect();
-    return badge.right <= control.left || badge.bottom <= control.top || badge.left >= control.right || badge.top >= control.bottom;
+    return badge.right === innerWidth - 16 && badge.bottom === innerHeight - 16;
   });
   await page.evaluate(() => { document.getElementById('fixed-apply').remove(); window.dispatchEvent(new Event('resize')); });
   await page.locator('#sponsor-not-sponsor-ui #dismiss').click();
@@ -196,7 +195,7 @@ try {
   assert.equal(await badge.isVisible(), false);
   assert.equal(await popup.locator('#evidence-section').isVisible(), false);
   assert.deepEqual(errors, []);
-  console.log('PASS: onboarding, on-page badge/panel, keyboard and focus behavior, collision avoidance, style isolation, local report download, synthetic-click protection, dismissal/restore, cited findings, manual rescan, cosmetic-scroll filtering, pause/site preferences, input privacy, SPA navigation, and ordinary pages.');
+  console.log('PASS: onboarding, fixed badge position, on-page panel, keyboard and focus behavior, style isolation, local report download, synthetic-click protection, dismissal/restore, cited findings, manual rescan, cosmetic-scroll filtering, pause/site preferences, input privacy, SPA navigation, and ordinary pages.');
   console.log('Popup screenshot: test-results/scanner-popup.png');
 } finally {
   await context?.close();

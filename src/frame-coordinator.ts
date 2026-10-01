@@ -2,7 +2,7 @@ import { interpretJob } from './interpreter';
 import type { EvidenceBlock, ScanResult, ScannerSnapshot } from './types';
 
 export interface FrameAnnouncement { type: 'FRAME_AVAILABLE'; frameId: number; documentId: string; url: string }
-interface FrameEntry { frameId: number; documentId: string; url: string; result: ScanResult | null }
+interface FrameEntry { frameId: number; documentId: string; url: string; frameSrc: string; result: ScanResult | null }
 
 function visibleFrame(frame: HTMLIFrameElement): boolean {
   for (let element: Element | null = frame; element; element = element.parentElement) {
@@ -11,15 +11,6 @@ function visibleFrame(frame: HTMLIFrameElement): boolean {
     if (style?.display === 'none' || style?.visibility === 'hidden' || style?.visibility === 'collapse') return false;
   }
   return true;
-}
-
-function matchFrame(doc: Document, url: string): HTMLIFrameElement | null {
-  const matches = [...doc.querySelectorAll('iframe')].filter(frame => {
-    if (!visibleFrame(frame) || frame.src !== url) return false;
-    try { return frame.contentWindow?.location.origin !== doc.defaultView?.location.origin; }
-    catch { return true; }
-  });
-  return matches.length === 1 ? matches[0]! : null;
 }
 
 function visibleCrossOriginFrames(doc: Document): HTMLIFrameElement[] {
@@ -51,6 +42,7 @@ export class FrameCoordinator {
   private entries = new Map<HTMLIFrameElement, FrameEntry>();
   private topUrl: string;
   private disposed = false;
+  private generation = 0;
   private frameLoad = (event: Event) => {
     const frame = event.target;
     if (!(frame instanceof this.doc.defaultView!.HTMLIFrameElement)) return;
@@ -60,6 +52,7 @@ export class FrameCoordinator {
   };
 
   constructor(private doc: Document, private read: (message: FrameAnnouncement) => Promise<ScanResult | null>,
+    private identifyChild: (message: FrameAnnouncement, nonce: string) => Promise<void>,
     private poll: () => void, private changed: () => void) {
     this.topUrl = doc.location?.href ?? doc.URL;
     doc.addEventListener('load', this.frameLoad, true);
@@ -69,6 +62,7 @@ export class FrameCoordinator {
   reset(url: string): void {
     if (this.topUrl === url) return;
     this.topUrl = url;
+    this.generation++;
     this.entries.clear();
     this.poll();
   }
@@ -79,29 +73,57 @@ export class FrameCoordinator {
     let url: URL;
     try { url = new URL(message.url); } catch { return; }
     if (!/^https?:$/.test(url.protocol)) return;
-    const frame = matchFrame(this.doc, url.href);
-    if (!frame) return;
     const topUrl = this.topUrl;
-    const entry: FrameEntry = { frameId: message.frameId, documentId: message.documentId, url: url.href, result: null };
+    const generation = this.generation;
+    const identified = await this.identify(message, url.origin);
+    if (!identified || this.disposed || this.topUrl !== topUrl || this.generation !== generation) return;
+    const { frame, frameSrc } = identified;
+    const entry: FrameEntry = { frameId: message.frameId, documentId: message.documentId, url: url.href, frameSrc, result: null };
     this.entries.set(frame, entry);
     const result = await this.read(message).catch(() => null);
-    if (this.disposed || this.topUrl !== topUrl || this.entries.get(frame) !== entry || matchFrame(this.doc, url.href) !== frame) return;
+    if (this.disposed || this.topUrl !== topUrl || this.generation !== generation || this.entries.get(frame) !== entry
+      || frame.src !== frameSrc
+      || !visibleCrossOriginFrames(this.doc).includes(frame)) return;
     entry.result = result?.url === url.href && result.role ? result : null;
     this.changed();
+  }
+
+  private identify(message: FrameAnnouncement, origin: string): Promise<{ frame: HTMLIFrameElement; frameSrc: string } | null> {
+    const frames = visibleCrossOriginFrames(this.doc);
+    if (frames.length !== 1) return Promise.resolve(null);
+    const frame = frames[0]!;
+    const frameSrc = frame.src;
+    const nonce = crypto.randomUUID();
+    return new Promise(resolve => {
+      const finish = (match: { frame: HTMLIFrameElement; frameSrc: string } | null) => {
+        clearTimeout(timer);
+        this.doc.defaultView?.removeEventListener('message', onMessage);
+        resolve(match);
+      };
+      const onMessage = (event: MessageEvent) => {
+        if (event.data?.type !== 'SNS_FRAME_IDENTITY' || event.data.nonce !== nonce
+          || event.source !== frame.contentWindow || event.origin !== origin) return;
+        finish(visibleCrossOriginFrames(this.doc).length === 1 && frame.src === frameSrc ? { frame, frameSrc } : null);
+      };
+      const timer = setTimeout(() => finish(null), 750);
+      this.doc.defaultView?.addEventListener('message', onMessage);
+      void this.identifyChild(message, nonce).catch(() => finish(null));
+    });
   }
 
   combine(snapshot: ScannerSnapshot): ScannerSnapshot {
     if (snapshot.state !== 'ready' || !snapshot.result || snapshot.result.role) return snapshot;
     // Do not briefly present the first reply as the selected job while another visible frame is still loading.
     if (visibleCrossOriginFrames(this.doc).length !== 1) return snapshot;
-    const results = [...this.entries].filter(([frame, entry]) => entry.result && matchFrame(this.doc, entry.url) === frame)
+    const results = [...this.entries].filter(([frame, entry]) => entry.result && frame.src === entry.frameSrc
+      && visibleCrossOriginFrames(this.doc).includes(frame))
       .map(([, entry]) => entry.result!);
     if (results.length !== 1) return snapshot;
     const adopted = embeddedFrameResult(snapshot.result, results[0]!);
     return adopted ? { ...snapshot, result: adopted } : snapshot;
   }
 
-  clear(): void { this.entries.clear(); this.changed(); }
+  clear(): void { this.generation++; this.entries.clear(); this.changed(); }
   refresh(): void { this.poll(); }
   dispose(): void { this.disposed = true; this.entries.clear(); this.doc.removeEventListener('load', this.frameLoad, true); }
 }

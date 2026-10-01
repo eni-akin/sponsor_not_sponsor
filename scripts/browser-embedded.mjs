@@ -10,7 +10,7 @@ const server = createServer((request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
   response.end(new URL(request.url, 'http://localhost').pathname === '/wrapper'
     ? '<h1>Careers</h1><iframe style="width:900px;height:700px" src="/job"></iframe>'
-    : '<h1>Software Engineer Intern</h1><h2>Responsibilities</h2><p>Build tools for customers.</p><h2>Qualifications</h2><p>Students with software coursework.</p><p id="policy">Visa sponsorship is not available for this role.</p><a href="/apply">Apply</a>');
+    : '<h1>Software Engineer Intern</h1><h2>Responsibilities</h2><p>Build tools for customers.</p><h2>Qualifications</h2><p>Students with software coursework.</p><p id="policy">Visa sponsorship is not available for this role.</p><a href="/apply" title="Apply"><div><span class="iCIMS_LongLabel">Apply</span><span class="iCIMS_ShortLabel">Apply</span></div></a>');
 });
 await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
 const origin = `http://127.0.0.1:${server.address().port}`;

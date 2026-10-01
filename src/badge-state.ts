@@ -13,17 +13,8 @@ export function badgeState(snapshot: ScannerSnapshot): { label: string; tone: st
   return { label: decision.label, tone };
 }
 
-export interface Rectangle { left: number; top: number; width: number; height: number }
-export function badgePosition(width: number, height: number, viewport: { width: number; height: number }, obstacles: Rectangle[]): Rectangle | null {
+export function badgePosition(width: number, height: number, viewport: { width: number; height: number }): { left: number; top: number } | null {
   const margin = 16;
   if (viewport.width < width + margin * 2 || viewport.height < height + margin * 2) return null;
-  const positions = [
-    { left: viewport.width - width - margin, top: viewport.height - height - margin, width, height },
-    { left: margin, top: viewport.height - height - margin, width, height },
-    { left: viewport.width - width - margin, top: margin, width, height },
-    { left: margin, top: margin, width, height },
-  ];
-  return positions.find(position => !obstacles.some(obstacle => obstacle.width > 0 && obstacle.height > 0
-    && position.left < obstacle.left + obstacle.width + 6 && position.left + width + 6 > obstacle.left
-    && position.top < obstacle.top + obstacle.height + 6 && position.top + height + 6 > obstacle.top)) ?? null;
+  return { left: viewport.width - width - margin, top: viewport.height - height - margin };
 }

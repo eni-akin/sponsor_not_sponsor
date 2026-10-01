@@ -6,7 +6,6 @@ import { coverageLabel } from './coverage-view';
 import type { ScannerSnapshot } from './types';
 
 interface Actions { rescan: () => ScannerSnapshot; pause: () => Promise<void>; disableSite: () => Promise<void> }
-const controls = 'input:not([type="hidden"]),textarea,select,button,a[href],[role="button"],[role="textbox"],[contenteditable]:not([contenteditable="false"]),iframe';
 
 export class PageUI {
   private host = document.createElement('div');
@@ -85,8 +84,7 @@ export class PageUI {
     }
     this.reveal();
     const size = this.get('badge').getBoundingClientRect();
-    const obstacles = [...document.querySelectorAll(controls)].map(element => element.getBoundingClientRect()).filter(rect => rect.width && rect.height && rect.bottom > 0 && rect.top < innerHeight);
-    const target = badgePosition(size.width, size.height, { width: innerWidth, height: innerHeight }, obstacles);
+    const target = badgePosition(size.width, size.height, { width: innerWidth, height: innerHeight });
     if (!target) { this.hide(); return; }
     this.host.style.setProperty('left', `${target.left}px`, 'important');
     this.host.style.setProperty('top', `${target.top}px`, 'important');

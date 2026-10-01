@@ -25,6 +25,13 @@ test('reviewed work-without-sponsorship phrases are blockers', () => {
   for (const text of ['Ability to work in the United States for an indefinite period without sponsorship.', 'Authorization to work in the United States without visa sponsorship.'])
     assert.equal(badgeState(snapshot(text))?.label, 'Explicit blocker found');
 });
+test('Thrivent structured graduation date does not turn a refusal into a conditional offer', () => {
+  const value = snapshot('Expected graduation date between December 2027 and May 2028 Proven history of strong academic performance (GPA 3.0+ preferred) Ability to work in the United States for an indefinite period without sponsorship Additional Program Information Competitive compensation: $27.00 - $30.00 per hour');
+  value.result!.role!.evidence[0]!.source = 'structured-data';
+  value.result!.interpretation = interpretJob(value.result!.role!);
+  assert.equal(value.result!.interpretation.sponsorship.status, 'unavailable');
+  assert.equal(badgeState(value)?.label, 'Explicit blocker found');
+});
 test('generic work authorization wording alone is not treated as a blocker', () => {
   assert.equal(badgeState(snapshot('Applicants must already be authorized to work.'))?.label, 'No blocker found');
 });
@@ -43,13 +50,9 @@ test('ordinary pages and disabled scans have no badge', () => {
   value.state = 'disabled'; assert.equal(badgeState(value), null);
   value.state = 'ready'; value.result!.role = null; value.result!.kind = 'non-job'; assert.equal(badgeState(value), null);
 });
-test('badge moves away from a bottom-right application control', () => {
-  const result = badgePosition(300, 44, { width: 1000, height: 800 }, [{ left: 650, top: 720, width: 350, height: 80 }]);
-  assert.equal(result?.left, 16); assert.equal(result?.top, 740);
-});
-test('badge yields when no corner is clear or the viewport is too small', () => {
-  assert.equal(badgePosition(300, 44, { width: 1000, height: 800 }, [{ left: 0, top: 0, width: 1000, height: 800 }]), null);
-  assert.equal(badgePosition(300, 44, { width: 310, height: 800 }, []), null);
+test('badge stays in the bottom-right corner', () => {
+  assert.deepEqual(badgePosition(300, 44, { width: 1000, height: 800 }), { left: 684, top: 740 });
+  assert.equal(badgePosition(300, 44, { width: 310, height: 800 }), null);
 });
 test('report includes cited findings but excludes URL secrets and unreferenced extraction', () => {
   const value = snapshot('Visa sponsorship is available.');

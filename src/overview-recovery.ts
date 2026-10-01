@@ -29,10 +29,18 @@ async function readBoundedHtml(response: Response): Promise<string | null> {
 export function overviewCandidate(result: ScanResult): URL | null {
   if (result.kind !== 'job-application' || !result.role || result.role.completeness !== 'incomplete') return null;
   const page = new URL(result.url);
-  if (page.protocol !== 'https:' || page.hostname !== 'jobs.ashbyhq.com') return null;
-  const match = /^\/([^/]+)\/([a-z0-9-]{8,})\/application\/?$/i.exec(page.pathname);
-  if (!match || (result.role.identifier && identity(result.role.identifier) !== identity(match[2]!))) return null;
-  return new URL(`https://jobs.ashbyhq.com/${encodeURIComponent(match[1]!)}/${match[2]}`);
+  if (page.protocol !== 'https:') return null;
+  if (page.hostname === 'jobs.ashbyhq.com') {
+    const match = /^\/([^/]+)\/([a-z0-9-]{8,})\/application\/?$/i.exec(page.pathname);
+    if (!match || (result.role.identifier && identity(result.role.identifier) !== identity(match[2]!))) return null;
+    return new URL(`https://jobs.ashbyhq.com/${encodeURIComponent(match[1]!)}/${match[2]}`);
+  }
+  if (page.hostname === 'jobs.lever.co') {
+    const match = /^\/([a-z0-9-]+)\/([0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})\/apply\/?$/i.exec(page.pathname);
+    if (!match || (result.role.identifier && identity(result.role.identifier) !== identity(match[2]!))) return null;
+    return new URL(`https://jobs.lever.co/${encodeURIComponent(match[1]!)}/${match[2]}`);
+  }
+  return null;
 }
 
 export type OverviewOutcome = { kind: 'recovered' | 'unavailable' | 'mismatch'; result: ScanResult } | { kind: 'not-applicable' };
@@ -46,7 +54,7 @@ function failure(result: ScanResult, gap: DescriptionCoverage['gaps'][number], m
   } };
 }
 
-/** Reads only the public overview paired with this Ashby application URL. */
+/** Reads only the public overview paired with a supported ATS application URL. */
 export async function recoverOverview(
   result: ScanResult, signal: AbortSignal, fetchPage: typeof fetch = fetch,
   parseHtml: (html: string) => Document = html => new DOMParser().parseFromString(html, 'text/html'),
