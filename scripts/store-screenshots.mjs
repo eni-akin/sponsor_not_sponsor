@@ -22,15 +22,13 @@ try {
   await page.goto(`http://127.0.0.1:${server.address().port}/demo-job`);
   const badge = page.locator('#sponsor-not-sponsor-ui #toggle');
   await badge.waitFor();
-  assert.match(await badge.textContent(), /Sponsorship unavailable/);
+  assert.match(await badge.textContent(), /Explicit blocker found/);
   await mkdir('release/store', { recursive: true });
   await page.screenshot({ path: 'release/store/01-job-badge-1280x800.png' });
   await badge.click();
-  const sponsor = page.locator('#sponsor-not-sponsor-ui [data-finding="sponsorship"]');
+  const sponsor = page.locator('#sponsor-not-sponsor-ui [data-finding="main"]');
   await sponsor.locator('summary').click();
-  assert.equal(await sponsor.getAttribute('data-status'), 'unavailable');
-  assert.equal(await page.locator('#sponsor-not-sponsor-ui [data-finding="opt"]').getAttribute('data-status'), 'explicitly-accepted');
-  assert.equal(await page.locator('#sponsor-not-sponsor-ui [data-finding="cpt"]').getAttribute('data-status'), 'unclear');
+  assert.equal(await sponsor.getAttribute('data-status'), 'explicit-blocker');
   await page.screenshot({ path: 'release/store/02-quoted-evidence-1280x800.png' });
   const help = await context.newPage();
   await mkdir('test-results', { recursive: true });

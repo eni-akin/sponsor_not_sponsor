@@ -41,7 +41,7 @@ function render(snapshot: ScannerSnapshot): void {
   const findings = result?.interpretation;
   element('findings').hidden = !findings;
   const findingsFingerprint = JSON.stringify([role?.key, findings]);
-  if (findings && findingsFingerprint !== previousFindings) renderFindings(element('findings'), findings, result!);
+  if (role && findings && findingsFingerprint !== previousFindings) renderFindings(element('findings'), role, findings, result!);
   previousFindings = findingsFingerprint;
   const sourceTime = element('findings').querySelector('time');
   if (sourceTime && result) { sourceTime.dateTime = result.scannedAt; sourceTime.textContent = new Date(result.scannedAt).toLocaleString(); }

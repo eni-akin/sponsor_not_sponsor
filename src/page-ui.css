@@ -30,8 +30,8 @@ summary { cursor: pointer; }
 .finding summary::after { content: '+'; }
 .finding[open] summary::after { content: '−'; }
 .finding-value { margin-left: auto; color: #735221; font-size: 11px; }
-[data-status='available'] .finding-value, [data-status='explicitly-accepted'] .finding-value { color: #23613d; }
-[data-status='unavailable'] .finding-value, [data-status='explicitly-excluded'] .finding-value { color: #963b2f; }
+[data-status='sponsorship-stated'] .finding-value, [data-status='no-blocker'] .finding-value { color: #23613d; }
+[data-status='explicit-blocker'] .finding-value { color: #963b2f; }
 .explanation, .timing-summary { font-size: 11px; color: #576860; margin: 9px 0; }
 .citation { margin-top: 9px; }
 blockquote { margin: 0; padding: 5px 0 5px 9px; border-left: 2px solid #afc6b6; font-size: 12px; overflow-wrap: anywhere; }

@@ -40,8 +40,8 @@ summary { cursor: pointer; }
 .finding summary::after { content: '+'; color: #52695d; }
 .finding[open] summary::after { content: '−'; }
 .finding-value { margin-left: auto; font-size: 11px; color: #735221; }
-[data-status="available"] .finding-value, [data-status="explicitly-accepted"] .finding-value { color: #23613d; }
-[data-status="unavailable"] .finding-value, [data-status="explicitly-excluded"] .finding-value { color: #963b2f; }
+[data-status="sponsorship-stated"] .finding-value, [data-status="no-blocker"] .finding-value { color: #23613d; }
+[data-status="explicit-blocker"] .finding-value { color: #963b2f; }
 .explanation, .timing-summary { font-size: 11px; color: #576860; margin-top: 10px; }
 .citation { margin-top: 10px; }
 blockquote { margin: 0; padding: 6px 0 6px 10px; border-left: 2px solid #afc6b6; font-size: 12px; overflow-wrap: anywhere; }

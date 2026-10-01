@@ -42,6 +42,7 @@ Evidence collected so far supports the blocker-first design but does not justify
 - The September 26 review of 30 current internships found **0 explicit offers, 14 refusal/blocker outcomes, and 16 unclear outcomes**.
 - A later 20-role convenience check found **1 explicit offer, 3 explicit refusals, 6 readable postings with no clear statement, and 10 pages the research browser could not verify**. The positive example was Primer, whose role page explicitly offered J-1 and F-1 sponsorship.
 - Neither sample is random or large enough to estimate how common sponsorship is. The useful conclusion is narrower: explicit positive wording exists, explicit negative wording exists, and silence proves neither.
+- The September 30 human review of 12 selected postings produced **4 explicit blockers, 1 explicit sponsorship statement, 6 no-blocker results, and 1 expired posting**. The extension detected 9 of 11 open roles, handled the positive control, missed two pages, and did not promote any of the four blockers into its main sponsorship result. See [the validation report](evaluation/results/current-internship-validation.md).
 
 Use sources in this order:
 
@@ -66,7 +67,7 @@ These references define terms and evidence boundaries; they do not provide immig
 
 1. The extension recognizes supported job pages and extracts role details and passages.
 2. It handles page changes, same-origin embedded jobs, a bounded cross-origin frame path, and a narrowly matched Ashby overview recovery path. These are implemented features, not proof of universal website coverage.
-3. Text rules currently supply the older sponsorship, CPT and OPT findings; they must be reformatted around the blocker-first contract above.
+3. Text rules now feed the blocker-first result above. The older sponsorship, CPT and OPT findings remain internal evidence inputs instead of separate user-facing cards.
 4. Local Laya can replace those three older findings when explicitly enabled. It uses a separate process on this computer; it is not embedded inside Chrome. Its questions and outputs must eventually be simplified to the same blocker-first contract.
 5. The badge and panel show findings and source quotations. Pause, site-disable, rescan, keyboard controls and diagnostic export exist.
 6. Company research is deferred. Its service and tests are retained, but the active extension's research controls and requests have been removed.
@@ -77,9 +78,9 @@ Evidence: [model results](evaluation/results/laya-development.md), [model setup]
 
 ## Work order
 
-1. **Current batch:** simplify the active extension, consolidate documentation, and run all existing browser coverage through one command.
-2. **Next:** review real examples using [the review worksheet](evaluation/REVIEW_WORKSHEET.md). Label explicit blockers, explicit sponsorship statements, no-blocker postings, and unverifiable pages. Prepare a fresh holdout. No labels are considered human-reviewed merely because a worksheet exists.
-3. **After review, before Laya:** replace the extension's old three-topic presentation with the four-result blocker contract. Keep exact quotations and treat a missed blocker as the highest-severity error.
+1. **Complete:** simplify the active extension, consolidate documentation, and run all existing browser coverage through one command.
+2. **Complete:** review the first real examples using [the review worksheet](evaluation/REVIEW_WORKSHEET.md) and record the results in [the validation report](evaluation/results/current-internship-validation.md). Prepare a fresh untouched holdout before tuning.
+3. **Complete:** replace the extension's old three-topic presentation with the four-result blocker contract. Keep exact quotations and treat a missed blocker as the highest-severity error.
 4. **Last development phase:** simplify Laya to classify the same four results, validate it, and integrate a proven configuration. The existing opt-in experiment remains available unchanged while this work is deferred.
 5. **Release gate:** private beta and release follow model validation; putting Laya last does not permit publishing unvalidated model decisions.
 
@@ -143,8 +144,9 @@ Initial audit check on September 29: `node --import tsx --test tests/*.test.ts` 
 
 - Applied: research UI, requests and permission disconnected from the active extension; deferred research source and tests retained.
 - Applied: README simplified, old roadmaps marked historical, obsolete generic Python setup and `APP_ENV` example removed.
+- Applied: badge, popup and on-page panel now use Explicit blocker found, Sponsorship stated, No blocker found, or Could not verify from one shared resolver; separate CPT/OPT cards were removed from the user-facing summary while explicit exclusions still trigger a blocker.
 - Applied: `test:browser` runs smoke/accessibility, same-origin embedded, overview and cross-origin suites sequentially. Packaged-release verification includes the same additional suites. Actual toolbar sizing remains a separate check.
-- Prepared: six preserved real-job sources linked in a blank human-review worksheet. Review, missing-category collection and a new holdout remain pending.
+- Completed: one reviewer labeled the 12-posting current-internship development batch. The report isolates four blocker regressions and two reading failures. Second review, missing-category collection and a fresh holdout remain pending.
 - Deferred until last: Laya questions, models, training, thresholds and accuracy experiments. Existing model installations and baselines are untouched.
 - Deferred until validation: promotion, new research features and production release.
 

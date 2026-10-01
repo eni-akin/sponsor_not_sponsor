@@ -10,19 +10,32 @@ function snapshot(text: string): ScannerSnapshot {
   return { state: 'ready', hostname: 'example.com', result: { version: 1, url: 'https://example.com/jobs/1?token=PRIVATE#PRIVATE', scannedAt: '2026-09-24T12:00:00Z', kind: 'job-posting', role, signals: [], warnings: [], interpretation: interpretJob(role) } };
 }
 
-test('badge shows words as well as colors for explicit and unclear policies', () => {
-  assert.deepEqual(badgeState(snapshot('Visa sponsorship is available.')), { label: 'Sponsorship available', tone: 'available' });
-  assert.deepEqual(badgeState(snapshot('Visa sponsorship is not available.')), { label: 'Sponsorship unavailable', tone: 'unavailable' });
-  assert.deepEqual(badgeState(snapshot('Welcome to the team.')), { label: 'Sponsorship unclear', tone: 'conditional' });
+test('badge shows the four blocker-first results in words as well as colors', () => {
+  assert.deepEqual(badgeState(snapshot('Visa sponsorship is available.')), { label: 'Sponsorship stated', tone: 'available' });
+  assert.deepEqual(badgeState(snapshot('Visa sponsorship is not available.')), { label: 'Explicit blocker found', tone: 'unavailable' });
+  assert.deepEqual(badgeState(snapshot('Welcome to the team.')), { label: 'No blocker found', tone: 'neutral' });
+  const incomplete = snapshot('Welcome to the team.'); incomplete.result!.role!.completeness = 'incomplete';
+  assert.deepEqual(badgeState(incomplete), { label: 'Could not verify', tone: 'neutral' });
 });
-test('future-only sponsorship label preserves its timing', () => assert.equal(badgeState(snapshot('Visa sponsorship is not available in the future.'))?.label, 'Future sponsorship unavailable'));
-test('current-only sponsorship label preserves its timing', () => assert.equal(badgeState(snapshot('Visa sponsorship is not available now.'))?.label, 'Current sponsorship unavailable'));
-test('citizenship condition is prominent on the badge', () => assert.match(badgeState(snapshot('U.S. citizenship is required.'))!.label, /^Citizenship condition/));
-test('incomplete scans have a neutral label even when metadata offers sponsorship', () => {
+test('citizenship, permanent residency, and explicit student-status exclusions are blockers', () => {
+  for (const text of ['U.S. citizenship is required.', 'Eligibility requirements include U.S. citizenship.', 'Applicants must be permanent residents.', 'F-1 students are not eligible.', 'This position is not eligible for F-1 students.'])
+    assert.equal(badgeState(snapshot(text))?.label, 'Explicit blocker found');
+});
+test('reviewed work-without-sponsorship phrases are blockers', () => {
+  for (const text of ['Ability to work in the United States for an indefinite period without sponsorship.', 'Authorization to work in the United States without visa sponsorship.'])
+    assert.equal(badgeState(snapshot(text))?.label, 'Explicit blocker found');
+});
+test('generic work authorization wording alone is not treated as a blocker', () => {
+  assert.equal(badgeState(snapshot('Applicants must already be authorized to work.'))?.label, 'No blocker found');
+});
+test('conditional offers and conditional refusals keep their practical direction', () => {
+  assert.equal(badgeState(snapshot('Sponsorship may be considered.'))?.label, 'Sponsorship stated');
+  assert.equal(badgeState(snapshot('Visa sponsorship is unavailable unless an exception is approved.'))?.label, 'Explicit blocker found');
+});
+test('incomplete scans cannot produce a definitive result', () => {
   const value = snapshot('Visa sponsorship is available.');
   value.result!.role!.completeness = 'incomplete';
-  assert.equal(badgeState(value)?.tone, 'neutral');
-  assert.match(badgeState(value)!.label, /Incomplete/);
+  assert.deepEqual(badgeState(value), { label: 'Could not verify', tone: 'neutral' });
 });
 test('ordinary pages and disabled scans have no badge', () => {
   const value = snapshot('Visa sponsorship is available.');

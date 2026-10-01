@@ -29,11 +29,11 @@ try {
   const observed = await page.evaluate(() => {
     const root = document.querySelector('#sponsor-not-sponsor-ui').shadowRoot;
     return { badge: root.getElementById('badge-text').textContent, metadata: root.getElementById('metadata').textContent,
-      quote: root.querySelector('[data-finding="sponsorship"] blockquote')?.textContent,
-      source: root.querySelector('[data-finding="sponsorship"] .source')?.textContent };
+      quote: root.querySelector('[data-finding="main"] blockquote')?.textContent,
+      source: root.querySelector('[data-finding="main"] .source')?.textContent };
   });
   assert.ok(fetched.includes(overview), 'The matching overview was fetched');
-  assert.match(observed.badge, /Sponsorship unavailable/);
+  assert.match(observed.badge, /Explicit blocker found/);
   assert.match(observed.quote, /Visa sponsorship is not available/);
   assert.match(observed.source, /Official job overview/);
   console.log('Overview browser check passed: matching official description was fetched, cited, and interpreted.');

@@ -25,24 +25,24 @@ try {
     args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`] });
   const page = await context.newPage();
   await page.goto(`http://127.0.0.1:${parent.address().port}/careers`);
-  await page.waitForFunction(() => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Sponsorship unavailable'), null, { timeout: 15000 });
+  await page.waitForFunction(() => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Explicit blocker found'), null, { timeout: 15000 });
   const initial = await page.evaluate(() => {
     const root = document.querySelector('#sponsor-not-sponsor-ui').shadowRoot;
-    return { source: root.querySelector('[data-finding="sponsorship"] .source')?.textContent,
-      quote: root.querySelector('[data-finding="sponsorship"] blockquote')?.textContent };
+    return { source: root.querySelector('[data-finding="main"] .source')?.textContent,
+      quote: root.querySelector('[data-finding="main"] blockquote')?.textContent };
   });
   assert.match(initial.source, /Embedded job frame/);
   assert.match(initial.quote, /not available/);
   await page.frameLocator('#job').locator('#policy').evaluate(element => { element.textContent = 'Visa sponsorship is available for this role.'; });
-  await page.waitForFunction(() => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Sponsorship available'), null, { timeout: 15000 });
+  await page.waitForFunction(() => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Sponsorship stated'), null, { timeout: 15000 });
   await page.locator('#job').evaluate(element => element.remove());
-  await page.waitForFunction(() => !document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Sponsorship available'), null, { timeout: 15000 });
+  await page.waitForFunction(() => !document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Sponsorship stated'), null, { timeout: 15000 });
   await page.goto(`http://127.0.0.1:${parent.address().port}/careers-multiple`);
   await page.waitForTimeout(1000);
   const ambiguous = await page.evaluate(() => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent ?? '');
   assert.doesNotMatch(ambiguous, /Sponsorship (available|unavailable)/);
   await page.goto(`http://127.0.0.1:${parent.address().port}/careers`);
-  await page.waitForFunction(() => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Sponsorship unavailable'), null, { timeout: 15000 });
+  await page.waitForFunction(() => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot?.getElementById('badge-text')?.textContent?.includes('Explicit blocker found'), null, { timeout: 15000 });
   await page.locator('#sponsor-not-sponsor-ui #toggle').click();
   await page.locator('#sponsor-not-sponsor-ui #pause').click();
   await page.waitForFunction(() => document.querySelector('#sponsor-not-sponsor-ui')?.style.display === 'none', null, { timeout: 15000 });

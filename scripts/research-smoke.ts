@@ -51,7 +51,7 @@ try {
   await popup.locator('#research-enabled').check();
   await popup.waitForFunction(() => document.getElementById('research-results')!.textContent!.includes('Company research completed'));
   assert.equal(requests, 1); assert.equal(sourceReads, 1);
-  assert.equal(await popup.locator('[data-finding="sponsorship"]').getAttribute('data-status'), 'unclear', 'Company policy must not promote the local finding');
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'no-blocker', 'Company policy must not promote the local finding');
   assert.match(await popup.locator('#research-results').innerText(), /current role unconfirmed/i);
   await mkdir('test-results', { recursive: true });
   await popup.locator('#research-results details').first().locator('summary').click();
@@ -64,7 +64,7 @@ try {
   assert.equal(snapshot.research.result.request.url, `${origin}/job`);
   assert.doesNotMatch(JSON.stringify(snapshot.research.result.request), /DO_NOT_SEND|evidence|answers/);
   const badge = page.locator('#sponsor-not-sponsor-ui #toggle');
-  assert.match(await badge.innerText(), /unclear/i);
+  assert.match(await badge.innerText(), /no blocker found/i);
   await badge.click();
   assert.match(await page.locator('#sponsor-not-sponsor-ui #research').innerText(), /Historical evidence/);
   await page.keyboard.press('Escape');
@@ -79,7 +79,7 @@ try {
   await page.locator('h1').evaluate(el => { el.textContent = 'Different Research Intern'; });
   await popup.locator('#research-enabled').check();
   await popup.waitForFunction(() => document.getElementById('research-results')!.textContent!.includes('unavailable'));
-  assert.equal(await popup.locator('[data-finding="sponsorship"]').getAttribute('data-status'), 'unclear');
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'no-blocker');
   await mkdir('test-results', { recursive: true });
   await popup.screenshot({ path: 'test-results/research-unavailable.png' });
   console.log('PASS: opt-in, real worker-to-service messaging, CORS rejection, source attribution, history separation, persistent cache, opt-out, and offline research without losing local findings. All remote evidence was a local test fixture.');

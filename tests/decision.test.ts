@@ -96,7 +96,7 @@ test('model failure never silently falls back to a definitive rule label', async
   const s = snapshot(r); client.update(s); await tick(); const result = client.update(s);
   assert.equal(result.result?.interpretation?.sponsorship.status, 'unclear');
   assert.equal(result.result?.interpretation?.decision?.state, 'error');
-  assert.match(badgeState(result)!.label, /unavailable.*Unclear/);
+  assert.equal(badgeState(result)!.label, 'Could not verify');
 });
 test('malformed transport replies become visible errors rather than an unhandled rejection', async () => {
   for (const raw of [null, {}, { state: 'unknown' }, { state: 'error', message: {} }, { state: 'ready', result: {} }]) {

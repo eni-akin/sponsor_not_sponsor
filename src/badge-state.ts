@@ -1,4 +1,5 @@
 import type { ScannerSnapshot } from './types';
+import { mainDecision } from './main-decision';
 
 export function badgeState(snapshot: ScannerSnapshot): { label: string; tone: string } | null {
   const result = snapshot.result;
@@ -7,17 +8,9 @@ export function badgeState(snapshot: ScannerSnapshot): { label: string; tone: st
   if (snapshot.state === 'error') return { label: 'Unable to read job', tone: 'neutral' };
   if (result?.kind === 'unreadable') return { label: 'Unable to identify job', tone: 'neutral' };
   if (!result?.role || !result.interpretation) return null;
-  if (result.interpretation.decision?.state === 'pending') return { label: 'Laya is reading this job…', tone: 'neutral' };
-  if (result.interpretation.decision?.state === 'error') return { label: 'Laya unavailable · Unclear', tone: 'neutral' };
-  const finding = result.interpretation.sponsorship;
-  const time = finding.citations.length && finding.citations.every(citation => citation.timing === 'future') ? 'Future sponsorship'
-    : finding.citations.length && finding.citations.every(citation => citation.timing === 'now') ? 'Current sponsorship' : 'Sponsorship';
-  const label = `${time} ${finding.status}`;
-  const citizenship = result.interpretation.restrictions.some(restriction => restriction.kind === 'citizenship');
-  if (result.role.completeness === 'incomplete') return { label: `${citizenship ? 'Citizenship condition · ' : ''}Incomplete scan · ${label.toLowerCase()}`, tone: 'neutral' };
-  if (citizenship) return { label: `Citizenship condition · ${label.toLowerCase()}`, tone: 'conditional' };
-  if (finding.requiresReview) return { label: 'Sponsorship needs review', tone: 'conditional' };
-  return { label, tone: finding.status === 'unclear' ? 'conditional' : finding.status };
+  const decision = mainDecision(result.role, result.interpretation);
+  const tone = { 'explicit-blocker': 'unavailable', 'sponsorship-stated': 'available', 'no-blocker': 'neutral', 'could-not-verify': 'neutral' }[decision.status];
+  return { label: decision.label, tone };
 }
 
 export interface Rectangle { left: number; top: number; width: number; height: number }

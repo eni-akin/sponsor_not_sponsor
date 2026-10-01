@@ -43,6 +43,7 @@ export interface ScanResult {
 
 export type SponsorshipStatus = 'available' | 'unavailable' | 'conditional' | 'unclear';
 export type TrainingStatus = 'explicitly-accepted' | 'explicitly-excluded' | 'unclear';
+export type MainDecisionStatus = 'explicit-blocker' | 'sponsorship-stated' | 'no-blocker' | 'could-not-verify';
 export type Timing = 'unspecified' | 'now' | 'future' | 'now-and-future';
 export interface Citation {
   evidenceId: string;
@@ -66,6 +67,13 @@ export interface Interpretation {
   sponsorshipByTiming: { now: Finding<SponsorshipStatus>; future: Finding<SponsorshipStatus> };
   restrictions: { kind: 'citizenship' | 'permanent-residency' | 'us-person' | 'work-authorization' | 'stated-condition'; text: string; evidenceIds: string[]; citations: Citation[] }[];
   context: { kind: 'question' | 'historical' | 'company' | 'other-role' | 'unrecognized'; citation: Citation }[];
+}
+
+export interface MainDecision {
+  status: MainDecisionStatus;
+  label: string;
+  explanation: string;
+  citations: Citation[];
 }
 
 export interface Settings {
