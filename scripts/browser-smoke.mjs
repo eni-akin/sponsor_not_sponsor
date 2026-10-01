@@ -49,13 +49,12 @@ try {
   assert.match(await popup.locator('#metadata').textContent(), /Acme Labs/);
   assert.match(await popup.locator('#evidence').textContent(), /Visa sponsorship is available/);
   assert.doesNotMatch(await popup.locator('#evidence').textContent(), /Accountant/);
-  assert.equal(await popup.locator('[data-finding="sponsorship"]').getAttribute('data-status'), 'available');
-  assert.equal(await popup.locator('[data-finding="cpt"]').getAttribute('data-status'), 'unclear');
-  assert.match(await popup.locator('[data-finding="sponsorship"] blockquote').textContent(), /Visa sponsorship is available/);
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'sponsorship-stated');
+  assert.match(await popup.locator('[data-finding="main"] blockquote').textContent(), /Visa sponsorship is available/);
   const badge = page.locator('#sponsor-not-sponsor-ui #toggle');
   const panel = page.locator('#sponsor-not-sponsor-ui #panel');
   await badge.waitFor({ state: 'visible' });
-  assert.match(await badge.textContent(), /Sponsorship available/);
+  assert.match(await badge.textContent(), /Sponsorship stated/);
   // Keep page-level controls reachable even if the website styles every button.
   await page.addStyleTag({ content: 'button { background: magenta !important; font-size: 80px !important; }' });
   assert.equal(await badge.evaluate(element => getComputedStyle(element).fontSize), '12px');
@@ -63,7 +62,7 @@ try {
   await page.keyboard.press('Enter');
   await panel.waitFor({ state: 'visible' });
   assert.equal(await page.locator('#sponsor-not-sponsor-ui #close').evaluate(element => element.getRootNode().activeElement === element), true);
-  await page.locator('#sponsor-not-sponsor-ui [data-finding="sponsorship"] > summary').click();
+  await page.locator('#sponsor-not-sponsor-ui [data-finding="main"] > summary').click();
   assert.match(await page.locator('#sponsor-not-sponsor-ui blockquote').first().textContent(), /Visa sponsorship is available/);
   assert.ok(await page.locator('#sponsor-not-sponsor-ui a').count() > 0);
   await mkdir('test-results', { recursive: true });
@@ -85,7 +84,7 @@ try {
   await panel.waitFor({ state: 'hidden' });
   assert.equal(await badge.evaluate(element => element.getRootNode().activeElement === element), true);
 
-  // Move the badge around an application button, rather than covering it.
+  // Keep the badge in one predictable corner even when a page control is there.
   await page.evaluate(() => {
     const button = document.createElement('button');
     button.id = 'fixed-apply'; button.textContent = 'Apply';
@@ -96,8 +95,7 @@ try {
   await page.waitForFunction(() => {
     const host = document.querySelector('#sponsor-not-sponsor-ui');
     const badge = host.shadowRoot.getElementById('badge').getBoundingClientRect();
-    const control = document.getElementById('fixed-apply').getBoundingClientRect();
-    return badge.right <= control.left || badge.bottom <= control.top || badge.left >= control.right || badge.top >= control.bottom;
+    return badge.right === innerWidth - 16 && badge.bottom === innerHeight - 16;
   });
   await page.evaluate(() => { document.getElementById('fixed-apply').remove(); window.dispatchEvent(new Event('resize')); });
   await page.locator('#sponsor-not-sponsor-ui #dismiss').click();
@@ -158,7 +156,7 @@ try {
   await page.locator('input[name="name"]').fill('MY PRIVATE ANSWER');
   await panel.waitFor({ state: 'hidden' });
   assert.equal(await page.locator('input[name="name"]').inputValue(), 'MY PRIVATE ANSWER');
-  assert.equal(await popup.locator('[data-finding="sponsorship"]').getAttribute('data-status'), 'unclear');
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'could-not-verify');
   assert.doesNotMatch(await popup.locator('#evidence').textContent(), /PRIVATE/);
   assert.match(await popup.locator('#evidence').textContent(), /Will you now or in the future require sponsorship/);
   await page.goto(`${origin}/multiple-jobs`);
@@ -168,16 +166,15 @@ try {
 
   await page.goto(`${origin}/generic-job`);
   await status('Job posting detected');
-  assert.equal(await popup.locator('[data-finding="cpt"]').getAttribute('data-status'), 'explicitly-accepted');
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'no-blocker');
   // Reproduce the two policy sentences visible in the user's screenshot.
   await page.evaluate(() => {
     const text = document.createElement('p');
     text.textContent = 'This position is not eligible for F1 and J1 students. It is also not available for any work sponsorship.';
     document.querySelector('main').append(text);
   });
-  await popup.waitForFunction(() => document.querySelector('[data-finding="sponsorship"]')?.dataset.status === 'unavailable');
-  assert.match(await popup.locator('.restrictions').textContent(), /F1 and J1/);
-  await popup.locator('[data-finding="sponsorship"] > summary').click();
+  await popup.waitForFunction(() => document.querySelector('[data-finding="main"]')?.dataset.status === 'explicit-blocker');
+  assert.match(await popup.locator('[data-finding="main"]').textContent(), /F1 and J1/);
   await popup.locator('main').evaluate(element => { element.scrollTop = 125; });
   await popup.locator('body').screenshot({ path: 'test-results/policy-findings.png' });
   await badge.click();
@@ -198,7 +195,7 @@ try {
   assert.equal(await badge.isVisible(), false);
   assert.equal(await popup.locator('#evidence-section').isVisible(), false);
   assert.deepEqual(errors, []);
-  console.log('PASS: onboarding, on-page badge/panel, keyboard and focus behavior, collision avoidance, style isolation, local report download, synthetic-click protection, dismissal/restore, cited findings, manual rescan, cosmetic-scroll filtering, pause/site preferences, input privacy, SPA navigation, and ordinary pages.');
+  console.log('PASS: onboarding, fixed badge position, on-page panel, keyboard and focus behavior, style isolation, local report download, synthetic-click protection, dismissal/restore, cited findings, manual rescan, cosmetic-scroll filtering, pause/site preferences, input privacy, SPA navigation, and ordinary pages.');
   console.log('Popup screenshot: test-results/scanner-popup.png');
 } finally {
   await context?.close();

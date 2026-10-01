@@ -64,6 +64,33 @@ test('ordinary article with qualifications language but no apply is not a job', 
   assert.equal(scan('<main><h1>Writing a good resume</h1><h2>Responsibilities</h2><p>Talk about qualifications and salary.</p></main>').kind, 'non-job');
 });
 
+test('semantic application destinations identify unlabeled Apply controls without matching help links', () => {
+  const description = '<h2>Responsibilities</h2><p>Build reliable software.</p><h2>Qualifications</h2><p>Current student.</p>';
+  assert.equal(scan(`<main><h1>Software Intern</h1>${description}<a href="/jobs/42/apply"><svg></svg></a></main>`).kind, 'job-posting');
+  assert.equal(scan(`<main><h1>Software Intern</h1>${description}<a href="/application-faqs">Application FAQs</a></main>`).kind, 'non-job');
+});
+
+test('Cloudflare application retains its visible description completeness', () => {
+  const result = scan(`<main><h1>Software Engineer</h1><h2>Responsibilities</h2><p>Build and operate systems used by customers around the world. ${'Work with a team to deliver reliable products. '.repeat(12)}</p><h2>About the Role</h2><p>Join a team maintaining services.</p><h2>Desirable Skills, Knowledge and Experience</h2><p>Experience building distributed systems is useful.</p><form><label>Resume<input type="file"></label><label>Will you require sponsorship?<input></label><button>Submit application</button></form></main>`, 'https://job-boards.greenhouse.io/cloudflare/jobs/8199958');
+  assert.equal(result.kind, 'job-application');
+  assert.equal(result.role?.completeness, 'description-found');
+});
+
+test('job-like headings inside an application form do not establish description completeness', () => {
+  const result = scan(`<main><h1>Software Engineer</h1><form><h2>Responsibilities</h2><p>${'Build reliable products. '.repeat(12)}</p><h2>About the Role</h2><p>Work with a team.</p><h2>Desirable Skills Knowledge and Experience</h2><p>Distributed systems.</p><label>Do you need sponsorship?<input></label><button>Submit application</button></form><a>Apply</a></main>`);
+  assert.equal(result.kind, 'job-application');
+  assert.equal(result.role?.completeness, 'incomplete');
+});
+
+test('Lever application route is recognized and uses its requisition ID', () => {
+  const id = '123e4567-e89b-42d3-a456-426614174000';
+  const result = scan('<main><h1>Software Engineer</h1><form><label>Resume<input type="file"></label><label>Do you require sponsorship?<input></label></form></main>', `https://jobs.lever.co/neighbor/${id}/apply`);
+  assert.equal(result.kind, 'job-application');
+  assert.equal(result.role?.title, 'Software Engineer');
+  assert.equal(result.role?.identifier, id);
+  assert.equal(result.role?.completeness, 'incomplete');
+});
+
 test('malformed metadata falls back to visible detection', () => {
   const result = scan('<script type="application/ld+json">{broken</script>' + fixture('generic-job'));
   assert.equal(result.kind, 'job-posting');

@@ -32,9 +32,9 @@ export async function checkBetaUI({ page, popup, origin, getScan }) {
       const box = await button.boundingBox();
       assert.ok(box.width >= 24 && box.height >= 24);
     }
-    await page.locator(`${host} [data-finding="sponsorship"] > summary`).focus();
+    await page.locator(`${host} [data-finding="main"] > summary`).focus();
     await page.keyboard.press('Enter');
-    assert.equal(await page.locator(`${host} [data-finding="sponsorship"]`).getAttribute('open'), '');
+    assert.equal(await page.locator(`${host} [data-finding="main"]`).getAttribute('open'), '');
     const source = page.locator(`${host} a`).first();
     await source.focus();
     assert.equal(await source.evaluate(element => element.getRootNode().activeElement === element), true);
@@ -44,7 +44,7 @@ export async function checkBetaUI({ page, popup, origin, getScan }) {
     assert.equal(await badge.evaluate(element => element.getRootNode().activeElement === element), true);
     // Close the disclosure before the next viewport without page-script UI events.
     await badge.click();
-    await page.locator(`${host} [data-finding="sponsorship"] > summary`).click();
+    await page.locator(`${host} [data-finding="main"] > summary`).click();
     await page.keyboard.press('Escape');
     checks.push({ viewport, geometry });
   }

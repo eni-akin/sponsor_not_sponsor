@@ -55,4 +55,15 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
     })().then(respond, () => respond(null));
     return true;
   }
+  if (message?.type === 'FRAME_IDENTIFY') {
+    const frameId = message.frameId;
+    const documentId = message.documentId;
+    const nonce = message.nonce;
+    if (sender.id !== chrome.runtime.id || sender.tab?.id === undefined || sender.frameId !== 0
+      || !Number.isInteger(frameId) || frameId <= 0 || typeof documentId !== 'string' || !documentId
+      || typeof nonce !== 'string' || nonce.length > 100) { respond(null); return; }
+    void chrome.tabs.sendMessage(sender.tab.id, { type: 'FRAME_IDENTIFY_CHILD', nonce }, { frameId, documentId })
+      .then(respond, () => respond(null));
+    return true;
+  }
 });

@@ -1,9 +1,6 @@
-import type { Citation, Finding, Interpretation, SponsorshipStatus, TrainingStatus } from './types';
+import type { Citation, Interpretation, JobRecord } from './types';
+import { mainDecision } from './main-decision';
 
-const labels: Record<SponsorshipStatus | TrainingStatus, string> = {
-  available: 'Available', unavailable: 'Unavailable', conditional: 'Conditional', unclear: 'Unclear',
-  'explicitly-accepted': 'Explicitly accepted', 'explicitly-excluded': 'Explicitly excluded',
-};
 const timingLabels = { unspecified: '', now: 'Current sponsorship', future: 'Future sponsorship', 'now-and-future': 'Now and in the future' };
 
 function textElement(tag: string, text: string, className = ''): HTMLElement {
@@ -34,38 +31,25 @@ function citationView(citation: Citation): HTMLElement {
   return container;
 }
 
-function findingView(name: string, finding: Finding<SponsorshipStatus | TrainingStatus>, field: string): HTMLElement {
+function decisionView(role: JobRecord, interpretation: Interpretation): HTMLElement {
+  const decision = mainDecision(role, interpretation);
   const details = document.createElement('details');
   details.className = 'finding';
-  details.dataset.finding = field;
-  details.dataset.status = finding.status;
+  details.dataset.finding = 'main';
+  details.dataset.status = decision.status;
   details.open = false;
   const summary = document.createElement('summary');
-  const label = labels[finding.status];
-  const futureOnly = field === 'sponsorship' && finding.citations.length > 0 && finding.citations.every(citation => citation.timing === 'future');
-  const nowOnly = field === 'sponsorship' && finding.citations.length > 0 && finding.citations.every(citation => citation.timing === 'now');
-  summary.append(textElement('span', name), textElement('span', `${label}${futureOnly ? ' · future only' : nowOnly ? ' · now only' : ''}`, 'finding-value'));
+  summary.append(textElement('span', 'Main result'), textElement('span', decision.label, 'finding-value'));
   details.append(summary);
-  if (finding.requiresReview) details.append(textElement('p', 'Needs review', 'review-label'));
-  details.append(textElement('p', finding.explanation, 'explanation'));
-  finding.citations.forEach(citation => details.append(citationView(citation)));
+  details.append(textElement('p', decision.explanation, 'explanation'));
+  decision.citations.forEach(citation => details.append(citationView(citation)));
   return details;
 }
 
-export function renderFindings(container: HTMLElement, interpretation: Interpretation, source?: { url: string; scannedAt: string }): void {
+export function renderFindings(container: HTMLElement, role: JobRecord, interpretation: Interpretation, source?: { url: string; scannedAt: string }): void {
   const nodes: HTMLElement[] = [];
   if (interpretation.decision) nodes.push(textElement('p', interpretation.decision.message, 'source'));
-  if (interpretation.restrictions.length) {
-    const restrictions = document.createElement('section');
-    restrictions.className = 'restrictions';
-    restrictions.append(textElement('h2', 'Stated requirements'));
-    interpretation.restrictions.forEach(restriction => restriction.citations.forEach(citation => restrictions.append(citationView(citation))));
-    nodes.push(restrictions);
-  }
-  nodes.push(findingView('Visa sponsorship', interpretation.sponsorship, 'sponsorship'));
-  const { now, future } = interpretation.sponsorshipByTiming;
-  if (now.citations.length || future.citations.length) nodes.push(textElement('p', `Current: ${labels[now.status]} · Future: ${labels[future.status]}`, 'timing-summary'));
-  nodes.push(findingView('CPT', interpretation.cpt, 'cpt'), findingView('OPT', interpretation.opt, 'opt'));
+  nodes.push(decisionView(role, interpretation));
   if (interpretation.context.length) {
     const details = document.createElement('details');
     details.className = 'context';

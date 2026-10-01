@@ -139,12 +139,13 @@ function roleTitle(root: Element, jobs: Record<string, unknown>[] = []): string 
 
 function hasApply(root: Element): boolean {
   return [...root.querySelectorAll('a,button,input[type="submit"]')].some(element =>
-    visible(element) && /\b(apply|submit application|i.m interested)\b/i.test(element.getAttribute('aria-label') ?? element.getAttribute('value') ?? element.textContent ?? ''),
+    visible(element) && (/\b(apply|submit application|i.m interested)\b/i.test([element.getAttribute('aria-label'), element.getAttribute('value'), element.getAttribute('title'), element.textContent].filter(Boolean).join(' '))
+      || /(?:^|\/)(?:apply|application)(?:\/|[?#]|$)|[?&](?:mode=apply|apply=yes)(?:&|$)/i.test(element.getAttribute('href') ?? '')),
   );
 }
 
 function descriptionSignals(text: string): number {
-  return [ /\b(responsibilities|what you.ll do|duties|description)\b/i, /\b(qualifications|requirements|what you.ll bring|who we.re looking for)\b/i, /\b(benefits|salary|compensation|employment type)\b/i ].filter(pattern => pattern.test(text)).length;
+  return [ /\b(responsibilities|what you.ll do|duties|description|about the role)\b/i, /\b(qualifications|requirements|what you.ll bring|who we.re looking for|desirable skills,? knowledge and experience)\b/i, /\b(benefits|salary|compensation|employment type)\b/i ].filter(pattern => pattern.test(text)).length;
 }
 
 function scanRoot(doc: Document, jobs: Record<string, unknown>[]): { root: Element; details: Element[] } {
@@ -256,15 +257,18 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
   const application = [...root.querySelectorAll('form')].some(form => visible(form)
     && /\b(resume|résumé|cover letter|work authorization|sponsorship|applicant|submit application)\b/i.test(extractBlocks(form).blocks.map(block => block.text).join(' ')));
   const ashbyApplication = new URL(href).hostname === 'jobs.ashbyhq.com' && /\/application\/?$/.test(new URL(href).pathname);
+  const pageUrl = new URL(href);
+  const leverApplication = pageUrl.hostname === 'jobs.lever.co' && /^\/[^/]+\/[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\/apply\/?$/i.test(pageUrl.pathname);
   const explicitlyApplying = /^(apply (now )?(for|to)|application for)\b/i.test(title);
   const looksLikeJob = !!structured || (sections >= 2 && apply);
-  if (!looksLikeJob && !((application || ashbyApplication) && (explicitlyApplying || sections >= 1))) return embeddedJob(doc, href, depth) ?? result;
-  result.kind = application || ashbyApplication ? 'job-application' : 'job-posting';
+  if (!looksLikeJob && !((application || ashbyApplication || leverApplication) && (explicitlyApplying || sections >= 1 || leverApplication))) return embeddedJob(doc, href, depth) ?? result;
+  result.kind = application || ashbyApplication || leverApplication ? 'job-application' : 'job-posting';
   result.signals.push('Unique visible role title');
   if (apply) result.signals.push('Apply action');
   if (sections) result.signals.push(`${sections} job-description section signals`);
   if (application) result.signals.push('Application form wording');
   if (ashbyApplication) result.signals.push('Ashby application address');
+  if (leverApplication) result.signals.push('Lever application address');
   if (jobs.length && !structured) result.warnings.push('Structured data did not uniquely match the displayed role and was ignored.');
   if (extracted.truncated) result.warnings.push('The page is unusually large; extracted text is incomplete.');
   const evidence = extracted.blocks;
@@ -318,7 +322,7 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
   const jobLocation = object(Array.isArray(structured?.jobLocation) ? structured.jobLocation[0] : structured?.jobLocation);
   const address = object(jobLocation.address);
   const location = [scalar(address.addressLocality), scalar(address.addressRegion), scalar(address.addressCountry) ?? scalar(object(address.addressCountry).name)].filter(Boolean).join(', ') || scalar(jobLocation.name);
-  const identifier = scalar(object(structured?.identifier).value) ?? scalar(structured?.identifier);
+  const identifier = scalar(object(structured?.identifier).value) ?? scalar(structured?.identifier) ?? (leverApplication ? pageUrl.pathname.split('/')[2]! : null);
   const employerElement = root.querySelector('[itemprop="hiringOrganization"],[data-employer]');
   const employer = scalar(organization.name) ?? (employerElement ? scalar(extractBlocks(employerElement).blocks.map(block => block.text).join(' ')) : null);
   const employmentTypes = (Array.isArray(structured?.employmentType) ? structured.employmentType : [structured?.employmentType]).map(scalar).filter((value): value is string => !!value);

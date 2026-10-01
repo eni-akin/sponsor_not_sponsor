@@ -42,6 +42,7 @@ Evidence collected so far supports the blocker-first design but does not justify
 - The September 26 review of 30 current internships found **0 explicit offers, 14 refusal/blocker outcomes, and 16 unclear outcomes**.
 - A later 20-role convenience check found **1 explicit offer, 3 explicit refusals, 6 readable postings with no clear statement, and 10 pages the research browser could not verify**. The positive example was Primer, whose role page explicitly offered J-1 and F-1 sponsorship.
 - Neither sample is random or large enough to estimate how common sponsorship is. The useful conclusion is narrower: explicit positive wording exists, explicit negative wording exists, and silence proves neither.
+- The September 30 human review of 12 selected postings produced **4 explicit blockers, 1 explicit sponsorship statement, 6 no-blocker results, and 1 expired posting**. The extension detected 9 of 11 open roles, handled the positive control, missed two pages, and did not promote any of the four blockers into its main sponsorship result. See [the validation report](evaluation/results/current-internship-validation.md).
 
 Use sources in this order:
 
@@ -66,7 +67,7 @@ These references define terms and evidence boundaries; they do not provide immig
 
 1. The extension recognizes supported job pages and extracts role details and passages.
 2. It handles page changes, same-origin embedded jobs, a bounded cross-origin frame path, and a narrowly matched Ashby overview recovery path. These are implemented features, not proof of universal website coverage.
-3. Text rules currently supply the older sponsorship, CPT and OPT findings; they must be reformatted around the blocker-first contract above.
+3. Text rules now feed the blocker-first result above. The older sponsorship, CPT and OPT findings remain internal evidence inputs instead of separate user-facing cards.
 4. Local Laya can replace those three older findings when explicitly enabled. It uses a separate process on this computer; it is not embedded inside Chrome. Its questions and outputs must eventually be simplified to the same blocker-first contract.
 5. The badge and panel show findings and source quotations. Pause, site-disable, rescan, keyboard controls and diagnostic export exist.
 6. Company research is deferred. Its service and tests are retained, but the active extension's research controls and requests have been removed.
@@ -77,23 +78,48 @@ Evidence: [model results](evaluation/results/laya-development.md), [model setup]
 
 ## Work order
 
-1. **Current batch:** simplify the active extension, consolidate documentation, and run all existing browser coverage through one command.
-2. **Next:** review real examples using [the review worksheet](evaluation/REVIEW_WORKSHEET.md). Label explicit blockers, explicit sponsorship statements, no-blocker postings, and unverifiable pages. Prepare a fresh holdout. No labels are considered human-reviewed merely because a worksheet exists.
-3. **After review, before Laya:** replace the extension's old three-topic presentation with the four-result blocker contract. Keep exact quotations and treat a missed blocker as the highest-severity error.
-4. **Last development phase:** simplify Laya to classify the same four results, validate it, and integrate a proven configuration. The existing opt-in experiment remains available unchanged while this work is deferred.
-5. **Release gate:** private beta and release follow model validation; putting Laya last does not permit publishing unvalidated model decisions.
+1. **Complete:** simplify the active extension, consolidate documentation, and run all existing browser coverage through one command.
+2. **Complete:** review the first real examples using [the review worksheet](evaluation/REVIEW_WORKSHEET.md) and record the results in [the validation report](evaluation/results/current-internship-validation.md). Prepare a fresh untouched holdout before tuning.
+3. **Complete:** replace the extension's old three-topic presentation with the four-result blocker contract. Keep exact quotations and treat a missed blocker as the highest-severity error.
+4. **In progress:** the first fixes for Cloudflare description coverage, Lever overview recovery, and redirected iframe adoption are implemented with automated regressions. Next verify the named live pages and finish the iframe lifecycle checks below before more decision tuning.
+5. **Last development phase:** simplify Laya to classify the same four results, validate it, and integrate a proven configuration. The existing opt-in experiment remains available unchanged while this work is deferred.
+6. **Release gate:** private beta and release follow model validation; putting Laya last does not permit publishing unvalidated model decisions.
 
 The milestone numbers below are identifiers, not the execution order above.
+
+### Active job-detection implementation — September 30
+
+Keep detection separate from policy interpretation: identify the exact vacancy, capture its public description, then interpret it. Laya development remains deferred.
+
+| Workstream | Implementation | Acceptance checks |
+| --- | --- | --- |
+| Description coverage (Cloudflare) | Extend shared recognition of observed description sections; preserve the stricter checks for application-only pages. | Full Greenhouse description is captured with its alternate headings; form-only pages, careers pages and unrelated articles do not become complete jobs. |
+| Application overview (Neighbor/Lever) | Extend the existing bounded official-overview recovery to the matching Lever `/apply` route. Coordinate scanner recognition if needed. | Matching vacancy is recovered with source attribution; wrong title/employer/identifier, redirects, navigation and cancelled requests cannot supply evidence. |
+| Embedded posting (H&R Block/iCIMS) | Diagnose and fix parent/child coordination, including URL changes during frame loading. Bind results to the actual visible frame and current document. | Representative wrapper adopts one complete child; delayed load, redirect, removal/replacement and rescan work. Hidden/multiple frames, stale replies, navigation, pause and site-disable cannot leak a result. |
+| Integration and review | Review all three diffs together, run typecheck/unit/build and the browser suites, then repeat the named live-page checks where accessible. | Record automated results separately from live verification. Keep failures explicit; do not claim universal ATS coverage from fixtures. |
+
+Three lower-cost subagents own the independent workstreams. Shared scanner edits have one owner; integration and this roadmap remain with the primary agent. Broader platform readers, shadow-DOM support and additional websites remain follow-up work driven by observed failures, rather than a rewrite in this pass.
+
+September 30 implementation checkpoint:
+
+October 1 H&R Block correction: downloaded official child HTML reproduced `non-job` independently of frame transport. Its responsive Apply link has `title="Apply"` but concatenated text `ApplyApply`; the scanner missed the action, while metadata's alternate slug URL did not match the current route. Shared action detection now considers the link's title alongside its other labels. The same captured child returns `Machine Learning Intern - S` with `description-found`, and parent-wrapper replay adopts it. The embedded browser regression now includes this exact duplicated-label structure. Live confirmation in the user's reloaded extension remains separate from these checks.
+
+- Implemented shared alternate-heading recognition; Cloudflare's application-page regression fails with the old patterns and passes with the fix. Form-only descriptions remain incomplete.
+- Implemented generic Lever application recognition and exact-route overview recovery using the existing bounded fetch and identity checks. No employer-specific production exceptions were added.
+- Implemented redirected iframe identification through an extension message targeted to Chrome's frame/document identity, followed by verification of the responding window and origin. Reads preserve final child-source URLs. Both rescan controls clear frame results and request fresh ones.
+- Verified: `pnpm check` (**186 tests**, typecheck and build), `pnpm test:browser` (including Ashby/Lever overview recovery and a redirected cross-origin wrapper), and `git diff --check` passed. Coordinator regressions reject a hidden child and late reads after clear, parent navigation, removal, src replacement or hiding.
+- Still pending: live confirmation on Cloudflare, Neighbor and the actual H&R Block wrapper after extension reload. The redirect browser fixture represents the coordination failure; it is not a capture or proof of the live iCIMS page. Add explicit browser checks for delayed insertion, same-src document replacement, child-only SPA navigation and site-disable/resume before marking milestone 4 complete. Preserve uncertainty when an unsupported flow cannot be verified.
 
 | Step | Work | Done when |
 | --- | --- | --- |
 | 1. Narrow the product | Keep job reading, local model experimentation, evidence display and user controls. Pause company-research expansion, additional model providers and store-promotion work. Use this plan as the current roadmap. | The README has one installation path, one normal browsing flow and one link to model experiments. Older plans are marked historical, with their evidence links preserved. |
 | 2. Make examples reviewable | Review current public internships. Record the expected main result, blocker/support type, exact quote and source before viewing the extension result. | Every example is labeled Explicit blocker, Sponsorship stated, No blocker found, or Could not verify, with a reason and exact evidence where required. |
 | 3. Reformat the extension | Reuse the scanner, citations and evidence panel. Replace the old three-topic summary with the blocker-first result. Put detailed CPT/OPT cards in the backlog. | The badge and panel use the four labels above. “No blocker found” never claims proven sponsorship. Explicit CPT/OPT exclusions still trigger a blocker. |
-| 4. Improve Laya outside the browsing loop | Reuse the evaluator and downloaded models. Ask whether each passage contains a role-specific blocker, explicit support, or neither. Change one configuration at a time and preserve each baseline. | Laya identifies blockers and rare explicit support with valid quotes, while silence becomes No blocker found and incomplete/conflicting evidence remains unverifiable. |
-| 5. Validate on unseen examples | Expand toward 150–200 representative examples. Split by employer/template before tuning and reserve a fresh reviewed holdout. Measure extraction failures separately from decision failures. | Report blocker precision and recall, missed blockers, false blockers, explicit-support results, no-blocker coverage, counts and latency. Require at least 95% precision on definitive blocker/support results with enough reviewed examples, without treating the number alone as beta approval. |
-| 6. Use the proven model in the app | Reuse the opt-in integration; avoid a new backend or abstraction. Test navigation, pause, opt-out, unavailable service and incomplete evidence. | The tested configuration passes the quality gate and browser checks; only then consider making it the normal decision engine. |
-| 7. Private beta, then release | Try normal application browsing on representative supported sites. Fix observed blockers. Package the tested extension and document the separate local model setup. | Human review confirms useful answers, correct role matching, understandable uncertainty and unobtrusive UI. Run artifact verification before distributing a release. |
+| 4. Harden observed page reading | Fix shared scanner and frame-coordination causes rather than adding employer-specific exceptions. A parent wrapper may adopt exactly one visible child job only when its identity and source are preserved. Cover late-loading and redirected iframe documents, navigation, frame replacement/removal, hidden or multiple frames, pause/site-disable state, and stale child replies. Add matching overview recovery only for ATS application URLs with a verifiable role identity. | H&R Block's iCIMS wrapper returns the child role and complete description; equivalent one-job iframe wrappers work through the same path. Neighbor's Lever application resolves only to its matching overview. Cloudflare's visible description is complete. Browser regressions prove that ambiguous, hidden, stale, or mismatched child content is never adopted. |
+| 5. Improve Laya outside the browsing loop | Reuse the evaluator and downloaded models. Ask whether each passage contains a role-specific blocker, explicit support, or neither. Change one configuration at a time and preserve each baseline. | Laya identifies blockers and rare explicit support with valid quotes, while silence becomes No blocker found and incomplete/conflicting evidence remains unverifiable. |
+| 6. Validate on unseen examples | Expand toward 150–200 representative examples. Split by employer/template before tuning and reserve a fresh reviewed holdout. Measure extraction failures separately from decision failures. | Report blocker precision and recall, missed blockers, false blockers, explicit-support results, no-blocker coverage, counts and latency. Require at least 95% precision on definitive blocker/support results with enough reviewed examples, without treating the number alone as beta approval. |
+| 7. Use the proven model in the app | Reuse the opt-in integration; avoid a new backend or abstraction. Test navigation, pause, opt-out, unavailable service and incomplete evidence. | The tested configuration passes the quality gate and browser checks; only then consider making it the normal decision engine. |
+| 8. Private beta, then release | Try normal application browsing on representative supported sites. Fix observed blockers. Package the tested extension and document the separate local model setup. | Human review confirms useful answers, correct role matching, understandable uncertainty and unobtrusive UI. Run artifact verification before distributing a release. |
 
 Personal examples are **test inputs**, not automatic training. Adding a passage or correcting its expected answer does not change downloaded model weights. Changing the typed questions changes what is asked; fine-tuning would be a separate, currently unimplemented training task.
 
@@ -143,8 +169,10 @@ Initial audit check on September 29: `node --import tsx --test tests/*.test.ts` 
 
 - Applied: research UI, requests and permission disconnected from the active extension; deferred research source and tests retained.
 - Applied: README simplified, old roadmaps marked historical, obsolete generic Python setup and `APP_ENV` example removed.
+- Applied: badge, popup and on-page panel now use Explicit blocker found, Sponsorship stated, No blocker found, or Could not verify from one shared resolver; separate CPT/OPT cards were removed from the user-facing summary while explicit exclusions still trigger a blocker.
 - Applied: `test:browser` runs smoke/accessibility, same-origin embedded, overview and cross-origin suites sequentially. Packaged-release verification includes the same additional suites. Actual toolbar sizing remains a separate check.
-- Prepared: six preserved real-job sources linked in a blank human-review worksheet. Review, missing-category collection and a new holdout remain pending.
+- Completed: one reviewer labeled the 12-posting current-internship development batch. The report isolates four blocker regressions and two reading failures. Second review, missing-category collection and a fresh holdout remain pending.
+- In progress: shared description, Lever overview and redirected-frame fixes pass automated checks; see the September 30 checkpoint for live verification and remaining lifecycle coverage. The iframe browser regression exercises parent-to-child adoption, not only the child scanner.
 - Deferred until last: Laya questions, models, training, thresholds and accuracy experiments. Existing model installations and baselines are untouched.
 - Deferred until validation: promotion, new research features and production release.
 

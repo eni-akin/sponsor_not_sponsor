@@ -17,6 +17,10 @@ if (window.top !== window) {
     announceTimer = setTimeout(announce, 250);
   };
   chrome.runtime.onMessage.addListener((message, _sender, respond) => {
+    if (message?.type === 'FRAME_IDENTIFY_CHILD' && typeof message.nonce === 'string') {
+      window.parent.postMessage({ type: 'SNS_FRAME_IDENTITY', nonce: message.nonce }, '*');
+      respond({ received: true }); return;
+    }
     if (message?.type === 'FRAME_POLL_CHILDREN') { announce(); respond({ received: true }); return; }
     if (message?.type !== 'FRAME_READ_CHILD') return;
     if (!frameSettings || frameSettings.paused || frameSettings.disabledHosts.includes(location.hostname)) { respond(null); return; }
@@ -50,7 +54,7 @@ const decision = new DecisionClient(request => chrome.runtime.sendMessage({ type
 function start(settings: Settings): void {
   controller = new ScanController(document, window, settings, recoverOverview);
   pageUI = new PageUI({
-    rescan: () => { decision.reset(); controller!.scan(); return latest ?? controller!.getSnapshot(); },
+    rescan: () => { decision.reset(); frames?.clear(); frames?.refresh(); controller!.scan(); return latest ?? controller!.getSnapshot(); },
     pause: async () => {
       const saved = parseSettings((await chrome.storage.local.get('settings')).settings);
       await chrome.storage.local.set({ settings: { ...saved, paused: true } });
@@ -66,6 +70,8 @@ function start(settings: Settings): void {
       return await chrome.runtime.sendMessage({ type: 'FRAME_READ', frameId: message.frameId,
         documentId: message.documentId, url: message.url }) as import('./types').ScanResult | null;
     },
+    async (message, nonce) => { await chrome.runtime.sendMessage({ type: 'FRAME_IDENTIFY',
+      frameId: message.frameId, documentId: message.documentId, nonce }); },
     () => { void chrome.runtime.sendMessage({ type: 'FRAME_POLL' }).catch(() => {}); },
     () => { if (controller) update(controller.getSnapshot()); });
   function update(snapshot: ScannerSnapshot): void {
@@ -85,7 +91,7 @@ chrome.runtime.onMessage.addListener((message, _sender, respond) => {
     respond(latest ?? { state: settingsFailed ? 'error' : 'scanning', hostname: location.hostname, result: null });
   }
   if (message?.type === 'RESCAN') {
-    decision.reset(); controller?.scan();
+    decision.reset(); frames?.clear(); frames?.refresh(); controller?.scan();
     respond(latest ?? { state: settingsFailed ? 'error' : 'scanning', hostname: location.hostname, result: null });
   }
   if (message?.type === 'SHOW_PANEL') { pageUI?.show(); respond({ shown: !!latest?.result?.role }); }

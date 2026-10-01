@@ -11,6 +11,9 @@ import { reportData } from '../src/report';
 const id = '12345678-1234-1234-1234-123456789abc';
 const applicationUrl = `https://jobs.ashbyhq.com/example/${id}/application`;
 const overviewUrl = `https://jobs.ashbyhq.com/example/${id}`;
+const leverId = 'b5f73774-1d5a-4edc-a184-d1734731cd9c';
+const leverApplicationUrl = `https://jobs.lever.co/neighbor/${leverId}/apply`;
+const leverOverviewUrl = `https://jobs.lever.co/neighbor/${leverId}`;
 const applicationHtml = `<main><h1>Apply for Engineer Intern</h1><h2>Responsibilities</h2><form><label>Resume<input type="file"></label><label>Will you require sponsorship?<input></label></form></main>`;
 const overviewHtml = (title = 'Engineer Intern') => `<main><h1>${title}</h1><h2>Responsibilities</h2><p>Build software with our engineering team, review code, and collaborate across product groups.</p><h2>Qualifications</h2><p>Current student with programming experience and an interest in reliable systems.</p><p>Visa sponsorship is not available for this internship.</p><a>Apply now</a></main>`;
 const parse = (html: string, url: string) => new JSDOM(html, { url }).window.document;
@@ -47,6 +50,33 @@ test('only constructs an official same-origin candidate for the exact applicatio
   const result = application();
   assert.equal(overviewCandidate({ ...result, url: 'https://other.example/example/' + id + '/application' }), null);
   assert.equal(overviewCandidate({ ...result, url: overviewUrl }), null);
+  assert.equal(overviewCandidate({ ...result, role: { ...result.role!, identifier: 'different-id' } }), null);
+});
+
+test('recovers only the matching Neighbor Lever overview', async () => {
+  const original = application();
+  const result = { ...original, kind: 'job-application' as const, url: leverApplicationUrl,
+    role: { ...original.role!, title: 'Software Engineering Intern', employer: 'Neighbor', identifier: leverId } };
+  const html = `<main><span data-employer>Neighbor</span><h1>Software Engineering Intern</h1><h2>Responsibilities</h2><p>${'Build reliable software with the Neighbor engineering team. '.repeat(8)}</p><h2>Qualifications</h2><p>Experience building software and interest in helping customers.</p><p>Visa sponsorship is not available for this role.</p><a href="${leverApplicationUrl}">Apply</a></main>`;
+  assert.equal(overviewCandidate(result)?.href, leverOverviewUrl);
+  const outcome = await recoverOverview(result, new AbortController().signal, fetchHtml(html, leverOverviewUrl), parseHtml);
+  assert.equal(outcome.kind, 'recovered');
+  if (outcome.kind === 'recovered') {
+    assert.equal(outcome.result.role?.completeness, 'description-found');
+    assert.ok(outcome.result.role?.evidence.some(block => block.source === 'official-overview' && block.sourceUrl === leverOverviewUrl));
+    assert.ok(outcome.result.interpretation?.sponsorship.status === 'unavailable');
+  }
+
+  const wrongEmployer = await recoverOverview(result, new AbortController().signal,
+    fetchHtml(html.replace('>Neighbor</span>', '>Other Company</span>'), leverOverviewUrl), parseHtml);
+  assert.equal(wrongEmployer.kind, 'mismatch');
+  const wrongTitle = await recoverOverview(result, new AbortController().signal,
+    fetchHtml(html.replace('Software Engineering Intern', 'Product Manager'), leverOverviewUrl), parseHtml);
+  assert.equal(wrongTitle.kind, 'mismatch');
+  const redirected = await recoverOverview(result, new AbortController().signal,
+    fetchHtml(html, 'https://jobs.lever.co/neighbor/another-role'), parseHtml);
+  assert.equal(redirected.kind, 'unavailable');
+  assert.equal(overviewCandidate({ ...result, url: `https://jobs.lever.co/neighbor/${leverId}/different` }), null);
   assert.equal(overviewCandidate({ ...result, role: { ...result.role!, identifier: 'different-id' } }), null);
 });
 

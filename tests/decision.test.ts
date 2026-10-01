@@ -43,6 +43,13 @@ test('model replaces a missed rule finding, with exact extracted evidence and in
   assert.equal(result.cpt.status, 'unclear'); assert.equal(result.opt.status, 'unclear');
   assert.equal(result.decision?.engine, 'laya');
 });
+test('model cannot reverse an explicit sponsorship blocker', () => {
+  const r = role(['Ability to work in the United States for an indefinite period without sponsorship.']);
+  const interpreted = applyDecision(r, interpretJob(r), output(r, answers({ sponsorship: { choice: 'available', probability: 0.99 } })));
+  assert.equal(interpreted.sponsorship.status, 'unavailable');
+  const value = snapshot(r); value.result!.interpretation = interpreted;
+  assert.equal(badgeState(value)?.label, 'Explicit blocker found');
+});
 test('questions, historical evidence and other-role policies cannot determine this role', () => {
   for (const scope of ['question', 'historical', 'company', 'other-role', 'none']) {
     const r = role(); const result = applyDecision(r, interpretJob(r), output(r, answers({ scope: { choice: scope, probability: 0.99 } })));
@@ -96,7 +103,7 @@ test('model failure never silently falls back to a definitive rule label', async
   const s = snapshot(r); client.update(s); await tick(); const result = client.update(s);
   assert.equal(result.result?.interpretation?.sponsorship.status, 'unclear');
   assert.equal(result.result?.interpretation?.decision?.state, 'error');
-  assert.match(badgeState(result)!.label, /unavailable.*Unclear/);
+  assert.equal(badgeState(result)!.label, 'Could not verify');
 });
 test('malformed transport replies become visible errors rather than an unhandled rejection', async () => {
   for (const raw of [null, {}, { state: 'unknown' }, { state: 'error', message: {} }, { state: 'ready', result: {} }]) {

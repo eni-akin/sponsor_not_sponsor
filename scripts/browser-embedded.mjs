@@ -10,7 +10,7 @@ const server = createServer((request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
   response.end(new URL(request.url, 'http://localhost').pathname === '/wrapper'
     ? '<h1>Careers</h1><iframe style="width:900px;height:700px" src="/job"></iframe>'
-    : '<h1>Software Engineer Intern</h1><h2>Responsibilities</h2><p>Build tools for customers.</p><h2>Qualifications</h2><p>Students with software coursework.</p><p id="policy">Visa sponsorship is not available for this role.</p><a href="/apply">Apply</a>');
+    : '<h1>Software Engineer Intern</h1><h2>Responsibilities</h2><p>Build tools for customers.</p><h2>Qualifications</h2><p>Students with software coursework.</p><p id="policy">Visa sponsorship is not available for this role.</p><a href="/apply" title="Apply"><div><span class="iCIMS_LongLabel">Apply</span><span class="iCIMS_ShortLabel">Apply</span></div></a>');
 });
 await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
 const origin = `http://127.0.0.1:${server.address().port}`;
@@ -27,10 +27,10 @@ try {
   await popup.goto(`chrome-extension://${extensionId}/popup.html`);
   await popup.locator('#onboarding-done').click();
   await popup.waitForFunction(() => document.querySelector('#title')?.textContent === 'Software Engineer Intern', null, { timeout: 10000 });
-  assert.equal(await popup.locator('[data-finding="sponsorship"]').getAttribute('data-status'), 'unavailable');
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'explicit-blocker');
   assert.match(await popup.locator('#evidence').textContent(), /Embedded job frame/);
   await page.frameLocator('iframe').locator('#policy').evaluate(element => { element.textContent = 'Visa sponsorship is available for this role.'; });
-  await popup.waitForFunction(() => document.querySelector('[data-finding="sponsorship"]')?.getAttribute('data-status') === 'available', null, { timeout: 10000 });
+  await popup.waitForFunction(() => document.querySelector('[data-finding="main"]')?.getAttribute('data-status') === 'sponsorship-stated', null, { timeout: 10000 });
   console.log('Embedded browser check passed: the wrapper reads and updates the same-origin job.');
 } finally {
   await context?.close();

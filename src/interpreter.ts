@@ -6,7 +6,7 @@ const sponsorTopic = /\bsponsor(?:ship|ing|ed|s)?\b|\bh-?1b\b/i;
 const trainingTerms = { cpt: String.raw`(?:\bcpt\b|\bcurricular practical training\b)`, opt: String.raw`(?:\b(?:stem\s+)?opt\b|\boptional practical training\b)` };
 const normalize = (text: string) => text.toLowerCase().replace(/[’‘]/g, "'").replace(/\bu\.\s*s\./g, 'us').replace(/\bwon't\b/g, 'will not').replace(/\bcan't\b/g, 'cannot').replace(/\bdon't\b/g, 'do not').replace(/\bdoesn't\b/g, 'does not').replace(/\bisn't\b/g, 'is not').replace(/\baren't\b/g, 'are not').replace(/\s+/g, ' ').trim();
 const matches = (text: string, expression: string) => new RegExp(expression, 'i').test(text);
-const conditional = /\b(?:if|unless|except|only|depending|subject to|case.by.case|may|might|could|limited to|not guaranteed|cannot guarantee|do not guarantee)\b/i;
+const conditional = /\b(?:if|unless|except|only|depending|subject to|case.by.case|may(?!\s+\d)|might|could|limited to|not guaranteed|cannot guarantee|do not guarantee)\b/i;
 const ambiguousNegation = /\bnot\s+(?:unavailable|unable|ineligible|excluded|only|necessarily)|\b(?:cannot|do not)\s+rule out/;
 const continuation = /^(?:only\b|except\b|unless\b|exceptions\b|subject to\b|this (?:is |will be )?(?:subject to|not guaranteed)|we cannot guarantee (?:this|it)\b)/i;
 const segmenter = new Intl.Segmenter('en', { granularity: 'sentence' });
@@ -51,6 +51,7 @@ function sponsorshipStatus(text: string): Exclude<SponsorshipStatus, 'unclear'> 
     String.raw`\b(?:position|role|job|internship|it)\s+(?:is|will be)\s+(?:also\s+)?not\s+(?:eligible|available)\s+for\s+(?:any\s+)?${SPONSOR}\b`,
     String.raw`\b(?:applicants|candidates)\s+(?:who\s+)?(?:require|need)\s+${SPONSOR}\s+(?:(?:now(?: or in the future)?|in the future|currently)\s+)?(?:are not eligible|will not be considered|cannot be considered)\b`,
     String.raw`\bmust\b[^.!?;]{0,100}\b(?:authorized|eligible)\s+to\s+work\b[^.!?;]{0,60}\bwithout\s+${SPONSOR}\b`,
+    String.raw`\b(?:ability|authorization|eligibility)\s+to\s+work\b[^.!?;]{0,100}\bwithout\s+${SPONSOR}\b`,
   ].some(pattern => matches(text, pattern));
   const available = [
     String.raw`\b${SPONSOR}\s+(?:is|will be)\s+(?:available|offered|provided|supported)\b`,
@@ -132,7 +133,7 @@ function resolveTraining(claims: Claim<TrainingStatus>[], name: string): Finding
 
 function restrictionKind(text: string): Interpretation['restrictions'][number]['kind'] | null {
   if (/\b(?:not required|not necessary|no requirement|do not require|does not require)\b/.test(text)) return null;
-  const required = /\b(?:must|require[ds]?|only|limited to|not eligible|ineligible|not available|excluded)\b/.test(text);
+  const required = /\b(?:must|require[ds]?|requirements?\s+(?:include|includes)|only|limited to|not eligible|ineligible|not available|excluded)\b/.test(text);
   if (!required) return null;
   if (/\bus persons?\b/.test(text)) return 'us-person';
   if (/\b(?:citizenship|citizens?)\b/.test(text)) return 'citizenship';

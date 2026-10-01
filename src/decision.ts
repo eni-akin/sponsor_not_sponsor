@@ -108,12 +108,13 @@ export function applyDecision(role: JobRecord, base: Interpretation, result: Dec
   const atTime = (time: 'now' | 'future') => claims.sponsorship.filter(c => ['now-and-future', time].includes(c.citations[0]!.timing));
   const now = resolve(atTime('now'), 'sponsorship');
   const future = resolve(atTime('future'), 'sponsorship');
-  const sponsorship = resolve(claims.sponsorship, 'sponsorship') as Finding<SponsorshipStatus>;
+  let sponsorship = resolve(claims.sponsorship, 'sponsorship') as Finding<SponsorshipStatus>;
   if (!uncertain.has('sponsorship') && sponsorship.requiresReview && now.status !== 'unclear' && future.status !== 'unclear'
     && now.status !== future.status && claims.sponsorship.every(c => ['now', 'future'].includes(c.citations[0]!.timing))) {
     sponsorship.status = 'conditional'; sponsorship.requiresReview = false;
     sponsorship.explanation = 'The local model found different current and future sponsorship policies. Read both statements.';
   }
+  if (base.sponsorship.status === 'unavailable') sponsorship = base.sponsorship;
   return { ...base, sponsorship, cpt: resolve(claims.cpt, 'cpt') as Finding<TrainingStatus>, opt: resolve(claims.opt, 'opt') as Finding<TrainingStatus>,
     sponsorshipByTiming: { now, future }, context,
     decision: { engine: 'laya', state: 'ready', model: result.model, message: 'Local Laya preview · sponsorship, CPT and OPT use model decisions. Stated-requirement highlights still use local text rules.' } };

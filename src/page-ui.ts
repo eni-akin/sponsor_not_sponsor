@@ -6,7 +6,6 @@ import { coverageLabel } from './coverage-view';
 import type { ScannerSnapshot } from './types';
 
 interface Actions { rescan: () => ScannerSnapshot; pause: () => Promise<void>; disableSite: () => Promise<void> }
-const controls = 'input:not([type="hidden"]),textarea,select,button,a[href],[role="button"],[role="textbox"],[contenteditable]:not([contenteditable="false"]),iframe';
 
 export class PageUI {
   private host = document.createElement('div');
@@ -85,8 +84,7 @@ export class PageUI {
     }
     this.reveal();
     const size = this.get('badge').getBoundingClientRect();
-    const obstacles = [...document.querySelectorAll(controls)].map(element => element.getBoundingClientRect()).filter(rect => rect.width && rect.height && rect.bottom > 0 && rect.top < innerHeight);
-    const target = badgePosition(size.width, size.height, { width: innerWidth, height: innerHeight }, obstacles);
+    const target = badgePosition(size.width, size.height, { width: innerWidth, height: innerHeight });
     if (!target) { this.hide(); return; }
     this.host.style.setProperty('left', `${target.left}px`, 'important');
     this.host.style.setProperty('top', `${target.top}px`, 'important');
@@ -133,7 +131,7 @@ export class PageUI {
       if (key !== this.lastContent) {
         this.get('role-title').textContent = role.title;
         this.get('metadata').textContent = [role.employer ?? 'Employer not identified', role.location, coverageLabel(role)].filter(Boolean).join(' · ');
-        renderFindings(this.get('findings'), snapshot.result.interpretation, snapshot.result);
+        renderFindings(this.get('findings'), role, snapshot.result.interpretation, snapshot.result);
         this.get('warnings').replaceChildren(...snapshot.result.warnings.map(text => { const li = document.createElement('li'); li.textContent = text; return li; }));
         this.lastContent = key;
         this.get('message').textContent = '';
