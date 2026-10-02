@@ -11,7 +11,7 @@ const result = (status: MainDecisionStatus, explanation: string, citations: Main
   ({ status, label: labels[status], explanation, citations });
 
 const blocksTemporaryAuthorization = (text: string) =>
-  /\b(?:citizenship|citizens?|permanent residen(?:t|cy|ts)|green card|us persons?)\b/i.test(text)
+  /\b(?:citizenship|citizens?|permanent residen(?:t|cy|ts)|green card|u\.?\s*s\.? persons?)\b/i.test(text)
   || /\b(?:permanent|unrestricted)\s+(?:work|employment)\s+authoriz/i.test(text)
   || /\b(?:f-?1|j-?1|international students?|temporary visa|student visa)\b.{0,50}\b(?:not eligible|ineligible|excluded|not accepted|not permitted|not allowed)\b/i.test(text)
   || /\b(?:not eligible|ineligible|excluded|not accepted|not permitted|not allowed)\b.{0,50}\b(?:f-?1|j-?1|international students?|temporary visa|student visa)\b/i.test(text);

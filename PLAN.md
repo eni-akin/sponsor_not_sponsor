@@ -110,6 +110,17 @@ October 1 H&R Block correction: downloaded official child HTML reproduced `non-j
 - Verified: `pnpm check` (**186 tests**, typecheck and build), `pnpm test:browser` (including Ashby/Lever overview recovery and a redirected cross-origin wrapper), and `git diff --check` passed. Coordinator regressions reject a hidden child and late reads after clear, parent navigation, removal, src replacement or hiding.
 - Still pending: live confirmation on Cloudflare, Neighbor and the actual H&R Block wrapper after extension reload. The redirect browser fixture represents the coordination failure; it is not a capture or proof of the live iCIMS page. Add explicit browser checks for delayed insertion, same-src document replacement, child-only SPA navigation and site-disable/resume before marking milestone 4 complete. Preserve uncertainty when an unsupported flow cannot be verified.
 
+October 1 live-feedback follow-up:
+
+- User confirmed scans on Cloudflare, Neighbor, H&R Block, Southwest, Dandy and Enova; reported missing employer metadata, Greenhouse badges, AMCA recognition and Peraton's citizenship blocker.
+- Reproduced Greenhouse removing the extension UI host during page initialization while content-script scans continued to work. The UI now remounts when removed; a browser regression removes the host and verifies its automatic return.
+- AMCA has multiple description h1 headings. Exact Greenhouse page-title agreement now selects the visible vacancy and supplies its employer. Lever uses matching page-title branding; iCIMS accepts canonical slug aliases only for the same host and numeric vacancy ID.
+- Peraton's required citizenship bullet now cites both “Required Qualifications” and “US Citizenship”; bare citizenship outside a required section remains non-blocking. Enova's “we are not able to sponsor visas” is now recognized by the shared sponsorship rule, with conditional and negated examples covered.
+- AMCA's extracted “All applicants must be U.S. persons within the meaning of ITAR.” exposed a punctuation mismatch in the final badge rule. It now recognizes both US and U.S. person wording; a badge regression covers the exact statement.
+- Live disposable-browser verification restored Cloudflare's badge and employer, AMCA recognition, and Neighbor/H&R Block employer metadata. Peraton now shows Explicit blocker found. Enova's refusal is an explicit blocker; the earlier No blocker found result was incorrect.
+- Verification: 194 tests, typecheck, build and all four browser regression suites passed. The browser check includes removal/restoration of the badge host; `git diff --check` passed.
+- Iframe lifecycle checks listed above remain pending. These live checks use the named public ATS URLs, not a proof of every employer wrapper or application flow. Laya remains last.
+
 | Step | Work | Done when |
 | --- | --- | --- |
 | 1. Narrow the product | Keep job reading, local model experimentation, evidence display and user controls. Pause company-research expansion, additional model providers and store-promotion work. Use this plan as the current roadmap. | The README has one installation path, one normal browsing flow and one link to model experiments. Older plans are marked historical, with their evidence links preserved. |

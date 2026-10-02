@@ -21,6 +21,9 @@ function interpret(text: string | string[], options: Partial<EvidenceBlock> = {}
 }
 
 const sponsorshipExamples: [string, SponsorshipStatus][] = [
+  ['However, we are not able to sponsor visas or take over sponsorship at this time.', 'unavailable'],
+  ['We are not able to sponsor visas unless an exception is approved.', 'conditional'],
+  ['We are not unable to sponsor visas.', 'unclear'],
   ['Visa sponsorship is available for this position.', 'available'],
   ['We offer visa sponsorship for this role.', 'available'],
   ['We will sponsor applicants for this position.', 'available'],
@@ -67,6 +70,12 @@ const sponsorshipExamples: [string, SponsorshipStatus][] = [
   ['Visa sponsorship is available for other roles.', 'unclear'],
   ['Our general company policy: visa sponsorship is available.', 'unclear'],
 ];
+test('citizenship bullets inherit required qualification context and cite both passages', () => {
+  const result = interpret(['Required Qualifications', 'US Citizenship', 'Desired Qualifications', 'US Citizenship']);
+  assert.equal(result.restrictions.length, 1);
+  assert.deepEqual(result.restrictions[0]!.citations.map(item => item.quote), ['Required Qualifications', 'US Citizenship']);
+  assert.equal(interpret('US Citizenship').restrictions.length, 0);
+});
 for (const [text, expected] of sponsorshipExamples) test(`sponsorship: ${text}`, () => assert.equal(interpret(text).sponsorship.status, expected));
 
 const trainingExamples: [string, TrainingStatus, TrainingStatus][] = [

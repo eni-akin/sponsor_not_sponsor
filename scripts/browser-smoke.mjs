@@ -55,6 +55,10 @@ try {
   const panel = page.locator('#sponsor-not-sponsor-ui #panel');
   await badge.waitFor({ state: 'visible' });
   assert.match(await badge.textContent(), /Sponsorship stated/);
+  // React-style document hydration must not permanently remove the automatic badge.
+  await page.locator('#sponsor-not-sponsor-ui').evaluate(element => element.remove());
+  await badge.waitFor({ state: 'visible' });
+  assert.match(await badge.textContent(), /Sponsorship stated/);
   // Keep page-level controls reachable even if the website styles every button.
   await page.addStyleTag({ content: 'button { background: magenta !important; font-size: 80px !important; }' });
   assert.equal(await badge.evaluate(element => getComputedStyle(element).fontSize), '12px');

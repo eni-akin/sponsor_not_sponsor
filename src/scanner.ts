@@ -109,6 +109,11 @@ function matchesPageIdentity(job: Record<string, unknown>, href: string): boolea
   if (publishedUrl) {
     try {
       const published = new URL(publishedUrl);
+      if (page.hostname.endsWith('.icims.com') && published.hostname === page.hostname) {
+        const pageId = page.pathname.match(/^\/jobs\/(\d+)\//)?.[1];
+        const publishedId = published.pathname.match(/^\/jobs\/(\d+)\//)?.[1];
+        if (pageId && publishedId) return pageId === publishedId;
+      }
       if (published.hostname === page.hostname && published.pathname !== page.pathname && !page.pathname.startsWith(`${published.pathname}/application`)) return false;
     } catch { return false; }
   }
@@ -130,6 +135,11 @@ function roleTitle(root: Element, jobs: Record<string, unknown>[] = []): string 
   const primary = [...new Set(headings.filter(({ element, text }) =>
     (element.matches('h1,[data-job-title],[itemprop="title"]')) && !employerNames.includes(titleKey(text)),
   ).map(({ text }) => text))];
+  // Greenhouse descriptions can contain a second h1; its page title names the active vacancy.
+  if (root.ownerDocument.location?.hostname === 'job-boards.greenhouse.io') {
+    const named = primary.filter(text => root.ownerDocument.title.startsWith(`Job Application for ${text} at `));
+    if (named.length === 1) return named[0]!;
+  }
   if (primary.length === 1 && ROLE_WORD.test(primary[0]!)) return primary[0]!;
   const roleHeadings = [...new Set(headings.filter(({ text }) => ROLE_WORD.test(text)).map(({ text }) => text))];
   if (roleHeadings.length === 1) return roleHeadings[0]!;
@@ -324,7 +334,13 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
   const location = [scalar(address.addressLocality), scalar(address.addressRegion), scalar(address.addressCountry) ?? scalar(object(address.addressCountry).name)].filter(Boolean).join(', ') || scalar(jobLocation.name);
   const identifier = scalar(object(structured?.identifier).value) ?? scalar(structured?.identifier) ?? (leverApplication ? pageUrl.pathname.split('/')[2]! : null);
   const employerElement = root.querySelector('[itemprop="hiringOrganization"],[data-employer]');
-  const employer = scalar(organization.name) ?? (employerElement ? scalar(extractBlocks(employerElement).blocks.map(block => block.text).join(' ')) : null);
+  let employer = scalar(organization.name) ?? (employerElement ? scalar(extractBlocks(employerElement).blocks.map(block => block.text).join(' ')) : null);
+  if (!employer && pageUrl.hostname === 'job-boards.greenhouse.io') {
+    const prefix = `Job Application for ${title} at `;
+    if (doc.title.startsWith(prefix)) employer = scalar(doc.title.slice(prefix.length));
+  }
+  if (!employer && pageUrl.hostname === 'jobs.lever.co' && doc.title.endsWith(` - ${title}`))
+    employer = scalar(doc.title.slice(0, -` - ${title}`.length));
   const employmentTypes = (Array.isArray(structured?.employmentType) ? structured.employmentType : [structured?.employmentType]).map(scalar).filter((value): value is string => !!value);
   result.role = {
     key: hash(`${href}|${titleKey(title)}|${employer ?? ''}|${identifier ?? ''}`),
