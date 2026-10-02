@@ -18,6 +18,13 @@ export class PageUI {
   private frame = 0;
   private seenJob = false;
   private priorFocus: HTMLElement | null = null;
+  private mountObserver = new MutationObserver(() => {
+    // Page hydration can replace the document's children after content-script startup.
+    if (!this.host.isConnected && document.documentElement) {
+      document.documentElement.append(this.host);
+      this.reposition();
+    }
+  });
 
   constructor(private actions: Actions) {
     this.host.id = 'sponsor-not-sponsor-ui';
@@ -57,6 +64,7 @@ export class PageUI {
     window.addEventListener('scroll', this.reposition, { passive: true, capture: true });
     window.addEventListener('resize', this.reposition, { passive: true });
     document.documentElement.append(this.host);
+    this.mountObserver.observe(document, { childList: true, subtree: true });
   }
 
   private get<T extends HTMLElement = HTMLElement>(id: string): T { return this.root.getElementById(id) as T; }
@@ -143,6 +151,7 @@ export class PageUI {
     this.position();
   }
   dispose(): void {
+    this.mountObserver.disconnect();
     document.removeEventListener('pointerdown', this.outside, true);
     document.removeEventListener('focusin', this.focusOutside, true);
     window.removeEventListener('scroll', this.reposition, true);

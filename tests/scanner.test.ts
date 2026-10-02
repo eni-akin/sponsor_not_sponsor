@@ -12,6 +12,24 @@ const scan = (html: string, url = 'https://example.com/jobs/123') => {
   try { return scanPage(dom.window.document, url); } finally { dom.window.close(); }
 };
 
+test('Greenhouse page title identifies vacancy and employer despite a description h1', () => {
+  const result = scan('<title>Job Application for Software Engineering Internship (Summer 2027) at Amca</title><main><h1>Software Engineering Internship (Summer 2027)</h1><h1>Software Engineer</h1><h2>Responsibilities</h2><p>Develop software for our customers.</p><h2>Basic Qualifications</h2><p>Study computer science and engineering.</p><button>Apply</button></main>', 'https://job-boards.greenhouse.io/amca/jobs/4425120009');
+  assert.equal(result.role?.title, 'Software Engineering Internship (Summer 2027)');
+  assert.equal(result.role?.employer, 'Amca');
+});
+
+test('iCIMS canonical slug aliases match the same vacancy and reject a different ID', () => {
+  const html = (id: string) => `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Software Engineer', url: `https://careers-peraton.icims.com/jobs/${id}/software-engineer/job`, hiringOrganization: { name: 'Peraton' } })}</script><h1>Software Engineer</h1><h2>Responsibilities</h2><p>Build reliable software systems.</p><h2>Qualifications</h2><p>Study computer science.</p><button>Apply</button>`;
+  assert.equal(scan(html('171547'), 'https://careers-peraton.icims.com/jobs/171547/job').role?.employer, 'Peraton');
+  assert.equal(scan(html('171548'), 'https://careers-peraton.icims.com/jobs/171547/job').role?.employer, null);
+});
+
+test('Lever title supplies employer only when it names the visible role', () => {
+  const html = '<title>Neighbor - Software Engineer</title><h1>Software Engineer</h1><h2>Responsibilities</h2><p>Build reliable software.</p><h2>Qualifications</h2><p>Study engineering.</p><button>Apply</button>';
+  assert.equal(scan(html, 'https://jobs.lever.co/neighbor/123').role?.employer, 'Neighbor');
+  assert.equal(scan(html.replace('Neighbor - Software Engineer', 'Neighbor - Different Role'), 'https://jobs.lever.co/neighbor/123').role?.employer, null);
+});
+
 test('matches graph JobPosting metadata with displayed role, preserves evidence', () => {
   const result = scan(fixture('structured-job'));
   assert.equal(result.kind, 'job-posting');

@@ -18,7 +18,7 @@ test('badge shows the four blocker-first results in words as well as colors', ()
   assert.deepEqual(badgeState(incomplete), { label: 'Could not verify', tone: 'neutral' });
 });
 test('citizenship, permanent residency, and explicit student-status exclusions are blockers', () => {
-  for (const text of ['U.S. citizenship is required.', 'Eligibility requirements include U.S. citizenship.', 'Applicants must be permanent residents.', 'F-1 students are not eligible.', 'This position is not eligible for F-1 students.'])
+  for (const text of ['U.S. citizenship is required.', 'Eligibility requirements include U.S. citizenship.', 'Applicants must be permanent residents.', 'All applicants must be U.S. persons within the meaning of ITAR.', 'F-1 students are not eligible.', 'This position is not eligible for F-1 students.'])
     assert.equal(badgeState(snapshot(text))?.label, 'Explicit blocker found');
 });
 test('reviewed work-without-sponsorship phrases are blockers', () => {

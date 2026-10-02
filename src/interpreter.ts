@@ -45,6 +45,7 @@ function sponsorshipStatus(text: string): Exclude<SponsorshipStatus, 'unclear'> 
   // Needing no sponsorship describes the applicant, not an employer's willingness to sponsor.
   if (matches(text, String.raw`\bno\s+${SPONSOR}\s+(?:is\s+)?(?:required|needed|necessary)\b`) || matches(text, String.raw`${SPONSOR}\s+(?:is\s+)?not\s+(?:required|needed|necessary)\b`)) return null;
   const unavailable = [
+    String.raw`\b(?:we|the (?:company|employer|organization))\s+(?:are|is)\s+not\s+able\s+to\s+sponsor\s+(?:visas|applicants|candidates|workers|employees)\b`,
     String.raw`\b${SPONSOR}\s+(?:(?:is|will be|can be)\s+)?(?:(?:currently|generally|presently)\s+)?(?:unavailable|not\s+(?:available|offered|provided|supported|possible|permitted))\b`,
     String.raw`\bno\s+(?:(?:current|future|any)\s+)?${SPONSOR}(?=\s*(?:[.!;,]|$)|\s+(?:is|will|for|now|in the future|at this time|available|offered|provided)\b)`,
     String.raw`\b(?:we|the (?:company|employer|organization))\s+(?:do not|does not|will not|cannot|never|are unable to|is unable to)\s+(?:(?:currently|presently|ever)\s+)?(?:(?:offer|provide|support)\s+(?:any\s+)?${SPONSOR}|sponsor\s+(?:applicants|candidates|workers|employees|this (?:role|position)))\b`,
@@ -150,7 +151,12 @@ export function interpretJob(role: JobRecord): Interpretation {
   const restrictions: Interpretation['restrictions'] = [];
   const context: Interpretation['context'] = [];
   let previousBlockId = '';
+  let requiredHeading: EvidenceBlock | null = null;
   for (const block of role.evidence) {
+    if (/^(?:required|basic|minimum)\s+qualifications\s*:?$/i.test(block.text)) requiredHeading = block;
+    else if (/^(?:desired|preferred)\s+(?:qualifications|skills(?: and experience)?)\s*:?$/i.test(block.text)
+      || /h[1-4]:nth-of-type\(\d+\)$/.test(block.locator)) requiredHeading = null;
+    if (requiredHeading?.source !== block.source) requiredHeading = null;
     if (block.kind !== 'application-question' && continuation.test(block.text)) {
       // A condition in the next paragraph still limits the preceding policy. Cite both blocks.
       const previousSponsor = sponsorship.filter(claim => claim.citation.evidenceId === previousBlockId);
@@ -184,8 +190,12 @@ export function interpretJob(role: JobRecord): Interpretation {
           : /\b(?:other (?:roles|positions|jobs)|unrelated vacancy)\b/.test(clause) ? 'other-role'
           : /\b(?:company.wide|across (?:the |our )?company|general company policy)\b/.test(clause) ? 'company' : null;
         if (contextKind) { context.push({ kind: contextKind, citation: scopedCitation }); recognized = true; continue; }
-        const restriction = restrictionKind(clause);
-        if (restriction) { restrictions.push({ kind: restriction, text: quote, evidenceIds: [block.id], citations: [scopedCitation] }); recognized = true; }
+        const listedCitizenship = requiredHeading && /^(?:(?:us|u\.s\.|united states|american)\s+)?citizenship[.!]?$/i.test(clause);
+        const restriction = restrictionKind(clause) ?? (listedCitizenship ? 'citizenship' : null);
+        if (restriction) {
+          const citations = listedCitizenship ? [{ ...scopedCitation, evidenceId: requiredHeading!.id, quote: requiredHeading!.text }, scopedCitation] : [scopedCitation];
+          restrictions.push({ kind: restriction, text: quote, evidenceIds: citations.map(item => item.evidenceId), citations }); recognized = true;
+        }
         let status = sponsorshipStatus(clause);
         // Preserve an omitted repeated subject: “available now, but not in the future.”
         if (!status && sponsorshipAntecedent && !sponsorTopic.test(clause)
