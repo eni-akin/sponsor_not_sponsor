@@ -65,8 +65,8 @@ export interface Interpretation {
   cpt: Finding<TrainingStatus>;
   opt: Finding<TrainingStatus>;
   sponsorshipByTiming: { now: Finding<SponsorshipStatus>; future: Finding<SponsorshipStatus> };
-  restrictions: { kind: 'citizenship' | 'permanent-residency' | 'us-person' | 'work-authorization' | 'stated-condition'; text: string; evidenceIds: string[]; citations: Citation[] }[];
-  context: { kind: 'question' | 'historical' | 'company' | 'other-role' | 'unrecognized'; citation: Citation }[];
+  restrictions: { kind: 'citizenship' | 'permanent-residency' | 'us-person' | 'work-authorization' | 'stated-condition' | 'export-control'; text: string; evidenceIds: string[]; citations: Citation[] }[];
+  context: { kind: 'question' | 'historical' | 'company' | 'other-role' | 'export-notice' | 'unrecognized'; citation: Citation }[];
 }
 
 export interface MainDecision {

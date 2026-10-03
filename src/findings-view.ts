@@ -59,6 +59,7 @@ export function renderFindings(container: HTMLElement, role: JobRecord, interpre
       historical: 'Historical wording — does not confirm this role',
       company: 'Company-wide wording — applicability to this role is unconfirmed',
       'other-role': 'Another role — excluded from this role’s findings',
+      'export-notice': 'Export-license information — no stated licensing obstacle',
       unrecognized: 'Unclassified wording — review the original text',
     };
     interpretation.context.forEach(item => {

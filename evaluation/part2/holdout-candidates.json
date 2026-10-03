@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "split": "holdout-candidates",
+  "status": "candidate manifest only; content not opened or labeled; human review pending",
+  "priorExposureExclusions": ["Pinterest 8140210: already diagnosed in this conversation", "Southwest: already live-tested by the user"],
+  "provenance": {
+    "discoverySource": "https://github.com/SimplifyJobs/Summer2027-Internships",
+    "retrievalUrl": "https://raw.githubusercontent.com/SimplifyJobs/Summer2027-Internships/dev/README.md",
+    "retrievedAt": "2026-10-02",
+    "method": "Read repository row metadata and official application links only. Selected up to 20 U.S.-located software/technical internship rows in README order, one per employer, excluding employers already present in evaluation/live-2026-09-26/sample.json and this file's named Part 2 development cases. Did not open, search, or label any candidate job content. Repository annotations were not used as labels.",
+    "selectionCeiling": "20 candidates; close, inaccessible, redirected, duplicate, non-job, or non-U.S. links must be recorded as coverage outcomes during future human review, not replaced after viewing policy text."
+  },
+  "candidates": [
+    {"id":"mindex-84B10DB922","employer":"Mindex","title":"Software Engineer Co-op","location":"Rochester, NY","repositoryLine":94,"officialUrl":"https://apply.workable.com/mindex/j/84B10DB922/apply"},
+    {"id":"vanguard-182757","employer":"Vanguard","title":"College to Corporate IT Intern - Application Development","location":"Malvern, PA","repositoryLine":122,"officialUrl":"https://vanguard.wd5.myworkdayjobs.com/en-US/vanguard_external/job/Malvern-PA/College-to-Corporate-IT-Internship-Application-Development--PA-_182757"},
+    {"id":"riotgames-8222015","employer":"Riot Games","title":"Software Engineer Intern","location":"Los Angeles, CA","repositoryLine":129,"officialUrl":"https://job-boards.greenhouse.io/riotgamesup/jobs/8222015"},
+    {"id":"veeam-4955279101","employer":"Veeam Software","title":"Competitive Intelligence AI Engineer Intern","location":"Georgia, USA","repositoryLine":143,"officialUrl":"https://job-boards.eu.greenhouse.io/veeamsoftware/jobs/4955279101"},
+    {"id":"sas-42964","employer":"SAS","title":"Software Development and Testing Intern","location":"Cary, NC","repositoryLine":164,"officialUrl":"https://careers-sas.icims.com/jobs/42964/job?mobile=true&needsRedirect=false"},
+    {"id":"amazon-10559746","employer":"Amazon","title":"Software Engineer Intern","location":"Seattle, WA; Jessup, MD; Arlington, VA; Denver, CO","repositoryLine":171,"officialUrl":"https://amazon.jobs/en/jobs/10559746/software-development-engineer-intern-summer-2027-usa-amazon-dedicated-cloud-adc"},
+    {"id":"corgan-4109","employer":"Corgan","title":"Software Development Intern","location":"Dallas, TX","repositoryLine":178,"officialUrl":"https://campus-us-corgan.icims.com/jobs/4109/job?mobile=true&needsRedirect=false"},
+    {"id":"glean-4595665005","employer":"Glean","title":"Software Engineer Intern","location":"Mountain View, CA","repositoryLine":185,"officialUrl":"https://job-boards.greenhouse.io/gleanwork/jobs/4595665005"},
+    {"id":"varda-8010682003","employer":"Varda Space","title":"Mission Operations Intern - Summer 2027","location":"El Segundo, CA","repositoryLine":192,"officialUrl":"https://job-boards.greenhouse.io/vardaspace/jobs/8010682003"},
+    {"id":"federal-reserve-R-0000033637","employer":"The Federal Reserve System","title":"Computer Science and Software Engineering Intern","location":"Chicago, IL","repositoryLine":199,"officialUrl":"https://rb.wd5.myworkdayjobs.com/en-US/FRS/job/Chicago-IL/Summer-2027-Intern-Computer-Science-and-Software-Engineering_R-0000033637"},
+    {"id":"northrop-R10254007","employer":"Northrop Grumman","title":"Software Engineer Intern","location":"Roy, UT","repositoryLine":227,"officialUrl":"https://ngc.wd1.myworkdayjobs.com/Northrop_Grumman_External_Site/job/United-States-Utah-Roy/XMLNAME-2027-Software-Engineering-Intern---Colorado-Springs-CO_R10254007"},
+    {"id":"mfs-MFS-231985","employer":"MFS","title":"Software Engineer Intern","location":"Boston, MA","repositoryLine":234,"officialUrl":"https://mfs.wd1.myworkdayjobs.com/en-US/MFS-Careers/job/Boston/Summer-2027-Software-Engineer-Intern--June---August-_MFS-231985"},
+    {"id":"invesco-R-15621-1","employer":"Invesco","title":"Early Career Intern - Fixed Income Global Technology","location":"Atlanta, GA","repositoryLine":255,"officialUrl":"https://invesco.wd1.myworkdayjobs.com/en-US/IVZ/job/Atlanta-Georgia/Early-Career-Intern---Fixed-Income-Global-Technology_R-15621-1"},
+    {"id":"hmh-JR102458","employer":"HMH","title":"AI & Automation Development Intern","location":"Houston, TX","repositoryLine":268,"officialUrl":"https://hmhw.wd12.myworkdayjobs.com/hmh_careers/job/Houston-TX/AI---Automation-Development-Intern_JR102458"},
+    {"id":"costar-R39945","employer":"CoStar Group","title":"Technology Intern","location":"Sunnyvale, CA","repositoryLine":283,"officialUrl":"https://costar.wd1.myworkdayjobs.com/Costar_Campus/job/Sunnyvale-US/Summer-2027-Technology-Intern---Sunnyvale--CA_R39945"},
+    {"id":"caci-332790","employer":"CACI","title":"Software Development Intern","location":"Ashburn, VA","repositoryLine":297,"officialUrl":"https://caci.wd1.myworkdayjobs.com/external/job/Ashburn-VA-US/Software-Development-Intern---Summer-2027_332790"},
+    {"id":"stripe-8241260","employer":"Stripe","title":"Software Engineer Intern","location":"Seattle, WA; San Francisco, CA","repositoryLine":346,"officialUrl":"https://stripe.com/jobs/search?gh_jid=8241260"},
+    {"id":"metlife-20701","employer":"MetLife","title":"Global Technology Intern","location":"Tampa, FL; Hanover, NJ; Cary, NC; New York, NY","repositoryLine":332,"officialUrl":"https://metlife.avature.net/en_US/ml/JobDetail/20701"}
+  ]
+}

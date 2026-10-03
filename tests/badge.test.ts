@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { badgePosition, badgeState } from '../src/badge-state';
 import { interpretJob } from '../src/interpreter';
+import { mainDecision } from '../src/main-decision';
 import { reportData } from '../src/report';
 import type { JobRecord, ScannerSnapshot } from '../src/types';
 
@@ -34,6 +35,16 @@ test('Thrivent structured graduation date does not turn a refusal into a conditi
 });
 test('generic work authorization wording alone is not treated as a blocker', () => {
   assert.equal(badgeState(snapshot('Applicants must already be authorized to work.'))?.label, 'No blocker found');
+});
+test('informational export licensing is contextual while a denied country-scoped license is a blocker', () => {
+  const notice = snapshot('Access to export-regulated information may require a license depending on most recent citizenship or permanent residence.');
+  assert.equal(badgeState(notice)?.label, 'No blocker found');
+  const scoped = snapshot('Access to export-controlled information may require a license. A license is required when the most recent country of citizenship or permanent residence is Cuba, Iran, North Korea, Syria, or certain regions of Ukraine. A required license will not be granted by the summer internship start date. Exceptions apply to U.S. citizens or nationals, lawful permanent residents, refugees, and asylees.');
+  assert.equal(badgeState(scoped)?.label, 'Explicit blocker found');
+  assert.match(scoped.result!.interpretation!.restrictions[0]!.text, /summer internship start date/);
+  assert.match(scoped.result!.interpretation!.restrictions[0]!.text, /refugees, and asylees/);
+  assert.ok(scoped.result!.interpretation!.restrictions[0]!.citations.some(citation => /Cuba, Iran, North Korea, Syria/.test(citation.quote)));
+  assert.match(mainDecision(scoped.result!.role!, scoped.result!.interpretation!).explanation, /country-scoped export-license obstacle/);
 });
 test('conditional offers and conditional refusals keep their practical direction', () => {
   assert.equal(badgeState(snapshot('Sponsorship may be considered.'))?.label, 'Sponsorship stated');

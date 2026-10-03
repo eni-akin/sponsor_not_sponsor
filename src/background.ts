@@ -27,8 +27,14 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
   if (message?.type === 'FRAME_AVAILABLE') {
     if (sender.id === chrome.runtime.id && sender.tab?.id !== undefined && (sender.frameId ?? 0) > 0
       && sender.documentId && sender.url && /^https?:\/\//.test(sender.url)) {
+      // Chrome's sender URL can retain the document's initial address after pushState.
+      // The content script supplies its current same-origin URL; document/window checks still bind the read.
+      let url = sender.url;
+      try {
+        if (typeof message.url === 'string' && new URL(message.url).origin === new URL(sender.url).origin) url = new URL(message.url).href;
+      } catch { /* Keep the browser-supplied URL for malformed announcements. */ }
       void chrome.tabs.sendMessage(sender.tab.id, { type: 'FRAME_AVAILABLE', frameId: sender.frameId,
-        documentId: sender.documentId, url: sender.url }, { frameId: 0 }).catch(() => {});
+        documentId: sender.documentId, url }, { frameId: 0 }).catch(() => {});
     }
     respond({ received: true });
     return;

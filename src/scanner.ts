@@ -1,4 +1,5 @@
 import type { DescriptionCoverage, EvidenceBlock, ScanResult } from './types';
+import { embeddedFrameResult } from './frame-coordinator';
 
 const EXCLUDED = 'script,style,noscript,nav,svg,iframe,input,textarea,select,button,[contenteditable]:not([contenteditable="false"]),[role="textbox"],[data-sns-ignore],.related-jobs,.recommended-jobs,[data-recommended-jobs]';
 const DETAILS = '[data-job-detail],#job-detail,#job-details,.job-details,.job-description,[itemtype="https://schema.org/JobPosting"],[itemtype="http://schema.org/JobPosting"],[role="tabpanel"]';
@@ -246,6 +247,14 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
   if (!title) {
     const embedded = embeddedJob(doc, href, depth);
     if (embedded) return embedded;
+    const formOnlyApplication = [...doc.querySelectorAll('form')].some(form => visible(form)
+      && /\b(resume|résumé|cover letter|work authorization|sponsorship|visa|applicant|submit application)\b/i
+        .test(extractBlocks(form).blocks.map(block => block.text).join(' ')));
+    if (formOnlyApplication) {
+      result.kind = 'unreadable';
+      result.warnings.push('Public application wording is visible, but no specific vacancy could be identified.');
+      return result;
+    }
     const inaccessibleJobFrame = [...doc.querySelectorAll('iframe')].some(frame => {
       if (!visible(frame) || readableFrame(frame, href)) return false;
       try { const url = new URL(frame.src); return /^https?:$/.test(url.protocol) && /\b(job|jobs|career|careers|apply|icims)\b/i.test(`${url.hostname}${url.pathname}`); }
@@ -315,7 +324,7 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
     if (structuredTruncated) result.warnings.push('Structured job description was truncated.');
   }
   const embeddedContent = [...root.querySelectorAll('iframe')].some(visible);
-  if (embeddedContent) result.warnings.push('Embedded form content is not scanned in this preview.');
+  if (embeddedContent) result.warnings.push('Visible embedded frame content may remain unread if its source or vacancy identity cannot be verified.');
   if (!hasVisibleDescription && !hasStructuredDescription) result.warnings.push('The job description is incomplete. Findings are not carried over from other pages.');
   const coverageStatus = (hasVisibleDescription || hasStructuredDescription) && !extracted.truncated && !structuredTruncated ? 'description-found' : 'incomplete';
   const gaps: DescriptionCoverage['gaps'] = [];
@@ -332,7 +341,11 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
   const jobLocation = object(Array.isArray(structured?.jobLocation) ? structured.jobLocation[0] : structured?.jobLocation);
   const address = object(jobLocation.address);
   const location = [scalar(address.addressLocality), scalar(address.addressRegion), scalar(address.addressCountry) ?? scalar(object(address.addressCountry).name)].filter(Boolean).join(', ') || scalar(jobLocation.name);
-  const identifier = scalar(object(structured?.identifier).value) ?? scalar(structured?.identifier) ?? (leverApplication ? pageUrl.pathname.split('/')[2]! : null);
+  const greenhouseId = pageUrl.searchParams.get('gh_jid')
+    ?? ((pageUrl.hostname === 'job-boards.greenhouse.io' || pageUrl.hostname === 'boards.greenhouse.io')
+      ? pageUrl.pathname.match(/\/jobs\/(\d+)(?:\/|$)/)?.[1] ?? null : null);
+  const identifier = scalar(object(structured?.identifier).value) ?? scalar(structured?.identifier)
+    ?? (leverApplication ? pageUrl.pathname.split('/')[2]! : greenhouseId);
   const employerElement = root.querySelector('[itemprop="hiringOrganization"],[data-employer]');
   let employer = scalar(organization.name) ?? (employerElement ? scalar(extractBlocks(employerElement).blocks.map(block => block.text).join(' ')) : null);
   if (!employer && pageUrl.hostname === 'job-boards.greenhouse.io') {
@@ -348,5 +361,14 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
     employer, location, identifier, employmentTypes, evidence,
     completeness: coverageStatus, coverage,
   };
+  if (depth < 2) {
+    const matchingFrames = [...doc.querySelectorAll('iframe')].flatMap(frame => {
+      const child = readableFrame(frame, href);
+      if (!child) return [];
+      const merged = embeddedFrameResult(result, scanPage(child.doc, child.url, depth + 1));
+      return merged ? [merged] : [];
+    });
+    if (matchingFrames.length === 1) return matchingFrames[0]!;
+  }
   return result;
 }

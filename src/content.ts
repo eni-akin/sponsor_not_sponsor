@@ -3,7 +3,7 @@ import { parseSettings } from './settings';
 import { PageUI } from './page-ui';
 import type { Settings, ScannerSnapshot } from './types';
 import { recoverOverview } from './overview-recovery';
-import { scanPage } from './scanner';
+import { pageInputFingerprint, scanPage } from './scanner';
 import { interpretJob } from './interpreter';
 import { FrameCoordinator, type FrameAnnouncement } from './frame-coordinator';
 import { DecisionClient } from './decision-client';
@@ -11,7 +11,18 @@ import { DecisionClient } from './decision-client';
 if (window.top !== window) {
   let frameSettings: Settings | null = null;
   let announceTimer: ReturnType<typeof setTimeout> | undefined;
-  const announce = () => { if (frameSettings) void chrome.runtime.sendMessage({ type: 'FRAME_AVAILABLE' }).catch(() => {}); };
+  let lastFrameUrl = location.href;
+  let navigationPending = false;
+  let lastReadFingerprint = pageInputFingerprint(document);
+  let navigationFingerprint = lastReadFingerprint;
+  const noteNavigation = () => {
+    if (location.href === lastFrameUrl) return;
+    lastFrameUrl = location.href;
+    navigationFingerprint = lastReadFingerprint;
+    navigationPending = pageInputFingerprint(document) === navigationFingerprint;
+    announceSoon();
+  };
+  const announce = () => { if (frameSettings) void chrome.runtime.sendMessage({ type: 'FRAME_AVAILABLE', url: location.href }).catch(() => {}); };
   const announceSoon = () => {
     clearTimeout(announceTimer);
     announceTimer = setTimeout(announce, 250);
@@ -23,10 +34,13 @@ if (window.top !== window) {
     }
     if (message?.type === 'FRAME_POLL_CHILDREN') { announce(); respond({ received: true }); return; }
     if (message?.type !== 'FRAME_READ_CHILD') return;
+    noteNavigation();
     if (!frameSettings || frameSettings.paused || frameSettings.disabledHosts.includes(location.hostname)) { respond(null); return; }
+    if (navigationPending) { respond(null); return; }
     try {
       const result = scanPage(document, location.href);
       if (result.role) result.interpretation = interpretJob(result.role);
+      lastReadFingerprint = pageInputFingerprint(document);
       respond(result);
     } catch { respond(null); }
   });
@@ -35,9 +49,19 @@ if (window.top !== window) {
       const element = mutation.target.nodeType === 1 ? mutation.target as Element : mutation.target.parentElement;
       return !element?.closest('input,textarea,select,[contenteditable],nav,footer,[data-sns-ignore]');
     })) announceSoon();
+    if (navigationPending) {
+      const fingerprint = pageInputFingerprint(document);
+      if (fingerprint !== navigationFingerprint) navigationPending = false;
+    }
   });
   observer.observe(document.documentElement, { subtree: true, childList: true, characterData: true,
     attributes: true, attributeFilter: ['hidden', 'aria-hidden', 'class', 'style'] });
+  const announceNavigation = noteNavigation;
+  window.addEventListener('popstate', announceNavigation);
+  window.addEventListener('hashchange', announceNavigation);
+  setInterval(() => {
+    if (location.href !== lastFrameUrl) announceNavigation();
+  }, 500);
   chrome.storage.onChanged.addListener((changes, area) => {
     if (area === 'local' && changes.settings) { frameSettings = parseSettings(changes.settings.newValue); announceSoon(); }
   });
