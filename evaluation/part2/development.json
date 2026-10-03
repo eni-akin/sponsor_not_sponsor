@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "split": "development",
-  "provenance": "Agent-prepared from official public job/application sources on 2026-10-02. Labels are provisional; independent human review is pending. This is a development set and must not be used as holdout evidence.",
+  "provenance": "Prepared from official public job/application sources on 2026-10-02. Qwen3.7's independent extraction and the project owner's human review are recorded in review-worksheet.md. The four development labels are adjudicated under the evidence contract; this development set must not be used as holdout evidence.",
   "cases": [
     {
       "id": "waymo-8248060",
@@ -75,7 +75,7 @@
       "scope": "The selected co-op's required qualifications explicitly include U.S. citizenship. Do not infer a company-wide policy or a visa-sponsorship refusal.",
       "timing": "No sponsorship or time qualification stated. The co-op spans Spring and Summer 2027.",
       "exceptions": "No citizenship exception is stated. Clearance metadata says no clearance required; that does not negate the separate citizenship qualification.",
-      "completeness": {"status":"partial","note":"Official job description and visible qualification/metadata sections retrieved; no application submission or applicant data. A separate application form was not inspected."},
+      "completeness": {"status":"complete","note":"Human review confirmed the official job description is complete for the citizenship decision. A separate application form was not needed and no applicant data was inspected."},
       "evidence": [
         {
           "source": "visible-page",

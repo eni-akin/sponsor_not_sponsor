@@ -163,10 +163,10 @@ Release decisions follow this validation, not merely successful automated tests.
 ## Progress checklist
 
 - [x] Phase 1: Baseline recorded in [evaluation/part2/baseline.md](evaluation/part2/baseline.md); committed tree passed 194 tests, typecheck, and build.
-- [ ] Phase 2: Automated reading/lifecycle checks pass; live Pinterest confirmation remains blocked by a Cloudflare 403 challenge. Identity-less forms remain unread.
+- [x] Phase 2: Automated reading/lifecycle checks pass; the project owner's accessible Pinterest session confirmed correct role, employer, complete description, and result. Identity-less forms remain an explicit limitation.
 - [x] Phase 3: Scoped-restriction contract authorized by the instruction to implement this plan; independent example review remains part of Phase 5.
 - [x] Phase 4: Shared rule fixes verified with exact Waymo text, negative controls, and live Waymo confirmation.
-- [ ] Phase 5: Reviewed dataset and unseen holdout prepared.
+- [ ] Phase 5: Four development cases human-reviewed. A 54-row Qwen3.7 submission and corrected 54-row extension-output CSV were audited; 46 submitted rows remain eligible after exclusions and four blind additions produce a 50-job candidate roster. Human label adjudication and outputs for the four additions are required before freezing.
 - [ ] Phase 6: Laya quality evaluated.
 - [ ] Phase 7: Proven behavior integrated, if justified.
 - [ ] Phase 8: Fresh live validation and release assessment completed.
@@ -175,4 +175,4 @@ Release decisions follow this validation, not merely successful automated tests.
 
 See [verification and remaining gates](evaluation/part2/verification.md). The current tree passes **208 tests**, typecheck, build, and all four Chromium suites. No dependency, model, confidence threshold, or release setting changed. Three GPT-6 Luna agents prepared frame, rule, and dataset work; the primary agent reconciled and verified it after agent usage limits interrupted their work.
 
-Next: reload `dist` and verify Pinterest in a normal browser session that can access the posting; independently review the four development examples and resolve the Peraton completeness/label conflict. Freeze a sufficiently large unseen dataset before model-quality comparisons. The 18 link-only holdout candidates are not a reviewed holdout and cannot satisfy the proposed 50-vacancy gate.
+Next: freeze and independently label a sufficiently large unseen dataset before model-quality comparisons. The 18 link-only holdout candidates are not a reviewed holdout and cannot satisfy the proposed 50-vacancy gate.
