@@ -178,6 +178,8 @@ Initial audit check on September 29: `node --import tsx --test tests/*.test.ts` 
 
 ## Implementation status
 
+October 2 Part 2 checkpoint: shared scoped-export interpretation and iframe supplementation/lifecycle improvements pass 208 tests, typecheck/build, and Chromium regressions. Live Waymo confirms scoped citations; Pinterest remains inaccessible behind a 403 challenge. Independent dataset review and Laya quality work remain pending. See [Part 2](IMPROVEMENT_PLAN_PART_2.md) and [verification](evaluation/part2/verification.md).
+
 - Applied: research UI, requests and permission disconnected from the active extension; deferred research source and tests retained.
 - Applied: README simplified, old roadmaps marked historical, obsolete generic Python setup and `APP_ENV` example removed.
 - Applied: badge, popup and on-page panel now use Explicit blocker found, Sponsorship stated, No blocker found, or Could not verify from one shared resolver; separate CPT/OPT cards were removed from the user-facing summary while explicit exclusions still trigger a blocker.

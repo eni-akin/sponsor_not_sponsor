@@ -64,6 +64,55 @@ test('an embedded role cannot overwrite a role already selected in the parent', 
   assert.equal(embeddedFrameResult(parent, child), null);
 });
 
+test('a frame supplements only an exact requisition match with an employer or ATS tenant match', () => {
+  const rolePage = (url: string, title: string, employer: string, identifier: string, text: string) => scan(
+    `<main><h1>${title}</h1><h2>Responsibilities</h2><p>${text}</p><h2>Qualifications</h2><p>Current student with software experience.</p><a>Apply</a></main><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title, identifier, hiringOrganization: { name: employer },
+      description: `<p>${text}</p><p>Current students apply.</p>`,
+    })}</script>`, url);
+  const parent = rolePage(parentUrl, 'Engineer Intern', 'Example Corp', 'REQ-42', 'Build reliable tools for customers.');
+  const child = rolePage(childUrl, 'Engineer Intern', 'Example Corp', 'REQ-42', 'Visa sponsorship is not available for this role.');
+  const result = embeddedFrameResult(parent, child);
+  assert.equal(result?.url, parentUrl);
+  assert.equal(result?.role?.identifier, 'REQ-42');
+  assert.ok(result?.role?.evidence.some(block => block.text.includes('Build reliable tools') && block.source === 'visible-page'));
+  assert.ok(result?.role?.evidence.some(block => block.text.includes('Visa sponsorship') && block.source === 'embedded-frame' && block.sourceUrl === childUrl));
+
+  const otherRequisition = rolePage(childUrl, 'Engineer Intern', 'Example Corp', 'REQ-43', 'Different opening requirement.');
+  assert.equal(embeddedFrameResult(parent, otherRequisition), null);
+  const missingIdentity = rolePage(childUrl, 'Engineer Intern', 'Example Corp', '', 'Unidentified opening wording.');
+  assert.equal(embeddedFrameResult(parent, missingIdentity), null);
+  assert.equal(embeddedFrameResult(parent, otherRequisition, true), null, 'an Apply link cannot override an ID conflict');
+  const otherEmployer = rolePage(childUrl, 'Engineer Intern', 'Other Corp', 'REQ-42', 'Unrelated employer.');
+  assert.equal(embeddedFrameResult(parent, otherEmployer, true), null);
+  child.role!.coverage!.gaps.push('truncated');
+  child.role!.completeness = 'incomplete';
+  assert.equal(embeddedFrameResult(parent, child)?.role?.completeness, 'incomplete', 'merging must not erase truncation');
+});
+
+test('coordinator waits for unrelated visible frames before adopting a job result', async () => {
+  const dom = new JSDOM('<h1>Careers</h1><iframe src="https://jobs.example/job"></iframe><iframe src="https://widget.example/calendar"></iframe>', { url: parentUrl });
+  const frames = [...dom.window.document.querySelectorAll('iframe')];
+  const job = scan('<main><h1>Engineer Intern</h1><h2>Responsibilities</h2><p>Build reliable tools for customers.</p><h2>Qualifications</h2><p>Current student.</p><a>Apply</a></main>', childUrl);
+  const widget = scan('<main><h1>Calendar</h1><p>Select a date.</p></main>', 'https://widget.example/calendar');
+  let finishJob!: (value: ScanResult) => void;
+  const coordinator = new FrameCoordinator(dom.window.document,
+    async message => message.frameId === 1 ? await new Promise<ScanResult>(resolve => { finishJob = resolve; }) : widget,
+    async (message, nonce) => { dom.window.dispatchEvent(new dom.window.MessageEvent('message', {
+      source: frames[message.frameId - 1]!.contentWindow, origin: new URL(message.url).origin,
+      data: { type: 'SNS_FRAME_IDENTITY', nonce },
+    })); }, () => {}, () => {});
+  const parent = scanPage(dom.window.document, parentUrl);
+  const first = coordinator.available({ type: 'FRAME_AVAILABLE', frameId: 1, documentId: 'job', url: childUrl });
+  const second = coordinator.available({ type: 'FRAME_AVAILABLE', frameId: 2, documentId: 'widget', url: 'https://widget.example/calendar' });
+  await new Promise(resolve => setTimeout(resolve, 0));
+  assert.equal(coordinator.combine({ state: 'ready', hostname: 'company.example', result: parent }).result?.role, null);
+  finishJob(job);
+  await Promise.all([first, second]);
+  assert.equal(coordinator.combine({ state: 'ready', hostname: 'company.example', result: parent }).result?.role?.title, 'Engineer Intern');
+  coordinator.dispose(); dom.window.close();
+});
+
 test('structured description inside the frame keeps frame-specific attribution', () => {
   const parent = scan(`<h1>Careers</h1><iframe src="${childUrl}"></iframe>`, parentUrl);
   const description = `<p>${'Build reliable software systems with the team. '.repeat(10)}</p><p>Visa sponsorship is unavailable for this role.</p>`;

@@ -144,12 +144,58 @@ function restrictionKind(text: string): Interpretation['restrictions'][number]['
   return null;
 }
 
+const exportLicense = /\bexport[- ]licenses?\b/i;
+const exportLicenseMention = (text: string) => exportLicense.test(text)
+  || /\b(?:export[- ]regulated|export[- ]controlled|export control laws?)\b.{0,100}\blicenses?\b/i.test(text);
+const exportGroup = /\b(?:most recent country of citizenship|citizenship|permanent residen\w*|green card)\b/i;
+const exportControl = /\b(?:export control laws?|export[- ]controlled|controlled (?:technology|technical data|information))\b/i;
+const exportPolicy = (text: string) => /\blicenses?\b/i.test(text) && exportGroup.test(text)
+  && /\b(?:when|if|based on|depending on|to individuals whose|for individuals whose|most recent country of citizenship)\b/i.test(text);
+const exportDenial = /\b(?:(?:required|export)(?: export)? )licenses?\s+(?:(?:will|would|can|could) not|cannot|is not expected to)\s+(?:be\s+)?(?:granted|issued|approved|obtained|available)\b/i;
+const exportException = (text: string) => /\b(?:requirements? do not apply|no export license is needed|exemptions? apply|exceptions? apply)\b/i.test(text)
+  && /\b(?:citizen|national|permanent resident|refugee|asylum)\b/i.test(text);
+const exportNonPolicy = /\b(?:historically|previously|in the past|hypothetic(?:al|ally)|quoted|quotation|example|sample wording|ignore (?:previous|prior|all|the|settings)|pretend|classify this|label this)\b/i;
+function exportLicenseRestrictions(role: JobRecord): Interpretation['restrictions'] {
+  const passages = role.evidence.flatMap(block => sentences(block).map(sentence => ({ block, ...sentence })));
+  const restrictions: Interpretation['restrictions'] = [];
+  for (let index = 0; index < passages.length; index++) {
+    const anchor = passages[index]!;
+    if (anchor.block.kind === 'application-question' || !exportDenial.test(anchor.text) || exportNonPolicy.test(anchor.text)) continue;
+    const sameSource = (passage: typeof anchor) => passage.block.source === anchor.block.source
+      && passage.block.sourceUrl === anchor.block.sourceUrl
+      && passage.block.kind !== 'application-question'
+      && !/h[1-4]:nth-of-type\(\d+\)$/.test(passage.block.locator);
+    const anchorIndex = role.evidence.indexOf(anchor.block);
+    const neighbors = passages.filter(passage => {
+      const blockIndex = role.evidence.indexOf(passage.block);
+      if (Math.abs(blockIndex - anchorIndex) > 2 || !sameSource(passage)) return false;
+      return role.evidence.slice(Math.min(blockIndex, anchorIndex), Math.max(blockIndex, anchorIndex) + 1)
+        .every(block => sameSource({ ...passage, block }));
+    });
+    const hasControlContext = neighbors.some(passage => exportControl.test(passage.text) && !exportNonPolicy.test(passage.text));
+    const policy = hasControlContext && neighbors.find(passage => exportPolicy(passage.text) && !exportNonPolicy.test(passage.text));
+    if (!policy) continue;
+    const control = neighbors.find(passage => exportControl.test(passage.text) && !exportNonPolicy.test(passage.text));
+    const citations = [control, policy, anchor, ...neighbors.filter(passage => exportException(passage.text) && !exportNonPolicy.test(passage.text))]
+      .filter((passage): passage is typeof anchor => !!passage)
+      .filter((passage, at, all) => all.findIndex(other => other.block.id === passage.block.id && other.quote === passage.quote) === at)
+      .map(passage => ({ evidenceId: passage.block.id, quote: passage.quote, source: passage.block.source,
+        sourceUrl: passage.block.sourceUrl, timing: timing(passage.text) }));
+    restrictions.push({ kind: 'export-control', text: citations.map(citation => citation.quote).join(' '),
+      evidenceIds: [...new Set(citations.map(citation => citation.evidenceId))], citations });
+  }
+  return restrictions;
+}
+
 /** Pure local rules. Statements remain untrusted text, never instructions or executable actions. */
 export function interpretJob(role: JobRecord): Interpretation {
   const sponsorship: Claim<SponsorshipStatus>[] = [];
   const training: Record<'cpt' | 'opt', Claim<TrainingStatus>[]> = { cpt: [], opt: [] };
   const restrictions: Interpretation['restrictions'] = [];
   const context: Interpretation['context'] = [];
+  const exportRestrictions = exportLicenseRestrictions(role);
+  restrictions.push(...exportRestrictions);
+  const scopedExportQuotes = new Set(exportRestrictions.flatMap(item => item.citations.map(citation => `${citation.evidenceId}\0${citation.quote}`)));
   let previousBlockId = '';
   let requiredHeading: EvidenceBlock | null = null;
   for (const block of role.evidence) {
@@ -162,20 +208,20 @@ export function interpretJob(role: JobRecord): Interpretation {
       const previousSponsor = sponsorship.filter(claim => claim.citation.evidenceId === previousBlockId);
       if (previousSponsor.length) {
         previousSponsor.forEach(claim => { claim.status = 'conditional'; });
-        sponsorship.push({ status: 'conditional', citation: { evidenceId: block.id, quote: block.text, source: block.source, sourceUrl: block.source === 'official-overview' ? block.sourceUrl : undefined, timing: previousSponsor[0]!.citation.timing } });
+        sponsorship.push({ status: 'conditional', citation: { evidenceId: block.id, quote: block.text, source: block.source, sourceUrl: block.sourceUrl, timing: previousSponsor[0]!.citation.timing } });
       }
       for (const topic of ['cpt', 'opt'] as const) {
         const previous = training[topic].filter(claim => claim.citation.evidenceId === previousBlockId);
         if (previous.length) {
           previous.forEach(claim => { claim.status = 'unclear'; });
-          training[topic].push({ status: 'unclear', citation: { evidenceId: block.id, quote: block.text, source: block.source, sourceUrl: block.source === 'official-overview' ? block.sourceUrl : undefined, timing: 'unspecified' } });
+          training[topic].push({ status: 'unclear', citation: { evidenceId: block.id, quote: block.text, source: block.source, sourceUrl: block.sourceUrl, timing: 'unspecified' } });
         }
       }
     }
     for (const { quote, text } of sentences(block)) {
-      const relevant = sponsorTopic.test(text) || matches(text, trainingTerms.cpt) || matches(text, trainingTerms.opt) || /\b(?:citizenship|citizens?|permanent residen\w*|green card|us persons?|authorized to work|f-?1|j-?1)\b/.test(text);
+      const relevant = sponsorTopic.test(text) || matches(text, trainingTerms.cpt) || matches(text, trainingTerms.opt) || /\b(?:citizenship|citizens?|permanent residen\w*|green card|us persons?|authorized to work|f-?1|j-?1|export|controlled information)\b/.test(text) || exportLicense.test(text);
       if (!relevant) continue;
-      const citation: Citation = { evidenceId: block.id, quote, source: block.source, sourceUrl: block.source === 'official-overview' ? block.sourceUrl : undefined, timing: timing(text) };
+      const citation: Citation = { evidenceId: block.id, quote, source: block.source, sourceUrl: block.sourceUrl, timing: timing(text) };
       const question = block.kind === 'application-question' || quote.endsWith('?') || /^(?:will|would|do|does|did|are|is|can|could|have)\s+(?:you|the applicant)\b|^(?:please\s+)?(?:indicate|select|confirm|answer)\b/.test(text);
       if (question) { context.push({ kind: 'question', citation }); continue; }
       if (/\b(?:ignore (?:previous|prior|all|the|settings)|pretend|output|classify this|label this)\b/.test(text)) { context.push({ kind: 'unrecognized', citation }); continue; }
@@ -191,7 +237,9 @@ export function interpretJob(role: JobRecord): Interpretation {
           : /\b(?:company.wide|across (?:the |our )?company|general company policy)\b/.test(clause) ? 'company' : null;
         if (contextKind) { context.push({ kind: contextKind, citation: scopedCitation }); recognized = true; continue; }
         const listedCitizenship = requiredHeading && /^(?:(?:us|u\.s\.|united states|american)\s+)?citizenship[.!]?$/i.test(clause);
-        const restriction = restrictionKind(clause) ?? (listedCitizenship ? 'citizenship' : null);
+        let restriction = restrictionKind(clause) ?? (listedCitizenship ? 'citizenship' : null);
+        if ((scopedExportQuotes.has(`${block.id}\0${quote}`) || exportLicenseMention(clause) && exportGroup.test(clause))
+          && ['citizenship', 'permanent-residency'].includes(restriction ?? '')) restriction = null;
         if (restriction) {
           const citations = listedCitizenship ? [{ ...scopedCitation, evidenceId: requiredHeading!.id, quote: requiredHeading!.text }, scopedCitation] : [scopedCitation];
           restrictions.push({ kind: restriction, text: quote, evidenceIds: citations.map(item => item.evidenceId), citations }); recognized = true;
@@ -209,7 +257,7 @@ export function interpretJob(role: JobRecord): Interpretation {
           if (status) { training[topic].push({ status, citation: scopedCitation }); recognized = true; }
         }
       }
-      if (!recognized) context.push({ kind: 'unrecognized', citation });
+      if (!recognized) context.push({ kind: exportLicenseMention(text) && !scopedExportQuotes.has(`${block.id}\0${quote}`) ? 'export-notice' : 'unrecognized', citation });
     }
     previousBlockId = block.id;
   }

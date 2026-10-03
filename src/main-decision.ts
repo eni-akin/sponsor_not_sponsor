@@ -28,7 +28,7 @@ export function mainDecision(role: JobRecord, interpretation: Interpretation): M
   if (interpretation.sponsorship.requiresReview)
     return result('could-not-verify', 'The posting contains conflicting or uncertain sponsorship wording. Review the cited passages.', interpretation.sponsorship.citations);
 
-  const restrictions = interpretation.restrictions.filter(item => blocksTemporaryAuthorization(item.text));
+  const restrictions = interpretation.restrictions.filter(item => item.kind === 'export-control' || blocksTemporaryAuthorization(item.text));
   const exclusions = [interpretation.cpt, interpretation.opt].filter(item => item.status === 'explicitly-excluded');
   const conditionalRefusal = interpretation.sponsorship.status === 'conditional'
     && interpretation.sponsorship.citations.some(citation => statesConditionalRefusal(citation.quote));
@@ -38,7 +38,11 @@ export function mainDecision(role: JobRecord, interpretation: Interpretation): M
       ...restrictions.flatMap(item => item.citations),
       ...exclusions.flatMap(item => item.citations),
     ];
-    return result('explicit-blocker', 'The posting states a sponsorship, citizenship, residency, or visa-status restriction.', citations);
+    const exportControl = restrictions.some(item => item.kind === 'export-control');
+    const exportExplanation = exportControl
+      ? `The posting states a country-scoped export-license obstacle to accessing controlled information. The citations show the affected group and any stated deadline or exceptions.${interpretation.sponsorship.status === 'unavailable' ? ' Sponsorship is also unavailable.' : conditionalRefusal ? ' Sponsorship is also conditional.' : ''}`
+      : 'The posting states a sponsorship, citizenship, residency, or visa-status restriction.';
+    return result('explicit-blocker', exportExplanation, citations);
   }
   if (interpretation.sponsorship.status === 'available' || interpretation.sponsorship.status === 'conditional')
     return result('sponsorship-stated', 'The posting explicitly offers or considers sponsorship. Read the cited conditions.', interpretation.sponsorship.citations);

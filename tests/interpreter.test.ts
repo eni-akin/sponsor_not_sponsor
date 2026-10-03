@@ -8,6 +8,10 @@ function interpret(text: string | string[], options: Partial<EvidenceBlock> = {}
     key: 'test-role', title: 'Software Engineer', employer: 'Example', location: 'US', identifier: '1', employmentTypes: [], completeness: 'description-found',
     evidence: (Array.isArray(text) ? text : [text]).map((value, index) => ({ id: `e${index}`, text: value, source: 'visible-page', kind: 'text', locator: 'main > p', ...options })),
   };
+  return interpretRole(role);
+}
+
+function interpretRole(role: JobRecord) {
   const result = interpretJob(role);
   for (const finding of [result.sponsorship, result.cpt, result.opt, result.sponsorshipByTiming.now, result.sponsorshipByTiming.future]) {
     if (finding.status !== 'unclear') assert.ok(finding.citations.length > 0, 'Definitive findings require evidence');
@@ -241,4 +245,99 @@ test('historical context and role policy in the same sentence remain separate', 
 test('a negated citizenship requirement does not suppress a permanent-residency requirement', () => {
   const result = interpret('U.S. citizenship is not required, but permanent residency is required.');
   assert.deepEqual(result.restrictions.map(item => item.kind), ['permanent-residency']);
+});
+
+const waymoExportEvidence = [
+  'Internships at Waymo, including those outside the US, involve access to information regulated by US export control laws.',
+  'These laws require that export controlled information cannot be shared without an export license to individuals whose most recent country of citizenship or permanent residence is Cuba, Iran, North Korea, Syria or Ukrainian territories: Crimea, the so-called Donetsk People\'s Republic ("DNR"), and the so-called Luhansk People\'s Republic ("LNR").',
+  'Please understand that applications for these licenses have extended processing times and/or are routinely denied by the U.S. government such that the required license will not be granted by the summer internship start date.',
+  'Note: License requirements do not apply (i.e., no export license is needed) if a person from one of these countries is also a US citizen, national, or lawful permanent resident or has been granted refugee or asylum status in the US.',
+];
+
+test('country-scoped export licensing keeps affected group, deadline, exceptions, and source citations', () => {
+  const result = interpret(waymoExportEvidence, { source: 'visible-page', sourceUrl: 'https://careers.withwaymo.com/jobs/8248060' });
+  const restriction = result.restrictions[0]!;
+  assert.equal(restriction.kind, 'export-control');
+  assert.deepEqual(restriction.citations.map(item => item.quote), waymoExportEvidence);
+  assert.ok(restriction.citations.every(item => item.sourceUrl === 'https://careers.withwaymo.com/jobs/8248060'));
+  assert.match(restriction.text, /Cuba, Iran, North Korea, Syria/);
+  assert.match(restriction.text, /will not be granted by the summer internship start date/);
+  assert.match(restriction.text, /refugee or asylum status/);
+  assert.equal(result.restrictions.filter(item => item.kind === 'citizenship').length, 0);
+});
+
+test('informational export licensing with a citizenship condition is contextual, not a blocker', () => {
+  const result = interpret('Access to export-regulated information may require a license depending on most recent citizenship or permanent residence.');
+  assert.deepEqual(result.restrictions, []);
+  assert.equal(result.context[0]?.kind, 'export-notice');
+});
+
+test('exact Waymo export wording works inline and split into neighboring evidence blocks', () => {
+  const inline = interpret(waymoExportEvidence.join(' '));
+  const split = interpret(waymoExportEvidence);
+  for (const result of [inline, split]) {
+    const restriction = result.restrictions.find(item => item.kind === 'export-control')!;
+    assert.match(restriction.text, /Cuba, Iran, North Korea, Syria or Ukrainian territories: Crimea/);
+    assert.match(restriction.text, /will not be granted by the summer internship start date/);
+    assert.match(restriction.text, /refugee or asylum status in the US/);
+  }
+});
+
+test('an export information paragraph does not suppress a U.S.-person requirement in the same block', () => {
+  const result = interpret('Export license may be required. To comply with export laws applicants must be U.S. persons.');
+  assert.ok(result.restrictions.some(item => item.kind === 'us-person'));
+});
+
+test('an export information paragraph does not suppress a sponsorship refusal in the same block', () => {
+  const result = interpret('Export license may be required. We do not sponsor applicants.');
+  assert.equal(result.sponsorship.status, 'unavailable');
+});
+
+test('ordinary driver-license evidence with citizenship is not export-control evidence', () => {
+  const result = interpret('Applicants must have a valid driver license and U.S. citizenship.');
+  assert.deepEqual(result.restrictions.map(item => item.kind), ['citizenship']);
+  assert.ok(!result.restrictions.some(item => item.kind === 'export-control'));
+});
+
+test('historical, hypothetical, and application-question license wording cannot create an export blocker', () => {
+  const historical = interpret([
+    waymoExportEvidence[1]!,
+    'Historically, the required license would not be granted by the internship start date.',
+  ]);
+  const hypothetical = interpret([
+    waymoExportEvidence[1]!,
+    'In a hypothetical example, the required license would not be granted by the internship start date.',
+  ]);
+  const question = interpret(waymoExportEvidence.join(' '), { kind: 'application-question' });
+  assert.ok(!historical.restrictions.some(item => item.kind === 'export-control'));
+  assert.ok(!hypothetical.restrictions.some(item => item.kind === 'export-control'));
+  assert.ok(!question.restrictions.some(item => item.kind === 'export-control'));
+});
+
+test('export evidence cannot be joined across source URLs or an intervening heading', () => {
+  const blocks = (middle: EvidenceBlock): JobRecord => ({
+    key: 'test-role', title: 'Software Engineer', employer: 'Example', location: 'US', identifier: '1', employmentTypes: [], completeness: 'description-found',
+    evidence: [
+      { id: 'policy', text: waymoExportEvidence[1]!, source: 'official-overview', sourceUrl: 'https://example.test/a', kind: 'text', locator: 'p' },
+      middle,
+      { id: 'denial', text: waymoExportEvidence[2]!, source: 'official-overview', sourceUrl: 'https://example.test/a', kind: 'text', locator: 'p' },
+    ],
+  });
+  const otherSource = blocks({ id: 'gap', text: 'Intervening evidence', source: 'official-overview', sourceUrl: 'https://example.test/b', kind: 'text', locator: 'p' });
+  const heading = blocks({ id: 'gap', text: 'Basic Qualifications', source: 'official-overview', sourceUrl: 'https://example.test/a', kind: 'text', locator: 'h2:nth-of-type(1)' });
+  assert.ok(!interpretRole(otherSource).restrictions.some(item => item.kind === 'export-control'));
+  assert.ok(!interpretRole(heading).restrictions.some(item => item.kind === 'export-control'));
+});
+
+test('export licensing and sponsorship refusal remain separate claims', () => {
+  const result = interpret([...waymoExportEvidence, 'We do not sponsor applicants for this role.']);
+  assert.equal(result.restrictions[0]?.kind, 'export-control');
+  assert.equal(result.sponsorship.status, 'unavailable');
+  assert.ok(result.sponsorship.citations.some(item => item.quote.includes('do not sponsor')));
+});
+
+test('application training choices do not imply CPT or OPT acceptance beside an export notice', () => {
+  const result = interpret([...waymoExportEvidence, 'Will you require CPT or OPT?']);
+  assert.equal(result.cpt.status, 'unclear');
+  assert.equal(result.opt.status, 'unclear');
 });

@@ -236,6 +236,14 @@ test('visible cross-origin job frame is reported as unreadable instead of a non-
   assert.ok(result.warnings.some(warning => warning.includes('embedded job could not be read')));
 });
 
+test('application wording without an identifiable vacancy remains unreadable', () => {
+  const result = scan('<form><label>Will you now or in the future require visa sponsorship?<input></label><label>Resume<input type="file"></label></form>', 'https://example.com/apply');
+  assert.equal(result.kind, 'unreadable');
+  assert.equal(result.role, null);
+  assert.ok(result.warnings.some(warning => warning.includes('no specific vacancy could be identified')));
+  assert.ok(!JSON.stringify(result).includes('PRIVATE'));
+});
+
 test('hidden and recommended content never appears in evidence', () => {
   const html = fixture('generic-job').replace('</main>', '<p hidden>SECRET hidden</p><p style="display:none">SECRET style</p><div aria-hidden="true"><p>SECRET aria</p></div><div class="related-jobs">SECRET related</div></main>');
   assert.ok(!JSON.stringify(scan(html).role).includes('SECRET'));
@@ -259,7 +267,7 @@ test('untrusted page instructions remain text and are never actions', () => {
 
 test('embedded application form is explicitly reported as unscanned', () => {
   const result = scan(fixture('generic-job').replace('</main>', '<iframe src="https://forms.example/apply"></iframe></main>'));
-  assert.ok(result.warnings.some(warning => warning.includes('Embedded form')));
+  assert.ok(result.warnings.some(warning => warning.includes('frame content may remain unread')));
 });
 
 test('oversized extraction is bounded and marked incomplete', () => {

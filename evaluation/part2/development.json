@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "split": "development",
+  "provenance": "Agent-prepared from official public job/application sources on 2026-10-02. Labels are provisional; independent human review is pending. This is a development set and must not be used as holdout evidence.",
+  "cases": [
+    {
+      "id": "waymo-8248060",
+      "employer": "Waymo",
+      "title": "2027 Summer Intern, MS/PhD, AI-driven ML Performance Engineering Intern",
+      "location": "Mountain View, CA, USA",
+      "sourceUrl": "https://careers.withwaymo.com/jobs?gh_jid=8248060",
+      "captureUrl": "https://boards-api.greenhouse.io/v1/boards/waymo/jobs/8248060?questions=true",
+      "sourceType": "official Greenhouse job and public application API",
+      "retrievedAt": "2026-10-02",
+      "expected": {
+        "mainDecision": "explicit-blocker",
+        "sponsorship": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictionKinds": ["export-control"]
+      },
+      "scope": "Export-license condition applies to individuals whose most recent country of citizenship or permanent residence is Cuba, Iran, North Korea, Syria, or the named Ukrainian territories. It is not a general sponsorship refusal or a citizenship-only rule.",
+      "timing": "For affected applicants, the posting says processing times are extended and/or licenses are routinely denied, so the required license will not be granted by the summer internship start date. No separate current-versus-future sponsorship policy is stated.",
+      "exceptions": "License not required when a person from a listed country is also a U.S. citizen, U.S. national, lawful permanent resident, or has been granted refugee or asylum status in the U.S.",
+      "completeness": {"status":"complete","note":"Public job description and public question descriptions returned by the official API; no applicant responses or personal data retrieved. API record updated 2026-10-02T08:38:02-04:00."},
+      "evidence": [
+        {
+          "source": "structured-data",
+          "kind": "text",
+          "locator": "public question description: Would you require an export license under the circumstances described below?",
+          "text": "Internships at Waymo, including those outside the US, involve access to information regulated by US export control laws. These laws require that export controlled information cannot be shared without an export license to individuals whose most recent country of citizenship or permanent residence is Cuba, Iran, North Korea, Syria or Ukrainian territories: Crimea, the so-called Donetsk People's Republic (\"DNR\"), and the so-called Luhansk People's Republic (\"LNR\"). Please understand that applications for these licenses have extended processing times and/or are routinely denied by the U.S. government such that the required license will not be granted by the summer internship start date."
+        },
+        {
+          "source": "structured-data",
+          "kind": "text",
+          "locator": "same public question description, exception paragraph",
+          "text": "License requirements do not apply (i.e., no export license is needed) if a person from one of these countries is also a US citizen, national, or lawful permanent resident or has been granted refugee or asylum status in the US."
+        },
+        {
+          "source": "structured-data",
+          "kind": "application-question",
+          "locator": "public question label",
+          "text": "Would you require an export license under the circumstances described below?"
+        },
+        {
+          "source": "structured-data",
+          "kind": "application-question",
+          "locator": "public question label",
+          "text": "Do you require work authorization?"
+        },
+        {
+          "source": "structured-data",
+          "kind": "application-question",
+          "locator": "public follow-up question label",
+          "text": "If yes, what kind? (If you do not require work authorization sponsorship please select Not Applicable.)"
+        }
+      ]
+    },
+    {
+      "id": "peraton-171547",
+      "employer": "Peraton",
+      "title": "Spring & Summer 2027 Software Engineering Co-op",
+      "location": "San Diego, California",
+      "sourceUrl": "https://careers-peraton.icims.com/jobs/171547/spring-%26-summer-2027-software-engineering-co-op/job",
+      "captureUrl": "https://careers-peraton.icims.com/jobs/171547/job?mobile=true&needsRedirect=false",
+      "sourceType": "official iCIMS job page",
+      "retrievedAt": "2026-10-02",
+      "expected": {
+        "mainDecision": "explicit-blocker",
+        "sponsorship": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictionKinds": ["citizenship"]
+      },
+      "scope": "The selected co-op's required qualifications explicitly include U.S. citizenship. Do not infer a company-wide policy or a visa-sponsorship refusal.",
+      "timing": "No sponsorship or time qualification stated. The co-op spans Spring and Summer 2027.",
+      "exceptions": "No citizenship exception is stated. Clearance metadata says no clearance required; that does not negate the separate citizenship qualification.",
+      "completeness": {"status":"partial","note":"Official job description and visible qualification/metadata sections retrieved; no application submission or applicant data. A separate application form was not inspected."},
+      "evidence": [
+        {
+          "source": "visible-page",
+          "kind": "text",
+          "locator": "Required Qualifications heading",
+          "text": "Required Qualifications"
+        },
+        {
+          "source": "visible-page",
+          "kind": "text",
+          "locator": "Required Qualifications bullet",
+          "text": "US Citizenship"
+        },
+        {
+          "source": "visible-page",
+          "kind": "text",
+          "locator": "job metadata, Clearance",
+          "text": "No Clearance Required"
+        }
+      ]
+    },
+    {
+      "id": "enova-8239619",
+      "employer": "Enova International",
+      "title": "Software Engineer Internship Summer 2027 (Hybrid)",
+      "location": "Chicago, IL",
+      "sourceUrl": "https://job-boards.greenhouse.io/enova/jobs/8239619",
+      "captureUrl": "https://job-boards.greenhouse.io/enova/jobs/8239619",
+      "sourceType": "official Greenhouse job/application page",
+      "retrievedAt": "2026-10-02",
+      "expected": {
+        "mainDecision": "explicit-blocker",
+        "sponsorship": "unavailable",
+        "now": "unavailable",
+        "future": "unclear",
+        "restrictionKinds": []
+      },
+      "scope": "The 2027 Software Engineering internship; wording addresses candidates eligible to work in the U.S. and visa sponsorship/takeover for this role.",
+      "timing": "Explicit refusal is qualified by 'at this time'; preserve as current, with no future policy specified. Internship dates are June 15–August 19, 2027.",
+      "exceptions": "No exception stated. The posting separately asks whether the applicant will now or in the future require sponsorship; that question is not an exception or an answer.",
+      "completeness": {"status":"complete","note":"Official role description and public application question labels retrieved. No application responses or personal data retrieved."},
+      "evidence": [
+        {
+          "source": "visible-page",
+          "kind": "text",
+          "locator": "opening eligibility sentence",
+          "text": "We are interested in every qualified candidate who is eligible to work in the United States. However, we are not able to sponsor visas or take over sponsorship at this time."
+        },
+        {
+          "source": "visible-page",
+          "kind": "text",
+          "locator": "internship schedule",
+          "text": "This internship will begin June 15 - August 19, 2027."
+        },
+        {
+          "source": "structured-data",
+          "kind": "application-question",
+          "locator": "public application question label",
+          "text": "Will you now or in the future require Enova sponsorship for employment visa status? (e.g. H1-B or other employment-based immigration case)"
+        }
+      ]
+    },
+    {
+      "id": "amca-4425120009",
+      "employer": "Amca (Advanced Manufacturing Company of America)",
+      "title": "Software Engineering Internship (Summer 2027)",
+      "location": "El Segundo, CA",
+      "sourceUrl": "https://job-boards.greenhouse.io/amca/jobs/4425120009",
+      "captureUrl": "https://job-boards.greenhouse.io/amca/jobs/4425120009",
+      "sourceType": "official Greenhouse job/application page",
+      "retrievedAt": "2026-10-02",
+      "expected": {
+        "mainDecision": "explicit-blocker",
+        "sponsorship": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictionKinds": ["us-person"]
+      },
+      "scope": "The internship requires access to ITAR-regulated information and expressly requires all applicants to be U.S. persons. This is an eligibility restriction, not a stated sponsorship policy.",
+      "timing": "No timing qualifier stated.",
+      "exceptions": "The posting defines U.S. person to include U.S. citizens, U.S. permanent residents (green-card holders), and protected persons under 8 U.S.C. 1324b(a)(3). The same rule appears in the application question description.",
+      "completeness": {"status":"complete","note":"Official job description and public application question descriptions retrieved; no application responses or personal data retrieved."},
+      "evidence": [
+        {
+          "source": "structured-data",
+          "kind": "text",
+          "locator": "description after pay range",
+          "text": "This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR). All applicants must be U.S. persons within the meaning of ITAR. ITAR defines a US person as: any individual who is granted U.S. citizenship; or. any individual who is granted U.S. permanent residence (\"Green Card\" holder); or. any individual who is granted status as a \"protected person\" under 8 U.S.C 1324b(a)(3)."
+        },
+        {
+          "source": "structured-data",
+          "kind": "text",
+          "locator": "ITAR Status question description",
+          "text": "This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR). All applicants must be U.S. persons within the meaning of ITAR. ITAR defines a US person as a US citizen, permanent resident, or protected person under 8 U.S.C. 1324b(a)(3)."
+        }
+      ]
+    }
+  ],
+  "historicalDevelopment": {
+    "status": "exposed-development-history; preserve unchanged",
+    "captures": [
+      "evaluation/live-2026-09-26/sample.json",
+      "evaluation/live-2026-09-26/results.json",
+      "evaluation/live-2026-09-26/reviews.json",
+      "evaluation/live-2026-09-26/REPORT.md",
+      "evaluation/live-2026-09-26/IMPLEMENTATION_CHECKPOINT.md"
+    ],
+    "note": "The 30-employer September 26 live sample and its review informed prior implementation work. Treat it as development/regression history, never as fresh holdout evidence. The original release baseline and archived results remain in the existing evaluation/results files."
+  }
+}
