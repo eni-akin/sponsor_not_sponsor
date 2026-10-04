@@ -53,7 +53,7 @@ export async function runRulesBaseline(path = new URL('./development.json', impo
   const expectedDefinitive = results.filter(result => ['available', 'unavailable'].includes(result.expected.sponsorship));
   const correctDefinitive = definitive.filter(result => result.actual.sponsorship === result.expected.sponsorship).length;
   return {
-    provenance: 'Current local deterministic interpreter against evaluation/part2/development.json. Provisional labels; four cases only; not an accuracy estimate.',
+    provenance: 'Current local deterministic interpreter against the reviewed evaluation/part2/development.json. Four development cases only; not an accuracy estimate.',
     count: results.length,
     sponsorship: {
       definitivePredictions: definitive.length,
