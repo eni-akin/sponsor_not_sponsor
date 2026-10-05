@@ -1,0 +1,24 @@
+[
+  {
+    "id": "authored-smoke-0",
+    "state": "{\"job_title\": \"Software Engineering Intern\", \"employer\": \"Example Employer\", \"previous\": \"\", \"TARGET\": \"We do not provide visa sponsorship for this internship now or in the future.\", \"next\": \"\"}",
+    "labels": {
+      "scope": "role",
+      "sponsorship": "unavailable",
+      "timing": "now-and-future",
+      "cpt": "unclear",
+      "opt": "unclear"
+    }
+  },
+  {
+    "id": "authored-smoke-1",
+    "state": "{\"job_title\": \"Software Engineering Intern\", \"employer\": \"Example Employer\", \"previous\": \"\", \"TARGET\": \"Will you now or in the future require visa sponsorship?\", \"next\": \"\"}",
+    "labels": {
+      "scope": "question",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
+    }
+  }
+]

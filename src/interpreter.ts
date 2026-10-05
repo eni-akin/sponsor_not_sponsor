@@ -1,4 +1,5 @@
 import type { Citation, EvidenceBlock, Finding, Interpretation, JobRecord, SponsorshipStatus, Timing, TrainingStatus } from './types';
+import { isOtherRolePolicy } from './policy-scope';
 
 type Claim<T> = { status: T; citation: Citation };
 const SPONSOR = String.raw`(?:(?:visa|work|employment|immigration|employer|h-?1b)\s+)?sponsorship`;
@@ -233,7 +234,7 @@ export function interpretJob(role: JobRecord): Interpretation {
       for (const clause of clauses(text)) {
         const scopedCitation = { ...citation, timing: timing(clause) };
         const contextKind = /\b(?:historically|previously|in the past|has sponsored|have sponsored|used to sponsor)\b/.test(clause) ? 'historical'
-          : /\b(?:other (?:roles|positions|jobs)|unrelated vacancy)\b/.test(clause) ? 'other-role'
+          : isOtherRolePolicy(clause) ? 'other-role'
           : /\b(?:company.wide|across (?:the |our )?company|general company policy)\b/.test(clause) ? 'company' : null;
         if (contextKind) { context.push({ kind: contextKind, citation: scopedCitation }); recognized = true; continue; }
         const listedCitizenship = requiredHeading && /^(?:(?:us|u\.s\.|united states|american)\s+)?citizenship[.!]?$/i.test(clause);

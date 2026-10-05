@@ -8,7 +8,7 @@ Related roadmap: [PLAN.md](PLAN.md)
 
 Finish reliable page reading, clarify how scoped restrictions are presented, establish a reviewed evaluation set, and then test whether Laya improves decisions.
 
-Laya remains the last development phase. Preparing its evaluation requirements does not require changing the current model integration. Use minimal shared root-cause fixes, reuse existing infrastructure, and preserve existing work and historical evaluation captures.
+Laya evaluation now proceeds alongside targeted extraction work, following the user's October 3 direction. Perfect support for every website is not a prerequisite for offline experiments. Model adoption still requires reviewed evidence and demonstrated improvement. See [Laya evaluation and fine-tuning plan](LAYA_FINE_TUNING_PLAN.md). Use minimal shared root-cause fixes, reuse existing infrastructure, and preserve historical captures.
 
 ## Phase 1 — Establish the baseline
 
@@ -158,7 +158,7 @@ Release decisions follow this validation, not merely successful automated tests.
 3. Agree on the scoped-restriction contract.
 4. Repair the shared Waymo interpretation and add regressions.
 5. Freeze reviewed development examples and a separate unseen holdout.
-6. Begin Laya experiments only after extraction and rule-contract work is stable.
+6. Begin offline Laya experiments and training-data preparation alongside targeted extraction fixes; require evidence-backed evaluation before adoption.
 
 ## Progress checklist
 
@@ -166,7 +166,7 @@ Release decisions follow this validation, not merely successful automated tests.
 - [x] Phase 2: Automated reading/lifecycle checks pass; the project owner's accessible Pinterest session confirmed correct role, employer, complete description, and result. Identity-less forms remain an explicit limitation.
 - [x] Phase 3: Scoped-restriction contract authorized by the instruction to implement this plan; independent example review remains part of Phase 5.
 - [x] Phase 4: Shared rule fixes verified with exact Waymo text, negative controls, and live Waymo confirmation.
-- [ ] Phase 5: Four development cases human-reviewed. A 54-row Qwen3.7 submission and corrected 54-row extension-output CSV were audited; 46 submitted rows remain eligible after exclusions and four blind additions produce a 50-job candidate roster. Human label adjudication and outputs for the four additions are required before freezing.
+- [ ] Phase 5: Four development cases human-reviewed. The 54-row Qwen3.7 submission and corrected extension-output CSV are now exposed development material, not an unseen model test set. Human label adjudication, captured inputs, and a fresh independent final test set remain required.
 - [ ] Phase 6: Laya quality evaluated.
 - [ ] Phase 7: Proven behavior integrated, if justified.
 - [ ] Phase 8: Fresh live validation and release assessment completed.
@@ -175,4 +175,4 @@ Release decisions follow this validation, not merely successful automated tests.
 
 See [verification and remaining gates](evaluation/part2/verification.md). The current tree passes **208 tests**, typecheck, build, and all four Chromium suites. No dependency, model, confidence threshold, or release setting changed. Three GPT-6 Luna agents prepared frame, rule, and dataset work; the primary agent reconciled and verified it after agent usage limits interrupted their work.
 
-Next: freeze and independently label a sufficiently large unseen dataset before model-quality comparisons. The 18 link-only holdout candidates are not a reviewed holdout and cannot satisfy the proposed 50-vacancy gate.
+October 3 update: begin reproducible development-only model comparisons and training preparation now. Independently review and freeze fresh unseen data before making model-quality or deployment claims. The link-only candidates are not a reviewed holdout. See [Laya evaluation and fine-tuning plan](LAYA_FINE_TUNING_PLAN.md).

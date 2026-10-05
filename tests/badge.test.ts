@@ -36,6 +36,12 @@ test('Thrivent structured graduation date does not turn a refusal into a conditi
 test('generic work authorization wording alone is not treated as a blocker', () => {
   assert.equal(badgeState(snapshot('Applicants must already be authorized to work.'))?.label, 'No blocker found');
 });
+
+test('later full-time sponsorship does not create a result for the selected internship', () => {
+  assert.equal(badgeState(snapshot('Visa sponsorship is not available for future FTE roles.'))?.label, 'No blocker found');
+  assert.equal(badgeState(snapshot('Visa sponsorship is available for future full-time roles.'))?.label, 'No blocker found');
+  assert.equal(badgeState(snapshot('Visa sponsorship is available for this internship, but visa sponsorship is not available for future FTE roles.'))?.label, 'Sponsorship stated');
+});
 test('informational export licensing is contextual while a denied country-scoped license is a blocker', () => {
   const notice = snapshot('Access to export-regulated information may require a license depending on most recent citizenship or permanent residence.');
   assert.equal(badgeState(notice)?.label, 'No blocker found');

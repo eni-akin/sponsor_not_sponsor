@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "trainingReady": false,
+  "contract": "offline-role-policy-experiment-v0",
+  "incompatibleWithCurrentWorker": true,
+  "blockers": [
+    "offline role-level question contract does not match the current TARGET-block worker",
+    "no independent calibration split",
+    "no independent held-out test split",
+    "main_decision has only one observed class"
+  ],
+  "targetKind": "human-hard-label-one-hot; not teacher confidence or calibrated probability",
+  "privacy": {
+    "containsApplicantData": false
+  },
+  "outputs": {
+    "train": {
+      "path": "prototype-train.jsonl",
+      "rows": 4,
+      "sha256": "8945e37bdb7dbfc4390bc75d2146e9e110c7ce6e4fd0afee2f6e0bf15e45df29"
+    },
+    "calibration": {
+      "path": "prototype-calibration.jsonl",
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test": {
+      "path": "prototype-test.jsonl",
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "decisions": 32,
+  "labelCounts": {
+    "main_decision": {
+      "explicit-blocker": 4
+    },
+    "sponsorship": {
+      "unclear": 3,
+      "unavailable": 1
+    },
+    "sponsorship_now": {
+      "unclear": 3,
+      "unavailable": 1
+    },
+    "sponsorship_future": {
+      "unclear": 4
+    },
+    "restriction_citizenship": {
+      "false": 3,
+      "true": 1
+    },
+    "restriction_us_person": {
+      "false": 3,
+      "true": 1
+    },
+    "restriction_clearance": {
+      "false": 4
+    },
+    "restriction_export_control": {
+      "true": 1,
+      "false": 3
+    }
+  },
+  "upstream": {
+    "package": "laya==0.3.21",
+    "gitCommit": "9d955671415fc19f069b9cc998928075c1f255ec",
+    "fineTuningGuide": "https://github.com/NandhaKishorM/laya/blob/9d955671415fc19f069b9cc998928075c1f255ec/docs/finetune.md",
+    "kaggleNotebook": "https://github.com/NandhaKishorM/laya/blob/9d955671415fc19f069b9cc998928075c1f255ec/notebooks/laya_finetune_typed_decisions_2xT4_kaggle.ipynb"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "contract": "laya-policy-v1",
+  "trainingReady": false,
+  "records": 13,
+  "questionsSha256": "c7d9f380b50dbda125acde1818d7eb0cb1583677fb6f7010e88f5d905697f859",
+  "recordsSha256": "58fc05b86248afc7e0444dff67c2b1db455727cdc0647ea61ef60abfcf85ea2e",
+  "blockers": [
+    "per-block labels require review",
+    "no calibration or test split",
+    "source excerpts are not full scanner captures"
+  ],
+  "privacy": {
+    "containsApplicantData": false
+  }
+}

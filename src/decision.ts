@@ -1,4 +1,5 @@
 import type { Citation, Finding, Interpretation, JobRecord, SponsorshipStatus, Timing, TrainingStatus } from './types';
+import { isOtherRolePolicy } from './policy-scope';
 
 export const DECISION_PERMISSION = 'http://127.0.0.1:4319/*';
 export const DECISION_ORIGIN = 'http://127.0.0.1:4319';
@@ -79,6 +80,7 @@ export function applyDecision(role: JobRecord, base: Interpretation, result: Dec
       (uncertainEvidence[topic] ??= []).push(...contextCitations());
     };
     if (block.kind === 'application-question') { context.push({ kind: 'question', citation: cite(index) }); return; }
+    if (isOtherRolePolicy(block.text)) { context.push({ kind: 'other-role', citation: cite(index) }); return; }
     if (scope.choice !== 'role' || scope.probability < MIN_DECISION_PROBABILITY) {
       if (['question', 'historical', 'company', 'other-role'].includes(scope.choice)) context.push({ kind: scope.choice as Interpretation['context'][number]['kind'], citation: cite(index) });
       for (const topic of ['sponsorship', 'cpt', 'opt'] as const) {
@@ -89,7 +91,8 @@ export function applyDecision(role: JobRecord, base: Interpretation, result: Dec
     for (const topic of ['sponsorship', 'cpt', 'opt'] as const) {
       const answer = decision.answers[topic];
       if (answer.choice === 'unclear') continue;
-      if (answer.probability < MIN_DECISION_PROBABILITY || (topic === 'sponsorship' && timing.probability < MIN_DECISION_PROBABILITY)) { markUncertain(topic); continue; }
+      // Timing is supporting metadata, not an extra confidence gate for this job's policy.
+      if (answer.probability < MIN_DECISION_PROBABILITY) { markUncertain(topic); continue; }
       // Include the neighboring context actually supplied to the model, preserving adjacent conditions.
       claims[topic].push({ status: answer.choice, citations: contextCitations() });
     }

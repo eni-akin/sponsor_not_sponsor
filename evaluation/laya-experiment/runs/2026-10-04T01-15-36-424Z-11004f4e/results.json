@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-04T01:15:36.424Z",
+  "evaluationUse": "exposed-development-only",
+  "inputPath": "evaluation/part2/development.json",
+  "inputSha256": "aca7941f93a6ab838ee7b4b86f49c9a864878db8d15ad0f5c77baea84d2b67ce",
+  "provenance": {
+    "capturedCases": "Four official examples independently reviewed by Qwen3.7 and the project owner in evaluation/part2/review-worksheet.md.",
+    "diagnostics": "Four authored diagnostic negatives, explicitly not independent or real-world accuracy evidence.",
+    "excluded54RowSummary": "The 54-row review and CSV contain summaries, not complete captured model inputs; no job evidence was reconstructed from them."
+  },
+  "systems": {
+    "rules": "Production interpretJob and mainDecision.",
+    "rawLayaProjection": "Raw validated Laya choices, projected through production confidence, abstention, and source-bound citation handling with no rule findings.",
+    "integratedRulesPlusLaya": "Production integration: Laya handles sponsorship/timing/CPT/OPT, deterministic rule restrictions remain, and an explicit rule refusal is retained. This is not a pure-model result."
+  },
+  "limitations": [
+    "Development data are exposed; this is not a holdout or real-world accuracy estimate.",
+    "Current Laya questions cover sponsorship, timing, CPT, and OPT only. They do not classify citizenship, U.S.-person, export-control, or other restrictions.",
+    "The 54-row CSV/review summaries are coverage context only because they do not preserve complete extracted evidence inputs."
+  ],
+  "metrics": {
+    "rules": {
+      "cases": 1,
+      "executionFailures": 0,
+      "sponsorshipAbstentions": 1,
+      "couldNotVerify": 0,
+      "sponsorshipErrors": 0,
+      "mainDecisionErrors": 0,
+      "restrictionErrors": 0,
+      "citations": 4,
+      "latencyMilliseconds": {
+        "total": 2.39,
+        "mean": 2.39
+      }
+    },
+    "rawLayaProjection": {
+      "cases": 1,
+      "executionFailures": 0,
+      "sponsorshipAbstentions": 1,
+      "couldNotVerify": 1,
+      "sponsorshipErrors": 0,
+      "mainDecisionErrors": 1,
+      "restrictionErrors": 1,
+      "citations": 3,
+      "latencyMilliseconds": {
+        "total": 9151.03,
+        "mean": 9151.03
+      }
+    },
+    "integratedRulesPlusLaya": {
+      "cases": 1,
+      "executionFailures": 0,
+      "sponsorshipAbstentions": 1,
+      "couldNotVerify": 1,
+      "sponsorshipErrors": 0,
+      "mainDecisionErrors": 1,
+      "restrictionErrors": 0,
+      "citations": 6,
+      "latencyMilliseconds": {
+        "total": 9150.74,
+        "mean": 9150.74
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "waymo-8248060",
+      "datasetRole": "independently-reviewed-development",
+      "evidenceSha256": "5ccf985103531c50d78b66be47ee62aad3c67e47b0b9614da08151b23639e1b9",
+      "expected": {
+        "mainDecision": "explicit-blocker",
+        "sponsorship": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "restrictionKinds": [
+          "export-control"
+        ]
+      },
+      "rules": {
+        "sponsorship": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [
+          "export-control"
+        ],
+        "mainDecision": "explicit-blocker",
+        "citationCount": 4,
+        "milliseconds": 2.39,
+        "score": {
+          "sponsorshipCorrect": true,
+          "nowCorrect": true,
+          "futureCorrect": true,
+          "restrictionsCorrect": true,
+          "mainDecisionCorrect": true
+        }
+      },
+      "rawLaya": {
+        "result": {
+          "version": "laya-policy-v1",
+          "engine": "laya",
+          "model": "convaiinnovations/laya-multilingual@e4e9ddf21a7b1903b7acffd8814ad4307bf63a67",
+          "blocks": [
+            {
+              "id": "waymo-8248060-evidence-1",
+              "answers": {
+                "scope": {
+                  "choice": "role",
+                  "probability": 0.4843
+                },
+                "sponsorship": {
+                  "choice": "conditional",
+                  "probability": 0.6276
+                },
+                "timing": {
+                  "choice": "unspecified",
+                  "probability": 0.368
+                },
+                "cpt": {
+                  "choice": "explicitly-accepted",
+                  "probability": 0.3634
+                },
+                "opt": {
+                  "choice": "explicitly-accepted",
+                  "probability": 0.5221
+                }
+              }
+            },
+            {
+              "id": "waymo-8248060-evidence-2",
+              "answers": {
+                "scope": {
+                  "choice": "historical",
+                  "probability": 0.4785
+                },
+                "sponsorship": {
+                  "choice": "conditional",
+                  "probability": 0.4159
+                },
+                "timing": {
+                  "choice": "unspecified",
+                  "probability": 0.5647
+                },
+                "cpt": {
+                  "choice": "unclear",
+                  "probability": 0.5377
+                },
+                "opt": {
+                  "choice": "explicitly-accepted",
+                  "probability": 0.4599
+                }
+              }
+            },
+            {
+              "id": "waymo-8248060-evidence-3",
+              "answers": {
+                "scope": {
+                  "choice": "none",
+                  "probability": 0.4684
+                },
+                "sponsorship": {
+                  "choice": "unavailable",
+                  "probability": 0.5605
+                },
+                "timing": {
+                  "choice": "unspecified",
+                  "probability": 0.3787
+                },
+                "cpt": {
+                  "choice": "explicitly-excluded",
+                  "probability": 0.6196
+                },
+                "opt": {
+                  "choice": "explicitly-excluded",
+                  "probability": 0.694
+                }
+              }
+            },
+            {
+              "id": "waymo-8248060-evidence-4",
+              "answers": {
+                "scope": {
+                  "choice": "none",
+                  "probability": 0.4993
+                },
+                "sponsorship": {
+                  "choice": "unclear",
+                  "probability": 0.4178
+                },
+                "timing": {
+                  "choice": "unspecified",
+                  "probability": 0.6636
+                },
+                "cpt": {
+                  "choice": "unclear",
+                  "probability": 0.4698
+                },
+                "opt": {
+                  "choice": "explicitly-accepted",
+                  "probability": 0.3945
+                }
+              }
+            },
+            {
+              "id": "waymo-8248060-evidence-5",
+              "answers": {
+                "scope": {
+                  "choice": "none",
+                  "probability": 0.3782
+                },
+                "sponsorship": {
+                  "choice": "unclear",
+                  "probability": 0.3185
+                },
+                "timing": {
+                  "choice": "now",
+                  "probability": 0.4625
+                },
+                "cpt": {
+                  "choice": "unclear",
+                  "probability": 0.537
+                },
+                "opt": {
+                  "choice": "explicitly-accepted",
+                  "probability": 0.3887
+                }
+              }
+            }
+          ]
+        },
+        "projection": {
+          "sponsorship": "unclear",
+          "now": "unclear",
+          "future": "unclear",
+          "cpt": "unclear",
+          "opt": "unclear",
+          "restrictionKinds": [],
+          "mainDecision": "could-not-verify",
+          "citationCount": 3,
+          "milliseconds": 9151.03,
+          "score": {
+            "sponsorshipCorrect": true,
+            "nowCorrect": true,
+            "futureCorrect": true,
+            "restrictionsCorrect": false,
+            "mainDecisionCorrect": false
+          }
+        }
+      },
+      "integratedRulesPlusLaya": {
+        "sponsorship": "unclear",
+        "now": "unclear",
+        "future": "unclear",
+        "cpt": "unclear",
+        "opt": "unclear",
+        "restrictionKinds": [
+          "export-control"
+        ],
+        "mainDecision": "could-not-verify",
+        "citationCount": 6,
+        "milliseconds": 9150.74,
+        "score": {
+          "sponsorshipCorrect": true,
+          "nowCorrect": true,
+          "futureCorrect": true,
+          "restrictionsCorrect": true,
+          "mainDecisionCorrect": false
+        }
+      }
+    }
+  ]
+}
