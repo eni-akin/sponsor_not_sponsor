@@ -1,0 +1,284 @@
+{
+  "status": "passed",
+  "experiment": "authored-smoke-only",
+  "promotionReady": false,
+  "calibration": "not fitted; synthetic smoke has no calibration or test split",
+  "targetKind": "authored-hard-label-one-hot",
+  "contract": "laya-policy-v1",
+  "model": "convaiinnovations/laya-multilingual",
+  "revision": "e4e9ddf21a7b1903b7acffd8814ad4307bf63a67",
+  "upstreamRecipe": "8a6e1328cce2460a0e5aa348ad465bb1b5821cd2",
+  "device": "mps",
+  "seed": 42,
+  "maxLen": 8192,
+  "headMaxLen": 512,
+  "baseHashes": {
+    "encoder/config.json": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+    "model.safetensors": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+    "rl_agent_config.json": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6",
+    "tokenizer/tokenizer.json": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f",
+    "tokenizer/tokenizer_config.json": "6c6b2d8e3c84ce0e671c129cd6b374b235d6f9863042a5836358d00a89bbb5a1"
+  },
+  "versions": {
+    "laya": "0.3.21",
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.23.2"
+  },
+  "sourceHashes": {
+    "scripts/train_laya_smoke.py": "cca437f1a8b10c1fd1642c3df271fdf83d9a3523d61e25ef05437d83fbe55607",
+    "server/laya_worker.py": "4e6eab143c9aa823958a493d17c131a174902a6d9c71b154e9490cfa079bc93f",
+    "server/decision-questions.ts": "f9438125041ced01508dee1edd3ea2b6e3267cdf5ffcfdfecfefd68b685ab224"
+  },
+  "parameters": 321908995,
+  "decisions": 10,
+  "maxSequenceTokens": 175,
+  "updates": 1,
+  "gradientsFinite": true,
+  "gradientNorm": 248.1769561767578,
+  "weightsChanged": {
+    "encoder": true,
+    "head": true
+  },
+  "losses": [
+    2.4699180126190186,
+    0.5753253698348999,
+    0.9966575503349304,
+    1.8871502876281738,
+    1.79621160030365,
+    4.987427711486816,
+    2.5626275539398193,
+    1.28988778591156,
+    0.1279781013727188,
+    0.028162959963083267
+  ],
+  "before": [
+    {
+      "id": "authored-smoke-0",
+      "question": "scope",
+      "ce": 2.4132542610168457,
+      "probabilities": [
+        0.08952347934246063,
+        0.01761007495224476,
+        0.39252662658691406,
+        0.1983441859483719,
+        0.09338701516389847,
+        0.20860855281352997
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "sponsorship",
+      "ce": 0.13445736467838287,
+      "probabilities": [
+        0.04190351068973541,
+        0.8741901516914368,
+        0.01748247630894184,
+        0.06642384082078934
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "timing",
+      "ce": 1.45619535446167,
+      "probabilities": [
+        0.16333773732185364,
+        0.5688521265983582,
+        0.03468858823180199,
+        0.23312152922153473
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "cpt",
+      "ce": 1.5771846771240234,
+      "probabilities": [
+        0.05529323220252991,
+        0.738150954246521,
+        0.2065558135509491
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "opt",
+      "ce": 1.6188856363296509,
+      "probabilities": [
+        0.15289509296417236,
+        0.6489855647087097,
+        0.1981193721294403
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "scope",
+      "ce": 4.601347923278809,
+      "probabilities": [
+        0.14377740025520325,
+        0.010038293898105621,
+        0.41807684302330017,
+        0.025433557108044624,
+        0.19107210636138916,
+        0.2116018533706665
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "sponsorship",
+      "ce": 1.8081732988357544,
+      "probabilities": [
+        0.39966484904289246,
+        0.12840308248996735,
+        0.30797865986824036,
+        0.16395333409309387
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "timing",
+      "ce": 0.6983290314674377,
+      "probabilities": [
+        0.497415691614151,
+        0.3754311800003052,
+        0.008869296871125698,
+        0.11828381568193436
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "cpt",
+      "ce": 0.021892080083489418,
+      "probabilities": [
+        0.0057585109025239944,
+        0.01589566469192505,
+        0.9783458113670349
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "opt",
+      "ce": 0.07794881612062454,
+      "probabilities": [
+        0.03823452442884445,
+        0.036753639578819275,
+        0.9250117540359497
+      ]
+    }
+  ],
+  "after": [
+    {
+      "id": "authored-smoke-0",
+      "question": "scope",
+      "ce": 0.5750685334205627,
+      "probabilities": [
+        0.5626662969589233,
+        0.012386957183480263,
+        0.08665212988853455,
+        0.10364244878292084,
+        0.14638881385326385,
+        0.08826340734958649
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "sponsorship",
+      "ce": 0.06144130602478981,
+      "probabilities": [
+        0.0065292855724692345,
+        0.9404081106185913,
+        0.005834973882883787,
+        0.0472276397049427
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "timing",
+      "ce": 0.5753140449523926,
+      "probabilities": [
+        0.35392987728118896,
+        0.04081977531313896,
+        0.0427221916615963,
+        0.5625281929969788
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "cpt",
+      "ce": 0.12107466906309128,
+      "probabilities": [
+        0.03916562348604202,
+        0.07486657053232193,
+        0.8859677910804749
+      ]
+    },
+    {
+      "id": "authored-smoke-0",
+      "question": "opt",
+      "ce": 0.22096994519233704,
+      "probabilities": [
+        0.09101688861846924,
+        0.10724236816167831,
+        0.8017407655715942
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "scope",
+      "ce": 0.056005142629146576,
+      "probabilities": [
+        0.015809308737516403,
+        0.9455342888832092,
+        0.002705209655687213,
+        0.005271164234727621,
+        0.017064489424228668,
+        0.013615530915558338
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "sponsorship",
+      "ce": 0.3600398600101471,
+      "probabilities": [
+        0.08346956968307495,
+        0.11459198594093323,
+        0.1042899489402771,
+        0.6976485252380371
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "timing",
+      "ce": 0.02703298069536686,
+      "probabilities": [
+        0.9733291268348694,
+        0.015005205757915974,
+        0.0036049243062734604,
+        0.008060736581683159
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "cpt",
+      "ce": 0.0007800396997481585,
+      "probabilities": [
+        0.00040048322989605367,
+        0.0003792892093770206,
+        0.9992202520370483
+      ]
+    },
+    {
+      "id": "authored-smoke-1",
+      "question": "opt",
+      "ce": 0.0019279003608971834,
+      "probabilities": [
+        0.0010989692527800798,
+        0.0008270441903732717,
+        0.998073935508728
+      ]
+    }
+  ],
+  "reloadMaxProbabilityDelta": 0.0,
+  "checkpointSha256": "542bc78cde10d19560bc45b9bee89ebc60b021716b40ab09bd067e1f30e11842",
+  "baseUnchanged": true,
+  "elapsedSeconds": 15.652
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "privacy": {
+    "containsApplicantData": false
+  },
+  "source": {
+    "path": "evaluation/part2/development.json",
+    "sha256": "aca7941f93a6ab838ee7b4b86f49c9a864878db8d15ad0f5c77baea84d2b67ce"
+  },
+  "review": {
+    "state": "human-reviewed",
+    "reviewer": "project-owner",
+    "recordedAt": "2026-10-02",
+    "record": {
+      "path": "evaluation/part2/review-worksheet.md",
+      "sha256": "f70b88a2d7ec938d14e6a00203741e9c456e9f094942981dd22966fd1448487f"
+    }
+  },
+  "upstream": {
+    "package": "laya==0.3.21",
+    "gitCommit": "9d955671415fc19f069b9cc998928075c1f255ec",
+    "fineTuningGuide": "https://github.com/NandhaKishorM/laya/blob/9d955671415fc19f069b9cc998928075c1f255ec/docs/finetune.md",
+    "kaggleNotebook": "https://github.com/NandhaKishorM/laya/blob/9d955671415fc19f069b9cc998928075c1f255ec/notebooks/laya_finetune_typed_decisions_2xT4_kaggle.ipynb"
+  },
+  "seeds": [
+    {
+      "id": "waymo-8248060",
+      "split": "train",
+      "provenance": "exposed-development",
+      "group": "waymo|greenhouse",
+      "sourceCaseSha256": "6c2c4ab1dd5d438605daab7f32b6b72692ca6a6d44b88fcfc74d31e4bd1a1694"
+    },
+    {
+      "id": "peraton-171547",
+      "split": "train",
+      "provenance": "exposed-development",
+      "group": "peraton|icims",
+      "sourceCaseSha256": "312c9bed130a8c65038af08e0497bf3c80b2f7969065ed27be2e3a62a261bcf0"
+    },
+    {
+      "id": "enova-8239619",
+      "split": "train",
+      "provenance": "exposed-development",
+      "group": "enova|greenhouse",
+      "sourceCaseSha256": "e92cd35e7356b8030152b734367e4f86b4acdaf654878bd7a0bf7f87a3f6ab79"
+    },
+    {
+      "id": "amca-4425120009",
+      "split": "train",
+      "provenance": "exposed-development",
+      "group": "amca|greenhouse",
+      "sourceCaseSha256": "98bb3974a7b9c597d5deb680cabfbb302f69d79bb05926d10007f5c9a7054c3d"
+    }
+  ]
+}

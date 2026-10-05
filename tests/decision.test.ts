@@ -83,6 +83,29 @@ test('model-selected evidence preserves source URLs and adjacent conditions', ()
   assert.equal(interpreted.sponsorship.citations[0]!.sourceUrl, 'https://example.test/overview');
   assert.ok(interpreted.sponsorship.citations.some(c => c.quote === 'Only with manager approval.'));
 });
+
+test('posting sponsorship does not depend on confident timing metadata', () => {
+  const r = role(['Visa sponsorship is offered for this job.']);
+  const result = applyDecision(r, interpretJob(r), output(r, answers({
+    sponsorship: { choice: 'available', probability: 0.99 },
+    timing: { choice: 'future', probability: 0.4 },
+  })));
+  assert.equal(result.sponsorship.status, 'available');
+  assert.equal(result.sponsorship.requiresReview, false);
+  assert.equal(result.sponsorship.citations[0]!.timing, 'unspecified');
+});
+
+test('explicit other-job text cannot become this vacancy policy even if the model mis-scopes it', () => {
+  const r = role(['Visa sponsorship is not available for future FTE roles.']);
+  const result = applyDecision(r, interpretJob(r), output(r));
+  assert.equal(result.sponsorship.status, 'unclear');
+  assert.equal(result.sponsorship.requiresReview, false);
+  assert.equal(result.context[0]!.kind, 'other-role');
+  const mixed = role(['Visa sponsorship is available. Sponsorship for future FTE roles is not guaranteed.']);
+  assert.equal(applyDecision(mixed, interpretJob(mixed), output(mixed, answers({
+    sponsorship: { choice: 'available', probability: 0.99 },
+  }))).sponsorship.status, 'available');
+});
 test('decision client is opt-in, deduplicates updates and discards results after navigation or disable', async () => {
   const responses: ((value: any) => void)[] = []; let calls = 0;
   const client = new DecisionClient(() => { calls++; return new Promise(resolve => responses.push(resolve)); }, () => {});

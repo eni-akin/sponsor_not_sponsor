@@ -139,6 +139,23 @@ test('future refusal does not invent a current refusal', () => {
   assert.match(result.sponsorship.explanation, /Future sponsorship/);
 });
 
+test('later conversion policies do not determine sponsorship for this vacancy', () => {
+  for (const text of [
+    'Visa sponsorship is not available for future FTE roles.',
+    'Visa sponsorship is available for future full-time positions.',
+    'We cannot provide visa sponsorship after the internship.',
+    'We cannot provide visa sponsorship after this internship.',
+    'Sponsorship for future FTE roles is not guaranteed.',
+  ]) {
+    const result = interpret(text);
+    assert.equal(result.sponsorship.status, 'unclear', text);
+    assert.ok(result.context.some(item => item.kind === 'other-role'), text);
+  }
+  const mixed = interpret('Visa sponsorship is available for this internship, but visa sponsorship is not available for future FTE roles.');
+  assert.equal(mixed.sponsorship.status, 'available');
+  assert.equal(interpret('Applicants must be authorized to work without visa sponsorship now or in the future.').sponsorship.status, 'unavailable');
+});
+
 test('now and future are both preserved', () => {
   const result = interpret('We cannot provide visa sponsorship now or in the future.');
   assert.equal(result.sponsorshipByTiming.now.status, 'unavailable');
