@@ -25,6 +25,14 @@ class LayaTrainingPreparationTest(unittest.TestCase):
             self.assertEqual(second["TARGET"], first["next"])
             self.assertNotIn("rationale", first)
             self.assertEqual(MODULE.sha256(output / "review-records.json"), manifest["recordsSha256"])
+            worksheet = (output / "review-worksheet.md").read_text()
+            self.assertEqual(13, worksheet.count("### Passage "))
+            self.assertEqual(4, worksheet.count("- Final decision:\n"))
+            for label in ("Explicit blocker found", "Sponsorship stated", "No blocker found", "Could not verify"):
+                self.assertIn(label, worksheet)
+            for row in records:
+                self.assertIn(json.loads(row["state"])["TARGET"], worksheet)
+            self.assertEqual(MODULE.sha256(output / "review-worksheet.md"), manifest["worksheetSha256"])
             with self.assertRaises(FileExistsError):
                 MODULE.prepare_worker_review(MODULE.DEFAULT_REGISTRY, output)
 

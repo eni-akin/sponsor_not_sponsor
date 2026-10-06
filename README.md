@@ -22,6 +22,6 @@ Run `pnpm evaluate` or `pnpm evaluate:regression` for authored-scenario reports.
 
 Company research has been removed from the extension's active flow. Its backend and configuration remain in the repository for possible later work; no company research currently runs from the extension. Research settings in `.env.example` are deferred backend configuration.
 
-Local Laya is an experimental, opt-in development path that runs a separate local model service for sponsorship, CPT, and OPT decisions. Its quality is not established, and development results are distinct from integration checks. See [local model setup and limitations](server/DECISIONS.md) if you want to work on that path.
+Local Laya is an experimental, opt-in comparison that runs a separate local model service for sponsorship, CPT, and OPT decisions. The deterministic result remains the compact badge result; Laya does not evaluate citizenship, work authorization, export controls, or other rule restrictions. Its quality is not established, and development results are distinct from integration checks. See [local model setup and limitations](server/DECISIONS.md) if you want to work on that path.
 
 The current roadmap is [PLAN.md](PLAN.md). The earlier plans remain available as historical records: [implementation history](IMPLEMENTATION.md), [detection improvement history](DETECTION_IMPROVEMENT_PLAN.md), [job recognition extraction history](JOB_RECOGNITION_EXTRACTION_PLAN.md), and [original product plan](job-sponsorship-extension-plan.md).

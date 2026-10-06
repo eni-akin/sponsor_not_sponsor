@@ -29,7 +29,7 @@ const service = new DecisionService(async request => {
   if (real) return worker.run(request);
   await new Promise(resolve => setTimeout(resolve, 100));
   return { version: DECISION_VERSION, engine: 'laya', model: 'mock-browser-contract', blocks: request.blocks.map(block => ({ id: block.id,
-    answers: { scope: { choice: 'role', probability: 0.99 }, sponsorship: { choice: block.text.includes('sponsor applicants') ? 'unavailable' : 'unclear', probability: 0.99 },
+    answers: { scope: { choice: 'role', probability: 0.99 }, sponsorship: { choice: block.text.includes('sponsor applicants') ? 'available' : 'unclear', probability: 0.99 },
       timing: { choice: 'unspecified', probability: 0.99 }, cpt: { choice: 'unclear', probability: 0.99 }, opt: { choice: 'unclear', probability: 0.99 } } })) } satisfies DecisionResult;
 });
 const server = createDecisionServer(service, extensionId);
@@ -49,29 +49,36 @@ try {
   await popup.waitForFunction(() => document.getElementById('status')!.textContent === 'Job posting detected');
   assert.equal(requests.length, 0);
   await popup.locator('.decision-settings > summary').click(); await popup.locator('#decision-enabled').check();
-  await popup.waitForFunction(() => document.getElementById('findings')!.textContent!.includes('Local Laya preview'), null, { timeout: 180_000 });
+  await popup.waitForFunction(() => document.querySelector('[data-comparison-state="ready"]'), null, { timeout: 180_000 });
   assert.equal(requests.length, 1);
   assert.doesNotMatch(JSON.stringify(requests), /PRIVATE_ANSWER|PRIVATE_UPLOAD|PRIVATE_URL/);
   if (!real) {
     assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'explicit-blocker');
+    assert.equal(await popup.locator('[data-finding="model-main"]').getAttribute('data-status'), 'sponsorship-stated');
     assert.match(await page.locator('#sponsor-not-sponsor-ui #toggle').innerText(), /Explicit blocker found/);
+    assert.equal(await page.locator('#sponsor-not-sponsor-ui [data-finding="main"]').getAttribute('data-status'), 'explicit-blocker');
+    assert.equal(await page.locator('#sponsor-not-sponsor-ui [data-finding="model-main"]').getAttribute('data-status'), 'sponsorship-stated');
   }
   await popup.locator('[data-finding="main"] > summary').click();
+  await popup.locator('[data-finding="model-main"] > summary').click();
   await mkdir('test-results', { recursive: true });
-  await popup.screenshot({ path: `test-results/decision-${real ? 'real' : 'mock'}.png`, fullPage: true });
+  await popup.locator('#findings').screenshot({ path: `test-results/decision-${real ? 'real' : 'mock'}.png` });
   const snapshot = await popup.evaluate(async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     return chrome.tabs.sendMessage(tab!.id!, { type: 'GET_SCAN' });
   });
-  assert.equal(snapshot.result.interpretation.decision.state, 'ready');
+  assert.equal(snapshot.result.decisionComparison.state, 'ready');
+  assert.equal(snapshot.result.interpretation.sponsorship.status, 'unavailable');
+  if (!real) assert.equal(snapshot.result.decisionComparison.interpretation.sponsorship.status, 'available');
   await writeFile(`test-results/decision-${real ? 'real' : 'mock'}.json`, JSON.stringify(snapshot, null, 2));
   await popup.locator('#decision-enabled').uncheck();
-  await popup.waitForFunction(() => !document.getElementById('findings')!.textContent!.includes('Local Laya preview'));
+  await popup.waitForFunction(() => document.querySelector('[data-comparison-state="disabled"]'));
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'explicit-blocker');
   await new Promise<void>(ok => server.close(() => ok()));
   await popup.locator('#decision-enabled').check();
-  await popup.waitForFunction(() => document.getElementById('findings')!.textContent!.includes('Local Laya is unavailable'));
-  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'could-not-verify');
-  assert.match(await page.locator('#sponsor-not-sponsor-ui #toggle').innerText(), /Could not verify/);
+  await popup.waitForFunction(() => document.querySelector('[data-comparison-state="error"]'));
+  assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'explicit-blocker');
+  assert.match(await page.locator('#sponsor-not-sponsor-ui #toggle').innerText(), /Explicit blocker found/);
   assert.deepEqual(errors, []);
   console.log(`PASS: ${real ? 'real local Laya' : 'mock model'} browser path, opt-in, evidence transport, private-answer exclusion, popup/panel consistency, opt-out, service outage, origin restriction. This checks integration, not accuracy.`);
 } finally {

@@ -229,13 +229,38 @@ def prepare_worker_review(registry_path, output_dir):
         "node", "--import", "tsx", "--input-type=module", "-e",
         "import {decisionQuestions} from './server/decision-questions.ts'; console.log(JSON.stringify(decisionQuestions));",
     ], cwd=ROOT, text=True))
+    decision_labels = json.loads(subprocess.check_output([
+        "node", "--import", "tsx", "--input-type=module", "-e",
+        "import {mainDecisionLabels} from './src/main-decision.ts'; console.log(JSON.stringify(mainDecisionLabels));",
+    ], cwd=ROOT, text=True))
+    worksheet = ["# Job decision review", "",
+        "Read all passages for each job, then give ONE final decision for that job. "
+        "These are evidence excerpts, not full scanner captures. Source completeness below is "
+        "the recorded prior review, not a fresh verification. If it is insufficient, choose Could not verify.", "",
+        "Use the same final decisions as the deterministic system:", ""]
+    worksheet.extend(f"- {label} (`{key}`)" for key, label in decision_labels.items())
+    worksheet.extend(["", "Explicit blocker found includes stated eligibility restrictions, not just sponsorship refusals. "
+        "Preserve affected groups and exceptions; a blocker need not apply to every applicant. "
+        "Sponsorship stated means an explicit offer or conditional consideration, with no overriding blocker. "
+        "No blocker found requires adequate posting coverage and does NOT mean sponsorship is offered. "
+        "Use Could not verify for incomplete coverage or unresolved conflicting/uncertain policy.", "",
+        "Also give the sponsorship fact: available / unavailable / conditional / unclear. "
+        "Application questions and citizenship/export restrictions alone leave sponsorship unclear. "
+        "Review only this vacancy, not future jobs. Quote the evidence and any conditions. "
+        "These job decisions do not replace the separate per-passage worker labels; those remain pending.", ""])
     records = []
     for seed in registry["seeds"]:
         case = cases[seed["id"]]
         if sha256(case) != seed["sourceCaseSha256"]:
             raise ValueError(f"{seed['id']}: source case changed; re-review it")
         evidence = case["evidence"]
+        worksheet.extend([f"## {case['employer']} — {case['id']}", "", case["title"], "",
+            f"Source: {case['sourceUrl']}", "",
+            f"Recorded coverage ({case['retrievedAt']}): {case['completeness']['status']}. "
+            f"{case['completeness']['note']}", ""])
         for index, block in enumerate(evidence):
+            worksheet.extend([f"### Passage {index + 1} — {case['id']}:block-{index}", "",
+                f"Location: {block['locator']}", "", *["> " + line for line in block["text"].splitlines()], ""])
             records.append({
                 "id": f"{case['id']}:block-{index}", "group": seed["group"], "split": "train",
                 "provenance": "exposed-official-source-development-excerpt",
@@ -247,13 +272,17 @@ def prepare_worker_review(registry_path, output_dir):
                 "labels": {key: None for key in questions}, "reviewState": "pending-per-block-review",
                 "reviewer": None, "rationale": "",
             })
+        worksheet.extend(["Your answer:", "", "- Final decision:", "- Sponsorship fact:",
+            "- Supporting passage(s), affected group, and exceptions:", "- Any uncertainty or missing evidence:", ""])
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=False)
     for name, value in [("questions.json", questions), ("review-records.json", records)]:
         (output_dir / name).write_text(json.dumps(value, indent=2) + "\n")
+    (output_dir / "review-worksheet.md").write_text("\n".join(worksheet) + "\n")
     manifest = {"schemaVersion": 1, "contract": "laya-policy-v1", "trainingReady": False,
                 "records": len(records), "questionsSha256": sha256(output_dir / "questions.json"),
                 "recordsSha256": sha256(output_dir / "review-records.json"),
+                "worksheetSha256": sha256(output_dir / "review-worksheet.md"),
                 "blockers": ["per-block labels require review", "no calibration or test split",
                              "source excerpts are not full scanner captures"], "privacy": registry["privacy"]}
     (output_dir / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")

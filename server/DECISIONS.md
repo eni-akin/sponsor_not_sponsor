@@ -1,10 +1,10 @@
 # Local Laya decision preview
 
-The extension can now use Laya for sponsorship, CPT and OPT decisions. The scanner still identifies the role and extracts text; the local model classifies that evidence; the existing badge and panel display the model result. Requirement highlights (citizenship, work authorization, etc.) still use the legacy rules and are labeled accordingly.
+The extension can compare deterministic findings with a separate Laya result for sponsorship, CPT and OPT. The compact badge remains deterministic; the popup and page panel show both results, including each result's citations. Laya does not evaluate citizenship, work authorization, export controls or other rule restrictions. The preview is opt-in and its quality is not established.
 
 **This integration is operational but is not an accuracy upgrade yet.** On September 28, both tested pretrained checkpoints produced only `unclear` after the evidence and uncertainty checks on 12 authored development probes. Six silent/question/ambiguous examples matched their expected `unclear` label; all six examples needing a definitive sponsorship finding were missed. Do not interpret 6/12 as a validated accuracy score. See [the evaluation report](../evaluation/results/laya-development.md).
 
-Laya is off by default. Selecting it replaces all three topic findings, including findings the old rules already resolved. An unavailable, invalid, or unfinished model result remains unclear; there is no hidden fallback to phrase rules. Turning Laya off explicitly restores the legacy interpreter. This permits comparison without claiming that a model is automatically more reliable.
+Laya is off by default. When enabled, its independent result appears alongside the deterministic findings; it does not replace them. An unavailable, invalid, or unfinished model result displays its status while the deterministic result stays visible. Turning Laya off shows a disabled comparison status and retains the deterministic interpreter.
 
 ## Setup
 
@@ -45,7 +45,7 @@ The known multilingual and typed-decisions checkpoint revisions are pinned in `l
 2. With Laya enabled, only extracted passage IDs/text/question markers, job title and employer are sent to the loopback service at `127.0.0.1:4319`. URLs, locator details, and the full HTML are excluded from the request. Extracted public text may itself contain personal information.
 3. A persistent Python worker judges each passage with its immediately adjacent passages as context. No keyword filter chooses which passages the model sees.
 4. Typed choices cover policy scope, sponsorship, timing, CPT and OPT. This is semantic classification, not text generation. The model does not author citations.
-5. Browser validation requires a result for every input passage, known labels and finite probabilities. Definitive choices require a provisional selected-option probability of at least 0.8 for the relevant classification and scope; sponsorship also checks timing. This is an abstention setting, not a promise of 80% accuracy or validated calibration.
+5. Browser validation requires a result for every input passage, known labels and finite probabilities. Definitive choices require a provisional selected-option probability of at least 0.8 for the relevant classification and scope. This is an abstention setting, not a promise of 80% accuracy or validated calibration.
 6. Citations are copied from the original extracted passages and include adjacent context. Conflicts and uncertain decisions remain unclear. An application-question block cannot become an offer. Quotes existing in the page do not prove the model interpreted them correctly.
 7. The browser binds results to the current role, URL and exact evidence. Navigation, pause, site-disable and opt-out discard late results.
 

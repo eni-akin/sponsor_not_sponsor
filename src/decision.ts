@@ -59,8 +59,13 @@ export function unresolvedDecision(base: Interpretation, message: string, state:
     decision: { engine: 'laya', state, message } };
 }
 
+export function modelDecisionBase(): Interpretation {
+  const finding = (): Finding<'unclear'> => ({ status: 'unclear', citations: [], evidenceIds: [], explanation: 'Laya has not established an explicit policy for this topic.', requiresReview: false });
+  return { sponsorship: finding(), cpt: finding(), opt: finding(), sponsorshipByTiming: { now: finding(), future: finding() }, restrictions: [], context: [] };
+}
+
 /** Convert typed model choices to existing findings. Quotes always come from our extracted blocks. */
-export function applyDecision(role: JobRecord, base: Interpretation, result: DecisionResult): Interpretation {
+export function applyDecision(role: JobRecord, base: Interpretation, result: DecisionResult, preserveRuleRefusal = true): Interpretation {
   type Claim = { status: string; citations: Citation[] };
   const claims: Record<'sponsorship' | 'cpt' | 'opt', Claim[]> = { sponsorship: [], cpt: [], opt: [] };
   const uncertain = new Set<string>();
@@ -117,8 +122,10 @@ export function applyDecision(role: JobRecord, base: Interpretation, result: Dec
     sponsorship.status = 'conditional'; sponsorship.requiresReview = false;
     sponsorship.explanation = 'The local model found different current and future sponsorship policies. Read both statements.';
   }
-  if (base.sponsorship.status === 'unavailable') sponsorship = base.sponsorship;
+  if (preserveRuleRefusal && base.sponsorship.status === 'unavailable') sponsorship = base.sponsorship;
   return { ...base, sponsorship, cpt: resolve(claims.cpt, 'cpt') as Finding<TrainingStatus>, opt: resolve(claims.opt, 'opt') as Finding<TrainingStatus>,
     sponsorshipByTiming: { now, future }, context,
-    decision: { engine: 'laya', state: 'ready', model: result.model, message: 'Local Laya preview · sponsorship, CPT and OPT use model decisions. Stated-requirement highlights still use local text rules.' } };
+    decision: { engine: 'laya', state: 'ready', model: result.model, message: preserveRuleRefusal
+      ? 'Local Laya preview · sponsorship, CPT and OPT use model decisions. Stated-requirement highlights still use local text rules.'
+      : 'Model coverage: sponsorship, CPT and OPT only. Citizenship, work authorization, export controls and other restrictions are not evaluated here.' } };
 }

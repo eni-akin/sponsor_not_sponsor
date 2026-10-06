@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-06",
+  "reviewer": "project-owner",
+  "field": "sponsorship",
+  "answerMapping": {
+    "No": "unavailable",
+    "Not stated": "unclear"
+  },
+  "records": [
+    {
+      "id": "waymo-8248060:block-0",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The passage states an export-control restriction, not a visa-sponsorship policy."
+    },
+    {
+      "id": "waymo-8248060:block-1",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The passage states export-license exceptions for certain statuses, not a visa-sponsorship policy."
+    },
+    {
+      "id": "waymo-8248060:block-2",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "This is an export-license application question and does not state employer sponsorship policy."
+    },
+    {
+      "id": "waymo-8248060:block-3",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "This asks whether the applicant requires work authorization and does not state employer sponsorship policy."
+    },
+    {
+      "id": "waymo-8248060:block-4",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "This is a sponsorship-related application question with no employer-policy answer."
+    },
+    {
+      "id": "peraton-171547:block-0",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The target is only the Required Qualifications heading."
+    },
+    {
+      "id": "peraton-171547:block-1",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The target requires U.S. citizenship but does not explicitly state a sponsorship policy."
+    },
+    {
+      "id": "peraton-171547:block-2",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The target concerns security clearance, not sponsorship."
+    },
+    {
+      "id": "enova-8239619:block-0",
+      "answer": "No",
+      "label": "unavailable",
+      "rationale": "Enova explicitly says it cannot sponsor visas or take over sponsorship at this time."
+    },
+    {
+      "id": "enova-8239619:block-1",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The target states internship dates only; the refusal is in the previous passage."
+    },
+    {
+      "id": "enova-8239619:block-2",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The target is an applicant sponsorship question, and the explicit policy is outside its immediate context."
+    },
+    {
+      "id": "amca-4425120009:block-0",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The target requires U.S.-person status under ITAR but does not explicitly state sponsorship policy."
+    },
+    {
+      "id": "amca-4425120009:block-1",
+      "answer": "Not stated",
+      "label": "unclear",
+      "rationale": "The target repeats the ITAR U.S.-person restriction and does not explicitly state sponsorship policy."
+    }
+  ],
+  "status": "sponsorship-reviewed-other-worker-fields-pending",
+  "notes": "Peraton block 1, Enova block 2, and both Amca blocks may imply a practical obstacle, but the reviewer kept sponsorship unclear because the TARGET does not explicitly state employer visa-sponsorship policy. Eligibility restrictions remain separate findings."
+}
