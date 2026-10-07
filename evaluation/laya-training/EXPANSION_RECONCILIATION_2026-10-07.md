@@ -1,6 +1,6 @@
 # Expansion reconciliation — October 7, 2026
 
-The two submitted expansion lists are candidate data, not training data. Apply [the decision contract](../../DECISION_LOGIC.md) and the corrections below before import. Do not assign a split until official-source provenance and employer/policy-family grouping are complete.
+The project owner approved the reconciled labels and supplied provenance and duplicate rulings on October 7. After removing two duplicates and the third-party Electronic Arts record, the resulting 39 passages across 38 vacancies are stored in [expansion-candidates-2026-10-07.json](expansion-candidates-2026-10-07.json) and frozen as training-only data in [frozen-expansion-v1](frozen-expansion-v1/manifest.json). Fresh employer/policy-family-disjoint evaluation data is still required.
 
 ## Label corrections
 
@@ -21,5 +21,4 @@ All direct applicant questions remain sponsorship/CPT/OPT unclear with unspecifi
 
 ## Missing import requirements
 
-Each candidate still needs its official source URL, vacancy title, normalized employer identity, retrieval date, locator, capture/completeness status, reviewer, and source/evidence hashes. Until then, none of these candidates may be marked `trainingReady` or used as calibration/test data.
-
+The supplied provenance provides source URLs, vacancy titles and IDs, employers, and retrieval dates. Evidence hashes and normalized employer groups are recorded in the candidate file. On October 7, the project owner confirmed that all 38 employer-controlled vacancies were fully reviewed and matched to the submitted passages. Their source, completeness, and passage-match status is recorded as owner-verified. The Electronic Arts candidate was removed because only a third-party ZipRecruiter source was available. The remaining blocker is the absence of fresh employer/policy-family-disjoint calibration and test sets.

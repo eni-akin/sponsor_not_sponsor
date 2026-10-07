@@ -1,3 +1,4 @@
+import copy
 import importlib.util
 import json
 import tempfile
@@ -8,9 +9,48 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("prepare_laya_training", ROOT / "scripts/prepare_laya_training.py")
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
+FREEZE_SPEC = importlib.util.spec_from_file_location("freeze_laya_expansion", ROOT / "scripts/freeze_laya_expansion.py")
+FREEZE_MODULE = importlib.util.module_from_spec(FREEZE_SPEC)
+FREEZE_SPEC.loader.exec_module(FREEZE_MODULE)
 
 
 class LayaTrainingPreparationTest(unittest.TestCase):
+    def test_frozen_expansion_v1_is_training_only_and_hash_verified(self):
+        manifest = FREEZE_MODULE.validate_freeze()
+        corpus = json.loads(FREEZE_MODULE.CORPUS.read_text())
+        self.assertEqual((39, 38), (manifest["content"]["records"], manifest["content"]["vacancies"]))
+        self.assertTrue(manifest["trainingOnly"])
+        self.assertFalse(manifest["trainingReady"])
+        self.assertTrue(all(row["split"] == "train" for row in corpus["recordsData"]))
+        self.assertEqual(2, len(manifest["blockers"]))
+
+    def test_frozen_expansion_rejects_invalid_records(self):
+        rows = json.loads(FREEZE_MODULE.CORPUS.read_text())["recordsData"]
+        cases = {
+            "duplicate id": lambda data: data[1].update(id=data[0]["id"]),
+            "missing fields": lambda data: data[0].pop("scope"),
+            "not owner-verified": lambda data: data[0].update(sourceStatus="unverified"),
+            "evidence hash drift": lambda data: data[0].update(text=data[0]["text"] + " changed"),
+        }
+        for error, mutate in cases.items():
+            with self.subTest(error=error):
+                changed = copy.deepcopy(rows)
+                mutate(changed)
+                with self.assertRaisesRegex(ValueError, error):
+                    FREEZE_MODULE.validate_records(changed)
+
+    def test_expansion_candidates_are_reconciled_but_quarantined(self):
+        path = ROOT / "evaluation/laya-training/expansion-candidates-2026-10-07.json"
+        data = json.loads(path.read_text())
+        rows = data["recordsData"]
+        self.assertFalse(data["trainingReady"])
+        self.assertEqual((39, 38), (len(rows), len({(row["employer"], row["vacancyId"]) for row in rows})))
+        self.assertEqual(len(rows), len({row["id"] for row in rows}))
+        self.assertTrue(all(row["split"] is None and row["captureStatus"].startswith("complete-owner-verified") for row in rows))
+        self.assertNotIn("nexus-engineering-0eff47b7:block-0", {row["id"] for row in rows})
+        self.assertTrue(all(row["sourceStatus"] == "owner-verified-official" for row in rows))
+        self.assertEqual(["ea-software-engineer-intern:block-0"], [row["id"] for row in data["excluded"]])
+
     def test_worker_review_is_unlabeled_and_preserves_adjacent_evidence(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "review"

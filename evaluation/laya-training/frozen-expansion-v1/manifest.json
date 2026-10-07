@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "frozen-expansion-v1",
+  "trainingOnly": true,
+  "trainingReady": false,
+  "blockers": [
+    "no fresh employer/policy-family-disjoint calibration split",
+    "no fresh employer/policy-family-disjoint held-out test split"
+  ],
+  "content": {
+    "path": "training-corpus-v1.json",
+    "sha256": "ffb088f2d2bff2ef2e56763340d18466ed8248d8b196b474a516f4e7cf9d14e3",
+    "recordsSha256": "e8d40ffe73e33bf6ecb547503af94af0c4f505f7e7f0aacb6573aa12e008148d",
+    "records": 39,
+    "vacancies": 38
+  },
+  "source": {
+    "path": "../expansion-candidates-2026-10-07.json",
+    "sha256": "4eaaf142b045f6957ea03baed891ef4566797e38f0f5f7e94482a4740b183bdb",
+    "duplicateResolutionSha256": "626132ed18323b0ec226f1da664a71f01ad1637df6aea17b1f49247fa23c9a07",
+    "sourceProvenanceSha256": "16fd30d630ce196791cb58136f9e23c82de3fbb3053ada9ea434087df4f186e2"
+  },
+  "decisionContract": {
+    "path": "../../../DECISION_LOGIC.md",
+    "version": 1,
+    "sha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2"
+  },
+  "questions": {
+    "path": "../worker-review-v2/questions.json",
+    "sha256": "c02349720accbbfab72e9e912f6ad1e8807b9e70afbf223a1b496e6b3bafc60c",
+    "itemSha256": {
+      "scope": "3949db2b1688cda2795745f5af2541b394ae831c51a98352b545d25f6df73382",
+      "sponsorship": "852f0f08470db0c0aadbb49041aec523ae419b6b4e7aae215340a6605bca326b",
+      "timing": "5c41700bedab03bb62d0f76d5c58cc58b272cf8329ed01aef9921e77976a4dbb",
+      "cpt": "14d63ccdfec850b76165c0f528ca52408c734bbbe32940031af66bc0693aa7d9",
+      "opt": "5a0970b8305555cda1d6f04d9b16bf360c4eafc4bd491b1e3084bbb5d0f270ad"
+    }
+  },
+  "privacy": {
+    "containsApplicantData": false
+  }
+}
