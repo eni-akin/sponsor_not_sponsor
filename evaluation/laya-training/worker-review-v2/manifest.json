@@ -3,12 +3,17 @@
   "contract": "laya-policy-v1",
   "trainingReady": false,
   "records": 13,
-  "questionsSha256": "86db5919a43d4b958b81fad75d67e7df8b9bb202c850ac644b07f9aafe0ac9c2",
-  "recordsSha256": "58fc05b86248afc7e0444dff67c2b1db455727cdc0647ea61ef60abfcf85ea2e",
+  "decisionContract": {
+    "path": "../../../DECISION_LOGIC.md",
+    "version": 1,
+    "sha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2"
+  },
+  "questionsSha256": "c02349720accbbfab72e9e912f6ad1e8807b9e70afbf223a1b496e6b3bafc60c",
+  "recordsSha256": "f59c65ec9671f8368d8d65e2833ab7214b2fc36b764d9108cae4c8d0410fff47",
   "worksheetSha256": "c8cb413f38bd9a80f664f59990a85d8781432216db03ec0cf374399bde851f31",
   "sponsorshipReview": {
     "path": "sponsorship-review.json",
-    "sha256": "587ff66edd46382064621a763933269692901586dfd54953b081afa3fbd61459",
+    "sha256": "9f01bbe1e00aa12b797df8a0038dbc955f68c251f37c61adff95324dc350cb95",
     "records": 13,
     "labelCounts": {
       "unclear": 12,
@@ -16,7 +21,6 @@
     }
   },
   "blockers": [
-    "scope, timing, CPT, and OPT per-block labels require review",
     "no calibration or test split",
     "source excerpts are not full scanner captures"
   ],

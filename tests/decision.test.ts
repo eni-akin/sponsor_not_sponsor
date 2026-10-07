@@ -7,7 +7,7 @@ import { DecisionService } from '../server/decision-service';
 import { badgeState } from '../src/badge-state';
 import type { JobRecord, ScannerSnapshot } from '../src/types';
 
-const role = (texts = ["We don't sponsor visas for internships"]): JobRecord => ({ key: 'job-1', title: 'Engineering Intern', employer: 'Example',
+const role = (texts = ['This role has a visa-support restriction.']): JobRecord => ({ key: 'job-1', title: 'Engineering Intern', employer: 'Example',
   location: null, identifier: '1', employmentTypes: [], completeness: 'description-found',
   evidence: texts.map((text, i) => ({ id: `b${i}`, text, kind: 'text', source: 'visible-page', locator: `p${i}` })) });
 const answers = (patch: Partial<BlockDecision['answers']> = {}): BlockDecision['answers'] => ({ scope: { choice: 'role', probability: 0.99 },
@@ -70,7 +70,7 @@ test('different current and future policies retain timing instead of becoming a 
   const r = role(['We sponsor currently.', 'We cannot sponsor in the future.']); const result = output(r);
   result.blocks[0]!.answers.sponsorship.choice = 'available'; result.blocks[0]!.answers.timing.choice = 'now';
   result.blocks[1]!.answers.timing.choice = 'future';
-  const interpreted = applyDecision(r, interpretJob(r), result);
+  const interpreted = applyDecision(r, interpretJob(r), result, false);
   assert.equal(interpreted.sponsorship.status, 'conditional'); assert.equal(interpreted.sponsorshipByTiming.now.status, 'available');
   assert.equal(interpreted.sponsorshipByTiming.future.status, 'unavailable');
 });

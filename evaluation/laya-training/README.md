@@ -1,6 +1,8 @@
 # Laya fine-tuning data gate
 
-October 5: [training research and initialization](RESEARCH-2026-10-05.md) now include a successful local MPS full-model smoke update, separate saved/reloaded checkpoint, and 13 pending per-block review records compatible with the current worker. The smoke checkpoint is uncalibrated and must not be deployed.
+The authoritative labeling and headline rules are in [DECISION_LOGIC.md](../../DECISION_LOGIC.md).
+
+October 7: all five fields have been reviewed for the 13 per-block records compatible with the current worker. They remain exposed development excerpts with no independent calibration or test split, so they are not training-ready. The earlier smoke checkpoint is uncalibrated and must not be deployed.
 
 Prepare the four reviewed development cases without downloading a model or starting training:
 

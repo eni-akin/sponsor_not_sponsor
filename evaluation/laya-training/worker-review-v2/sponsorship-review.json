@@ -87,6 +87,6 @@
       "rationale": "The target repeats the ITAR U.S.-person restriction and does not explicitly state sponsorship policy."
     }
   ],
-  "status": "sponsorship-reviewed-other-worker-fields-pending",
-  "notes": "Peraton block 1, Enova block 2, and both Amca blocks may imply a practical obstacle, but the reviewer kept sponsorship unclear because the TARGET does not explicitly state employer visa-sponsorship policy. Eligibility restrictions remain separate findings."
+  "status": "reviewed",
+  "notes": "All five worker fields are now reviewed in review-records.json. Peraton block 1, Enova block 2, and both Amca blocks may imply a practical obstacle, but sponsorship remains unclear because the TARGET does not explicitly state employer visa-sponsorship policy. Eligibility restrictions remain separate findings."
 }

@@ -10,15 +10,15 @@
     "evidenceSha256": "828ef051cffc5ac3c9f2907741e204bb455dc97bf7d2ef74ea77affa27fbbf04",
     "state": "{\"job_title\": \"2027 Summer Intern, MS/PhD, AI-driven ML Performance Engineering Intern\", \"employer\": \"Waymo\", \"previous\": \"\", \"TARGET\": \"Internships at Waymo, including those outside the US, involve access to information regulated by US export control laws. These laws require that export controlled information cannot be shared without an export license to individuals whose most recent country of citizenship or permanent residence is Cuba, Iran, North Korea, Syria or Ukrainian territories: Crimea, the so-called Donetsk People's Republic (\\\"DNR\\\"), and the so-called Luhansk People's Republic (\\\"LNR\\\"). Please understand that applications for these licenses have extended processing times and/or are routinely denied by the U.S. government such that the required license will not be granted by the summer internship start date.\", \"next\": \"License requirements do not apply (i.e., no export license is needed) if a person from one of these countries is also a US citizen, national, or lawful permanent resident or has been granted refugee or asylum status in the US.\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "role",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The passage states an export-control restriction, not a visa-sponsorship policy."
   },
   {
     "id": "waymo-8248060:block-1",
@@ -31,15 +31,15 @@
     "evidenceSha256": "ec210405342e28ca66a572a994e4494649968faf2b11a9500d05f855e20bfa0b",
     "state": "{\"job_title\": \"2027 Summer Intern, MS/PhD, AI-driven ML Performance Engineering Intern\", \"employer\": \"Waymo\", \"previous\": \"Internships at Waymo, including those outside the US, involve access to information regulated by US export control laws. These laws require that export controlled information cannot be shared without an export license to individuals whose most recent country of citizenship or permanent residence is Cuba, Iran, North Korea, Syria or Ukrainian territories: Crimea, the so-called Donetsk People's Republic (\\\"DNR\\\"), and the so-called Luhansk People's Republic (\\\"LNR\\\"). Please understand that applications for these licenses have extended processing times and/or are routinely denied by the U.S. government such that the required license will not be granted by the summer internship start date.\", \"TARGET\": \"License requirements do not apply (i.e., no export license is needed) if a person from one of these countries is also a US citizen, national, or lawful permanent resident or has been granted refugee or asylum status in the US.\", \"next\": \"Would you require an export license under the circumstances described below?\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "role",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The passage states export-license exceptions for certain statuses, not a visa-sponsorship policy."
   },
   {
     "id": "waymo-8248060:block-2",
@@ -52,15 +52,15 @@
     "evidenceSha256": "3951bfce6c6a91cd722d3f0a77f6536c555af122f11c4e6e7cbe494564f5873e",
     "state": "{\"job_title\": \"2027 Summer Intern, MS/PhD, AI-driven ML Performance Engineering Intern\", \"employer\": \"Waymo\", \"previous\": \"License requirements do not apply (i.e., no export license is needed) if a person from one of these countries is also a US citizen, national, or lawful permanent resident or has been granted refugee or asylum status in the US.\", \"TARGET\": \"Would you require an export license under the circumstances described below?\", \"next\": \"Do you require work authorization?\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "question",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "This is an export-license application question and does not state employer sponsorship policy."
   },
   {
     "id": "waymo-8248060:block-3",
@@ -73,15 +73,15 @@
     "evidenceSha256": "e6faeb29dfc64ed142a79c02182831af5b4be9e1e7a4c1c79ac3052d0f50aaa8",
     "state": "{\"job_title\": \"2027 Summer Intern, MS/PhD, AI-driven ML Performance Engineering Intern\", \"employer\": \"Waymo\", \"previous\": \"Would you require an export license under the circumstances described below?\", \"TARGET\": \"Do you require work authorization?\", \"next\": \"If yes, what kind? (If you do not require work authorization sponsorship please select Not Applicable.)\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "question",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "This asks whether the applicant requires work authorization and does not state employer sponsorship policy."
   },
   {
     "id": "waymo-8248060:block-4",
@@ -94,15 +94,15 @@
     "evidenceSha256": "4545904a92a9cb1efa8e4b5cdbd90d22920c1b2285c0db9f9e117dfb8e685850",
     "state": "{\"job_title\": \"2027 Summer Intern, MS/PhD, AI-driven ML Performance Engineering Intern\", \"employer\": \"Waymo\", \"previous\": \"Do you require work authorization?\", \"TARGET\": \"If yes, what kind? (If you do not require work authorization sponsorship please select Not Applicable.)\", \"next\": \"\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "question",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "This is a sponsorship-related application question with no employer-policy answer."
   },
   {
     "id": "peraton-171547:block-0",
@@ -115,15 +115,15 @@
     "evidenceSha256": "05f727ddcd62d08536683f3b79cb7fde347b9d070cbfe475ed28e8cd7d96fabc",
     "state": "{\"job_title\": \"Spring & Summer 2027 Software Engineering Co-op\", \"employer\": \"Peraton\", \"previous\": \"\", \"TARGET\": \"Required Qualifications\", \"next\": \"US Citizenship\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "none",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The target is only the Required Qualifications heading."
   },
   {
     "id": "peraton-171547:block-1",
@@ -136,15 +136,15 @@
     "evidenceSha256": "b12b52961057822bbcea10c636f4158a723eaa34ec21f6a61c5c7cecfe1949e4",
     "state": "{\"job_title\": \"Spring & Summer 2027 Software Engineering Co-op\", \"employer\": \"Peraton\", \"previous\": \"Required Qualifications\", \"TARGET\": \"US Citizenship\", \"next\": \"No Clearance Required\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "role",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The target requires U.S. citizenship but does not explicitly state a sponsorship policy."
   },
   {
     "id": "peraton-171547:block-2",
@@ -157,15 +157,15 @@
     "evidenceSha256": "2a4f814718d71674b0b43a170fc5167bacb87304c829af327054684f369548de",
     "state": "{\"job_title\": \"Spring & Summer 2027 Software Engineering Co-op\", \"employer\": \"Peraton\", \"previous\": \"US Citizenship\", \"TARGET\": \"No Clearance Required\", \"next\": \"\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "role",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The target concerns security clearance, not sponsorship."
   },
   {
     "id": "enova-8239619:block-0",
@@ -178,15 +178,15 @@
     "evidenceSha256": "2ecd7dc8b60138cac162d1453d850f90794c9da975575b3b966b70e4616f8c5e",
     "state": "{\"job_title\": \"Software Engineer Internship Summer 2027 (Hybrid)\", \"employer\": \"Enova International\", \"previous\": \"\", \"TARGET\": \"We are interested in every qualified candidate who is eligible to work in the United States. However, we are not able to sponsor visas or take over sponsorship at this time.\", \"next\": \"This internship will begin June 15 - August 19, 2027.\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "role",
+      "sponsorship": "unavailable",
+      "timing": "now",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "Enova explicitly says it cannot sponsor visas or take over sponsorship at this time."
   },
   {
     "id": "enova-8239619:block-1",
@@ -199,15 +199,15 @@
     "evidenceSha256": "fbfe535609f4fa7c35c2057024dec07a8624bf1c1a7f1c137387a3d5f024053f",
     "state": "{\"job_title\": \"Software Engineer Internship Summer 2027 (Hybrid)\", \"employer\": \"Enova International\", \"previous\": \"We are interested in every qualified candidate who is eligible to work in the United States. However, we are not able to sponsor visas or take over sponsorship at this time.\", \"TARGET\": \"This internship will begin June 15 - August 19, 2027.\", \"next\": \"Will you now or in the future require Enova sponsorship for employment visa status? (e.g. H1-B or other employment-based immigration case)\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "none",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The target states internship dates only; the refusal is in the previous passage."
   },
   {
     "id": "enova-8239619:block-2",
@@ -220,15 +220,15 @@
     "evidenceSha256": "f9d93076a36a5d1917aa79d01f8a23f97d4e2c10718560b5708105124bc475ca",
     "state": "{\"job_title\": \"Software Engineer Internship Summer 2027 (Hybrid)\", \"employer\": \"Enova International\", \"previous\": \"This internship will begin June 15 - August 19, 2027.\", \"TARGET\": \"Will you now or in the future require Enova sponsorship for employment visa status? (e.g. H1-B or other employment-based immigration case)\", \"next\": \"\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "question",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The target is an applicant sponsorship question, and the explicit policy is outside its immediate context."
   },
   {
     "id": "amca-4425120009:block-0",
@@ -241,15 +241,15 @@
     "evidenceSha256": "2821c028348ad1cc2af41234c9ad121a2ddc75bf3c88085ceaca1fea523473b9",
     "state": "{\"job_title\": \"Software Engineering Internship (Summer 2027)\", \"employer\": \"Amca (Advanced Manufacturing Company of America)\", \"previous\": \"\", \"TARGET\": \"This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR). All applicants must be U.S. persons within the meaning of ITAR. ITAR defines a US person as: any individual who is granted U.S. citizenship; or. any individual who is granted U.S. permanent residence (\\\"Green Card\\\" holder); or. any individual who is granted status as a \\\"protected person\\\" under 8 U.S.C 1324b(a)(3).\", \"next\": \"This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR). All applicants must be U.S. persons within the meaning of ITAR. ITAR defines a US person as a US citizen, permanent resident, or protected person under 8 U.S.C. 1324b(a)(3).\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "role",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The target requires U.S.-person status under ITAR but does not explicitly state sponsorship policy."
   },
   {
     "id": "amca-4425120009:block-1",
@@ -262,14 +262,14 @@
     "evidenceSha256": "d4527619c1ea5feddf39bf04d2d73de14c4fcc61715d0b9c847949d0716d222b",
     "state": "{\"job_title\": \"Software Engineering Internship (Summer 2027)\", \"employer\": \"Amca (Advanced Manufacturing Company of America)\", \"previous\": \"This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR). All applicants must be U.S. persons within the meaning of ITAR. ITAR defines a US person as: any individual who is granted U.S. citizenship; or. any individual who is granted U.S. permanent residence (\\\"Green Card\\\" holder); or. any individual who is granted status as a \\\"protected person\\\" under 8 U.S.C 1324b(a)(3).\", \"TARGET\": \"This position requires use of information which is subject to the International Traffic in Arms Regulations (ITAR). All applicants must be U.S. persons within the meaning of ITAR. ITAR defines a US person as a US citizen, permanent resident, or protected person under 8 U.S.C. 1324b(a)(3).\", \"next\": \"\"}",
     "labels": {
-      "scope": null,
-      "sponsorship": null,
-      "timing": null,
-      "cpt": null,
-      "opt": null
+      "scope": "role",
+      "sponsorship": "unclear",
+      "timing": "unspecified",
+      "cpt": "unclear",
+      "opt": "unclear"
     },
-    "reviewState": "pending-per-block-review",
-    "reviewer": null,
-    "rationale": ""
+    "reviewState": "reviewed",
+    "reviewer": "project-owner",
+    "rationale": "The target repeats the ITAR U.S.-person restriction and does not explicitly state sponsorship policy."
   }
 ]
