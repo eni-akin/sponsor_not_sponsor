@@ -7,7 +7,7 @@ import { DecisionService } from '../server/decision-service';
 import { badgeState } from '../src/badge-state';
 import type { JobRecord, ScannerSnapshot } from '../src/types';
 
-const role = (texts = ["We don't sponsor visas for internships"]): JobRecord => ({ key: 'job-1', title: 'Engineering Intern', employer: 'Example',
+const role = (texts = ['This role has a visa-support restriction.']): JobRecord => ({ key: 'job-1', title: 'Engineering Intern', employer: 'Example',
   location: null, identifier: '1', employmentTypes: [], completeness: 'description-found',
   evidence: texts.map((text, i) => ({ id: `b${i}`, text, kind: 'text', source: 'visible-page', locator: `p${i}` })) });
 const answers = (patch: Partial<BlockDecision['answers']> = {}): BlockDecision['answers'] => ({ scope: { choice: 'role', probability: 0.99 },
@@ -70,7 +70,7 @@ test('different current and future policies retain timing instead of becoming a 
   const r = role(['We sponsor currently.', 'We cannot sponsor in the future.']); const result = output(r);
   result.blocks[0]!.answers.sponsorship.choice = 'available'; result.blocks[0]!.answers.timing.choice = 'now';
   result.blocks[1]!.answers.timing.choice = 'future';
-  const interpreted = applyDecision(r, interpretJob(r), result);
+  const interpreted = applyDecision(r, interpretJob(r), result, false);
   assert.equal(interpreted.sponsorship.status, 'conditional'); assert.equal(interpreted.sponsorshipByTiming.now.status, 'available');
   assert.equal(interpreted.sponsorshipByTiming.future.status, 'unavailable');
 });
@@ -109,30 +109,41 @@ test('explicit other-job text cannot become this vacancy policy even if the mode
 test('decision client is opt-in, deduplicates updates and discards results after navigation or disable', async () => {
   const responses: ((value: any) => void)[] = []; let calls = 0;
   const client = new DecisionClient(() => { calls++; return new Promise(resolve => responses.push(resolve)); }, () => {});
-  const original = snapshot(); assert.equal(client.update(original), original); assert.equal(calls, 0);
+  const original = snapshot(role(['We do not sponsor applicants.'])); assert.equal(client.update(original).result?.decisionComparison?.state, 'disabled'); assert.equal(calls, 0);
   client.setEnabled(true);
   const pending = client.update(original); client.update(original);
-  assert.equal(calls, 1); assert.equal(pending.result?.interpretation?.decision?.state, 'pending');
-  assert.equal(badgeState(pending)?.tone, 'neutral');
+  assert.equal(calls, 1); assert.equal(pending.result?.decisionComparison?.state, 'pending');
+  assert.equal(pending.result?.interpretation?.sponsorship.status, 'unavailable');
+  assert.equal(badgeState(pending)?.tone, 'unavailable');
   const next = snapshot(role(['Sponsorship is offered.'])); client.update(next);
   responses[0]!({ state: 'ready', result: output() }); await tick();
-  assert.equal(client.update(next).result?.interpretation?.decision?.state, 'pending');
+  assert.equal(client.update(next).result?.decisionComparison?.state, 'pending');
   client.setEnabled(false); responses[1]!({ state: 'ready', result: output(next.result!.role!) }); await tick();
-  assert.equal(client.update(next), next);
+  assert.equal(client.update(next).result?.decisionComparison?.state, 'disabled');
 });
-test('model failure never silently falls back to a definitive rule label', async () => {
+test('model disagreement and failure remain separate from deterministic findings', async () => {
   const r = role(['We do not sponsor applicants.']); assert.equal(interpretJob(r).sponsorship.status, 'unavailable');
-  const client = new DecisionClient(async () => { throw new Error('offline'); }, () => {}); client.setEnabled(true);
-  const s = snapshot(r); client.update(s); await tick(); const result = client.update(s);
-  assert.equal(result.result?.interpretation?.sponsorship.status, 'unclear');
-  assert.equal(result.result?.interpretation?.decision?.state, 'error');
-  assert.equal(badgeState(result)!.label, 'Could not verify');
+  let resolve!: (value: unknown) => void;
+  const client = new DecisionClient(() => new Promise(done => { resolve = done; }), () => {}); client.setEnabled(true);
+  const s = snapshot(r); const pending = client.update(s);
+  assert.equal(pending.result?.decisionComparison?.state, 'pending');
+  resolve({ state: 'ready', result: output(r, answers({ sponsorship: { choice: 'available', probability: 0.99 } })) }); await tick();
+  const compared = client.update(s);
+  assert.equal(compared.result?.interpretation?.sponsorship.status, 'unavailable');
+  assert.equal(compared.result?.decisionComparison?.interpretation?.sponsorship.status, 'available');
+  assert.equal(compared.result?.decisionComparison?.interpretation?.restrictions.length, 0);
+  const failed = new DecisionClient(async () => { throw new Error('offline'); }, () => {}); failed.setEnabled(true);
+  failed.update(s); await tick(); const result = failed.update(s);
+  assert.equal(result.result?.interpretation?.sponsorship.status, 'unavailable');
+  assert.equal(result.result?.decisionComparison?.state, 'error');
+  assert.equal(result.result?.decisionComparison?.interpretation, undefined);
+  assert.equal(badgeState(result)!.label, 'Explicit blocker found');
 });
 test('malformed transport replies become visible errors rather than an unhandled rejection', async () => {
   for (const raw of [null, {}, { state: 'unknown' }, { state: 'error', message: {} }, { state: 'ready', result: {} }]) {
     const client = new DecisionClient(async () => raw, () => {}); client.setEnabled(true);
     const s = snapshot(); client.update(s); await tick();
-    assert.equal(client.update(s).result?.interpretation?.decision?.state, 'error');
+    assert.equal(client.update(s).result?.decisionComparison?.state, 'error');
   }
 });
 test('service deduplicates identical work and never stores invalid model responses as ready', async () => {

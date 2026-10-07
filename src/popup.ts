@@ -40,8 +40,8 @@ function render(snapshot: ScannerSnapshot): void {
   const evidence = role?.evidence ?? [];
   const findings = result?.interpretation;
   element('findings').hidden = !findings;
-  const findingsFingerprint = JSON.stringify([role?.key, findings]);
-  if (role && findings && findingsFingerprint !== previousFindings) renderFindings(element('findings'), role, findings, result!);
+  const findingsFingerprint = JSON.stringify([role?.key, findings, result?.decisionComparison]);
+  if (role && findings && findingsFingerprint !== previousFindings) renderFindings(element('findings'), role, findings, result!, result?.decisionComparison);
   previousFindings = findingsFingerprint;
   const sourceTime = element('findings').querySelector('time');
   if (sourceTime && result) { sourceTime.dateTime = result.scannedAt; sourceTime.textContent = new Date(result.scannedAt).toLocaleString(); }
@@ -124,7 +124,7 @@ decisionEnabled.addEventListener('change', event => {
       element('decision-feedback').textContent = 'Local model access was not granted.'; return;
     }
     await chrome.storage.local.set({ decisionEnabled: enabled });
-    element('decision-feedback').textContent = enabled ? 'Laya selected. Start the local decision service to analyze jobs.' : 'Laya off. Legacy local text rules are active.';
+    element('decision-feedback').textContent = enabled ? 'Comparison enabled. Start the local decision service to add Laya’s result.' : 'Comparison off. The deterministic result remains available.';
     previous = ''; await refresh();
   })().catch(() => { decisionEnabled.checked = !enabled; element('decision-feedback').textContent = 'Could not save the decision setting.'; })
     .finally(() => { decisionEnabled.disabled = false; });

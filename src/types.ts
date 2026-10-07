@@ -39,6 +39,7 @@ export interface ScanResult {
   signals: string[];
   warnings: string[];
   interpretation?: Interpretation;
+  decisionComparison?: { state: 'disabled' | 'pending' | 'ready' | 'error'; message: string; interpretation?: Interpretation };
 }
 
 export type SponsorshipStatus = 'available' | 'unavailable' | 'conditional' | 'unclear';

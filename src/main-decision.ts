@@ -1,6 +1,6 @@
 import type { Interpretation, JobRecord, MainDecision, MainDecisionStatus } from './types';
 
-const labels: Record<MainDecisionStatus, string> = {
+export const mainDecisionLabels: Record<MainDecisionStatus, string> = {
   'explicit-blocker': 'Explicit blocker found',
   'sponsorship-stated': 'Sponsorship stated',
   'no-blocker': 'No blocker found',
@@ -8,7 +8,7 @@ const labels: Record<MainDecisionStatus, string> = {
 };
 
 const result = (status: MainDecisionStatus, explanation: string, citations: MainDecision['citations'] = []): MainDecision =>
-  ({ status, label: labels[status], explanation, citations });
+  ({ status, label: mainDecisionLabels[status], explanation, citations });
 
 const blocksTemporaryAuthorization = (text: string) =>
   /\b(?:citizenship|citizens?|permanent residen(?:t|cy|ts)|green card|u\.?\s*s\.? persons?)\b/i.test(text)

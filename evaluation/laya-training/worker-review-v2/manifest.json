@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "contract": "laya-policy-v1",
+  "trainingReady": false,
+  "records": 13,
+  "decisionContract": {
+    "path": "../../../DECISION_LOGIC.md",
+    "version": 1,
+    "sha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2"
+  },
+  "questionsSha256": "c02349720accbbfab72e9e912f6ad1e8807b9e70afbf223a1b496e6b3bafc60c",
+  "recordsSha256": "f59c65ec9671f8368d8d65e2833ab7214b2fc36b764d9108cae4c8d0410fff47",
+  "worksheetSha256": "c8cb413f38bd9a80f664f59990a85d8781432216db03ec0cf374399bde851f31",
+  "sponsorshipReview": {
+    "path": "sponsorship-review.json",
+    "sha256": "9f01bbe1e00aa12b797df8a0038dbc955f68c251f37c61adff95324dc350cb95",
+    "records": 13,
+    "labelCounts": {
+      "unclear": 12,
+      "unavailable": 1
+    }
+  },
+  "blockers": [
+    "no calibration or test split",
+    "source excerpts are not full scanner captures"
+  ],
+  "privacy": {
+    "containsApplicantData": false
+  }
+}

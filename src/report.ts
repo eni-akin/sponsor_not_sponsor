@@ -14,6 +14,7 @@ export function reportData(result: ScanResult, version: string, reason: string) 
       descriptionSources: result.role.coverage?.sources.map(item => ({ kind: item.kind, descriptionFound: item.descriptionFound })) ?? [],
       descriptionGaps: result.role.coverage?.gaps ?? [] } : null,
     findings: result.interpretation ?? null,
+    decisionComparison: result.decisionComparison ?? null,
     warnings: result.warnings,
     // Deliberately omit the full extraction, role key, URL query/hash, settings, and form values.
   };

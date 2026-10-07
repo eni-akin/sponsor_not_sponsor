@@ -99,6 +99,9 @@ const trainingExamples: [string, TrainingStatus, TrainingStatus][] = [
   ['CPT applicants may apply.', 'explicitly-accepted', 'unclear'],
   ['CPT is accepted only for summer internships.', 'unclear', 'unclear'],
   ['STEM OPT candidates are welcome.', 'unclear', 'explicitly-accepted'],
+  ['CPT & Pre-Opt candidates invited to apply.', 'explicitly-accepted', 'explicitly-accepted'],
+  ['We do not provide sponsorship of any kind, including CPT and OPT.', 'explicitly-excluded', 'explicitly-excluded'],
+  ['Applicants requiring future sponsorship following F-1 OPT/CPT are not eligible.', 'unclear', 'unclear'],
   ['Curricular practical training applicants are welcome.', 'explicitly-accepted', 'unclear'],
   ['Optional practical training applicants are excluded.', 'unclear', 'explicitly-excluded'],
   ['Do you currently hold CPT or OPT?', 'unclear', 'unclear'],
@@ -137,6 +140,17 @@ test('future refusal does not invent a current refusal', () => {
   assert.equal(result.sponsorshipByTiming.future.status, 'unavailable');
   assert.equal(result.sponsorshipByTiming.now.status, 'unclear');
   assert.match(result.sponsorship.explanation, /Future sponsorship/);
+});
+
+test('named-employer and future-need refusals are unavailable with explicit timing only', () => {
+  const broad = interpret('Nexus Engineering Group does not provide employment visa sponsorship of any kind, including CPT and OPT.');
+  assert.equal(broad.sponsorship.status, 'unavailable');
+  assert.equal(broad.sponsorship.citations[0]!.timing, 'unspecified');
+  assert.equal(broad.cpt.status, 'explicitly-excluded'); assert.equal(broad.opt.status, 'explicitly-excluded');
+  const future = interpret('Applicants requiring future sponsorship for continued work authorization following F-1 OPT/CPT are not eligible.');
+  assert.equal(future.sponsorship.status, 'unavailable');
+  assert.equal(future.sponsorship.citations[0]!.timing, 'future');
+  assert.equal(future.cpt.status, 'unclear'); assert.equal(future.opt.status, 'unclear');
 });
 
 test('later conversion policies do not determine sponsorship for this vacancy', () => {

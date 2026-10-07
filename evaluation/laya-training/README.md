@@ -1,6 +1,16 @@
 # Laya fine-tuning data gate
 
-October 5: [training research and initialization](RESEARCH-2026-10-05.md) now include a successful local MPS full-model smoke update, separate saved/reloaded checkpoint, and 13 pending per-block review records compatible with the current worker. The smoke checkpoint is uncalibrated and must not be deployed.
+The authoritative labeling and headline rules are in [DECISION_LOGIC.md](../../DECISION_LOGIC.md).
+
+October 7: all five fields have been reviewed for the 13 per-block records compatible with the current worker. They remain exposed development excerpts with no independent calibration or test split, so they are not training-ready. The earlier smoke checkpoint is uncalibrated and must not be deployed.
+
+The approved expansion source is recorded in [expansion-candidates-2026-10-07.json](expansion-candidates-2026-10-07.json): 39 reconciled passages across 38 owner-verified vacancies after two confirmed duplicates and the third-party Electronic Arts record were removed. Those passages are frozen as training-only data in [frozen-expansion-v1](frozen-expansion-v1/manifest.json); every record is assigned to `train`. The manifest pins the source, corpus content, decision contract, and current worker questions by SHA-256. It remains `trainingReady: false` until fresh employer/policy-family-disjoint calibration and test sets exist. See [the reconciliation record](EXPANSION_RECONCILIATION_2026-10-07.md).
+
+Validate the immutable freeze without creating or replacing data:
+
+```bash
+python3 scripts/freeze_laya_expansion.py
+```
 
 Prepare the four reviewed development cases without downloading a model or starting training:
 

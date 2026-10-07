@@ -135,11 +135,11 @@ export class PageUI {
     this.get('badge').dataset.tone = state.tone;
     this.get<HTMLButtonElement>('toggle').disabled = !role;
     if (role && snapshot.result?.interpretation) {
-      const key = JSON.stringify([role.key, role.coverage, snapshot.result.interpretation, snapshot.result.warnings]);
+      const key = JSON.stringify([role.key, role.coverage, snapshot.result.interpretation, snapshot.result.decisionComparison, snapshot.result.warnings]);
       if (key !== this.lastContent) {
         this.get('role-title').textContent = role.title;
         this.get('metadata').textContent = [role.employer ?? 'Employer not identified', role.location, coverageLabel(role)].filter(Boolean).join(' · ');
-        renderFindings(this.get('findings'), role, snapshot.result.interpretation, snapshot.result);
+        renderFindings(this.get('findings'), role, snapshot.result.interpretation, snapshot.result, snapshot.result.decisionComparison);
         this.get('warnings').replaceChildren(...snapshot.result.warnings.map(text => { const li = document.createElement('li'); li.textContent = text; return li; }));
         this.lastContent = key;
         this.get('message').textContent = '';
