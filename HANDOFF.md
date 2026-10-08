@@ -1,6 +1,6 @@
 # Sponsor Not Sponsor — handoff
 
-Updated: October 7, 2026 (America/Chicago)
+Updated: October 8, 2026 (America/Chicago)
 
 ## Aim
 
@@ -74,35 +74,28 @@ python3 scripts/freeze_laya_expansion.py
 
 Do not edit or overwrite frozen v1. Corrections require a documented v2.
 
-## Submitted but not imported
+## Approved and normalized, pending freeze
 
-Two additional CSV files were inspected:
+Two additional CSV files were inspected and normalized into [normalized-submissions-2026-10-08.json](evaluation/laya-training/normalized-submissions-2026-10-08.json):
 
 - `/Users/eniola/Downloads/Training Dataset.csv`: 25 passages from 25 new employers.
 - `/Users/eniola/Downloads/Calibration dataset.csv`: 25 passages from 25 other new employers.
 
-They do not overlap the frozen corpus or each other by employer or record ID. They have not been imported because:
-
-1. Every source URL is truncated with `...` and cannot be opened or hashed.
-2. The five labels are stored in a malformed comma-split column, although they are recoverable.
-3. Every retrieval date is `2026-10-08`, which is later than this handoff date and must be confirmed or corrected.
-4. Their source passages and completeness have not yet been recorded as owner-verified in the repository.
-
-Do not use either CSV for training, calibration, or testing until those issues are repaired.
+The malformed combined label values are now separate `scope`, `sponsorship`, `timing`, `cpt`, and `opt` fields. The project owner confirmed the October 8 retrieval date and reviewed the 25 calibration labels. URLs and external vacancy IDs were removed because they are not model inputs. The records now use unique internal IDs `1` through `50`, remain unassigned (`split: null`), and are approved pending an immutable freeze. Think Academy sponsorship remains `unclear`: accepting CPT/OPT establishes those work-authorization fields, not whether the employer will file or transfer a sponsored visa. The normalized records do not overlap the frozen corpus or each other by employer, internal ID, or exact evidence.
 
 ## What needs to happen next
 
-### 1. Repair the two CSVs
+### 1. Audit policy-family grouping
 
-For every row, provide the complete employer-controlled URL, correct retrieval date, five separate label columns, full captured posting or completeness confirmation, and a stable evidence locator. Preserve the current employer separation.
+Review the proposed employer-based groups for materially identical policy templates across different employers. Keep any repeated policy family in a single split. URLs and external vacancy IDs are intentionally not part of the training records.
 
 ### 2. Decide the new training records
 
-After verification, the 25 records in `Training Dataset.csv` may become a separate frozen training-corpus v2. Do not overwrite v1. Before freezing v2, check for exact evidence duplication and shared policy templates against v1.
+The 25 records in `Training Dataset.csv` may become a separate frozen training-corpus v2. Do not overwrite v1. Before freezing v2, finish the shared-policy-template audit against v1.
 
 ### 3. Freeze calibration data
 
-The 25 calibration employers are disjoint from the current training employers, which is the right starting structure. After source repair and independent label review, freeze them in a calibration-only corpus. Calibration data may be used to choose the model temperature, probability calibration, and abstention threshold. It must not be used to update model weights or rewrite decision rules.
+The owner-reviewed 25 calibration employers are disjoint from the current training employers. After the policy-family audit, freeze them in a calibration-only corpus. Calibration data may be used to choose the model temperature, probability calibration, and abstention threshold. It must not be used to update model weights or rewrite decision rules.
 
 ### 4. Collect a fresh held-out test set
 
@@ -137,18 +130,22 @@ Do not promote a checkpoint merely because training completes. Promotion require
 
 ## Current blockers
 
-1. The two new CSVs need complete URLs, corrected dates, normalized columns, and recorded verification.
+1. The two normalized submissions need a policy-family grouping audit and immutable train/calibration freezes.
 2. No frozen calibration corpus exists.
 3. No fresh held-out test corpus exists.
 4. The multi-epoch domain trainer, calibration step, and resumable optimizer state do not yet exist.
 5. No production checkpoint, threshold, or default setting has been approved.
+
+## Repository organization
+
+Current operational files remain at stable paths. Superseded Laya prototypes, review v1, the initial smoke-run record, and October 5 research notes are retained under `evaluation/laya-training/archive/`. The October 6 handoff is retained under `docs/archive/handoffs/`; this file is the single current handoff. Empty legacy output directories were removed. See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for the maintained layout.
 
 ## Validation completed
 
 At the latest check:
 
 - Frozen-corpus validator passed for 39 records.
-- Nine Python training-data tests passed.
+- Ten Python training-data tests passed.
 - 217 TypeScript tests passed.
 - TypeScript typecheck passed.
 - Production build passed after the decision-contract work.
@@ -163,16 +160,15 @@ The working tree intentionally contains uncommitted training-data changes. Prese
 Suggested commit subject:
 
 ```text
-feat: freeze verified Laya training corpus
+chore: organize and approve Laya dataset records
 ```
 
 Suggested commit body:
 
 ```text
-- reconcile and verify 39 sponsorship-policy passages across 38 vacancies
-- remove duplicate and third-party-source records
-- freeze all approved records as training-only corpus v1
-- pin source, contract, question, and corpus hashes
-- validate labels, provenance, evidence integrity, and split immutability
-- document remaining calibration and held-out test requirements
+- preserve the immutable 39-passage training corpus v1
+- normalize and approve 50 new train/calibration candidates
+- remove unused URLs and external vacancy identifiers from those records
+- archive superseded prototypes, review v1, smoke evidence, and old handoff
+- document the active repository layout and remaining evaluation gate
 ```

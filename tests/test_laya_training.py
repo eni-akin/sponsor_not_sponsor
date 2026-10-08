@@ -12,9 +12,24 @@ SPEC.loader.exec_module(MODULE)
 FREEZE_SPEC = importlib.util.spec_from_file_location("freeze_laya_expansion", ROOT / "scripts/freeze_laya_expansion.py")
 FREEZE_MODULE = importlib.util.module_from_spec(FREEZE_SPEC)
 FREEZE_SPEC.loader.exec_module(FREEZE_MODULE)
+NORMALIZE_SPEC = importlib.util.spec_from_file_location("normalize_laya_submissions", ROOT / "scripts/normalize_laya_submissions.py")
+NORMALIZE_MODULE = importlib.util.module_from_spec(NORMALIZE_SPEC)
+NORMALIZE_SPEC.loader.exec_module(NORMALIZE_MODULE)
 
 
 class LayaTrainingPreparationTest(unittest.TestCase):
+    def test_new_submissions_are_approved_pending_freeze(self):
+        path = ROOT / "evaluation/laya-training/normalized-submissions-2026-10-08.json"
+        data = NORMALIZE_MODULE.validate(json.loads(path.read_text()))
+        self.assertEqual((25, 25), tuple(dataset["records"] for dataset in data["datasets"].values()))
+        self.assertTrue(data["retrievalDateAssessment"]["notFuture"])
+        self.assertTrue(data["retrievalDateAssessment"]["verified"])
+        self.assertTrue(data["calibrationReady"])
+        self.assertTrue(all(row["split"] is None for dataset in data["datasets"].values() for row in dataset["recordsData"]))
+        rows = [row for dataset in data["datasets"].values() for row in dataset["recordsData"]]
+        self.assertEqual([str(number) for number in range(1, 51)], [row["id"] for row in rows])
+        self.assertTrue(all("sourceUrl" not in row and "vacancyId" not in row for row in rows))
+
     def test_frozen_expansion_v1_is_training_only_and_hash_verified(self):
         manifest = FREEZE_MODULE.validate_freeze()
         corpus = json.loads(FREEZE_MODULE.CORPUS.read_text())

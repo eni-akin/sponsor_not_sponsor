@@ -3,7 +3,7 @@
 Date: October 3, 2026
 Status (October 5): Offline evaluation and evidence capture implemented; full-model local MPS smoke update passed and a separate checkpoint saved/reloaded. Domain training data review and calibration remain pending; no model promotion.
 
-Latest: [October 5 research and initialization](evaluation/laya-training/RESEARCH-2026-10-05.md). MPS works outside the execution sandbox on this 16 GB Mac. The cached multilingual checkpoint has 321,908,995 parameters. The CPU-only finding below is historical and superseded. The current worker contract is selected for the first domain experiment; 13 source-backed block review records are prepared with pending labels.
+Historical setup evidence: [October 5 research and initialization](evaluation/laya-training/archive/research/RESEARCH-2026-10-05.md). MPS works outside the execution sandbox on this 16 GB Mac. The cached multilingual checkpoint has 321,908,995 parameters. The CPU-only finding below is historical and superseded. Current dataset status is recorded in [HANDOFF.md](HANDOFF.md).
 
 ## Goal
 

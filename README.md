@@ -2,6 +2,8 @@
 
 A local-first Chrome extension that inspects a job posting and shows separate sponsorship, CPT, and OPT findings with quoted evidence. It reports the posting's wording; it does not determine personal immigration eligibility. The default uses text rules, and unsupported or conflicting wording stays unclear.
 
+Current project state is summarized in [HANDOFF.md](HANDOFF.md). The stable labeling contract is [DECISION_LOGIC.md](DECISION_LOGIC.md), and the repository layout is documented in [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md).
+
 ## Install and use
 
 1. Install Node.js 22.9+ and pnpm 11.19.0, then run `pnpm install --frozen-lockfile` and `pnpm check`.

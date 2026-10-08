@@ -12,6 +12,8 @@ Validate the immutable freeze without creating or replacing data:
 python3 scripts/freeze_laya_expansion.py
 ```
 
+On October 8, the malformed label columns in the two additional submitted CSVs were normalized into [normalized-submissions-2026-10-08.json](normalized-submissions-2026-10-08.json). The owner confirmed the retrieval date and reviewed all 25 calibration labels. URLs and external vacancy IDs were removed because they are not model inputs; the 50 records instead use unique internal IDs `1` through `50`. The records remain unassigned (`split: null`) pending an immutable freeze. Think Academy sponsorship is `unclear`: accepting CPT/OPT establishes those two work-authorization fields, but does not say the employer will file or transfer a sponsored visa. Policy-family grouping still needs an audit, and no held-out test corpus exists.
+
 Prepare the four reviewed development cases without downloading a model or starting training:
 
 ```bash
@@ -23,7 +25,7 @@ The exporter refuses a non-empty output directory. Pass `--overwrite` only when 
 
 The exporter verifies the label source, human-review record, and each case by SHA-256. It rejects duplicate cases, exposed development data assigned to calibration/test, and employer/template groups crossing splits. Its prototype JSONL rows use Laya's documented `state`, `questions`, and `gold` columns. Targets are explicitly tagged `human-hard-label-one-hot`; they are not teacher confidence distributions, calibrated probabilities, or pseudo-labels. Model input contains only job identity, extraction completeness status, and public evidence text. Reviewer scope/timing/exception rationale, completeness notes, URLs, locators, and hashes stay outside `state`; no applicant response or applicant data is present.
 
-`prepared-role-v0/manifest.json` is intentionally `trainingReady: false`: all four cases are exposed training seeds, every `main_decision` is the same class, and there is no independent calibration or held-out test split. The exported `offline-role-policy-experiment-v0` questions also do **not** match the current service's per-evidence `TARGET` worker contract, so these rows must not be used to replace its checkpoint. They are a reviewable role-level prototype only. The older exposed development corpus must also remain outside test data.
+The superseded `prepared-role-v0` output, worker review v1, initial smoke run, and October 5 research notes are retained under [archive](archive/README.md). They are historical evidence only and must not be used as current training or evaluation data. New disposable exports belong under `generated/`, which is created on demand.
 
 The installed runtime is `laya==0.3.21`. Its package exposes inference, not a training command. The supported recipe is full-model RLCD plus temperature calibration in the upstream notebook pinned here to the v0.3.21 commit:
 
