@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REGISTRY = ROOT / "evaluation/laya-training/seed-labels.json"
-DEFAULT_OUTPUT = ROOT / "evaluation/laya-training/prepared-role-v0"
+DEFAULT_OUTPUT = ROOT / "evaluation/laya-training/generated/prepared-role-v0"
 
 CHOICES = {
     "main_decision": {
