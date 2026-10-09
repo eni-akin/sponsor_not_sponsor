@@ -1,0 +1,782 @@
+{
+  "version": "laya-policy-v1",
+  "engine": "laya",
+  "model": "/Users/eniola/Documents/Project/Sponsor_Not_Sponsor/.model-cache/training/domain-2026-10-09/posttraining/calibrated-checkpoint",
+  "blocks": [
+    {
+      "id": "wtw-01",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9552
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.6863
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9377
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9804
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9805
+        }
+      }
+    },
+    {
+      "id": "wtw-02",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9583
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.354
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9335
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9712
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9659
+        }
+      }
+    },
+    {
+      "id": "wtw-03",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9565
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.3215
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9482
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9688
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9572
+        }
+      }
+    },
+    {
+      "id": "wtw-04",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9378
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.9128
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9077
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.965
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9631
+        }
+      }
+    },
+    {
+      "id": "wtw-05",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9431
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.7762
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9148
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9861
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9816
+        }
+      }
+    },
+    {
+      "id": "wtw-06",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.957
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.3584
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9408
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.986
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.985
+        }
+      }
+    },
+    {
+      "id": "wtw-07",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9625
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.3798
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9413
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9851
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9854
+        }
+      }
+    },
+    {
+      "id": "wtw-08",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9593
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.648
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9397
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9863
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9862
+        }
+      }
+    },
+    {
+      "id": "wtw-09",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9491
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.3685
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9478
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9857
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9857
+        }
+      }
+    },
+    {
+      "id": "wtw-10",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9537
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.4967
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9429
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.986
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9866
+        }
+      }
+    },
+    {
+      "id": "wtw-11",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9651
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.5643
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9355
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9861
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9863
+        }
+      }
+    },
+    {
+      "id": "wtw-12",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9586
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.6533
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.8814
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9862
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9848
+        }
+      }
+    },
+    {
+      "id": "wtw-13",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9581
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.4159
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.897
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9856
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.985
+        }
+      }
+    },
+    {
+      "id": "wtw-14",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9649
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.3432
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9157
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9877
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9878
+        }
+      }
+    },
+    {
+      "id": "wtw-15",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.956
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.6933
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.928
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9857
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9857
+        }
+      }
+    },
+    {
+      "id": "wtw-16",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9558
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.5164
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9379
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9861
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9862
+        }
+      }
+    },
+    {
+      "id": "wtw-17",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9653
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.3285
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9449
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9853
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9855
+        }
+      }
+    },
+    {
+      "id": "wtw-18",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9692
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.3376
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9513
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9864
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9862
+        }
+      }
+    },
+    {
+      "id": "wtw-19",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9687
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.3339
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9564
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9868
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9866
+        }
+      }
+    },
+    {
+      "id": "wtw-20",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9693
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.3042
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9547
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9872
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9874
+        }
+      }
+    },
+    {
+      "id": "wtw-21",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9668
+        },
+        "sponsorship": {
+          "choice": "unavailable",
+          "probability": 0.3321
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9446
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9859
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9857
+        }
+      }
+    },
+    {
+      "id": "wtw-22",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9703
+        },
+        "sponsorship": {
+          "choice": "unavailable",
+          "probability": 0.9277
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9349
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9881
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.988
+        }
+      }
+    },
+    {
+      "id": "wtw-23",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9606
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.8318
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.8759
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9865
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9867
+        }
+      }
+    },
+    {
+      "id": "wtw-24",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9526
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.6815
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.8974
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9799
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9803
+        }
+      }
+    },
+    {
+      "id": "wtw-25",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9593
+        },
+        "sponsorship": {
+          "choice": "unclear",
+          "probability": 0.4692
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9152
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9862
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9854
+        }
+      }
+    },
+    {
+      "id": "wtw-26",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9707
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.3214
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9467
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9868
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.987
+        }
+      }
+    },
+    {
+      "id": "wtw-27",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9697
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.3209
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9409
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9871
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9869
+        }
+      }
+    },
+    {
+      "id": "wtw-28",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9661
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.7893
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9471
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9866
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9864
+        }
+      }
+    },
+    {
+      "id": "wtw-29",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9687
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.9366
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.944
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9812
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9809
+        }
+      }
+    },
+    {
+      "id": "wtw-30",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9667
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.7485
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9339
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9785
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9797
+        }
+      }
+    },
+    {
+      "id": "wtw-31",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9641
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.6818
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9413
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9718
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.974
+        }
+      }
+    }
+  ]
+}

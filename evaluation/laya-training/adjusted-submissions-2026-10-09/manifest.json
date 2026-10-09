@@ -1,0 +1,40 @@
+{
+  "status": "adjusted-candidates-not-frozen",
+  "trainingRunApproved": false,
+  "corpus": {
+    "path": "adjusted-records.json",
+    "sha256": "fb9e4f0bcce0f194f911941888d8a0aec123f90975a21d5401d9f44499622500",
+    "records": 58
+  },
+  "sources": [
+    {
+      "path": "/Users/eniola/Downloads/training_sponsorship_records.csv",
+      "sha256": "b6090c099bbffaf781e3f61896450774cc14edc1203885069438059c743d2869",
+      "records": 20,
+      "intendedSplit": "train"
+    },
+    {
+      "path": "/Users/eniola/Downloads/sponsorship_records_calibration.csv",
+      "sha256": "de8bd3e5885d3fb9876f265d43816daa5fe840e217be7a3d16717b25ad61c682",
+      "records": 38,
+      "intendedSplit": "calibration"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "training-candidates.csv",
+      "sha256": "fda92fb3a786df868a2aed8c41fbd627eb615c324d857e8b403c6df78ad2e889",
+      "records": 18
+    },
+    {
+      "path": "calibration-candidates.csv",
+      "sha256": "1f6a5cf9b1e4f25c7604e4b583a878c6f44638d1be94837754b114796a9f41e4",
+      "records": 19
+    },
+    {
+      "path": "review-required.csv",
+      "sha256": "a96a680f0dfd6cf9b171691c78d603100989bbcc20849f6f01c8b74a1f430fb1",
+      "records": 21
+    }
+  ]
+}

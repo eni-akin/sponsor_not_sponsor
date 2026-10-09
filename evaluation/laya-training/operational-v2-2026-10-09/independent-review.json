@@ -1,0 +1,29 @@
+{
+  "independentReviewPassed": true,
+  "reviewer": "assistant-orchestrator",
+  "reviewedAt": "2026-10-09",
+  "datasetHashes": {
+    "train": "74a0291113543fb8a5fd0f4a56ffbfa0b4a5f61ad87be99039231c151d0d955c",
+    "calibration": "885ed76aef788b1598a8e5044a40be0c8dd058d1eafe11827185542b705c0de9",
+    "test": "a1a33dd08f453ba5a094d441d090038e964cd27d3fca5a8d2373ae5624857d88"
+  },
+  "decisionContractSha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2",
+  "questionsSha256": "c02349720accbbfab72e9e912f6ad1e8807b9e70afbf223a1b496e6b3bafc60c",
+  "checks": [
+    "Canonical five-field labels, scope safeguards, unique IDs, record counts and evidence hashes passed operational validation.",
+    "All 58 latest source passages were independently reviewed before adjustments; adjusted exact text and original label history remain preserved.",
+    "Fresh collection's 17 passages were read independently; 15 saved captures passed literal decoded extract and source/evidence hash checks.",
+    "SW Law Group's case-by-case sponsorship was independently confirmed on its official named vacancy section.",
+    "Inferact's case-by-case sponsorship and Forward Deployed Engineer title were independently confirmed in a live official HTTP response; variable live response bytes differ from the agent's earlier response while exact evidence remains unchanged.",
+    "No retained test employer, exact passage or substantive copied 32-word template crosses splits. Common industry wording alone is permitted.",
+    "CertiK and the entire HASI group were reassigned from never-locked, never-evaluated candidates to training before this test lock.",
+    "Actual supplied employer and job title are model context; missing neighbors stay explicitly empty. Runtime questions exactly match the pinned snapshot.",
+    "Earlier data is preserved additively, Think Academy stays calibration-only, Boeing stays training-only, unresolved submissions are excluded without guessing.",
+    "Seven operational dataset checks and four deterministic optimizer-resume tests passed before approval. Frozen v1 and original submissions remain unchanged."
+  ],
+  "limitations": [
+    "Training authorization is for a local experimental checkpoint, not production promotion.",
+    "The 12-passage test from 11 employers is small and lacks several classes. Report counts and coverage limits; do not claim comprehensive accuracy.",
+    "Passage-only evaluation cannot establish complete vacancy extraction, silence-based headlines or production browser quality."
+  ]
+}

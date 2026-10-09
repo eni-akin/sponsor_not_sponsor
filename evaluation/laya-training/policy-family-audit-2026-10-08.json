@@ -1,0 +1,1958 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-08",
+  "status": "agent-reviewed-material-template-overlap-found",
+  "reviewer": "policy-audit-agent",
+  "scope": "All 39 frozen v1 and 50 normalized submission passages; captured excerpts only.",
+  "sourceHashes": {
+    "frozen-v1": {
+      "path": "evaluation/laya-training/frozen-expansion-v1/training-corpus-v1.json",
+      "sha256": "ffb088f2d2bff2ef2e56763340d18466ed8248d8b196b474a516f4e7cf9d14e3"
+    },
+    "submissions": {
+      "path": "evaluation/laya-training/normalized-submissions-2026-10-08.json",
+      "sha256": "67aa795b27e90103032d5e55fa788b5bbbce41d94f052767349c93ae1b85b4bc"
+    }
+  },
+  "contractSha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2",
+  "recordsAssessed": 89,
+  "families": {
+    "application-now-future-sponsorship": {
+      "ids": [
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "brave-health-8d81587d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0",
+        "cloudflare-8245197:block-1",
+        "belvedere-trading-10746b3d:block-0",
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48"
+      ],
+      "rationale": "Repeated applicant question: will/do you require sponsorship now or in the future, followed optionally by employment-visa/work-authorization wording and visa examples. Changes in punctuation, tense, visa examples or employment wording do not make an independent template.",
+      "anchors": [
+        "Will you now, or in the future, require sponsorship for employment visa status",
+        "Will you now or in the future require visa sponsorship?"
+      ]
+    },
+    "role-not-eligible-sponsorship": {
+      "ids": [
+        "3",
+        "17",
+        "46"
+      ],
+      "rationale": "Roblox repeats verbatim Riot's first sentence, which Rational repeats with role in place of position. Extra refusal/conversion sentences do not remove the shared template.",
+      "anchors": [
+        "This position is not eligible for visa sponsorship."
+      ]
+    },
+    "sponsor-eligible-candidates": {
+      "ids": [
+        "8",
+        "19",
+        "23",
+        "24",
+        "25",
+        "50"
+      ],
+      "rationale": "Same sponsorship-for-eligible/qualified-candidates clause after removing employer name; H1B specialization and provide/sponsor inflection are minor variations. No condition unique to Notion differentiates its template.",
+      "anchors": [
+        "provides visa sponsorship for eligible candidates",
+        "We sponsor visas for eligible candidates."
+      ]
+    },
+    "sponsorship-available-position": {
+      "ids": [
+        "singlestore-8154399:block-0",
+        "26",
+        "49"
+      ],
+      "rationale": "Same complete affirmative sponsorship-is-available clause, with optional for-this-position/role tail. These very short passages offer no independent surrounding context; retain conservatively as one family.",
+      "anchors": [
+        "Sponsorship is available for this position",
+        "Visa sponsorship is available for this role."
+      ]
+    },
+    "visa-sponsorship-not-available-position": {
+      "ids": [
+        "4",
+        "5",
+        "42"
+      ],
+      "rationale": "Repeated Visa sponsorship is not available for this position/role clause. Internship qualifier and now/future tail are extensions of that same template.",
+      "anchors": [
+        "Visa sponsorship is not available for this position",
+        "Visa sponsorship is not available for this role."
+      ]
+    },
+    "unable-sponsor-take-over-employment-visa": {
+      "ids": [
+        "compeer-financial-5421837008:block-0",
+        "compeer-financial-5406940008:block-0",
+        "39"
+      ],
+      "rationale": "ALKU repeats the distinctive unable to sponsor or take over sponsorship of an employment visa clause from Compeer; at-this-time is a timing addition.",
+      "anchors": [
+        "unable to sponsor or take over sponsorship of an employment visa"
+      ]
+    },
+    "authorization-without-current-future-sponsorship": {
+      "ids": [
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0",
+        "3",
+        "16",
+        "28",
+        "40"
+      ],
+      "rationale": "Applicants must hold work authorization without sponsorship now/in the future. Repeated authorization/require-sponsorship condition and timing pair are the material template; OPT/CPT exclusions and appended refusal are additional clauses. This family overlaps Rational's not-eligible family, so both connect transitively.",
+      "anchors": [
+        "work authorization that does not now or in the future require sponsorship",
+        "authorized to work in the U.S. without sponsorship now or in the future"
+      ]
+    },
+    "awetomaton-citizenship-refusal": {
+      "ids": [
+        "awetomaton-5394074008:block-0",
+        "awetomaton-5394046008:block-0"
+      ],
+      "rationale": "Identical same-employer passage.",
+      "anchors": [
+        "U.S. citizenship is required, as we are unable to provide visa sponsorship."
+      ]
+    },
+    "harrison-no-sponsorship-now-future": {
+      "ids": [
+        "harrison-street-4594ead7:block-0",
+        "harrison-street-london-7d1a258e:block-0",
+        "harrison-street-e82d538e:block-0"
+      ],
+      "rationale": "Identical same-employer passage.",
+      "anchors": [
+        "The company is not able to provide employment visa sponsorship now or in the future for this position."
+      ]
+    },
+    "gcm-future-authorization": {
+      "ids": [
+        "gcm-grosvenor-7992997003:block-0",
+        "gcm-grosvenor-7761842003:block-0"
+      ],
+      "rationale": "Identical same-employer passage.",
+      "anchors": [
+        "Applicants requiring future sponsorship for continued work authorization"
+      ]
+    },
+    "compeer-cpt-pre-opt": {
+      "ids": [
+        "compeer-financial-5398243008:block-0",
+        "compeer-financial-5421837008:block-0",
+        "compeer-financial-5406940008:block-0"
+      ],
+      "rationale": "Repeated distinctive CPT & Pre-Opt candidates invited to apply sentence; connects to Compeer refusal family.",
+      "anchors": [
+        "CPT & Pre-Opt candidates invited to apply."
+      ]
+    },
+    "citizenship-clearance": {
+      "ids": [
+        "gitai-5437128008:block-0",
+        "varda-space-8010109003:block-0",
+        "1"
+      ],
+      "rationale": "Same citizenship-required-to-obtain-clearance template.",
+      "anchors": [
+        "citizenship is required",
+        "clearance"
+      ]
+    },
+    "citizenship-required": {
+      "ids": [
+        "20",
+        "21"
+      ],
+      "rationale": "Identical standalone mandatory citizenship sentence after case normalization.",
+      "anchors": [
+        "U.S. citizenship is required."
+      ]
+    }
+  },
+  "assignments": [
+    {
+      "id": "singlestore-8154399:block-0",
+      "source": "frozen-v1",
+      "employer": "SingleStore",
+      "intendedSplit": "train",
+      "evidenceSha256": "639581205583f48035db235fd3ac36042913027c5542a5070219e614dbb9dab1",
+      "policyFamilyId": "family:sponsorship-available-position",
+      "familyMembers": [
+        "26",
+        "49",
+        "singlestore-8154399:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "exa-a9e01521:block-0",
+      "source": "frozen-v1",
+      "employer": "Exa",
+      "intendedSplit": "train",
+      "evidenceSha256": "bb5fc3272c81f347c5e336e76d9b9534ee30ecdd86c8c5e50578471c4e9c0328",
+      "policyFamilyId": "singleton:exa-a9e01521:block-0",
+      "familyMembers": [
+        "exa-a9e01521:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "agwest-farm-credit-4372303009:block-0",
+      "source": "frozen-v1",
+      "employer": "AgWest Farm Credit",
+      "intendedSplit": "train",
+      "evidenceSha256": "5e34b00eb744a851a81e8a9d050417ba41b19f3f39efb044fbe0c945df4b44ac",
+      "policyFamilyId": "singleton:agwest-farm-credit-4372303009:block-0",
+      "familyMembers": [
+        "agwest-farm-credit-4372303009:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "kroll-bond-rating-8787016002:block-0",
+      "source": "frozen-v1",
+      "employer": "Kroll Bond Rating Agency",
+      "intendedSplit": "train",
+      "evidenceSha256": "9749fb763f32273894b9ef61cd23788b9ce013b77ff630fb117a78f877e801d2",
+      "policyFamilyId": "singleton:kroll-bond-rating-8787016002:block-0",
+      "familyMembers": [
+        "kroll-bond-rating-8787016002:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "secretariat-advisors-4399032009:block-0",
+      "source": "frozen-v1",
+      "employer": "Secretariat Advisors",
+      "intendedSplit": "train",
+      "evidenceSha256": "55bfd0ba352660c5563d00ecd82886737f65539ddd5fab25d1d69d302fe38a32",
+      "policyFamilyId": "singleton:secretariat-advisors-4399032009:block-0",
+      "familyMembers": [
+        "secretariat-advisors-4399032009:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "awetomaton-5394074008:block-0",
+      "source": "frozen-v1",
+      "employer": "Awetomaton",
+      "intendedSplit": "train",
+      "evidenceSha256": "bd14fbff13fb189d0744664dfcd3a9bcc7c0dc69e35a345811ae0a0d6156274b",
+      "policyFamilyId": "family:awetomaton-citizenship-refusal",
+      "familyMembers": [
+        "awetomaton-5394046008:block-0",
+        "awetomaton-5394074008:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "awetomaton-5394046008:block-0",
+      "source": "frozen-v1",
+      "employer": "Awetomaton",
+      "intendedSplit": "train",
+      "evidenceSha256": "bd14fbff13fb189d0744664dfcd3a9bcc7c0dc69e35a345811ae0a0d6156274b",
+      "policyFamilyId": "family:awetomaton-citizenship-refusal",
+      "familyMembers": [
+        "awetomaton-5394046008:block-0",
+        "awetomaton-5394074008:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "gitai-5437128008:block-0",
+      "source": "frozen-v1",
+      "employer": "GITAI",
+      "intendedSplit": "train",
+      "evidenceSha256": "7b0e3fb7fc5e89f72dd8cd1453314d3e0dca9a1517b928f5c97ce01f0e979c59",
+      "policyFamilyId": "family:citizenship-clearance",
+      "familyMembers": [
+        "1",
+        "gitai-5437128008:block-0",
+        "varda-space-8010109003:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "falcomm-156AD9A12B:block-0",
+      "source": "frozen-v1",
+      "employer": "Falcomm",
+      "intendedSplit": "train",
+      "evidenceSha256": "26ecaf6f31db1be8ac3ab95f664bfe4723b8fccb867584e5addfdf996d661368",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "qvest-us-2ae75be2:block-0",
+      "source": "frozen-v1",
+      "employer": "Qvest US",
+      "intendedSplit": "train",
+      "evidenceSha256": "f25bef4bcafc0c01747e2cf0ad0912bbe8b5a04b3d5bb2a9ba1c11fb590858da",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "bolster-602ac14e:block-0",
+      "source": "frozen-v1",
+      "employer": "Bolster Inc.",
+      "intendedSplit": "train",
+      "evidenceSha256": "7c7f18cba1b6dd6a3732a9da2b0126631868a84f60a9eb0f8284b1afbe45001b",
+      "policyFamilyId": "singleton:bolster-602ac14e:block-0",
+      "familyMembers": [
+        "bolster-602ac14e:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "lightcast-69c5168b:block-0",
+      "source": "frozen-v1",
+      "employer": "Lightcast",
+      "intendedSplit": "train",
+      "evidenceSha256": "07863dc6bffb62af5c5a3fbbdd8dd9364d8b66a3440591bb6e2d12ced45ea011",
+      "policyFamilyId": "singleton:lightcast-69c5168b:block-0",
+      "familyMembers": [
+        "lightcast-69c5168b:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "csc-generation-687984bb:block-0",
+      "source": "frozen-v1",
+      "employer": "CSC Generation",
+      "intendedSplit": "train",
+      "evidenceSha256": "6cab0b87b61a28a7efdd5485494f2fde279d1cbdf867572e9b6164d2b0006820",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "empire-state-realty-787bd17d:block-0",
+      "source": "frozen-v1",
+      "employer": "Empire State Realty Trust",
+      "intendedSplit": "train",
+      "evidenceSha256": "23a9ba3bd0eadaf2d854285d00e62bbafe6fe318272de8be559c5e79aaa9f5af",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "brave-health-8d81587d:block-0",
+      "source": "frozen-v1",
+      "employer": "Brave Health",
+      "intendedSplit": "train",
+      "evidenceSha256": "d6f90bf6584fdf6cdb907a3ff8e2fc360a8e80595c66a6d35ee7c24c475bcf9e",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "recovery-village-c8c714a3fe:block-0",
+      "source": "frozen-v1",
+      "employer": "The Recovery Village",
+      "intendedSplit": "train",
+      "evidenceSha256": "32e4881b77e61ad959d0589700adc69eb56e38ebe55d994f57304b77ac41ab4c",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "royal-electric-225EB059F5:block-0",
+      "source": "frozen-v1",
+      "employer": "Royal Electric",
+      "intendedSplit": "train",
+      "evidenceSha256": "facbe7cd19a6219851ad645cf564ba71873ff5c9add8dffdd5106200f7616bc1",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "middlebury-college-49B2582038:block-0",
+      "source": "frozen-v1",
+      "employer": "Middlebury College",
+      "intendedSplit": "train",
+      "evidenceSha256": "2399e318c22bbcb36db1e6ddb759ff8b04e1af9890d1f02dbd6694ebc3175a92",
+      "policyFamilyId": "singleton:middlebury-college-49B2582038:block-0",
+      "familyMembers": [
+        "middlebury-college-49B2582038:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "pathstone-partners-71B4A857A9:block-0",
+      "source": "frozen-v1",
+      "employer": "Pathstone Partners",
+      "intendedSplit": "train",
+      "evidenceSha256": "9c7e1908d626869536789b6a5c7b7b0d93ffae828ccad83635d2602db60f3f08",
+      "policyFamilyId": "singleton:pathstone-partners-71B4A857A9:block-0",
+      "familyMembers": [
+        "pathstone-partners-71B4A857A9:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "atum-ventures-BAEBC60B71:block-0",
+      "source": "frozen-v1",
+      "employer": "ATUM Ventures",
+      "intendedSplit": "train",
+      "evidenceSha256": "440d81aca05e7a4b38eef14bbbca182be217e2fe9759e211a3c214d80b859ab4",
+      "policyFamilyId": "singleton:atum-ventures-BAEBC60B71:block-0",
+      "familyMembers": [
+        "atum-ventures-BAEBC60B71:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "ekimetrics-d8f0b664:block-0",
+      "source": "frozen-v1",
+      "employer": "Ekimetrics",
+      "intendedSplit": "train",
+      "evidenceSha256": "ada39db053d75c756f5bb45f125482d79240f9b429ef81d21d0a77f760e72c76",
+      "policyFamilyId": "singleton:ekimetrics-d8f0b664:block-0",
+      "familyMembers": [
+        "ekimetrics-d8f0b664:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "harrison-street-4594ead7:block-0",
+      "source": "frozen-v1",
+      "employer": "Harrison Street",
+      "intendedSplit": "train",
+      "evidenceSha256": "7bb748f30377031eb917af77ca8f11cc5184ccf25e3c623d6938dcdb1468ed31",
+      "policyFamilyId": "family:harrison-no-sponsorship-now-future",
+      "familyMembers": [
+        "harrison-street-4594ead7:block-0",
+        "harrison-street-e82d538e:block-0",
+        "harrison-street-london-7d1a258e:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "harrison-street-london-7d1a258e:block-0",
+      "source": "frozen-v1",
+      "employer": "Harrison Street",
+      "intendedSplit": "train",
+      "evidenceSha256": "7bb748f30377031eb917af77ca8f11cc5184ccf25e3c623d6938dcdb1468ed31",
+      "policyFamilyId": "family:harrison-no-sponsorship-now-future",
+      "familyMembers": [
+        "harrison-street-4594ead7:block-0",
+        "harrison-street-e82d538e:block-0",
+        "harrison-street-london-7d1a258e:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "brighton-jones-af9a24ce-d4e8-4f58-b8f2-a2027698b829:block-0",
+      "source": "frozen-v1",
+      "employer": "Brighton Jones",
+      "intendedSplit": "train",
+      "evidenceSha256": "963624767b20e9e92643b05f2f4a8275cbe65473f27e271ccaccce93c99c8a04",
+      "policyFamilyId": "singleton:brighton-jones-af9a24ce-d4e8-4f58-b8f2-a2027698b829:block-0",
+      "familyMembers": [
+        "brighton-jones-af9a24ce-d4e8-4f58-b8f2-a2027698b829:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "varda-space-8010109003:block-0",
+      "source": "frozen-v1",
+      "employer": "Varda Space",
+      "intendedSplit": "train",
+      "evidenceSha256": "ea682e3b6b4bf012773c5b2d04b5eb33e1b5e7c0fc8eb855f10cb1276f008e31",
+      "policyFamilyId": "family:citizenship-clearance",
+      "familyMembers": [
+        "1",
+        "gitai-5437128008:block-0",
+        "varda-space-8010109003:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "skynrg-3f7519d8:block-0",
+      "source": "frozen-v1",
+      "employer": "SkyNRG",
+      "intendedSplit": "train",
+      "evidenceSha256": "f8bd6f068a463ce20b7efac9aaccf1f40856c5aecd0785bc822a6a8d4aae03c6",
+      "policyFamilyId": "singleton:skynrg-3f7519d8:block-0",
+      "familyMembers": [
+        "skynrg-3f7519d8:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "compeer-financial-5398243008:block-0",
+      "source": "frozen-v1",
+      "employer": "Compeer Financial",
+      "intendedSplit": "train",
+      "evidenceSha256": "d979a5dca33a82c71f1affec52cc5a886c8af8efdab4c4d368469b5317df43c5",
+      "policyFamilyId": "family:compeer-cpt-pre-opt+unable-sponsor-take-over-employment-visa",
+      "familyMembers": [
+        "39",
+        "compeer-financial-5398243008:block-0",
+        "compeer-financial-5406940008:block-0",
+        "compeer-financial-5421837008:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "compeer-financial-5421837008:block-0",
+      "source": "frozen-v1",
+      "employer": "Compeer Financial",
+      "intendedSplit": "train",
+      "evidenceSha256": "33a3d3572cd76c811066db21e1e56be31164630d16d4973ba83073369e5e40e1",
+      "policyFamilyId": "family:compeer-cpt-pre-opt+unable-sponsor-take-over-employment-visa",
+      "familyMembers": [
+        "39",
+        "compeer-financial-5398243008:block-0",
+        "compeer-financial-5406940008:block-0",
+        "compeer-financial-5421837008:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "gcm-grosvenor-7992997003:block-0",
+      "source": "frozen-v1",
+      "employer": "GCM Grosvenor",
+      "intendedSplit": "train",
+      "evidenceSha256": "62606a075684c59be02bd1df78644f0f43c313c396c61beb1ee4d8d092ee6a4e",
+      "policyFamilyId": "family:gcm-future-authorization",
+      "familyMembers": [
+        "gcm-grosvenor-7761842003:block-0",
+        "gcm-grosvenor-7992997003:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "compeer-financial-5406940008:block-0",
+      "source": "frozen-v1",
+      "employer": "Compeer Financial",
+      "intendedSplit": "train",
+      "evidenceSha256": "6aff2926086bbede2901656b36ab81ac36a27eff8a4f2c0dd2339d1a19712768",
+      "policyFamilyId": "family:compeer-cpt-pre-opt+unable-sponsor-take-over-employment-visa",
+      "familyMembers": [
+        "39",
+        "compeer-financial-5398243008:block-0",
+        "compeer-financial-5406940008:block-0",
+        "compeer-financial-5421837008:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "gcm-grosvenor-7761842003:block-0",
+      "source": "frozen-v1",
+      "employer": "GCM Grosvenor",
+      "intendedSplit": "train",
+      "evidenceSha256": "62606a075684c59be02bd1df78644f0f43c313c396c61beb1ee4d8d092ee6a4e",
+      "policyFamilyId": "family:gcm-future-authorization",
+      "familyMembers": [
+        "gcm-grosvenor-7761842003:block-0",
+        "gcm-grosvenor-7992997003:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "nexus-engineering-group-0eff47b7:block-0",
+      "source": "frozen-v1",
+      "employer": "Nexus Engineering Group",
+      "intendedSplit": "train",
+      "evidenceSha256": "5b8b1971425d94ce1ae6ebd1331ed759147f8917df7b4cf9fc1762eaca13ab49",
+      "policyFamilyId": "singleton:nexus-engineering-group-0eff47b7:block-0",
+      "familyMembers": [
+        "nexus-engineering-group-0eff47b7:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "veris-insights-b823324a:block-0",
+      "source": "frozen-v1",
+      "employer": "Veris Insights",
+      "intendedSplit": "train",
+      "evidenceSha256": "6e1bc5e59898219df925a7556fd033b6a185e118757d5be256d871e206ab38ea",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "harrison-street-e82d538e:block-0",
+      "source": "frozen-v1",
+      "employer": "Harrison Street",
+      "intendedSplit": "train",
+      "evidenceSha256": "7bb748f30377031eb917af77ca8f11cc5184ccf25e3c623d6938dcdb1468ed31",
+      "policyFamilyId": "family:harrison-no-sponsorship-now-future",
+      "familyMembers": [
+        "harrison-street-4594ead7:block-0",
+        "harrison-street-e82d538e:block-0",
+        "harrison-street-london-7d1a258e:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "gdmissionsystems-71480:block-0",
+      "source": "frozen-v1",
+      "employer": "General Dynamics Mission Systems",
+      "intendedSplit": "train",
+      "evidenceSha256": "cbce009d84ab2ed8a50b2cc4b0a9ecab71eadec3500bd0f4aa6954bcc5c7b3a4",
+      "policyFamilyId": "singleton:gdmissionsystems-71480:block-0",
+      "familyMembers": [
+        "gdmissionsystems-71480:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "cloudflare-8245197:block-0",
+      "source": "frozen-v1",
+      "employer": "Cloudflare",
+      "intendedSplit": "train",
+      "evidenceSha256": "8d2519068860477cfe3043f254461cceb0f7b1833ffe6fffcb6e3d2a3055cf64",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "cloudflare-8245197:block-1",
+      "source": "frozen-v1",
+      "employer": "Cloudflare",
+      "intendedSplit": "train",
+      "evidenceSha256": "8829a476a6fd4ca3e95e335c4a15b202c962ca3a885c3430ba55427d89830696",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "belvedere-trading-10746b3d:block-0",
+      "source": "frozen-v1",
+      "employer": "Belvedere Trading",
+      "intendedSplit": "train",
+      "evidenceSha256": "9d7aa18306a39e35e749b8a4528ea8a7ff57e8de8a5b54493cd40f924eb29f3b",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "gallup-4393289009:block-0",
+      "source": "frozen-v1",
+      "employer": "Gallup",
+      "intendedSplit": "train",
+      "evidenceSha256": "d68663d0d1103e2cf8d33c87478ba830a755fb8a290f15d86cc3198bc229dff6",
+      "policyFamilyId": "singleton:gallup-4393289009:block-0",
+      "familyMembers": [
+        "gallup-4393289009:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "1",
+      "source": "submissions",
+      "employer": "Clarity Innovations",
+      "intendedSplit": "train",
+      "evidenceSha256": "9a87b1278261dfc37cdf176923946479012ba5349e12aee3e8b276cfb75a1b5f",
+      "policyFamilyId": "family:citizenship-clearance",
+      "familyMembers": [
+        "1",
+        "gitai-5437128008:block-0",
+        "varda-space-8010109003:block-0"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "2",
+      "source": "submissions",
+      "employer": "Bridgewater Associates",
+      "intendedSplit": "train",
+      "evidenceSha256": "21423f3ff1480b107aab47bbecb6b3e62dc40cf4e2b3c289d4ab96aa6dea5c67",
+      "policyFamilyId": "singleton:2",
+      "familyMembers": [
+        "2"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "3",
+      "source": "submissions",
+      "employer": "Rational 360",
+      "intendedSplit": "train",
+      "evidenceSha256": "bd083e77beaa25dced4e6e346308f4bb1c911c812f0e52e1a1a04648d130b00d",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "4",
+      "source": "submissions",
+      "employer": "Sigma Computing",
+      "intendedSplit": "train",
+      "evidenceSha256": "1726acf15a8978c7d8a3ca6de606e6b6517785e609d820eea052a1d29f847ae8",
+      "policyFamilyId": "family:visa-sponsorship-not-available-position",
+      "familyMembers": [
+        "4",
+        "42",
+        "5"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "5",
+      "source": "submissions",
+      "employer": "The LOOMIS Agency",
+      "intendedSplit": "train",
+      "evidenceSha256": "87f3d32b1b6b8c7d042bfeba4d2701a0f2188f8655820f5396f819104a49682a",
+      "policyFamilyId": "family:visa-sponsorship-not-available-position",
+      "familyMembers": [
+        "4",
+        "42",
+        "5"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "6",
+      "source": "submissions",
+      "employer": "Phoebe",
+      "intendedSplit": "train",
+      "evidenceSha256": "2c0da792b388e9e6d37c0d852ba5a5cfaf9a203c6ed0a62de97704b451402e71",
+      "policyFamilyId": "singleton:6",
+      "familyMembers": [
+        "6"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "7",
+      "source": "submissions",
+      "employer": "Periodic Labs",
+      "intendedSplit": "train",
+      "evidenceSha256": "57f9099440f67a5bebf31142aa781ead68a53e379ae3b85070e5335e20c5ba07",
+      "policyFamilyId": "singleton:7",
+      "familyMembers": [
+        "7"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "8",
+      "source": "submissions",
+      "employer": "kos.ai",
+      "intendedSplit": "train",
+      "evidenceSha256": "6d2f343e325dda2b0f960f2383f5d81864388ba469b2de6b68cadc3b167a3289",
+      "policyFamilyId": "family:sponsor-eligible-candidates",
+      "familyMembers": [
+        "19",
+        "23",
+        "24",
+        "25",
+        "50",
+        "8"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "9",
+      "source": "submissions",
+      "employer": "CTGT",
+      "intendedSplit": "train",
+      "evidenceSha256": "cf0f8b435571f7b4f9de3db2992218377ff8fdea9629e3b502f049f4d9329333",
+      "policyFamilyId": "singleton:9",
+      "familyMembers": [
+        "9"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "10",
+      "source": "submissions",
+      "employer": "Solcoa Industries",
+      "intendedSplit": "train",
+      "evidenceSha256": "6ed549b2361e970ba6e0e2f6d0616b0df862fef890f4751da508dddf06055870",
+      "policyFamilyId": "singleton:10",
+      "familyMembers": [
+        "10"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "11",
+      "source": "submissions",
+      "employer": "Fab2",
+      "intendedSplit": "train",
+      "evidenceSha256": "45d8bae89fe329b0021f544ff8dac6ce367082cf9135097dc50c07dacf5150e3",
+      "policyFamilyId": "singleton:11",
+      "familyMembers": [
+        "11"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "12",
+      "source": "submissions",
+      "employer": "Forge Atomics Inc.",
+      "intendedSplit": "train",
+      "evidenceSha256": "572ee218ac1365ff8f79b91a8faa8496e36320bee6c0d74dc56dbb63a4e913b8",
+      "policyFamilyId": "singleton:12",
+      "familyMembers": [
+        "12"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "13",
+      "source": "submissions",
+      "employer": "Primer",
+      "intendedSplit": "train",
+      "evidenceSha256": "722b7ec1661374c45f66368ba74c390c5012fc92548c2a55b54d9eececce90c9",
+      "policyFamilyId": "singleton:13",
+      "familyMembers": [
+        "13"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "14",
+      "source": "submissions",
+      "employer": "SEP",
+      "intendedSplit": "train",
+      "evidenceSha256": "82ec09bc8d91f75d91f78dcc0e5a97e3931805cd090035a9b8581ec6357e69ca",
+      "policyFamilyId": "singleton:14",
+      "familyMembers": [
+        "14"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "15",
+      "source": "submissions",
+      "employer": "SteerBridge",
+      "intendedSplit": "train",
+      "evidenceSha256": "6c55f851677c6c17194419a8b424d76896888c28d18e3aacd151c6a1ad65b562",
+      "policyFamilyId": "singleton:15",
+      "familyMembers": [
+        "15"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "16",
+      "source": "submissions",
+      "employer": "Northmarq",
+      "intendedSplit": "train",
+      "evidenceSha256": "0fa162104cbd7591ec9de90bf08ebe3ba50f9fc5c851677c42640c2b1bb272d9",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "17",
+      "source": "submissions",
+      "employer": "Riot Games",
+      "intendedSplit": "train",
+      "evidenceSha256": "5e8ed32eaace6e08966d8651c329b920c21984c34b1e9fee2fe28ee3ac2f5d88",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "18",
+      "source": "submissions",
+      "employer": "Enterprise Knowledge",
+      "intendedSplit": "train",
+      "evidenceSha256": "d64a0e03f6859b54152cf085ca56ce23ddad72050564016eb7dee3c3759a16b7",
+      "policyFamilyId": "singleton:18",
+      "familyMembers": [
+        "18"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "19",
+      "source": "submissions",
+      "employer": "Hudson River Trading",
+      "intendedSplit": "train",
+      "evidenceSha256": "dc5536d858dd506474d241005aee52e57adeec09a6defb84c61acd6e5068e536",
+      "policyFamilyId": "family:sponsor-eligible-candidates",
+      "familyMembers": [
+        "19",
+        "23",
+        "24",
+        "25",
+        "50",
+        "8"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "20",
+      "source": "submissions",
+      "employer": "General Dynamics IT",
+      "intendedSplit": "train",
+      "evidenceSha256": "1e8b0d6a18c2da6da850cc42cd8aec13c41825598b2c38add16cad81fcfd9f14",
+      "policyFamilyId": "family:citizenship-required",
+      "familyMembers": [
+        "20",
+        "21"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "21",
+      "source": "submissions",
+      "employer": "Lockheed Martin",
+      "intendedSplit": "train",
+      "evidenceSha256": "431f7c5879e4daf04b069592d2836aedb53f506bc2ddcb3e51abe5d5217e6aea",
+      "policyFamilyId": "family:citizenship-required",
+      "familyMembers": [
+        "20",
+        "21"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "22",
+      "source": "submissions",
+      "employer": "Boeing",
+      "intendedSplit": "train",
+      "evidenceSha256": "c9bf8852bb8b8c3fdd5b06fa72e468deb641957f1fa8eb52c74ebd1641c307e6",
+      "policyFamilyId": "singleton:22",
+      "familyMembers": [
+        "22"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "23",
+      "source": "submissions",
+      "employer": "Tesla",
+      "intendedSplit": "train",
+      "evidenceSha256": "0fb7c3754457d8adb3f6589f81ff251d5cf65ea8a9d58aa8d4f163aea7e81eff",
+      "policyFamilyId": "family:sponsor-eligible-candidates",
+      "familyMembers": [
+        "19",
+        "23",
+        "24",
+        "25",
+        "50",
+        "8"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "24",
+      "source": "submissions",
+      "employer": "Apple",
+      "intendedSplit": "train",
+      "evidenceSha256": "a6e06d73dacba6e08fca970e4053f4f132652d9c7f0db3e4c503765a0894c561",
+      "policyFamilyId": "family:sponsor-eligible-candidates",
+      "familyMembers": [
+        "19",
+        "23",
+        "24",
+        "25",
+        "50",
+        "8"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "25",
+      "source": "submissions",
+      "employer": "Meta",
+      "intendedSplit": "train",
+      "evidenceSha256": "d91169d196973d8e459ba63c1601b18a30c53ef90b3a032bc58ad16fe57b8bc9",
+      "policyFamilyId": "family:sponsor-eligible-candidates",
+      "familyMembers": [
+        "19",
+        "23",
+        "24",
+        "25",
+        "50",
+        "8"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": false,
+      "reason": "Training member of a cross-split family; quarantine its calibration relatives."
+    },
+    {
+      "id": "26",
+      "source": "submissions",
+      "employer": "Clera",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "7b05604ccf12793ab6d1571cb2ff4102077e8990186034404e9871a731123044",
+      "policyFamilyId": "family:sponsorship-available-position",
+      "familyMembers": [
+        "26",
+        "49",
+        "singlestore-8154399:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "27",
+      "source": "submissions",
+      "employer": "Costello Medical",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "3f54db828baf06088e5edca942099f373dc85b0a1406b25f51592f4ad6ee587f",
+      "policyFamilyId": "singleton:27",
+      "familyMembers": [
+        "27"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "28",
+      "source": "submissions",
+      "employer": "Quantinuum",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "b84b2dc974092c9c5fdc3f57c523d2514109dbfb4bb50cc0836e687e4c54f7d9",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "29",
+      "source": "submissions",
+      "employer": "Trove Brands",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "fa64b8292d380394b7d62a531426b18b9d602ac95c072b8c0591d80f15dedbc6",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "30",
+      "source": "submissions",
+      "employer": "Thomas & Hutton",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "46cc57b3f768d41adcd348efcd01b38114d59ca1a1cc238941c4a7cdd1f3eef7",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "31",
+      "source": "submissions",
+      "employer": "GHJ",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "abd01faf0709fb16ab862ee1475e3dcded519bde81b0cebbbf51f72962cf9a0d",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "32",
+      "source": "submissions",
+      "employer": "RMF Engineering",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "1ded8e7e489a086e64b934245047bfeab225c2bbff7786231426f57abbb7c596",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "33",
+      "source": "submissions",
+      "employer": "Dean Dorton",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "adec3381952e8eec5e48b1c9dcaf228a1121d40c1269bb6b3b708272cff58ac6",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "34",
+      "source": "submissions",
+      "employer": "Hermeus",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "03542f2b9ee9ac8dde8f2985ed619a56464281eadfab4d840538adc59f37ee16",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "35",
+      "source": "submissions",
+      "employer": "Xcimer Energy",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "d4b61967dccc5788627ebcec53527c4fe172050ca70171c264bb3559ee55f51f",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "36",
+      "source": "submissions",
+      "employer": "The Athletic",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "1ec3ff42a68edc4b02c0dd397db3c52bd56dbeeec62588fe6945af601173b97f",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "37",
+      "source": "submissions",
+      "employer": "CesiumAstro",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "92749140c4e2944421c26b96a1af888ea902367fb26eac48eff26fa334cba618",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "38",
+      "source": "submissions",
+      "employer": "nCino",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "0c8103807b5196db87cdfe75c77d81120f53344fc21e003def365f7035698c1f",
+      "policyFamilyId": "singleton:38",
+      "familyMembers": [
+        "38"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "39",
+      "source": "submissions",
+      "employer": "ALKU",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "b303f13f43dd1f27c8de773e71fa8a0d9099a2bfe373ebab056b9814d8c08ef2",
+      "policyFamilyId": "family:compeer-cpt-pre-opt+unable-sponsor-take-over-employment-visa",
+      "familyMembers": [
+        "39",
+        "compeer-financial-5398243008:block-0",
+        "compeer-financial-5406940008:block-0",
+        "compeer-financial-5421837008:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "40",
+      "source": "submissions",
+      "employer": "Dynamic Catholic",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "1d1d28c9ea276a351b54e0d7312517657f8ad7cd7d45ae8b7edf00b2cbcc39c8",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "41",
+      "source": "submissions",
+      "employer": "Fiducial",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "8ea7ab4ff7e19d9806998a759095cb8a46eca073f6ffdaf1de2ae0e967111697",
+      "policyFamilyId": "singleton:41",
+      "familyMembers": [
+        "41"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "42",
+      "source": "submissions",
+      "employer": "NEX",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "d6244a902381987b2f510d1b089352ada0a90137a4a25f8452b41ee9a30190e0",
+      "policyFamilyId": "family:visa-sponsorship-not-available-position",
+      "familyMembers": [
+        "4",
+        "42",
+        "5"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "43",
+      "source": "submissions",
+      "employer": "Optiver",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "fb07d1c1fff2c3eac58e02a5c2e235c455789c388e777be689fcaae51794597f",
+      "policyFamilyId": "singleton:43",
+      "familyMembers": [
+        "43"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "44",
+      "source": "submissions",
+      "employer": "Think Academy",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "25fdbf1b8acf92c4e71f76256c7854802ac062fe5a33a5e9cd875b3d642a3b0b",
+      "policyFamilyId": "singleton:44",
+      "familyMembers": [
+        "44"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "45",
+      "source": "submissions",
+      "employer": "IMC Trading",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "07533f12909ef192fbcfd1d3e0ea9372330b33ad8ea330910d85c0abbb3bf321",
+      "policyFamilyId": "singleton:45",
+      "familyMembers": [
+        "45"
+      ],
+      "crossSplitFamilyOverlap": false,
+      "quarantine": false,
+      "reason": "No cross-split material template found in supplied passages."
+    },
+    {
+      "id": "46",
+      "source": "submissions",
+      "employer": "Roblox",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "fbc71507b8fc7dc51ba6a10b80c6cdbaf027063d62181a2e2f653fa503d12bfe",
+      "policyFamilyId": "family:authorization-without-current-future-sponsorship+role-not-eligible-sponsorship",
+      "familyMembers": [
+        "16",
+        "17",
+        "28",
+        "3",
+        "40",
+        "46",
+        "falcomm-156AD9A12B:block-0",
+        "qvest-us-2ae75be2:block-0",
+        "veris-insights-b823324a:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "47",
+      "source": "submissions",
+      "employer": "CaptiveAire",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "0a27292d5dc5e7b53b2bfde2f3754a6e72908321d5473bf2610e2ba826ebcf36",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "48",
+      "source": "submissions",
+      "employer": "AKS Marketing",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "0a27292d5dc5e7b53b2bfde2f3754a6e72908321d5473bf2610e2ba826ebcf36",
+      "policyFamilyId": "family:application-now-future-sponsorship",
+      "familyMembers": [
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "47",
+        "48",
+        "belvedere-trading-10746b3d:block-0",
+        "brave-health-8d81587d:block-0",
+        "cloudflare-8245197:block-0",
+        "cloudflare-8245197:block-1",
+        "csc-generation-687984bb:block-0",
+        "empire-state-realty-787bd17d:block-0",
+        "recovery-village-c8c714a3fe:block-0",
+        "royal-electric-225EB059F5:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "49",
+      "source": "submissions",
+      "employer": "Datadog",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "325ff197f24ae9784bf2511b5601b416fe37b611a95d400d6646b5fe50ecf228",
+      "policyFamilyId": "family:sponsorship-available-position",
+      "familyMembers": [
+        "26",
+        "49",
+        "singlestore-8154399:block-0"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    },
+    {
+      "id": "50",
+      "source": "submissions",
+      "employer": "Notion",
+      "intendedSplit": "calibration",
+      "evidenceSha256": "d53e286bfcea668d2addbab9250bbb08cbdf1ba7f0f7582cc899cbca962210e0",
+      "policyFamilyId": "family:sponsor-eligible-candidates",
+      "familyMembers": [
+        "19",
+        "23",
+        "24",
+        "25",
+        "50",
+        "8"
+      ],
+      "crossSplitFamilyOverlap": true,
+      "quarantine": true,
+      "reason": "Quarantine calibration: material policy-family overlap with training."
+    }
+  ],
+  "quarantineCalibrationIds": [
+    "26",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "39",
+    "40",
+    "42",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ],
+  "remainingCalibrationIds": [
+    "27",
+    "38",
+    "41",
+    "43",
+    "44",
+    "45"
+  ],
+  "recommendation": "Freeze all 25 new training records with component family IDs. Preserve owner intended calibration membership but quarantine overlapping records; freeze remaining calibration only after orchestrator review. Never relocate quarantined calibration into training automatically. Collect replacement independent calibration examples and fresh employer/family-disjoint held-out examples before tuning.",
+  "limitations": [
+    "Cannot establish template reuse outside supplied captured excerpts; ellipsized passages could hide additional overlap.",
+    "Short available/unavailable clauses grouped conservatively because their entire excerpt repeats the same template.",
+    "Generic shared vocabulary or identical labels alone do not establish a family: broad refusal versus direct CPT/OPT exclusion, citizenship versus clearance, applicant answers versus sponsorship questions remain distinct when template differs."
+  ]
+}

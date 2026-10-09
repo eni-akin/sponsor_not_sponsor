@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "metadataPolicy": "owner-confirmed-passages-dataset-level-hashes",
+  "accuracyConfirmation": {
+    "reviewer": "project-owner",
+    "statement": "the information is accurate"
+  },
+  "sourceMetadataRequired": false,
+  "fullPostingCaptureRequired": false,
+  "scope": "The 50 approved normalized passage records. This approval supersedes the missing-source-metadata blocker in their historical candidate snapshot. It does not assert full browser extraction coverage or remove split-separation requirements.",
+  "hashAlgorithm": "SHA-256",
+  "dataset": {
+    "path": "normalized-submissions-2026-10-08.json",
+    "sha256": "67aa795b27e90103032d5e55fa788b5bbbce41d94f052767349c93ae1b85b4bc",
+    "records": 50
+  },
+  "partitions": {
+    "training": {
+      "path": "audited-candidates-v2/training-candidates.json",
+      "sha256": "7ab8db23ca6fb9640af968f39cb86699a66d47394eee3ebdabbf43234fd7df3f",
+      "records": 25
+    },
+    "calibration": {
+      "path": "audited-candidates-v2/calibration-candidates.json",
+      "sha256": "d1f87ed0df74a0e41bfd1cac0b3df0cec6ea2f96be122cc6a1da29cda4df4266",
+      "records": 6
+    },
+    "quarantine": {
+      "path": "audited-candidates-v2/quarantine-candidates.json",
+      "sha256": "10216dd5b14787c508283dc4a12ffcf2221ec9e058fe632c4717a57be8b81335",
+      "records": 19
+    }
+  },
+  "remainingRequirements": [
+    "independent calibration coverage after policy-family quarantine",
+    "a locked independent held-out test set before domain tuning"
+  ],
+  "trainingRunApproved": false
+}

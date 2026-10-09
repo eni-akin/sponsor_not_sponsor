@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "status": "immutable-candidate-snapshot-pending-provenance",
+  "trainingReady": false,
+  "calibrationReady": false,
+  "weightsTrainingAllowed": false,
+  "blockers": [
+    "official source URLs, vacancy identity and source-capture hashes are absent from normalized submissions",
+    "no reviewed frozen employer/policy-family-disjoint held-out test split"
+  ],
+  "inputs": {
+    "source": {
+      "path": "evaluation/laya-training/normalized-submissions-2026-10-08.json",
+      "sha256": "67aa795b27e90103032d5e55fa788b5bbbce41d94f052767349c93ae1b85b4bc"
+    },
+    "frozenV1": {
+      "path": "evaluation/laya-training/frozen-expansion-v1/training-corpus-v1.json",
+      "sha256": "ffb088f2d2bff2ef2e56763340d18466ed8248d8b196b474a516f4e7cf9d14e3"
+    },
+    "policyAudit": {
+      "path": "evaluation/laya-training/policy-family-audit-2026-10-08.json",
+      "sha256": "560cc3c79d25b52b39c407fac6e632c63d775b80c47fe9106fb892080d0b7744"
+    },
+    "auditReview": {
+      "path": "evaluation/laya-training/policy-family-audit-review-2026-10-08.json",
+      "sha256": "48cdc84b99aaa5fd61cbf993e306c5ba25251ca3ddec4159d75bc8a9debb82dd"
+    },
+    "decisionContract": {
+      "path": "DECISION_LOGIC.md",
+      "sha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2"
+    },
+    "questions": {
+      "path": "evaluation/laya-training/worker-review-v2/questions.json",
+      "sha256": "c02349720accbbfab72e9e912f6ad1e8807b9e70afbf223a1b496e6b3bafc60c"
+    }
+  },
+  "sourceCsv": {
+    "training": {
+      "filename": "Training Dataset.csv",
+      "sha256": "225bf5424b6029b90028774d4909a49bd2e85454d110dbe6fe2ffe273f6b8036"
+    },
+    "calibration": {
+      "filename": "Calibration dataset.csv",
+      "sha256": "b09faefc60e679f37c0c192694bc7ba32d1c68383eff946b310c71da65f8d667"
+    }
+  },
+  "questionHashes": {
+    "scope": "3949db2b1688cda2795745f5af2541b394ae831c51a98352b545d25f6df73382",
+    "sponsorship": "852f0f08470db0c0aadbb49041aec523ae419b6b4e7aae215340a6605bca326b",
+    "timing": "5c41700bedab03bb62d0f76d5c58cc58b272cf8329ed01aef9921e77976a4dbb",
+    "cpt": "14d63ccdfec850b76165c0f528ca52408c734bbbe32940031af66bc0693aa7d9",
+    "opt": "5a0970b8305555cda1d6f04d9b16bf360c4eafc4bd491b1e3084bbb5d0f270ad"
+  },
+  "content": {
+    "training": {
+      "path": "training-candidates.json",
+      "sha256": "7ab8db23ca6fb9640af968f39cb86699a66d47394eee3ebdabbf43234fd7df3f",
+      "recordsSha256": "60c3d974a1f7d50bfb9a545c1b23e6951e498316721a96ff0d59f7eca46eb93b",
+      "records": 25
+    },
+    "calibration": {
+      "path": "calibration-candidates.json",
+      "sha256": "d1f87ed0df74a0e41bfd1cac0b3df0cec6ea2f96be122cc6a1da29cda4df4266",
+      "recordsSha256": "3cb0d14f9e349d7926f4a7a94ee194e7f3e9d7f71c0e7893747ff2537f366bbc",
+      "records": 6
+    },
+    "quarantine": {
+      "path": "quarantine-candidates.json",
+      "sha256": "10216dd5b14787c508283dc4a12ffcf2221ec9e058fe632c4717a57be8b81335",
+      "recordsSha256": "07a39c0daa9beff66465ca6ea36ce9ac85e22b7149e9ba9e5daa2bc1ee336132",
+      "records": 19
+    }
+  }
+}

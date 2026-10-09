@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "orchestrator",
+  "reviewedAt": "2026-10-08",
+  "auditSha256": "560cc3c79d25b52b39c407fac6e632c63d775b80c47fe9106fb892080d0b7744",
+  "approvedFor": "blocked-candidate-snapshot",
+  "rationale": [
+    "Independently read all 89 supplied evidence passages and reviewed material-template membership, employer connections and transitive family grouping.",
+    "Requested and verified inclusion of Hermeus future-sponsorship question in the repeated question family, accurate cross-split reasons and agent-review attribution.",
+    "Approve quarantine of 19 owner-intended calibration records; keep their labels and intended split unchanged and do not move them to training.",
+    "Six calibration candidates remain: 27, 38, 41, 43, 44 and 45. IMC has distinct start-of-work framing and an explanatory sponsorship-example clause; independence is limited to supplied excerpts and must be rechecked against full captures.",
+    "Short affirmative and refusal clauses are conservatively grouped because they constitute nearly the entire supplied evidence; this is a leakage precaution, not a claim of common template authorship.",
+    "Approval covers a blocked candidate snapshot only. Missing official-source provenance and the absent locked held-out corpus prevent operational training/calibration readiness."
+  ]
+}

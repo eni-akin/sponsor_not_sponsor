@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-reviewed-candidate-context-not-frozen",
+  "reviewedAt": "2026-10-08",
+  "reviewer": "policy-audit-agent",
+  "input": {
+    "path": "evaluation/laya-training/heldout-candidates/second-pass-2026-10-08.json",
+    "sha256": "2d4ad63e7820853a95119a77640f20a7978899f4b84690ad98911a5b33274c91"
+  },
+  "comparisonReferenceHashes": {
+    "evaluation/laya-training/frozen-expansion-v1/training-corpus-v1.json": "ffb088f2d2bff2ef2e56763340d18466ed8248d8b196b474a516f4e7cf9d14e3",
+    "evaluation/laya-training/normalized-submissions-2026-10-08.json": "67aa795b27e90103032d5e55fa788b5bbbce41d94f052767349c93ae1b85b4bc",
+    "evaluation/laya-training/worker-review-v2/review-records.json": "f59c65ec9671f8368d8d65e2833ab7214b2fc36b764d9108cae4c8d0410fff47",
+    "DECISION_LOGIC.md": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2"
+  },
+  "reviewScope": "Read all10 targets and extracted non-script/style text from their8 saved full raw HTML captures; compared89 candidate/frozen passages, exposed13 TARGET passages and canonical contract examples. Saved full posting context considered, not merely isolated target.",
+  "recordsData": [
+    {
+      "id": "heldout-hasi-e64fb2bf-exception",
+      "employer": "HASI",
+      "evidenceSha256": "1ea9b84438e9304a5cf22ba5ef2cb12af0a22c96617c07c268cb47ab5279b5cd",
+      "sourceSha256": "bbb61560165afe06facca599006cac775dd1c026ad4f1e9fc8efe3810fb75ed2",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "candidate-distinct-pending-full-independent-review",
+      "rationale": "Transfer of existing H1-B under exceptional-talent condition is distinct from all89/exposed13. New H1B current refusal is complementary, not contradictory. Generic inability-at-this-time vocabulary resembles Enova but existing-vs-new visa distinction supplies material new structure."
+    },
+    {
+      "id": "heldout-hasi-e64fb2bf-now",
+      "employer": "HASI",
+      "evidenceSha256": "4bd58d9e959a1341e4cb09d8d960f611cc9951ec16a222c1a73119faf6456002",
+      "sourceSha256": "bbb61560165afe06facca599006cac775dd1c026ad4f1e9fc8efe3810fb75ed2",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "candidate-distinct-pending-full-independent-review",
+      "rationale": "Transfer of existing H1-B under exceptional-talent condition is distinct from all89/exposed13. New H1B current refusal is complementary, not contradictory. Generic inability-at-this-time vocabulary resembles Enova but existing-vs-new visa distinction supplies material new structure."
+    },
+    {
+      "id": "heldout-ethena-f85bcfd1-now",
+      "employer": "Ethena",
+      "evidenceSha256": "0f186afa0ad1fd129befc92997284ae258dbe314d239f8c6b82bbad7ae67d171",
+      "sourceSha256": "3dbc588bb8540cb1969a93ad5246c154eb45bec6a63b80441a69a5c545b010a5",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "candidate-distinct-pending-full-independent-review",
+      "rationale": "Currently offering employer sponsorship is a direct role-current refusal. Does not repeat the available/not-available-for-position clause verbatim or the unable-to-sponsor/take-over template. Generic employer/visa wording alone does not establish reused template."
+    },
+    {
+      "id": "heldout-alphasights-8130125-opt",
+      "employer": "AlphaSights",
+      "evidenceSha256": "180482354cb6d5d724d96820a266896daa4a70336a196e8321038df1b1e48358",
+      "sourceSha256": "185cc8c6a62814e03222a0435961462a8c49f1db51a505769b2d8a15e88e8768",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "quarantine-context-or-target-overlap",
+      "rationale": "Target OPT consideration clause differs, but saved complete vacancy application includes standard now/future immigration sponsorship question. Employer-level indivisibility and complete-worker-context review require quarantine despite selected target's independence."
+    },
+    {
+      "id": "heldout-defcon-5253391007-clearance",
+      "employer": "DEFCON AI",
+      "evidenceSha256": "5c8a4ec74c21d89c6e828e2fee30887eb8e547a62bf25a376a49f4873f50e501",
+      "sourceSha256": "0a9b8b7b8e725eaa77ab03c73020409d97e1a6c9e3054a7b16897f6c0ceeba5c",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "quarantine-context-or-target-overlap",
+      "rationale": "Target mandatory active-clearance clause and clearance question differ. Immediately preceding required qualification is US Citizenship Required, repeating exposed Peraton US Citizenship plus frozen standalone citizenship-required family; quarantine both targets by employer/context."
+    },
+    {
+      "id": "heldout-defcon-5253391007-question",
+      "employer": "DEFCON AI",
+      "evidenceSha256": "25c4be93a84f78252208f3f9b9467c5639f85d09f7d2aeb5c0d80ba7be89cfca",
+      "sourceSha256": "0a9b8b7b8e725eaa77ab03c73020409d97e1a6c9e3054a7b16897f6c0ceeba5c",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "quarantine-context-or-target-overlap",
+      "rationale": "Target mandatory active-clearance clause and clearance question differ. Immediately preceding required qualification is US Citizenship Required, repeating exposed Peraton US Citizenship plus frozen standalone citizenship-required family; quarantine both targets by employer/context."
+    },
+    {
+      "id": "heldout-northpoint-8782678002-clearance",
+      "employer": "North Point Technology",
+      "evidenceSha256": "44a54c6d97f62b14c05470cb6c004ae6a95e3cca439fa9319bc94f3bf47d3337",
+      "sourceSha256": "56cb73d63a3bbb777326a62fd180399be31784082234a2ea9832cfc4e51dc5ce",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "candidate-distinct-pending-full-independent-review",
+      "rationale": "Active TS/SCI with Full Scope Poly adjudication-before-start is materially more specific than citizenship-required-to-obtain-clearance wording. It does not repeat existing standalone citizenship policy. Could share active-clearance structure with DEFCON within candidate test, but DEFCON training citizenship overlap means review grouping conservatively before final freeze."
+    },
+    {
+      "id": "heldout-vannevar-5099077007-person-clearance",
+      "employer": "Vannevar",
+      "evidenceSha256": "08d4e3eb8fce37e15abcf44c26ea478466a0fe3bb7df7620e310f587b3580e90",
+      "sourceSha256": "c5f877fbfb5c6b1f356b5307e88c0283310e822017582ec5a3ef5eb231cedebd",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "candidate-distinct-pending-full-independent-review",
+      "rationale": "Required combined US Persons status AND current Top Secret DoD/IC clearance differs from exposed AMCA ITAR definition template and training citizenship/clearance eligibility clauses. Exact conjunction and existing clearance are material new wording."
+    },
+    {
+      "id": "heldout-riverai-4248217009-available",
+      "employer": "River AI Inc.",
+      "evidenceSha256": "417b777954d3e32c21f0703d18a92ccddae9d33477e1380242f120a7a16d0150",
+      "sourceSha256": "5ff23f61e5d2d30a54a35eeb312c8245e0b5a6d00cadd840880e4a4df9bbb69b",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "quarantine-context-or-target-overlap",
+      "rationale": "Affirmative visa offer overlaps sponsor-eligible-candidates family; complete application independently repeats standard now/future employment-visa sponsorship question. Quarantine employer."
+    },
+    {
+      "id": "heldout-sma-5255707007-timing",
+      "employer": "SMA America",
+      "evidenceSha256": "71a66f47058a541aa0f1f6a2631156ee4450c7ec2c96c79cedb8a1371ba2431d",
+      "sourceSha256": "d4e1970d3a7e062bfc97a1568f3ccc1ad1039e7d433548dd3a16b3328cb8bb98",
+      "proposedFiveFieldLabelsSupported": true,
+      "policyFamilyDecision": "quarantine-context-or-target-overlap",
+      "rationale": "Enumerated sponsorship-of-any-kind refusal repeats Nexus/AgWest template; current/future eligibility plus standard sponsorship question add independent overlaps. Quarantine employer."
+    }
+  ],
+  "limitations": [
+    "Raw HTML text extraction is not scanner/rendered completeness proof; no candidate is frozen or evaluation-ready.",
+    "NorthPoint active-clearance template could connect with quarantined DEFCON under a broader family criterion; avoid claiming clearance-family independence without root resolution.",
+    "An employer's generic application sponsorship question contaminates whole-vacancy evaluation even when the selected policy clause is novel; passage-only context needs a separately locked honest evaluation design.",
+    "No human owner review or data readiness is asserted."
+  ]
+}

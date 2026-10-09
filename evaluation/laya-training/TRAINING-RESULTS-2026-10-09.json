@@ -1,0 +1,1700 @@
+{
+  "status": "completed",
+  "promotionReady": false,
+  "identity": {
+    "datasetManifestSha256": "a54503c77b984ad589ad282ac01fa82cfb60596a4c469d65a5941572c2f0c914",
+    "datasetHashes": {
+      "train": "74a0291113543fb8a5fd0f4a56ffbfa0b4a5f61ad87be99039231c151d0d955c",
+      "calibration": "885ed76aef788b1598a8e5044a40be0c8dd058d1eafe11827185542b705c0de9",
+      "test": "a1a33dd08f453ba5a094d441d090038e964cd27d3fca5a8d2373ae5624857d88"
+    },
+    "checkpointMetadataSha256": "8fb67bb37ede5f4dcb7b7de3db0fe6eb6eb13298a6eb6d07d35962bf716d4ade",
+    "modelSha256": "0ba97a3ced5ee87b3f9c2dc946762c5e6a7a657b4d40733a63c6fa9a7d226377",
+    "questionSha256": "c02349720accbbfab72e9e912f6ad1e8807b9e70afbf223a1b496e6b3bafc60c",
+    "contractSha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2",
+    "sourceSha256": "31fde6144bb12c40c5480c6cda07c12c51355259a789c762b68f5331e6f1acc3",
+    "encodingSourceSha256": "cca437f1a8b10c1fd1642c3df271fdf83d9a3523d61e25ef05437d83fbe55607",
+    "baseHashes": {
+      "encoder/config.json": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+      "model.safetensors": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+      "rl_agent_config.json": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6",
+      "tokenizer/tokenizer.json": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f",
+      "tokenizer/tokenizer_config.json": "6c6b2d8e3c84ce0e671c129cd6b374b235d6f9863042a5836358d00a89bbb5a1"
+    },
+    "device": "mps",
+    "algorithm": {
+      "method": "shared-choice-temperature-grid-NLL",
+      "minimum": 0.5,
+      "maximum": 5.0,
+      "step": 0.01,
+      "decisionWeighting": "equal",
+      "tieBreak": "closest-to-1-then-smaller",
+      "threshold": 0.8,
+      "thresholdSelection": "none; unchanged product constant"
+    },
+    "sourceHashes": {
+      "scripts/calibrate_laya_domain.py": "31fde6144bb12c40c5480c6cda07c12c51355259a789c762b68f5331e6f1acc3",
+      "scripts/train_laya_domain.py": "0db7b00c7d53afd93cec73dfa643ca3aeaec371779bb63316be8af9bf530d67d",
+      "scripts/train_laya_smoke.py": "cca437f1a8b10c1fd1642c3df271fdf83d9a3523d61e25ef05437d83fbe55607",
+      "scripts/validate_laya_operational.py": "6249d04812126990614b92c230f4226cdd5f4e7ff6f44d432ec06a548d3bc067",
+      "server/laya_worker.py": "4e6eab143c9aa823958a493d17c131a174902a6d9c71b154e9490cfa079bc93f",
+      "server/decision-questions.ts": "e42eea7000dfda9f23cf26a4ca1853d9b216cf96c054c7f7cd5bc23068ec29e0"
+    }
+  },
+  "calibration": {
+    "temperature": 5.0,
+    "calibrationNLL": 0.43964171750001346,
+    "uncalibratedNLL": 1.7765900546128788,
+    "boundaryOptimum": true,
+    "decisions": 220,
+    "algorithm": {
+      "method": "shared-choice-temperature-grid-NLL",
+      "minimum": 0.5,
+      "maximum": 5.0,
+      "step": 0.01,
+      "decisionWeighting": "equal",
+      "tieBreak": "closest-to-1-then-smaller",
+      "threshold": 0.8,
+      "thresholdSelection": "none; unchanged product constant"
+    }
+  },
+  "calibrationMetrics": {
+    "uncalibrated": {
+      "perField": {
+        "scope": {
+          "count": 44,
+          "correct": 38,
+          "confusion": {
+            "role": {
+              "role": 27,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "question": {
+              "role": 2,
+              "question": 11,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "historical": {
+              "role": 1,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "company": {
+              "role": 3,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "other-role": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "none": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            }
+          },
+          "classes": {
+            "role": {
+              "support": 27,
+              "predicted": 33,
+              "truePositive": 27,
+              "precision": 0.8181818181818182,
+              "recall": 1.0
+            },
+            "question": {
+              "support": 13,
+              "predicted": 11,
+              "truePositive": 11,
+              "precision": 1.0,
+              "recall": 0.8461538461538461
+            },
+            "historical": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "company": {
+              "support": 3,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "other-role": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "none": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            }
+          }
+        },
+        "sponsorship": {
+          "count": 44,
+          "correct": 34,
+          "confusion": {
+            "available": {
+              "available": 5,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unavailable": {
+              "available": 0,
+              "unavailable": 15,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "conditional": {
+              "available": 4,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unclear": {
+              "available": 0,
+              "unavailable": 5,
+              "conditional": 1,
+              "unclear": 14
+            }
+          },
+          "classes": {
+            "available": {
+              "support": 5,
+              "predicted": 9,
+              "truePositive": 5,
+              "precision": 0.5555555555555556,
+              "recall": 1.0
+            },
+            "unavailable": {
+              "support": 15,
+              "predicted": 20,
+              "truePositive": 15,
+              "precision": 0.75,
+              "recall": 1.0
+            },
+            "conditional": {
+              "support": 4,
+              "predicted": 1,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "unclear": {
+              "support": 20,
+              "predicted": 14,
+              "truePositive": 14,
+              "precision": 1.0,
+              "recall": 0.7
+            }
+          }
+        },
+        "timing": {
+          "count": 44,
+          "correct": 37,
+          "confusion": {
+            "unspecified": {
+              "unspecified": 37,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 1
+            },
+            "now": {
+              "unspecified": 0,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 1
+            },
+            "future": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "now-and-future": {
+              "unspecified": 4,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            }
+          },
+          "classes": {
+            "unspecified": {
+              "support": 38,
+              "predicted": 42,
+              "truePositive": 37,
+              "precision": 0.8809523809523809,
+              "recall": 0.9736842105263158
+            },
+            "now": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "future": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "now-and-future": {
+              "support": 4,
+              "predicted": 2,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": 0.0
+            }
+          }
+        },
+        "cpt": {
+          "count": 44,
+          "correct": 43,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 2,
+              "explicitly-excluded": 0,
+              "unclear": 1
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 2,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 39
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 3,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 0.6666666666666666
+            },
+            "explicitly-excluded": {
+              "support": 2,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 39,
+              "predicted": 40,
+              "truePositive": 39,
+              "precision": 0.975,
+              "recall": 1.0
+            }
+          }
+        },
+        "opt": {
+          "count": 44,
+          "correct": 41,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 2,
+              "explicitly-excluded": 0,
+              "unclear": 3
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 38
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 5,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 0.4
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 38,
+              "predicted": 41,
+              "truePositive": 38,
+              "precision": 0.926829268292683,
+              "recall": 1.0
+            }
+          }
+        }
+      },
+      "records": 44,
+      "decisions": 220,
+      "exactFiveFieldCorrect": 25,
+      "NLL": 1.7765900546128788,
+      "Brier": 0.24066275247756871,
+      "selectedProbabilityAtLeast08": {
+        "count": 216,
+        "total": 220,
+        "coverage": 0.9818181818181818
+      },
+      "offlinePassageConfidence": {
+        "scopeRoleAndKnownSponsorshipAtLeast08": 29,
+        "records": 44,
+        "notProductionProjection": true
+      }
+    },
+    "calibrated": {
+      "perField": {
+        "scope": {
+          "count": 44,
+          "correct": 38,
+          "confusion": {
+            "role": {
+              "role": 27,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "question": {
+              "role": 2,
+              "question": 11,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "historical": {
+              "role": 1,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "company": {
+              "role": 3,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "other-role": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "none": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            }
+          },
+          "classes": {
+            "role": {
+              "support": 27,
+              "predicted": 33,
+              "truePositive": 27,
+              "precision": 0.8181818181818182,
+              "recall": 1.0
+            },
+            "question": {
+              "support": 13,
+              "predicted": 11,
+              "truePositive": 11,
+              "precision": 1.0,
+              "recall": 0.8461538461538461
+            },
+            "historical": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "company": {
+              "support": 3,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "other-role": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "none": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            }
+          }
+        },
+        "sponsorship": {
+          "count": 44,
+          "correct": 34,
+          "confusion": {
+            "available": {
+              "available": 5,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unavailable": {
+              "available": 0,
+              "unavailable": 15,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "conditional": {
+              "available": 4,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unclear": {
+              "available": 0,
+              "unavailable": 5,
+              "conditional": 1,
+              "unclear": 14
+            }
+          },
+          "classes": {
+            "available": {
+              "support": 5,
+              "predicted": 9,
+              "truePositive": 5,
+              "precision": 0.5555555555555556,
+              "recall": 1.0
+            },
+            "unavailable": {
+              "support": 15,
+              "predicted": 20,
+              "truePositive": 15,
+              "precision": 0.75,
+              "recall": 1.0
+            },
+            "conditional": {
+              "support": 4,
+              "predicted": 1,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "unclear": {
+              "support": 20,
+              "predicted": 14,
+              "truePositive": 14,
+              "precision": 1.0,
+              "recall": 0.7
+            }
+          }
+        },
+        "timing": {
+          "count": 44,
+          "correct": 37,
+          "confusion": {
+            "unspecified": {
+              "unspecified": 37,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 1
+            },
+            "now": {
+              "unspecified": 0,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 1
+            },
+            "future": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "now-and-future": {
+              "unspecified": 4,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            }
+          },
+          "classes": {
+            "unspecified": {
+              "support": 38,
+              "predicted": 42,
+              "truePositive": 37,
+              "precision": 0.8809523809523809,
+              "recall": 0.9736842105263158
+            },
+            "now": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "future": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "now-and-future": {
+              "support": 4,
+              "predicted": 2,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": 0.0
+            }
+          }
+        },
+        "cpt": {
+          "count": 44,
+          "correct": 43,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 2,
+              "explicitly-excluded": 0,
+              "unclear": 1
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 2,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 39
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 3,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 0.6666666666666666
+            },
+            "explicitly-excluded": {
+              "support": 2,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 39,
+              "predicted": 40,
+              "truePositive": 39,
+              "precision": 0.975,
+              "recall": 1.0
+            }
+          }
+        },
+        "opt": {
+          "count": 44,
+          "correct": 41,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 2,
+              "explicitly-excluded": 0,
+              "unclear": 3
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 38
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 5,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 0.4
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 38,
+              "predicted": 41,
+              "truePositive": 38,
+              "precision": 0.926829268292683,
+              "recall": 1.0
+            }
+          }
+        }
+      },
+      "records": 44,
+      "decisions": 220,
+      "exactFiveFieldCorrect": 25,
+      "NLL": 0.4396417175000136,
+      "Brier": 0.203571289049857,
+      "selectedProbabilityAtLeast08": {
+        "count": 203,
+        "total": 220,
+        "coverage": 0.9227272727272727
+      },
+      "offlinePassageConfidence": {
+        "scopeRoleAndKnownSponsorshipAtLeast08": 23,
+        "records": 44,
+        "notProductionProjection": true
+      }
+    }
+  },
+  "threshold": 0.8,
+  "thresholdFitted": false,
+  "results": {
+    "frozen-base": {
+      "perField": {
+        "scope": {
+          "count": 12,
+          "correct": 6,
+          "confusion": {
+            "role": {
+              "role": 6,
+              "question": 0,
+              "historical": 1,
+              "company": 2,
+              "other-role": 0,
+              "none": 0
+            },
+            "question": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 1,
+              "other-role": 0,
+              "none": 0
+            },
+            "historical": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "company": {
+              "role": 1,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 1
+            },
+            "other-role": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "none": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            }
+          },
+          "classes": {
+            "role": {
+              "support": 9,
+              "predicted": 7,
+              "truePositive": 6,
+              "precision": 0.8571428571428571,
+              "recall": 0.6666666666666666
+            },
+            "question": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "historical": {
+              "support": 0,
+              "predicted": 1,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": null
+            },
+            "company": {
+              "support": 2,
+              "predicted": 3,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "other-role": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "none": {
+              "support": 0,
+              "predicted": 1,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": null
+            }
+          }
+        },
+        "sponsorship": {
+          "count": 12,
+          "correct": 4,
+          "confusion": {
+            "available": {
+              "available": 1,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unavailable": {
+              "available": 0,
+              "unavailable": 2,
+              "conditional": 2,
+              "unclear": 0
+            },
+            "conditional": {
+              "available": 1,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unclear": {
+              "available": 1,
+              "unavailable": 4,
+              "conditional": 0,
+              "unclear": 1
+            }
+          },
+          "classes": {
+            "available": {
+              "support": 1,
+              "predicted": 3,
+              "truePositive": 1,
+              "precision": 0.3333333333333333,
+              "recall": 1.0
+            },
+            "unavailable": {
+              "support": 4,
+              "predicted": 6,
+              "truePositive": 2,
+              "precision": 0.3333333333333333,
+              "recall": 0.5
+            },
+            "conditional": {
+              "support": 1,
+              "predicted": 2,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "unclear": {
+              "support": 6,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 0.16666666666666666
+            }
+          }
+        },
+        "timing": {
+          "count": 12,
+          "correct": 6,
+          "confusion": {
+            "unspecified": {
+              "unspecified": 6,
+              "now": 3,
+              "future": 1,
+              "now-and-future": 0
+            },
+            "now": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "future": {
+              "unspecified": 0,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "now-and-future": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            }
+          },
+          "classes": {
+            "unspecified": {
+              "support": 10,
+              "predicted": 8,
+              "truePositive": 6,
+              "precision": 0.75,
+              "recall": 0.6
+            },
+            "now": {
+              "support": 1,
+              "predicted": 3,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": 0.0
+            },
+            "future": {
+              "support": 0,
+              "predicted": 1,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": null
+            },
+            "now-and-future": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            }
+          }
+        },
+        "cpt": {
+          "count": 12,
+          "correct": 8,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 0
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 2,
+              "explicitly-excluded": 2,
+              "unclear": 7
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 0,
+              "predicted": 2,
+              "truePositive": 0,
+              "precision": 0.0,
+              "recall": null
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 3,
+              "truePositive": 1,
+              "precision": 0.3333333333333333,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 11,
+              "predicted": 7,
+              "truePositive": 7,
+              "precision": 1.0,
+              "recall": 0.6363636363636364
+            }
+          }
+        },
+        "opt": {
+          "count": 12,
+          "correct": 4,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 1,
+              "explicitly-excluded": 0,
+              "unclear": 0
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 1,
+              "explicitly-excluded": 7,
+              "unclear": 2
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 1,
+              "predicted": 2,
+              "truePositive": 1,
+              "precision": 0.5,
+              "recall": 1.0
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 8,
+              "truePositive": 1,
+              "precision": 0.125,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 10,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 0.2
+            }
+          }
+        }
+      },
+      "records": 12,
+      "decisions": 60,
+      "exactFiveFieldCorrect": 0,
+      "NLL": 1.4034612094227008,
+      "Brier": 0.7382959494712845,
+      "selectedProbabilityAtLeast08": {
+        "count": 9,
+        "total": 60,
+        "coverage": 0.15
+      },
+      "offlinePassageConfidence": {
+        "scopeRoleAndKnownSponsorshipAtLeast08": 0,
+        "records": 12,
+        "notProductionProjection": true
+      }
+    },
+    "tuned-final": {
+      "perField": {
+        "scope": {
+          "count": 12,
+          "correct": 10,
+          "confusion": {
+            "role": {
+              "role": 9,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "question": {
+              "role": 0,
+              "question": 1,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "historical": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "company": {
+              "role": 2,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "other-role": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "none": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            }
+          },
+          "classes": {
+            "role": {
+              "support": 9,
+              "predicted": 11,
+              "truePositive": 9,
+              "precision": 0.8181818181818182,
+              "recall": 1.0
+            },
+            "question": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "historical": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "company": {
+              "support": 2,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "other-role": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "none": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            }
+          }
+        },
+        "sponsorship": {
+          "count": 12,
+          "correct": 7,
+          "confusion": {
+            "available": {
+              "available": 1,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unavailable": {
+              "available": 0,
+              "unavailable": 4,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "conditional": {
+              "available": 1,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unclear": {
+              "available": 3,
+              "unavailable": 1,
+              "conditional": 0,
+              "unclear": 2
+            }
+          },
+          "classes": {
+            "available": {
+              "support": 1,
+              "predicted": 5,
+              "truePositive": 1,
+              "precision": 0.2,
+              "recall": 1.0
+            },
+            "unavailable": {
+              "support": 4,
+              "predicted": 5,
+              "truePositive": 4,
+              "precision": 0.8,
+              "recall": 1.0
+            },
+            "conditional": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "unclear": {
+              "support": 6,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 0.3333333333333333
+            }
+          }
+        },
+        "timing": {
+          "count": 12,
+          "correct": 10,
+          "confusion": {
+            "unspecified": {
+              "unspecified": 10,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "now": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "future": {
+              "unspecified": 0,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "now-and-future": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            }
+          },
+          "classes": {
+            "unspecified": {
+              "support": 10,
+              "predicted": 12,
+              "truePositive": 10,
+              "precision": 0.8333333333333334,
+              "recall": 1.0
+            },
+            "now": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "future": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "now-and-future": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            }
+          }
+        },
+        "cpt": {
+          "count": 12,
+          "correct": 12,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 0
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 11
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 11,
+              "predicted": 11,
+              "truePositive": 11,
+              "precision": 1.0,
+              "recall": 1.0
+            }
+          }
+        },
+        "opt": {
+          "count": 12,
+          "correct": 11,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 1
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 10
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 10,
+              "predicted": 11,
+              "truePositive": 10,
+              "precision": 0.9090909090909091,
+              "recall": 1.0
+            }
+          }
+        }
+      },
+      "records": 12,
+      "decisions": 60,
+      "exactFiveFieldCorrect": 4,
+      "NLL": 2.302855477479787,
+      "Brier": 0.2980136983860719,
+      "selectedProbabilityAtLeast08": {
+        "count": 58,
+        "total": 60,
+        "coverage": 0.9666666666666667
+      },
+      "offlinePassageConfidence": {
+        "scopeRoleAndKnownSponsorshipAtLeast08": 8,
+        "records": 12,
+        "notProductionProjection": true
+      }
+    },
+    "tuned-final-calibrated": {
+      "perField": {
+        "scope": {
+          "count": 12,
+          "correct": 10,
+          "confusion": {
+            "role": {
+              "role": 9,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "question": {
+              "role": 0,
+              "question": 1,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "historical": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "company": {
+              "role": 2,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "other-role": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            },
+            "none": {
+              "role": 0,
+              "question": 0,
+              "historical": 0,
+              "company": 0,
+              "other-role": 0,
+              "none": 0
+            }
+          },
+          "classes": {
+            "role": {
+              "support": 9,
+              "predicted": 11,
+              "truePositive": 9,
+              "precision": 0.8181818181818182,
+              "recall": 1.0
+            },
+            "question": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "historical": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "company": {
+              "support": 2,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "other-role": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "none": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            }
+          }
+        },
+        "sponsorship": {
+          "count": 12,
+          "correct": 7,
+          "confusion": {
+            "available": {
+              "available": 1,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unavailable": {
+              "available": 0,
+              "unavailable": 4,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "conditional": {
+              "available": 1,
+              "unavailable": 0,
+              "conditional": 0,
+              "unclear": 0
+            },
+            "unclear": {
+              "available": 3,
+              "unavailable": 1,
+              "conditional": 0,
+              "unclear": 2
+            }
+          },
+          "classes": {
+            "available": {
+              "support": 1,
+              "predicted": 5,
+              "truePositive": 1,
+              "precision": 0.2,
+              "recall": 1.0
+            },
+            "unavailable": {
+              "support": 4,
+              "predicted": 5,
+              "truePositive": 4,
+              "precision": 0.8,
+              "recall": 1.0
+            },
+            "conditional": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "unclear": {
+              "support": 6,
+              "predicted": 2,
+              "truePositive": 2,
+              "precision": 1.0,
+              "recall": 0.3333333333333333
+            }
+          }
+        },
+        "timing": {
+          "count": 12,
+          "correct": 10,
+          "confusion": {
+            "unspecified": {
+              "unspecified": 10,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "now": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "future": {
+              "unspecified": 0,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            },
+            "now-and-future": {
+              "unspecified": 1,
+              "now": 0,
+              "future": 0,
+              "now-and-future": 0
+            }
+          },
+          "classes": {
+            "unspecified": {
+              "support": 10,
+              "predicted": 12,
+              "truePositive": 10,
+              "precision": 0.8333333333333334,
+              "recall": 1.0
+            },
+            "now": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "future": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "now-and-future": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            }
+          }
+        },
+        "cpt": {
+          "count": 12,
+          "correct": 12,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 0
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 11
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 0,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": null
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 11,
+              "predicted": 11,
+              "truePositive": 11,
+              "precision": 1.0,
+              "recall": 1.0
+            }
+          }
+        },
+        "opt": {
+          "count": 12,
+          "correct": 11,
+          "confusion": {
+            "explicitly-accepted": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 1
+            },
+            "explicitly-excluded": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 1,
+              "unclear": 0
+            },
+            "unclear": {
+              "explicitly-accepted": 0,
+              "explicitly-excluded": 0,
+              "unclear": 10
+            }
+          },
+          "classes": {
+            "explicitly-accepted": {
+              "support": 1,
+              "predicted": 0,
+              "truePositive": 0,
+              "precision": null,
+              "recall": 0.0
+            },
+            "explicitly-excluded": {
+              "support": 1,
+              "predicted": 1,
+              "truePositive": 1,
+              "precision": 1.0,
+              "recall": 1.0
+            },
+            "unclear": {
+              "support": 10,
+              "predicted": 11,
+              "truePositive": 10,
+              "precision": 0.9090909090909091,
+              "recall": 1.0
+            }
+          }
+        }
+      },
+      "records": 12,
+      "decisions": 60,
+      "exactFiveFieldCorrect": 4,
+      "NLL": 0.5620471179683055,
+      "Brier": 0.26089726959388926,
+      "selectedProbabilityAtLeast08": {
+        "count": 56,
+        "total": 60,
+        "coverage": 0.9333333333333333
+      },
+      "offlinePassageConfidence": {
+        "scopeRoleAndKnownSponsorshipAtLeast08": 7,
+        "records": 12,
+        "notProductionProjection": true
+      }
+    }
+  },
+  "weightsUnchanged": true,
+  "baseModelSha256": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+  "limitations": [
+    "12 held-out passages; not proof of generalization",
+    "Passage-only, float32 per-question inference; not whole-vacancy or browser evaluation",
+    "No production promotion; unchanged threshold; temperature optimum at runtime upper bound"
+  ],
+  "tokenizerMetadataRecovery": "metadata-recovery.json"
+}
