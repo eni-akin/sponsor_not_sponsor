@@ -10,6 +10,8 @@ Run `python3 scripts/validate_laya_operational.py` to check the operational free
 
 [Completed results and caveats](TRAINING-RESULTS-2026-10-09.md): temperature 5.0, unchanged threshold 0.8; test field accuracy 50/60 versus base 28/60, but sponsorship only 7/12 and exact five-field agreement 4/12. No promotion. The calibrated inference directory is `.model-cache/training/domain-2026-10-09/posttraining/calibrated-checkpoint`; preserve the linked original checkpoint. It has private normalized tokenizer metadata so inference does not rewrite the immutable source. Worker loading, all 217 TypeScript tests and type checking passed. Future tuning requires fresh held-out evidence.
 
+Next: the [two-stage Laya action plan](TWO-STAGE-LAYA-ACTION-PLAN-2026-10-09.md) defines relevance screening, improved interpretation, context-aware collection, fresh evaluation and safe integration. This is a future implementation checklist, not an implemented or promoted model.
+
 Historical pending membership, missing test and strict template-quarantine descriptions below are superseded by this operational freeze, not retroactively edited out of historical snapshots.
 
 ## Dataset collection searches
