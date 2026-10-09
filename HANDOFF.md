@@ -14,6 +14,8 @@ The [fixed run plan](evaluation/laya-training/TRAINING-RUN-PLAN-2026-10-09.md) w
 
 The existing worker loaded the calibrated model on CPU. All 217 TypeScript tests, type checking and worker checks passed. A loader-only tokenizer compatibility rewrite was detected, preserved privately in the calibrated derivative and reversed in the immutable original checkpoint; all 143 passages encode identically. Use the calibrated derivative for inference, preserve its linked original checkpoint, and consult the results report before future resume or promotion work.
 
+The next iteration is documented in the [two-stage Laya action plan](evaluation/laya-training/TWO-STAGE-LAYA-ACTION-PLAN-2026-10-09.md): relevance screening followed by improved policy interpretation, with new context-aware data, fresh testing and explicit promotion gates. It is planned, not implemented; no new training run or default-model change is authorized by the document itself.
+
 The sections below retain earlier preparation history. Their pending-freeze, missing-test and broad-quarantine descriptions are superseded by this operational freeze; older artifacts must not be edited to rewrite history.
 
 ## Aim
