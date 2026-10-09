@@ -1,0 +1,934 @@
+{
+  "mode": "Standalone trained-model worker plus existing decision projection; not an automated extension scan",
+  "modelInterpretation": {
+    "sponsorship": {
+      "status": "unclear",
+      "citations": [
+        {
+          "evidenceId": "wtw-03",
+          "quote": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-04",
+          "quote": "At WTW, we believe difference makes us stronger. We want our workforce to reflect the different and varied markets we operate in and to build a culture of inclusivity that makes colleagues feel welcome, valued and empowered to bring their whole selves to work every day. We are an equal opportunity employer committed to fostering an inclusive work environment throughout our organisation. We embrace all types of diversity.",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-05",
+          "quote": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-21",
+          "quote": "Eager to gain and apply new knowledge",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-22",
+          "quote": "Closing Date: 15 November",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-23",
+          "quote": "*** Please note that we do not accept multiple applications and you should only select and apply to one programme per year***",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-28",
+          "quote": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-29",
+          "quote": "Stage 5: Offer and onboarding",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-30",
+          "quote": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-01",
+          "quote": "With 49,000 colleagues in over 140 countries, we help organisations make forward-thinking choices about their people, their investments and the risks they face. Joining our Insurance Consulting and Technology (ICT) team, you’ll be part of our impact right from the start.",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-02",
+          "quote": "Our ICT team combines deep consulting expertise with innovative technology to develop cutting-edge solutions for the global insurance industry. The market-leading risk and financial modelling software we develop is used by over 1,000 clients across six continents.",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-06",
+          "quote": "Experiencing our collaborative and innovative approach to engineering",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-07",
+          "quote": "Contributing to a business-applicable project that covers a wide range of software delivery technologies and processes",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-08",
+          "quote": "Taking on more responsibilities as you grow, in areas such as performance benchmarking, testing, DevOps and security",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-09",
+          "quote": "Gaining hands-on experience with Generative AI tools and techniques, learning how you can support software engineering activities while developing the critical thinking skills needed to evaluate, validate and apply AI-generated outputs effectively and responsibly",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-10",
+          "quote": "Presenting your work and findings to colleagues and your fellow interns",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-11",
+          "quote": "Learning every day with the support of your colleagues and dedicated mentors",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-12",
+          "quote": "This is the perfect opportunity to understand what you could expect if you joined our graduate programme the following year; those who perform well during the internship may be offered a permanent graduate role.",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-18",
+          "quote": "Genuinely interested in current and emerging technologies",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-19",
+          "quote": "A natural problem solver with a mathematical and analytical mind",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-20",
+          "quote": "Good at communicating and working as part of a team",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-25",
+          "quote": "Stage 1: Apply online and attach your CV",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-26",
+          "quote": "Stage 2: Complete an online test and video interview",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-27",
+          "quote": "Stage 3: Showcase your coding skills in an online coding assessment",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        },
+        {
+          "evidenceId": "wtw-31",
+          "quote": "We are committed to maintaining a fair and equitable process for all candidates – read our AI Guidance.",
+          "source": "visible-page",
+          "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+          "timing": "unspecified"
+        }
+      ],
+      "evidenceIds": [
+        "wtw-03",
+        "wtw-04",
+        "wtw-05",
+        "wtw-21",
+        "wtw-22",
+        "wtw-23",
+        "wtw-28",
+        "wtw-29",
+        "wtw-30",
+        "wtw-01",
+        "wtw-02",
+        "wtw-06",
+        "wtw-07",
+        "wtw-08",
+        "wtw-09",
+        "wtw-10",
+        "wtw-11",
+        "wtw-12",
+        "wtw-18",
+        "wtw-19",
+        "wtw-20",
+        "wtw-25",
+        "wtw-26",
+        "wtw-27",
+        "wtw-31"
+      ],
+      "requiresReview": true,
+      "explanation": "The local model found conflicting or uncertain evidence. Review the original passages."
+    },
+    "cpt": {
+      "status": "unclear",
+      "citations": [],
+      "evidenceIds": [],
+      "requiresReview": false,
+      "explanation": "The local model did not establish an explicit policy for this topic."
+    },
+    "opt": {
+      "status": "unclear",
+      "citations": [],
+      "evidenceIds": [],
+      "requiresReview": false,
+      "explanation": "The local model did not establish an explicit policy for this topic."
+    },
+    "sponsorshipByTiming": {
+      "now": {
+        "status": "unclear",
+        "citations": [
+          {
+            "evidenceId": "wtw-01",
+            "quote": "With 49,000 colleagues in over 140 countries, we help organisations make forward-thinking choices about their people, their investments and the risks they face. Joining our Insurance Consulting and Technology (ICT) team, you’ll be part of our impact right from the start.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-02",
+            "quote": "Our ICT team combines deep consulting expertise with innovative technology to develop cutting-edge solutions for the global insurance industry. The market-leading risk and financial modelling software we develop is used by over 1,000 clients across six continents.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-03",
+            "quote": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-05",
+            "quote": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-06",
+            "quote": "Experiencing our collaborative and innovative approach to engineering",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-07",
+            "quote": "Contributing to a business-applicable project that covers a wide range of software delivery technologies and processes",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-08",
+            "quote": "Taking on more responsibilities as you grow, in areas such as performance benchmarking, testing, DevOps and security",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-09",
+            "quote": "Gaining hands-on experience with Generative AI tools and techniques, learning how you can support software engineering activities while developing the critical thinking skills needed to evaluate, validate and apply AI-generated outputs effectively and responsibly",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-10",
+            "quote": "Presenting your work and findings to colleagues and your fellow interns",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-11",
+            "quote": "Learning every day with the support of your colleagues and dedicated mentors",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-12",
+            "quote": "This is the perfect opportunity to understand what you could expect if you joined our graduate programme the following year; those who perform well during the internship may be offered a permanent graduate role.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-18",
+            "quote": "Genuinely interested in current and emerging technologies",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-19",
+            "quote": "A natural problem solver with a mathematical and analytical mind",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-20",
+            "quote": "Good at communicating and working as part of a team",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-21",
+            "quote": "Eager to gain and apply new knowledge",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-22",
+            "quote": "Closing Date: 15 November",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-25",
+            "quote": "Stage 1: Apply online and attach your CV",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-26",
+            "quote": "Stage 2: Complete an online test and video interview",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-27",
+            "quote": "Stage 3: Showcase your coding skills in an online coding assessment",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-28",
+            "quote": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-29",
+            "quote": "Stage 5: Offer and onboarding",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-30",
+            "quote": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-31",
+            "quote": "We are committed to maintaining a fair and equitable process for all candidates – read our AI Guidance.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          }
+        ],
+        "evidenceIds": [
+          "wtw-01",
+          "wtw-02",
+          "wtw-03",
+          "wtw-05",
+          "wtw-06",
+          "wtw-07",
+          "wtw-08",
+          "wtw-09",
+          "wtw-10",
+          "wtw-11",
+          "wtw-12",
+          "wtw-18",
+          "wtw-19",
+          "wtw-20",
+          "wtw-21",
+          "wtw-22",
+          "wtw-25",
+          "wtw-26",
+          "wtw-27",
+          "wtw-28",
+          "wtw-29",
+          "wtw-30",
+          "wtw-31"
+        ],
+        "requiresReview": true,
+        "explanation": "The local model found conflicting or uncertain evidence. Review the original passages."
+      },
+      "future": {
+        "status": "unclear",
+        "citations": [
+          {
+            "evidenceId": "wtw-01",
+            "quote": "With 49,000 colleagues in over 140 countries, we help organisations make forward-thinking choices about their people, their investments and the risks they face. Joining our Insurance Consulting and Technology (ICT) team, you’ll be part of our impact right from the start.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-02",
+            "quote": "Our ICT team combines deep consulting expertise with innovative technology to develop cutting-edge solutions for the global insurance industry. The market-leading risk and financial modelling software we develop is used by over 1,000 clients across six continents.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-03",
+            "quote": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-05",
+            "quote": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-06",
+            "quote": "Experiencing our collaborative and innovative approach to engineering",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-07",
+            "quote": "Contributing to a business-applicable project that covers a wide range of software delivery technologies and processes",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-08",
+            "quote": "Taking on more responsibilities as you grow, in areas such as performance benchmarking, testing, DevOps and security",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-09",
+            "quote": "Gaining hands-on experience with Generative AI tools and techniques, learning how you can support software engineering activities while developing the critical thinking skills needed to evaluate, validate and apply AI-generated outputs effectively and responsibly",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-10",
+            "quote": "Presenting your work and findings to colleagues and your fellow interns",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-11",
+            "quote": "Learning every day with the support of your colleagues and dedicated mentors",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-12",
+            "quote": "This is the perfect opportunity to understand what you could expect if you joined our graduate programme the following year; those who perform well during the internship may be offered a permanent graduate role.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-18",
+            "quote": "Genuinely interested in current and emerging technologies",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-19",
+            "quote": "A natural problem solver with a mathematical and analytical mind",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-20",
+            "quote": "Good at communicating and working as part of a team",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-21",
+            "quote": "Eager to gain and apply new knowledge",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-22",
+            "quote": "Closing Date: 15 November",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-25",
+            "quote": "Stage 1: Apply online and attach your CV",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-26",
+            "quote": "Stage 2: Complete an online test and video interview",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-27",
+            "quote": "Stage 3: Showcase your coding skills in an online coding assessment",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-28",
+            "quote": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-29",
+            "quote": "Stage 5: Offer and onboarding",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-30",
+            "quote": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          },
+          {
+            "evidenceId": "wtw-31",
+            "quote": "We are committed to maintaining a fair and equitable process for all candidates – read our AI Guidance.",
+            "source": "visible-page",
+            "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+            "timing": "unspecified"
+          }
+        ],
+        "evidenceIds": [
+          "wtw-01",
+          "wtw-02",
+          "wtw-03",
+          "wtw-05",
+          "wtw-06",
+          "wtw-07",
+          "wtw-08",
+          "wtw-09",
+          "wtw-10",
+          "wtw-11",
+          "wtw-12",
+          "wtw-18",
+          "wtw-19",
+          "wtw-20",
+          "wtw-21",
+          "wtw-22",
+          "wtw-25",
+          "wtw-26",
+          "wtw-27",
+          "wtw-28",
+          "wtw-29",
+          "wtw-30",
+          "wtw-31"
+        ],
+        "requiresReview": true,
+        "explanation": "The local model found conflicting or uncertain evidence. Review the original passages."
+      }
+    },
+    "restrictions": [],
+    "context": [],
+    "decision": {
+      "engine": "laya",
+      "state": "ready",
+      "model": "/Users/eniola/Documents/Project/Sponsor_Not_Sponsor/.model-cache/training/domain-2026-10-09/posttraining/calibrated-checkpoint",
+      "message": "Model coverage: sponsorship, CPT and OPT only. Citizenship, work authorization, export controls and other restrictions are not evaluated here."
+    }
+  },
+  "modelHeadline": {
+    "status": "could-not-verify",
+    "label": "Could not verify",
+    "explanation": "The posting contains conflicting or uncertain sponsorship wording. Review the cited passages.",
+    "citations": [
+      {
+        "evidenceId": "wtw-03",
+        "quote": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-04",
+        "quote": "At WTW, we believe difference makes us stronger. We want our workforce to reflect the different and varied markets we operate in and to build a culture of inclusivity that makes colleagues feel welcome, valued and empowered to bring their whole selves to work every day. We are an equal opportunity employer committed to fostering an inclusive work environment throughout our organisation. We embrace all types of diversity.",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-05",
+        "quote": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-21",
+        "quote": "Eager to gain and apply new knowledge",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-22",
+        "quote": "Closing Date: 15 November",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-23",
+        "quote": "*** Please note that we do not accept multiple applications and you should only select and apply to one programme per year***",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-28",
+        "quote": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-29",
+        "quote": "Stage 5: Offer and onboarding",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-30",
+        "quote": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-01",
+        "quote": "With 49,000 colleagues in over 140 countries, we help organisations make forward-thinking choices about their people, their investments and the risks they face. Joining our Insurance Consulting and Technology (ICT) team, you’ll be part of our impact right from the start.",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-02",
+        "quote": "Our ICT team combines deep consulting expertise with innovative technology to develop cutting-edge solutions for the global insurance industry. The market-leading risk and financial modelling software we develop is used by over 1,000 clients across six continents.",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-06",
+        "quote": "Experiencing our collaborative and innovative approach to engineering",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-07",
+        "quote": "Contributing to a business-applicable project that covers a wide range of software delivery technologies and processes",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-08",
+        "quote": "Taking on more responsibilities as you grow, in areas such as performance benchmarking, testing, DevOps and security",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-09",
+        "quote": "Gaining hands-on experience with Generative AI tools and techniques, learning how you can support software engineering activities while developing the critical thinking skills needed to evaluate, validate and apply AI-generated outputs effectively and responsibly",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-10",
+        "quote": "Presenting your work and findings to colleagues and your fellow interns",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-11",
+        "quote": "Learning every day with the support of your colleagues and dedicated mentors",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-12",
+        "quote": "This is the perfect opportunity to understand what you could expect if you joined our graduate programme the following year; those who perform well during the internship may be offered a permanent graduate role.",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-18",
+        "quote": "Genuinely interested in current and emerging technologies",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-19",
+        "quote": "A natural problem solver with a mathematical and analytical mind",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-20",
+        "quote": "Good at communicating and working as part of a team",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-25",
+        "quote": "Stage 1: Apply online and attach your CV",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-26",
+        "quote": "Stage 2: Complete an online test and video interview",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-27",
+        "quote": "Stage 3: Showcase your coding skills in an online coding assessment",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      },
+      {
+        "evidenceId": "wtw-31",
+        "quote": "We are committed to maintaining a fair and equitable process for all candidates – read our AI Guidance.",
+        "source": "visible-page",
+        "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+        "timing": "unspecified"
+      }
+    ]
+  },
+  "rulesInterpretation": {
+    "sponsorship": {
+      "status": "unclear",
+      "citations": [],
+      "evidenceIds": [],
+      "explanation": "No explicit sponsorship policy was found in the extracted text.",
+      "requiresReview": false
+    },
+    "cpt": {
+      "status": "unclear",
+      "citations": [],
+      "evidenceIds": [],
+      "explanation": "No explicit CPT acceptance or exclusion was found. Silence and sponsorship policy do not establish CPT acceptance.",
+      "requiresReview": false
+    },
+    "opt": {
+      "status": "unclear",
+      "citations": [],
+      "evidenceIds": [],
+      "explanation": "No explicit OPT acceptance or exclusion was found. Silence and sponsorship policy do not establish OPT acceptance.",
+      "requiresReview": false
+    },
+    "sponsorshipByTiming": {
+      "now": {
+        "status": "unclear",
+        "citations": [],
+        "evidenceIds": [],
+        "explanation": "No explicit sponsorship policy was found in the extracted text.",
+        "requiresReview": false
+      },
+      "future": {
+        "status": "unclear",
+        "citations": [],
+        "evidenceIds": [],
+        "explanation": "No explicit sponsorship policy was found in the extracted text.",
+        "requiresReview": false
+      }
+    },
+    "restrictions": [],
+    "context": []
+  },
+  "rulesHeadline": {
+    "status": "no-blocker",
+    "label": "No blocker found",
+    "explanation": "No explicit blocker or sponsorship statement was found in the complete posting. The role may be worth applying to, but sponsorship is not proven.",
+    "citations": []
+  },
+  "highConfidenceUnsupportedSponsorship": [
+    {
+      "id": "wtw-04",
+      "text": "At WTW, we believe difference makes us stronger. We want our workforce to reflect the different and varied markets we operate in and to build a culture of inclusivity that makes colleagues feel welcome, valued and empowered to bring their whole selves to work every day. We are an equal opportunity employer committed to fostering an inclusive work environment throughout our organisation. We embrace all types of diversity.",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9378
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.9128
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9077
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.965
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9631
+        }
+      }
+    },
+    {
+      "id": "wtw-22",
+      "text": "Closing Date: 15 November",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9703
+        },
+        "sponsorship": {
+          "choice": "unavailable",
+          "probability": 0.9277
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.9349
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9881
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.988
+        }
+      }
+    },
+    {
+      "id": "wtw-29",
+      "text": "Stage 5: Offer and onboarding",
+      "answers": {
+        "scope": {
+          "choice": "role",
+          "probability": 0.9687
+        },
+        "sponsorship": {
+          "choice": "available",
+          "probability": 0.9366
+        },
+        "timing": {
+          "choice": "unspecified",
+          "probability": 0.944
+        },
+        "cpt": {
+          "choice": "unclear",
+          "probability": 0.9812
+        },
+        "opt": {
+          "choice": "unclear",
+          "probability": 0.9809
+        }
+      }
+    }
+  ],
+  "coverage": "Visible Job Description and Qualifications only; application form and linked policies not opened; third-party overlay, recommendations and navigation excluded"
+}

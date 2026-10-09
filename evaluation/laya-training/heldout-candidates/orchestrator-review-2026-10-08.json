@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "orchestrator",
+  "reviewedAt": "2026-10-08",
+  "approvedFor": "evidence-collection-only",
+  "evaluationReady": false,
+  "trainingReady": false,
+  "inputs": {
+    "candidates-2026-10-08.json": "0866adc656ad07ec3086701feef015d352034ee5bcf0e46943eaa86ed9d4fdb5",
+    "second-pass-2026-10-08.json": "2d4ad63e7820853a95119a77640f20a7978899f4b84690ad98911a5b33274c91",
+    "second-pass-policy-review-2026-10-08.json": "f38b5fdba468b0ae0c3bd505b3b730946a3d7220044e364c164b221bea6b20c7"
+  },
+  "checks": {
+    "passagesReviewed": 15,
+    "employers": 13,
+    "sourceHashesVerified": true,
+    "evidenceHashesVerified": true,
+    "literalDecodedQuotesVerified": true,
+    "vacancyTitlesReviewed": true,
+    "neighboringPolicyAndApplicationContextReviewed": true,
+    "proposedFiveFieldLabelsSupported": true,
+    "renderedScannerCompletenessVerified": false
+  },
+  "quarantineIds": [
+    "heldout-certik-069f1c84-policy",
+    "heldout-tkda-282c2c0b-exclusion",
+    "heldout-spacexai-5135090007-conditional",
+    "heldout-alphasights-8130125-opt",
+    "heldout-defcon-5253391007-clearance",
+    "heldout-defcon-5253391007-question",
+    "heldout-riverai-4248217009-available",
+    "heldout-sma-5255707007-timing"
+  ],
+  "rationale": [
+    "CertiK's may-be-considered-for-high-performing-candidates clause materially resembles the exposed exceptional-candidates canonical template; conservatively quarantine it.",
+    "TKDA repeats enumerated program refusals. SpaceXAI repeats an exposed exceptional-candidate clause and a standard current/future sponsorship application question.",
+    "AlphaSights and River AI contain standard current/future sponsorship questions in saved application context. A novel isolated target does not establish independence of the whole vacancy input.",
+    "DEFCON's adjacent mandatory citizenship statement overlaps training/development citizenship wording, so both targets remain quarantined. SMA repeats enumerated refusals, current/future exclusions and an application question.",
+    "HASI's existing-H1B transfer exception and new-H1B refusal are complementary policies, not a genuine conflict case. Preserve both conditions in any vacancy-level evaluation.",
+    "Archer and Diligent must be reviewed together as a possible within-test company-policy family. North Point's active-clearance wording needs final grouping review against DEFCON; its current provisional status is not a disjointness approval.",
+    "No candidate is approved for a locked benchmark: rendered completeness, coverage, final family grouping and an immutable test manifest remain required."
+  ]
+}

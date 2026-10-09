@@ -1,6 +1,20 @@
 # Sponsor Not Sponsor — handoff
 
-Updated: October 8, 2026 (America/Chicago)
+Updated: October 9, 2026 (America/Chicago)
+
+## Latest operational status — October 9
+
+The owner authorized necessary preparation and completion of local fine-tuning. The new [operational freeze](evaluation/laya-training/operational-v2-2026-10-09/manifest.json) contains **87 training, 44 calibration and 12 held-out test passages**. It adds the reviewed submissions to earlier approved data without overwriting originals or frozen v1. The membership ledger records exclusions and split decisions. Think Academy stays in calibration; Boeing stays in training. Four new role-level conditional examples fill the training gap.
+
+The earlier broad template quarantine was reassessed against actual employer relationships, duplicates and substantially copied policy language. Ordinary short industry phrasing is not a reason to quarantine examples. Detailed source provenance remains optional for owner-approved passages. Dataset, contract, question and review hashes are locked and validated before weight updates.
+
+The [fixed run plan](evaluation/laya-training/TRAINING-RUN-PLAN-2026-10-09.md) was executed: local Apple MPS, three full-model RLCD epochs, 132 optimizer updates, 321,908,995 parameters. Training completed in 314.406 seconds with finite losses/gradients, encoder and head changes, and an unchanged cached base. Full resumable checkpoints are retained under `.model-cache/training/domain-2026-10-09/checkpoints/`; final checkpoint is `step-000132`.
+
+[Training, calibration and held-out checks are complete](evaluation/laya-training/TRAINING-RESULTS-2026-10-09.md). The calibrated inference directory is `.model-cache/training/domain-2026-10-09/posttraining/calibrated-checkpoint`; temperature is 5.0 and the threshold remains 0.8. On the single locked test comparison, field-label accuracy improved from 28/60 to 50/60, but sponsorship is only 7/12 and exact five-field agreement 4/12. Confidence remains too high on several errors. Do not promote; the production default is unchanged. This viewed test must not be reused as fresh evaluation for subsequent tuning.
+
+The existing worker loaded the calibrated model on CPU. All 217 TypeScript tests, type checking and worker checks passed. A loader-only tokenizer compatibility rewrite was detected, preserved privately in the calibrated derivative and reversed in the immutable original checkpoint; all 143 passages encode identically. Use the calibrated derivative for inference, preserve its linked original checkpoint, and consult the results report before future resume or promotion work.
+
+The sections below retain earlier preparation history. Their pending-freeze, missing-test and broad-quarantine descriptions are superseded by this operational freeze; older artifacts must not be edited to rewrite history.
 
 ## Aim
 
@@ -85,21 +99,25 @@ The malformed combined label values are now separate `scope`, `sponsorship`, `ti
 
 ## What needs to happen next
 
+October 9 update: two new CSVs contain 20 intended training and 38 intended calibration records. The owner authorized necessary corrections. [Adjusted copies](evaluation/laya-training/adjusted-submissions-2026-10-09/README.md) preserve all 58 records and exact evidence, with 18 training candidates, 19 calibration candidates, 11 quarantined records and 10 review holds. The coordinator and two independent agents verified labels, dispositions, record accounting, candidate separation and hashes. Whether these add to or replace the earlier 25 + 25 submissions is still unresolved; do not merge, retire earlier records, or freeze final membership until confirmed. Source CSVs, frozen v1 and prior snapshots remain unchanged. The new training candidates still contain no role-level conditional sponsorship; do not fill that gap by treating company policy as a vacancy offer.
+
 ### 1. Audit policy-family grouping
 
-Review the proposed employer-based groups for materially identical policy templates across different employers. Keep any repeated policy family in a single split. URLs and external vacancy IDs are intentionally not part of the training records.
+Completed an agent audit and coordinator review of all 89 existing/submitted passages. The [audit](evaluation/laya-training/POLICY-FAMILY-AUDIT-2026-10-08.md) found 19 calibration passages sharing material templates with training; six calibration candidates remain. Shared clauses and employer groups are connected transitively. The reproducible audit and coordinator review pin their input hashes. URLs and external vacancy IDs remain outside normalized model records.
 
 ### 2. Decide the new training records
 
-The 25 records in `Training Dataset.csv` may become a separate frozen training-corpus v2. Do not overwrite v1. Before freezing v2, finish the shared-policy-template audit against v1.
+The 25 records in `Training Dataset.csv` are preserved in a separate [candidate snapshot](evaluation/laya-training/audited-candidates-v2/manifest.json), together with six calibration candidates and 19 quarantined calibration records. Frozen v1 and the normalized source remain unchanged. The owner confirmed the passages are accurate and waived detailed URL/capture/completeness provenance for these 50 records. [Dataset-level integrity approval](evaluation/laya-training/dataset-integrity-2026-10-08.json) pins the whole dataset and partition hashes and supersedes that historical metadata blocker. The five-field labeling contract is unchanged.
 
 ### 3. Freeze calibration data
 
-The owner-reviewed 25 calibration employers are disjoint from the current training employers. After the policy-family audit, freeze them in a calibration-only corpus. Calibration data may be used to choose the model temperature, probability calibration, and abstention threshold. It must not be used to update model weights or rewrite decision rules.
+The owner-reviewed calibration employers are disjoint from the current training employers, but 19 passages fail policy-family separation and are quarantined. Preserve their intended split and labels; do not automatically move them to training. Review coverage of the six remaining candidates and collect independent replacements before an operational calibration freeze. Detailed provenance is no longer a blocker for these approved passages. Calibration data may be used to choose the model temperature, probability calibration, and abstention threshold. It must not be used to update model weights or rewrite decision rules.
 
 ### 4. Collect a fresh held-out test set
 
-There is still no held-out test set. Collect new vacancies from employers absent from both training and calibration. Keep repeated policy families in one split. Lock the test set before model tuning and use it only after the model, prompt/questions, calibration method, and threshold are fixed.
+Search broadly without site, domain or recruiting-platform filters. Greenhouse, Lever and Ashby are examples only, not a collection standard. Follow the [dataset search guidance](evaluation/laya-training/README.md#dataset-collection-searches); evaluate evidence separately from discovery.
+
+There is still no locked held-out test set. Two collection passes recorded 15 proposed passages across 13 fresh employers in [held-out candidates](evaluation/laya-training/heldout-candidates/README.md), including rejected/stale sources and coverage gaps. Coordinator source/label/context review quarantined eight targets for family overlap; completeness and final grouping remain unapproved. Collect new vacancies from employers absent from both training and calibration and avoid exposed development templates. Keep repeated policy families in one split. Lock the test set before model tuning and use it only after the model, prompt/questions, calibration method, and threshold are fixed.
 
 The held-out set should cover:
 
@@ -130,10 +148,10 @@ Do not promote a checkpoint merely because training completes. Promotion require
 
 ## Current blockers
 
-1. The two normalized submissions need a policy-family grouping audit and immutable train/calibration freezes.
-2. No frozen calibration corpus exists.
+1. Detailed source metadata for the 50 owner-approved passages is waived; dataset-level hashes now detect changes. Calibration coverage and a locked independent test remain the data requirements.
+2. Nineteen calibration candidates are quarantined for policy-family overlap; six remain and need coverage review/replacements. No operational frozen calibration corpus exists.
 3. No fresh held-out test corpus exists.
-4. The multi-epoch domain trainer, calibration step, and resumable optimizer state do not yet exist.
+4. The multi-epoch domain trainer, calibration step, and resumable optimizer state do not yet exist. [The implementation brief](evaluation/laya-training/MODEL-EXECUTION-PLAN-2026-10-08.md) specifies their checks and dependencies.
 5. No production checkpoint, threshold, or default setting has been approved.
 
 ## Repository organization
@@ -150,6 +168,8 @@ At the latest check:
 - TypeScript typecheck passed.
 - Production build passed after the decision-contract work.
 - `git diff --check` passed.
+
+The October 8 agent/coordinator pass additionally validated the 89-record policy audit and blocked candidate snapshot, passed four new snapshot tests, 15 targeted decision/contract tests and the development evaluator self-check, and passed three executed offline smoke compatibility checks. The candidate-checkpoint integration test was skipped because no candidate checkpoint exists. See [the orchestration review](evaluation/laya-training/ORCHESTRATION-2026-10-08.md), [provenance repair inventory](PROVENANCE-REPAIR-INVENTORY-2026-10-08.md), and [integration/promotion plan](INTEGRATION-PROMOTION-PLAN-2026-10-08.md).
 
 No model training, checkpoint promotion, release, pull request, or commit was performed as part of this work.
 

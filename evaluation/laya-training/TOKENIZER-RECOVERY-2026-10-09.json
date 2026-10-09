@@ -1,0 +1,63 @@
+{
+  "status": "completed",
+  "noRepeatedInference": true,
+  "path": "tokenizer/tokenizer_config.json",
+  "originalSha256": "849f987f4f412386813d86cbf183904f2ea9bf24889bd735d6bc4e68395d2dd0",
+  "normalizedSha256": "e8e6a37c189f9dd23976b86b3e1ddb6928472e9f87c94103a1aaff311f45f090",
+  "originalConfig": {
+    "backend": "tokenizers",
+    "bos_token": "<bos>",
+    "clean_up_tokenization_spaces": false,
+    "cls_token": "<bos>",
+    "eos_token": "<eos>",
+    "extra_0": "<start_of_turn>",
+    "extra_1": "<end_of_turn>",
+    "is_local": true,
+    "local_files_only": true,
+    "mask_token": "<mask>",
+    "model_input_names": [
+      "input_ids",
+      "attention_mask"
+    ],
+    "model_max_length": 8192,
+    "model_specific_special_tokens": {
+      "extra_0": "<start_of_turn>",
+      "extra_1": "<end_of_turn>"
+    },
+    "pad_token": "<pad>",
+    "padding_side": "right",
+    "sep_token": "<eos>",
+    "spaces_between_special_tokens": false,
+    "tokenizer_class": "TokenizersBackend",
+    "unk_token": "<unk>"
+  },
+  "normalizedConfig": {
+    "bos_token": "<bos>",
+    "clean_up_tokenization_spaces": false,
+    "cls_token": "<bos>",
+    "eos_token": "<eos>",
+    "extra_0": "<start_of_turn>",
+    "extra_1": "<end_of_turn>",
+    "local_files_only": true,
+    "mask_token": "<mask>",
+    "model_input_names": [
+      "input_ids",
+      "attention_mask"
+    ],
+    "model_max_length": 8192,
+    "model_specific_special_tokens": {
+      "extra_0": "<start_of_turn>",
+      "extra_1": "<end_of_turn>"
+    },
+    "pad_token": "<pad>",
+    "padding_side": "right",
+    "sep_token": "<eos>",
+    "spaces_between_special_tokens": false,
+    "tokenizer_class": "PreTrainedTokenizerFast",
+    "unk_token": "<unk>"
+  },
+  "recoverySourceSha256": "d2e32fb12f46419fddd69fcea8e0478690807d7bac019ab1c716fef454f87daa",
+  "originalCheckpointRestored": true,
+  "all143PassagesEncodeIdentically": true,
+  "originalCheckpointHashesVerified": true
+}

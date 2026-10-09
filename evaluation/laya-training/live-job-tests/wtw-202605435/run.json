@@ -1,0 +1,18 @@
+{
+  "sourceUrl": "https://eedu.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/202605435",
+  "retrievedAt": "2026-10-09T15:24:58Z",
+  "checkpoint": "/Users/eniola/Documents/Project/Sponsor_Not_Sponsor/.model-cache/training/domain-2026-10-09/posttraining/calibrated-checkpoint",
+  "modelSha256": "0ba97a3ced5ee87b3f9c2dc946762c5e6a7a657b4d40733a63c6fa9a7d226377",
+  "configSha256": "f96db5056bc1b5cc1d17f85c63af68a516ac97cc33584d0492f87c45648b3637",
+  "inputSha256": "786c7d0c55f6c606dc058d040d60dcb1a4293869b853bad7e7118f67c0a68fcd",
+  "device": "mps",
+  "temperature": 5.0,
+  "threshold": 0.8,
+  "blocks": 31,
+  "decisions": 155,
+  "coverage": "Visible Job Description and Qualifications only; application form and linked policies not opened; third-party overlay, recommendations and navigation excluded",
+  "country": "United Kingdom",
+  "expectedHumanSponsorship": "unclear; no explicit sponsorship passage in retrieved posting",
+  "trainingDataChanged": false,
+  "productionDefaultChanged": false
+}

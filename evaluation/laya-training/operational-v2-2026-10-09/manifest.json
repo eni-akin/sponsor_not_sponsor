@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "operational-v2-2026-10-09",
+  "contract": "laya-policy-v1",
+  "status": "frozen",
+  "trainingRunApproved": true,
+  "createdAt": "2026-10-09",
+  "review": {
+    "independentReviewPassed": true,
+    "path": "independent-review.json",
+    "sha256": "e505a425c018c3ea4fed24ca01886423ce82a52a1514975a3eb0def5182c69ed"
+  },
+  "privacy": {
+    "containsApplicantData": false
+  },
+  "inputMode": "passage-only-context",
+  "sourceMetadataRequired": false,
+  "membershipAssumption": "New submissions add to earlier submissions; owner requested necessary adjustments and training. No calibration-to-training transfers.",
+  "decisionContract": {
+    "path": "DECISION_LOGIC.md",
+    "sha256": "bca4f8b83a24b11f7360ce0da698bedf03fc4d0f8473c6b6893f5b3232c1b4f2"
+  },
+  "questions": {
+    "path": "evaluation/laya-training/worker-review-v2/questions.json",
+    "sha256": "c02349720accbbfab72e9e912f6ad1e8807b9e70afbf223a1b496e6b3bafc60c"
+  },
+  "sources": [
+    {
+      "path": "evaluation/laya-training/frozen-expansion-v1/training-corpus-v1.json",
+      "sha256": "ffb088f2d2bff2ef2e56763340d18466ed8248d8b196b474a516f4e7cf9d14e3"
+    },
+    {
+      "path": "evaluation/laya-training/normalized-submissions-2026-10-08.json",
+      "sha256": "67aa795b27e90103032d5e55fa788b5bbbce41d94f052767349c93ae1b85b4bc"
+    },
+    {
+      "path": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sha256": "fb9e4f0bcce0f194f911941888d8a0aec123f90975a21d5401d9f44499622500"
+    },
+    {
+      "path": "evaluation/laya-training/training-test-prep-2026-10-09/reviewed-collection.json",
+      "sha256": "4140b933d12c78bcac11060b9f79f9df8a0224bd1d77e849da10df98b525d1d8"
+    },
+    {
+      "path": "/Users/eniola/Downloads/training_sponsorship_records.csv",
+      "sha256": "b6090c099bbffaf781e3f61896450774cc14edc1203885069438059c743d2869",
+      "records": 20,
+      "intendedSplit": "train"
+    },
+    {
+      "path": "/Users/eniola/Downloads/sponsorship_records_calibration.csv",
+      "sha256": "de8bd3e5885d3fb9876f265d43816daa5fe840e217be7a3d16717b25ad61c682",
+      "records": 38,
+      "intendedSplit": "calibration"
+    }
+  ],
+  "datasets": {
+    "train": {
+      "path": "train.json",
+      "sha256": "74a0291113543fb8a5fd0f4a56ffbfa0b4a5f61ad87be99039231c151d0d955c",
+      "records": 87,
+      "employers": 78,
+      "labelCounts": {
+        "scope": {
+          "role": 67,
+          "question": 11,
+          "company": 9
+        },
+        "sponsorship": {
+          "available": 14,
+          "unavailable": 39,
+          "unclear": 30,
+          "conditional": 4
+        },
+        "timing": {
+          "unspecified": 65,
+          "now-and-future": 17,
+          "future": 2,
+          "now": 3
+        },
+        "cpt": {
+          "unclear": 76,
+          "explicitly-excluded": 8,
+          "explicitly-accepted": 3
+        },
+        "opt": {
+          "unclear": 74,
+          "explicitly-accepted": 4,
+          "explicitly-excluded": 9
+        }
+      }
+    },
+    "calibration": {
+      "path": "calibration.json",
+      "sha256": "885ed76aef788b1598a8e5044a40be0c8dd058d1eafe11827185542b705c0de9",
+      "records": 44,
+      "employers": 41,
+      "labelCounts": {
+        "scope": {
+          "role": 27,
+          "question": 13,
+          "company": 3,
+          "historical": 1
+        },
+        "sponsorship": {
+          "available": 5,
+          "unavailable": 15,
+          "unclear": 20,
+          "conditional": 4
+        },
+        "timing": {
+          "unspecified": 38,
+          "now-and-future": 4,
+          "now": 1,
+          "future": 1
+        },
+        "cpt": {
+          "unclear": 39,
+          "explicitly-accepted": 3,
+          "explicitly-excluded": 2
+        },
+        "opt": {
+          "unclear": 38,
+          "explicitly-accepted": 5,
+          "explicitly-excluded": 1
+        }
+      }
+    },
+    "test": {
+      "path": "test.json",
+      "sha256": "a1a33dd08f453ba5a094d441d090038e964cd27d3fca5a8d2373ae5624857d88",
+      "records": 12,
+      "employers": 11,
+      "labelCounts": {
+        "scope": {
+          "company": 2,
+          "role": 9,
+          "question": 1
+        },
+        "sponsorship": {
+          "unclear": 6,
+          "unavailable": 4,
+          "conditional": 1,
+          "available": 1
+        },
+        "timing": {
+          "unspecified": 10,
+          "now": 1,
+          "now-and-future": 1
+        },
+        "cpt": {
+          "unclear": 11,
+          "explicitly-excluded": 1
+        },
+        "opt": {
+          "unclear": 10,
+          "explicitly-excluded": 1,
+          "explicitly-accepted": 1
+        }
+      }
+    }
+  },
+  "excluded": [
+    {
+      "sourceDataset": "evaluation/laya-training/normalized-submissions-2026-10-08.json",
+      "sourceRecord": "48",
+      "intendedSplit": "calibration",
+      "reason": "Exact duplicate calibration passage of prior record 47; keep one."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "10",
+      "id": "submission-2026-10-09-train-010",
+      "intendedSplit": "train",
+      "reason": "Employer identity: ZipRecruiter identifies a platform, not the confirmed hiring employer."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "18",
+      "id": "submission-2026-10-09-train-018",
+      "intendedSplit": "train",
+      "reason": "Think Academy remains in its earlier calibration split; do not move calibration evidence into training."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "1",
+      "id": "submission-2026-10-09-calibration-001",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 13; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "3",
+      "id": "submission-2026-10-09-calibration-003",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 9; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "4",
+      "id": "submission-2026-10-09-calibration-004",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 12; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "5",
+      "id": "submission-2026-10-09-calibration-005",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 15; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "6",
+      "id": "submission-2026-10-09-calibration-006",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 17; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "7",
+      "id": "submission-2026-10-09-calibration-007",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 16; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "8",
+      "id": "submission-2026-10-09-calibration-008",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 20; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "10",
+      "id": "submission-2026-10-09-calibration-010",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 19; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "12",
+      "id": "submission-2026-10-09-calibration-012",
+      "intendedSplit": "calibration",
+      "reason": "Boeing remains in earlier training; new calibration passages would cross employer splits."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "18",
+      "id": "submission-2026-10-09-calibration-018",
+      "intendedSplit": "calibration",
+      "reason": "Semantic review: confirm how the modal offer should be labeled."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "20",
+      "id": "submission-2026-10-09-calibration-020",
+      "intendedSplit": "calibration",
+      "reason": "Semantic review: confirm how the modal offer should be labeled."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "22",
+      "id": "submission-2026-10-09-calibration-022",
+      "intendedSplit": "calibration",
+      "reason": "Semantic review: confirm how the modal offer should be labeled."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "24",
+      "id": "submission-2026-10-09-calibration-024",
+      "intendedSplit": "calibration",
+      "reason": "Boeing remains in earlier training; new calibration passages would cross employer splits."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "28",
+      "id": "submission-2026-10-09-calibration-028",
+      "intendedSplit": "calibration",
+      "reason": "Cross-split employer/evidence overlap with new training record 9; intended split retained."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "31",
+      "id": "submission-2026-10-09-calibration-031",
+      "intendedSplit": "calibration",
+      "reason": "Employer identity: submitted name identifies a platform, not the confirmed hiring employer."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "32",
+      "id": "submission-2026-10-09-calibration-032",
+      "intendedSplit": "calibration",
+      "reason": "Duplicate of calibration record 9; keep one identical passage."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "33",
+      "id": "submission-2026-10-09-calibration-033",
+      "intendedSplit": "calibration",
+      "reason": "Semantic review: establish whether CPT I refers to immigration authorization."
+    },
+    {
+      "sourceDataset": "evaluation/laya-training/adjusted-submissions-2026-10-09/adjusted-records.json",
+      "sourceRecord": "37",
+      "id": "submission-2026-10-09-calibration-037",
+      "intendedSplit": "calibration",
+      "reason": "Employer identity: submitted name identifies a platform, not the confirmed hiring employer."
+    }
+  ],
+  "policyFamilyReview": {
+    "reviewer": "assistant-operational-data",
+    "reviewedAt": "2026-10-09",
+    "method": "Common short industry wording and matching labels are not automatic leakage. All records from the same normalized employer/parent group stay together. Exact passages and explicit shared policy families cannot cross splits; 32-word copied spans are mechanically rejected. The prior broad topic/template quarantine is superseded only for this operational version."
+  },
+  "limitations": [
+    "Small passage-only datasets; no full-vacancy completeness or deployment-quality claim.",
+    "Other-role and none scope coverage may be absent; report per-class counts rather than claiming complete coverage.",
+    "Known same-employer repeated passages in frozen v1 are retained as distinct vacancies, not independent new language.",
+    "Unresolved identity and ambiguous-label records stay excluded, preserved in archived submissions."
+  ],
+  "trainingExactPassageMultiplicities": [
+    {
+      "employerGroup": "awetomaton",
+      "normalizedText": "u s citizenship is required as we are unable to provide visa sponsorship",
+      "records": 2
+    },
+    {
+      "employerGroup": "harrison street",
+      "normalizedText": "the company is not able to provide employment visa sponsorship now or in the future for this position",
+      "records": 3
+    },
+    {
+      "employerGroup": "gcm grosvenor",
+      "normalizedText": "applicants requiring future sponsorship for continued work authorization for example following f 1 opt cpt or j 1 status are not eligible",
+      "records": 2
+    }
+  ]
+}
