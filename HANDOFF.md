@@ -1,6 +1,16 @@
 # Sponsor Not Sponsor — handoff
 
-Updated: October 9, 2026 (America/Chicago)
+Updated: October 12, 2026 (America/Chicago)
+
+## Current status — contextual v2 candidate
+
+The independent AI review is complete and contextual v1 is not approved for further training. The active candidate is [contextual v2](evaluation/laya-training/contextual-v2-2026-10-12/README.md), built by `scripts/build_contextual_v2.py` without changing frozen v1.
+
+V2 contains 165 training, 51 development, 54 calibration and 121 fresh candidate records. It applies all resolved training/calibration corrections, excludes two unresolved training references, restores exact WTW text, withholds copied-policy fresh postings, and records 52 held records. The manifest is deliberately `candidate` and `trainingRunApproved: false`.
+
+Read [the final independent review](evaluation/laya-training/independent-review-2026-10-10/FINAL-INDEPENDENT-REVIEW.md) for the decision and [the v2 README](evaluation/laya-training/contextual-v2-2026-10-12/README.md) for the complete flow. Remaining work is WTW relabeling, hold resolution, coverage collection, completeness attestation, final independent approval, and checkpoint backup. No new training, calibration, fresh inference, promotion, or default-model change is authorized.
+
+For a standalone continuation brief covering completed training, live-test failures and the planned two-stage design, read [HANDOFF-2026-10-09.md](HANDOFF-2026-10-09.md).
 
 ## Latest operational status — October 9
 

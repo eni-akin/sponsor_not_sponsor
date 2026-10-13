@@ -1,0 +1,897 @@
+{
+  "schemaVersion": 2,
+  "contract": "laya-policy-v2",
+  "corpusVersion": "contextual-v2-2026-10-12",
+  "status": "insufficient",
+  "splits": {
+    "train": {
+      "path": "train.json",
+      "sha256": "09f532693837139aa6e7a69ac4dd5ffb79a17e6077abca478731d2a1a61a4c69",
+      "records": 165,
+      "postings": 35,
+      "employers": 35,
+      "labelCounts": {
+        "relevance": {
+          "irrelevant": 110,
+          "relevant": 55
+        },
+        "scope": {
+          "none": 90,
+          "role": 58,
+          "company": 3,
+          "historical": 5,
+          "other-role": 4,
+          "question": 5
+        },
+        "sponsorship": {
+          "unclear": 137,
+          "unavailable": 13,
+          "available": 2,
+          "conditional": 13
+        },
+        "timing": {
+          "unspecified": 157,
+          "now-and-future": 5,
+          "future": 2,
+          "now": 1
+        },
+        "cpt": {
+          "unclear": 160,
+          "explicitly-accepted": 3,
+          "explicitly-excluded": 2
+        },
+        "opt": {
+          "unclear": 161,
+          "explicitly-accepted": 2,
+          "explicitly-excluded": 2
+        }
+      }
+    },
+    "development": {
+      "path": "development.json",
+      "sha256": "93c5e88306c1d252a07cb0f8abfdac27e8e2c0fc6c98428f26286c8c5098909f",
+      "records": 51,
+      "postings": 11,
+      "employers": 11,
+      "labelCounts": {
+        "relevance": {
+          "irrelevant": 44,
+          "relevant": 7
+        },
+        "scope": {
+          "none": 34,
+          "role": 17
+        },
+        "sponsorship": {
+          "unclear": 47,
+          "available": 1,
+          "unavailable": 2,
+          "conditional": 1
+        },
+        "timing": {
+          "unspecified": 49,
+          "now-and-future": 1,
+          "future": 1
+        },
+        "cpt": {
+          "unclear": 50,
+          "explicitly-accepted": 1
+        },
+        "opt": {
+          "unclear": 50,
+          "explicitly-accepted": 1
+        }
+      }
+    },
+    "calibration": {
+      "path": "calibration.json",
+      "sha256": "afbb83961bcc39475e201bb72c8bc8fc91dfd3dca36e858fc8d82e67047d556a",
+      "records": 54,
+      "postings": 11,
+      "employers": 11,
+      "labelCounts": {
+        "relevance": {
+          "irrelevant": 48,
+          "relevant": 6
+        },
+        "scope": {
+          "none": 36,
+          "role": 17,
+          "company": 1
+        },
+        "sponsorship": {
+          "unclear": 52,
+          "unavailable": 2
+        },
+        "timing": {
+          "unspecified": 53,
+          "now-and-future": 1
+        },
+        "cpt": {
+          "unclear": 53,
+          "explicitly-accepted": 1
+        },
+        "opt": {
+          "unclear": 53,
+          "explicitly-accepted": 1
+        }
+      }
+    },
+    "fresh-test": {
+      "path": "fresh-test.json",
+      "sha256": "74e565e5f0875a5591defedae2c91fef433207aeb9de079615ed48a17859e237",
+      "records": 121,
+      "postings": 22,
+      "employers": 22,
+      "labelCounts": {
+        "relevance": {
+          "irrelevant": 108,
+          "relevant": 13
+        },
+        "scope": {
+          "none": 78,
+          "role": 42,
+          "question": 1
+        },
+        "sponsorship": {
+          "unclear": 112,
+          "available": 2,
+          "unavailable": 5,
+          "conditional": 2
+        },
+        "timing": {
+          "unspecified": 120,
+          "now": 1
+        },
+        "cpt": {
+          "unclear": 118,
+          "explicitly-accepted": 1,
+          "explicitly-excluded": 2
+        },
+        "opt": {
+          "unclear": 118,
+          "explicitly-accepted": 1,
+          "explicitly-excluded": 2
+        }
+      }
+    }
+  },
+  "freshConsequentialClassSupport": [
+    {
+      "field": "sponsorship",
+      "label": "available",
+      "minimum": {
+        "deduplicatedTargets": 20,
+        "postings": 5,
+        "connectedGroups": 5
+      },
+      "beforeSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-068",
+            "postingIds": [
+              "ft-post-011"
+            ],
+            "recordIds": [
+              "ft-rec-0064"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-069",
+            "postingIds": [
+              "ft-post-012"
+            ],
+            "recordIds": [
+              "ft-rec-0070"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "eligibleAfterSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-068",
+            "postingIds": [
+              "ft-post-011"
+            ],
+            "recordIds": [
+              "ft-rec-0064"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-069",
+            "postingIds": [
+              "ft-post-012"
+            ],
+            "recordIds": [
+              "ft-rec-0070"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "status": "insufficient"
+    },
+    {
+      "field": "sponsorship",
+      "label": "unavailable",
+      "minimum": {
+        "deduplicatedTargets": 20,
+        "postings": 5,
+        "connectedGroups": 5
+      },
+      "beforeSplitWithholding": {
+        "rawTargets": 7,
+        "deduplicatedTargets": 7,
+        "postings": 7,
+        "connectedGroups": 7,
+        "groups": [
+          {
+            "groupId": "metadata-connected-070",
+            "postingIds": [
+              "ft-post-013"
+            ],
+            "recordIds": [
+              "ft-rec-0076"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-071",
+            "postingIds": [
+              "ft-post-014"
+            ],
+            "recordIds": [
+              "ft-rec-0082"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-072",
+            "postingIds": [
+              "ft-post-015"
+            ],
+            "recordIds": [
+              "ft-rec-0088"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-075",
+            "postingIds": [
+              "ft-post-018"
+            ],
+            "recordIds": [
+              "ft-rec-0106"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-076",
+            "postingIds": [
+              "ft-post-019"
+            ],
+            "recordIds": [
+              "ft-rec-0112"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-077",
+            "postingIds": [
+              "ft-post-020"
+            ],
+            "recordIds": [
+              "ft-rec-0118"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-078",
+            "postingIds": [
+              "ft-post-021"
+            ],
+            "recordIds": [
+              "ft-rec-0124"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "eligibleAfterSplitWithholding": {
+        "rawTargets": 5,
+        "deduplicatedTargets": 5,
+        "postings": 5,
+        "connectedGroups": 5,
+        "groups": [
+          {
+            "groupId": "metadata-connected-071",
+            "postingIds": [
+              "ft-post-014"
+            ],
+            "recordIds": [
+              "ft-rec-0082"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-072",
+            "postingIds": [
+              "ft-post-015"
+            ],
+            "recordIds": [
+              "ft-rec-0088"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-076",
+            "postingIds": [
+              "ft-post-019"
+            ],
+            "recordIds": [
+              "ft-rec-0112"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-077",
+            "postingIds": [
+              "ft-post-020"
+            ],
+            "recordIds": [
+              "ft-rec-0118"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-078",
+            "postingIds": [
+              "ft-post-021"
+            ],
+            "recordIds": [
+              "ft-rec-0124"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "status": "insufficient"
+    },
+    {
+      "field": "sponsorship",
+      "label": "conditional",
+      "minimum": {
+        "deduplicatedTargets": 20,
+        "postings": 5,
+        "connectedGroups": 5
+      },
+      "beforeSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-073",
+            "postingIds": [
+              "ft-post-016"
+            ],
+            "recordIds": [
+              "ft-rec-0094"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-074",
+            "postingIds": [
+              "ft-post-017"
+            ],
+            "recordIds": [
+              "ft-rec-0100"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "eligibleAfterSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-073",
+            "postingIds": [
+              "ft-post-016"
+            ],
+            "recordIds": [
+              "ft-rec-0094"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-074",
+            "postingIds": [
+              "ft-post-017"
+            ],
+            "recordIds": [
+              "ft-rec-0100"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "status": "insufficient"
+    },
+    {
+      "field": "cpt",
+      "label": "explicitly-accepted",
+      "minimum": {
+        "deduplicatedTargets": 20,
+        "postings": 5,
+        "connectedGroups": 5
+      },
+      "beforeSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-075",
+            "postingIds": [
+              "ft-post-018"
+            ],
+            "recordIds": [
+              "ft-rec-0106"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-076",
+            "postingIds": [
+              "ft-post-019"
+            ],
+            "recordIds": [
+              "ft-rec-0112"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "eligibleAfterSplitWithholding": {
+        "rawTargets": 1,
+        "deduplicatedTargets": 1,
+        "postings": 1,
+        "connectedGroups": 1,
+        "groups": [
+          {
+            "groupId": "metadata-connected-076",
+            "postingIds": [
+              "ft-post-019"
+            ],
+            "recordIds": [
+              "ft-rec-0112"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "status": "insufficient"
+    },
+    {
+      "field": "cpt",
+      "label": "explicitly-excluded",
+      "minimum": {
+        "deduplicatedTargets": 20,
+        "postings": 5,
+        "connectedGroups": 5
+      },
+      "beforeSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-077",
+            "postingIds": [
+              "ft-post-020"
+            ],
+            "recordIds": [
+              "ft-rec-0118"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-078",
+            "postingIds": [
+              "ft-post-021"
+            ],
+            "recordIds": [
+              "ft-rec-0124"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "eligibleAfterSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-077",
+            "postingIds": [
+              "ft-post-020"
+            ],
+            "recordIds": [
+              "ft-rec-0118"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-078",
+            "postingIds": [
+              "ft-post-021"
+            ],
+            "recordIds": [
+              "ft-rec-0124"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "status": "insufficient"
+    },
+    {
+      "field": "opt",
+      "label": "explicitly-accepted",
+      "minimum": {
+        "deduplicatedTargets": 20,
+        "postings": 5,
+        "connectedGroups": 5
+      },
+      "beforeSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-075",
+            "postingIds": [
+              "ft-post-018"
+            ],
+            "recordIds": [
+              "ft-rec-0106"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-076",
+            "postingIds": [
+              "ft-post-019"
+            ],
+            "recordIds": [
+              "ft-rec-0112"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "eligibleAfterSplitWithholding": {
+        "rawTargets": 1,
+        "deduplicatedTargets": 1,
+        "postings": 1,
+        "connectedGroups": 1,
+        "groups": [
+          {
+            "groupId": "metadata-connected-076",
+            "postingIds": [
+              "ft-post-019"
+            ],
+            "recordIds": [
+              "ft-rec-0112"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "status": "insufficient"
+    },
+    {
+      "field": "opt",
+      "label": "explicitly-excluded",
+      "minimum": {
+        "deduplicatedTargets": 20,
+        "postings": 5,
+        "connectedGroups": 5
+      },
+      "beforeSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-077",
+            "postingIds": [
+              "ft-post-020"
+            ],
+            "recordIds": [
+              "ft-rec-0118"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-078",
+            "postingIds": [
+              "ft-post-021"
+            ],
+            "recordIds": [
+              "ft-rec-0124"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "eligibleAfterSplitWithholding": {
+        "rawTargets": 2,
+        "deduplicatedTargets": 2,
+        "postings": 2,
+        "connectedGroups": 2,
+        "groups": [
+          {
+            "groupId": "metadata-connected-077",
+            "postingIds": [
+              "ft-post-020"
+            ],
+            "recordIds": [
+              "ft-rec-0118"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          },
+          {
+            "groupId": "metadata-connected-078",
+            "postingIds": [
+              "ft-post-021"
+            ],
+            "recordIds": [
+              "ft-rec-0124"
+            ],
+            "rawTargets": 1,
+            "deduplicatedTargets": 1
+          }
+        ]
+      },
+      "status": "insufficient"
+    }
+  ],
+  "noPolicy": {
+    "declaredCompleteCandidatePostings": [
+      {
+        "postingId": "ft-post-001",
+        "groupId": "metadata-connected-058",
+        "reviewedBlockIds": [
+          "ft-post-001-b00",
+          "ft-post-001-b01",
+          "ft-post-001-b02",
+          "ft-post-001-b03",
+          "ft-post-001-b04",
+          "ft-post-001-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-002",
+        "groupId": "metadata-connected-059",
+        "reviewedBlockIds": [
+          "ft-post-002-b00",
+          "ft-post-002-b01",
+          "ft-post-002-b02",
+          "ft-post-002-b03",
+          "ft-post-002-b04",
+          "ft-post-002-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-003",
+        "groupId": "metadata-connected-060",
+        "reviewedBlockIds": [
+          "ft-post-003-b00",
+          "ft-post-003-b01",
+          "ft-post-003-b02",
+          "ft-post-003-b03",
+          "ft-post-003-b04",
+          "ft-post-003-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-004",
+        "groupId": "metadata-connected-061",
+        "reviewedBlockIds": [
+          "ft-post-004-b00",
+          "ft-post-004-b01",
+          "ft-post-004-b02",
+          "ft-post-004-b03",
+          "ft-post-004-b04",
+          "ft-post-004-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-005",
+        "groupId": "metadata-connected-062",
+        "reviewedBlockIds": [
+          "ft-post-005-b00",
+          "ft-post-005-b01",
+          "ft-post-005-b02",
+          "ft-post-005-b03",
+          "ft-post-005-b04",
+          "ft-post-005-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-006",
+        "groupId": "metadata-connected-063",
+        "reviewedBlockIds": [
+          "ft-post-006-b00",
+          "ft-post-006-b01",
+          "ft-post-006-b02",
+          "ft-post-006-b03",
+          "ft-post-006-b04",
+          "ft-post-006-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-007",
+        "groupId": "metadata-connected-064",
+        "reviewedBlockIds": [
+          "ft-post-007-b00",
+          "ft-post-007-b01",
+          "ft-post-007-b02",
+          "ft-post-007-b03",
+          "ft-post-007-b04",
+          "ft-post-007-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-008",
+        "groupId": "metadata-connected-065",
+        "reviewedBlockIds": [
+          "ft-post-008-b00",
+          "ft-post-008-b01",
+          "ft-post-008-b02",
+          "ft-post-008-b03",
+          "ft-post-008-b04",
+          "ft-post-008-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-009",
+        "groupId": "metadata-connected-066",
+        "reviewedBlockIds": [
+          "ft-post-009-b00",
+          "ft-post-009-b01",
+          "ft-post-009-b02",
+          "ft-post-009-b03",
+          "ft-post-009-b04",
+          "ft-post-009-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      },
+      {
+        "postingId": "ft-post-010",
+        "groupId": "metadata-connected-067",
+        "reviewedBlockIds": [
+          "ft-post-010-b00",
+          "ft-post-010-b01",
+          "ft-post-010-b02",
+          "ft-post-010-b03",
+          "ft-post-010-b04",
+          "ft-post-010-b05"
+        ],
+        "declaredCoverage": "complete",
+        "semanticEvidenceReview": "No relevant policy or mandatory immigration-related restriction found in all supplied blocks.",
+        "completeCaptureIndependentlyVerified": false,
+        "status": "needs-adjudication"
+      }
+    ],
+    "candidateCount": 10,
+    "candidateMetadataGroups": 10,
+    "independentlyVerifiedCompleteCount": 0,
+    "finalApprovedCount": 0,
+    "minimumIndependentPostings": 10,
+    "status": "insufficient-pending-completeness-and-group-verification",
+    "reason": "The owner's authenticity confirmation is accepted, but does not establish that each six-block extract reaches the full official evidence boundary. No original capture, retrieval trail, extraction attestation or separate completeness review is supplied in these metadata. URLs/captures remain optional under the waiver; a specific reviewed completeness attestation may resolve this without mandatory recollection."
+  },
+  "blockers": [
+    "Two material copied-policy relationships with training remain unresolved and their fresh postings are withheld.",
+    "Seven targets require operational/source exclusion or correction, including one unresolved relevance antecedent; 12 more targets are withheld by split-group review.",
+    "One scope case remains explicitly flagged for adjudication; semantic corrections and operational support-citation changes are recorded in the comparison.",
+    "All seven consequential classes fall below the required 20 distinct eligible targets; most also fall below five postings/groups.",
+    "Ten no-policy candidates are semantically negative but independently reviewed complete-capture evidence and full relationship audit are pending.",
+    "Exact runtime input-limit eligibility and genuine human independent signoff are not established by this AI review."
+  ],
+  "note": "Counts describe reviewed candidate evidence only; they do not authorize training or evaluation."
+}

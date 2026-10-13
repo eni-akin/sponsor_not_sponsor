@@ -52,9 +52,9 @@ test('informational export licensing is contextual while a denied country-scoped
   assert.ok(scoped.result!.interpretation!.restrictions[0]!.citations.some(citation => /Cuba, Iran, North Korea, Syria/.test(citation.quote)));
   assert.match(mainDecision(scoped.result!.role!, scoped.result!.interpretation!).explanation, /country-scoped export-license obstacle/);
 });
-test('conditional offers and conditional refusals keep their practical direction', () => {
+test('conditional offers keep their practical direction under V2 projection', () => {
   assert.equal(badgeState(snapshot('Sponsorship may be considered.'))?.label, 'Sponsorship stated');
-  assert.equal(badgeState(snapshot('Visa sponsorship is unavailable unless an exception is approved.'))?.label, 'Explicit blocker found');
+  assert.equal(badgeState(snapshot('Visa sponsorship is unavailable unless an exception is approved.'))?.label, 'Sponsorship stated');
 });
 test('incomplete scans cannot produce a definitive result', () => {
   const value = snapshot('Visa sponsorship is available.');

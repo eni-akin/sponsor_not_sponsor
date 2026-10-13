@@ -1,0 +1,639 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "contextual-v2-2026-10-12",
+  "status": "blocking",
+  "counts": {
+    "train:exclude": 2,
+    "development:pending-review-restored-source": 30,
+    "fresh-test:needs-adjudication": 13,
+    "fresh-test:exclude": 7
+  },
+  "records": [
+    {
+      "id": "ctx-tra-061",
+      "split": "train",
+      "postingId": "post-train-012",
+      "status": "exclude",
+      "reason": "The target's 'above policy' is not identified by its only immediate neighbor, an experience qualification. The full posting contains a sponsorship policy two blocks earlier, but importing it would exceed the frozen model context. Neither immigration relevance nor irrelevance is defensible as final gold from this triplet; exclude until a reviewed extraction resolves the reference.",
+      "requiredAction": "Restore and independently review the referenced antecedent before inclusion."
+    },
+    {
+      "id": "ctx-tra-076",
+      "split": "train",
+      "postingId": "post-train-015",
+      "status": "exclude",
+      "reason": "The target's 'this restriction' has no immediate antecedent: the previous block is a desirable programming skill. An approved cross-border academic exchange does not by itself assert immigration sponsorship or work authorization. A distant sponsorship refusal cannot resolve the frozen triplet, and the reviewer’s irrelevant label is not secure either. Exclude until the antecedent is restored in a reviewed extraction.",
+      "requiredAction": "Restore and independently review the referenced antecedent before inclusion."
+    },
+    {
+      "id": "ctx-dev-001",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-01",
+        "kind": "text",
+        "text": "With 49,000 colleagues in over 140 countries, we help organisations make forward-thinking choices about their people, their investments and the risks they face. Joining our Insurance Consulting and Technology (ICT) team, you’ll be part of our impact right from the start.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 0
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Company introduction and global career opportunities contain no immigration or employment-authorization policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-002",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-02",
+        "kind": "text",
+        "text": "Our ICT team combines deep consulting expertise with innovative technology to develop cutting-edge solutions for the global insurance industry. The market-leading risk and financial modelling software we develop is used by over 1,000 clients across six continents.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 1
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Consulting and software business description contains no hiring eligibility rule. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-003",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-03",
+        "kind": "text",
+        "text": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 2
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Business activities and insurance software capabilities contain no hiring eligibility rule. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-005",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-05",
+        "kind": "text",
+        "text": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+        "contextGroup": "post-dev-001:visible",
+        "position": 4
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Internship duration and learning experience describe the program, not applicant eligibility. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-006",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-06",
+        "kind": "text",
+        "text": "Experiencing our collaborative and innovative approach to engineering",
+        "contextGroup": "post-dev-001:visible",
+        "position": 5
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Software engineering duties contain no applicant eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-007",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-07",
+        "kind": "text",
+        "text": "Contributing to a business-applicable project that covers a wide range of software delivery technologies and processes",
+        "contextGroup": "post-dev-001:visible",
+        "position": 6
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Coding duties contain no applicant eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-008",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-08",
+        "kind": "text",
+        "text": "Taking on more responsibilities as you grow, in areas such as performance benchmarking, testing, DevOps and security",
+        "contextGroup": "post-dev-001:visible",
+        "position": 7
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Collaboration duties contain no applicant eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-009",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-09",
+        "kind": "text",
+        "text": "Gaining hands-on experience with Generative AI tools and techniques, learning how you can support software engineering activities while developing the critical thinking skills needed to evaluate, validate and apply AI-generated outputs effectively and responsibly",
+        "contextGroup": "post-dev-001:visible",
+        "position": 8
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Global teamwork describes duties; it does not concern work visas or authorization. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-010",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-10",
+        "kind": "text",
+        "text": "Presenting your work and findings to colleagues and your fellow interns",
+        "contextGroup": "post-dev-001:visible",
+        "position": 9
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Learning mindset and software-development aptitude are qualifications for this vacancy; they are immigration-irrelevant. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-011",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-11",
+        "kind": "text",
+        "text": "Learning every day with the support of your colleagues and dedicated mentors",
+        "contextGroup": "post-dev-001:visible",
+        "position": 10
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Problem-solving and critical-thinking skills are candidate qualifications for this vacancy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-012",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-12",
+        "kind": "text",
+        "text": "This is the perfect opportunity to understand what you could expect if you joined our graduate programme the following year; those who perform well during the internship may be offered a permanent graduate role.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 11
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Communication ability is a qualification for this vacancy, with no immigration eligibility content. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-013",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-13",
+        "kind": "text",
+        "text": "To transform your tomorrow with a WTW internship, you’ll need to be:",
+        "contextGroup": "post-dev-001:visible",
+        "position": 12
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Demonstrated coding ability is an ordinary candidate qualification. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-014",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-14",
+        "kind": "text",
+        "text": "In your penultimate year at university and on course to achieve a 2:1 degree in a technical, analytical or mathematical discipline",
+        "contextGroup": "post-dev-001:visible",
+        "position": 13
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Software engineering fundamentals are ordinary candidate qualifications. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-015",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-15",
+        "kind": "text",
+        "text": "You’ll need an A* in Maths and an A in two further subjects at A Level or equivalent",
+        "contextGroup": "post-dev-001:visible",
+        "position": 14
+      },
+      "status": "pending-review-restored-source",
+      "reason": "The degree requirement is role-level educational eligibility, with no immigration meaning. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-016",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-16",
+        "kind": "text",
+        "text": "Aware of a software development language, such as C#, C++, Java or Python, and web technologies such as HTML/CSS or JavaScript",
+        "contextGroup": "post-dev-001:visible",
+        "position": 15
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Personal or academic project experience is an ordinary candidate qualification. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-017",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-17",
+        "kind": "text",
+        "text": "Familiar with the basic principles of software development",
+        "contextGroup": "post-dev-001:visible",
+        "position": 16
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Compensation is a benefit, not an immigration eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-018",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-18",
+        "kind": "text",
+        "text": "Genuinely interested in current and emerging technologies",
+        "contextGroup": "post-dev-001:visible",
+        "position": 17
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Health and dental benefits have no immigration eligibility content. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-019",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-19",
+        "kind": "text",
+        "text": "A natural problem solver with a mathematical and analytical mind",
+        "contextGroup": "post-dev-001:visible",
+        "position": 18
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Pension benefits have no immigration eligibility content. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-020",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-20",
+        "kind": "text",
+        "text": "Good at communicating and working as part of a team",
+        "contextGroup": "post-dev-001:visible",
+        "position": 19
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Annual leave is a benefit, not an immigration eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-021",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-21",
+        "kind": "text",
+        "text": "Eager to gain and apply new knowledge",
+        "contextGroup": "post-dev-001:visible",
+        "position": 20
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Hybrid work arrangements have no immigration eligibility meaning. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-022",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-22",
+        "kind": "text",
+        "text": "Closing Date: 15 November",
+        "contextGroup": "post-dev-001:visible",
+        "position": 21
+      },
+      "status": "pending-review-restored-source",
+      "reason": "The application closing date is administrative text, not an immigration policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-023",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-23",
+        "kind": "text",
+        "text": "*** Please note that we do not accept multiple applications and you should only select and apply to one programme per year***",
+        "contextGroup": "post-dev-001:visible",
+        "position": 22
+      },
+      "status": "pending-review-restored-source",
+      "reason": "The one-programme-per-year limit directly controls applicant eligibility for this vacancy; it is immigration-irrelevant. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-024",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-24",
+        "kind": "text",
+        "text": "We believe in the value of in-person learning at this early stage of your career, so you’ll be expected to come into the office at least three days a week.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 23
+      },
+      "status": "pending-review-restored-source",
+      "reason": "An application-stage description contains no applicant eligibility rule. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-025",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-25",
+        "kind": "text",
+        "text": "Stage 1: Apply online and attach your CV",
+        "contextGroup": "post-dev-001:visible",
+        "position": 24
+      },
+      "status": "pending-review-restored-source",
+      "reason": "An assessment-stage description contains no applicant eligibility rule. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-026",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-26",
+        "kind": "text",
+        "text": "Stage 2: Complete an online test and video interview",
+        "contextGroup": "post-dev-001:visible",
+        "position": 25
+      },
+      "status": "pending-review-restored-source",
+      "reason": "An interview-stage description contains no applicant eligibility rule. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-027",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-27",
+        "kind": "text",
+        "text": "Stage 3: Showcase your coding skills in an online coding assessment",
+        "contextGroup": "post-dev-001:visible",
+        "position": 26
+      },
+      "status": "pending-review-restored-source",
+      "reason": "An assessment-centre stage description contains no applicant eligibility rule. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-028",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-28",
+        "kind": "text",
+        "text": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team",
+        "contextGroup": "post-dev-001:visible",
+        "position": 27
+      },
+      "status": "pending-review-restored-source",
+      "reason": "An offer/onboarding stage heading contains no immigration eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-029",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-29",
+        "kind": "text",
+        "text": "Stage 5: Offer and onboarding",
+        "contextGroup": "post-dev-001:visible",
+        "position": 28
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Equal opportunity and accessibility adjustments contain no immigration eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-030",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-30",
+        "kind": "text",
+        "text": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+        "contextGroup": "post-dev-001:visible",
+        "position": 29
+      },
+      "status": "pending-review-restored-source",
+      "reason": "Company business description contains no immigration eligibility policy. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ctx-dev-031",
+      "split": "development",
+      "postingId": "post-dev-001",
+      "target": {
+        "id": "wtw-31",
+        "kind": "text",
+        "text": "We are committed to maintaining a fair and equitable process for all candidates – read our AI Guidance.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 30
+      },
+      "status": "pending-review-restored-source",
+      "reason": "The closing courtesy sentence has no hiring eligibility content. Exclude this supplied record from exact-source WTW regression/frozen gold until the saved request's original target and immediate neighbors are restored in a new version and reviewed. Independent labels above apply only to the altered supplied evidence.",
+      "requiredAction": "Label the restored target with its actual adjacent context; do not reuse the altered v1 label by ID."
+    },
+    {
+      "id": "ft-rec-0073",
+      "split": "fresh-test",
+      "postingId": "ft-post-013",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0074",
+      "split": "fresh-test",
+      "postingId": "ft-post-013",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0075",
+      "split": "fresh-test",
+      "postingId": "ft-post-013",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0076",
+      "split": "fresh-test",
+      "postingId": "ft-post-013",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0077",
+      "split": "fresh-test",
+      "postingId": "ft-post-013",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0078",
+      "split": "fresh-test",
+      "postingId": "ft-post-013",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0095",
+      "split": "fresh-test",
+      "postingId": "ft-post-016",
+      "status": "needs-adjudication",
+      "reason": "Resolve company versus other-role for an enterprise policy expressly limited to full-time employees after two years; neither can establish intern sponsorship.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0103",
+      "split": "fresh-test",
+      "postingId": "ft-post-018",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0104",
+      "split": "fresh-test",
+      "postingId": "ft-post-018",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0105",
+      "split": "fresh-test",
+      "postingId": "ft-post-018",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0106",
+      "split": "fresh-test",
+      "postingId": "ft-post-018",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0107",
+      "split": "fresh-test",
+      "postingId": "ft-post-018",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0108",
+      "split": "fresh-test",
+      "postingId": "ft-post-018",
+      "status": "needs-adjudication",
+      "reason": "Posting has a material policy sentence contained in a training posting; assign the copied policy's connected group or establish independent provenance before any fresh-quality denominator includes this posting.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0134",
+      "split": "fresh-test",
+      "postingId": "ft-post-023",
+      "status": "exclude",
+      "reason": "Truncated target; do not freeze its visible negative as a complete original block without resolving the source boundary.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0135",
+      "split": "fresh-test",
+      "postingId": "ft-post-023",
+      "status": "exclude",
+      "reason": "Extraction metadata must be outside the original posting block sequence. False boundary and provenance need correction in a new version.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0136",
+      "split": "fresh-test",
+      "postingId": "ft-post-024",
+      "status": "exclude",
+      "reason": "Missing next context: operational challenge, screening unsupported/missing-context and partial processing.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0137",
+      "split": "fresh-test",
+      "postingId": "ft-post-024",
+      "status": "exclude",
+      "reason": "Missing antecedent and previous context: operational challenge; relevance remains null as an explicit review abstention, not a third gold label.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0139",
+      "split": "fresh-test",
+      "postingId": "ft-post-025",
+      "status": "exclude",
+      "reason": "Invalid whole request due to oversized adjacent block; cannot claim a successful per-target context-too-long response from this request.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0140",
+      "split": "fresh-test",
+      "postingId": "ft-post-025",
+      "status": "exclude",
+      "reason": "TARGET exceeds the v2 request limit of 30,000 characters; request-level rejection challenge, not a valid model context-overflow fixture.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    },
+    {
+      "id": "ft-rec-0141",
+      "split": "fresh-test",
+      "postingId": "ft-post-025",
+      "status": "exclude",
+      "reason": "Invalid whole request due to oversized adjacent block; excluded with the posting's other targets.",
+      "requiredAction": "Resolve the recorded source, context, scope, or split-independence issue before inclusion."
+    }
+  ]
+}

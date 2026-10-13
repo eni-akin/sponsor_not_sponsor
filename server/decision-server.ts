@@ -9,9 +9,11 @@ export function createDecisionServer(service: Pick<DecisionService, 'run'>, exte
   if (!/^[a-p]{32}$/.test(extensionId)) throw new Error('Invalid extension ID');
   const origin = `chrome-extension://${extensionId}`;
   let active = 0;
-  return createServer(async (request, response) => {
+  const server = createServer(async (request, response) => {
     response.setHeader('Cache-Control', 'no-store');
-    if (request.headers.host !== `127.0.0.1:${port}` || request.headers.origin !== origin) { response.writeHead(403); response.end(); return; }
+    const bound = server.address();
+    const expectedPort = port === 0 && bound && typeof bound !== 'string' ? bound.port : port;
+    if (request.headers.host !== `127.0.0.1:${expectedPort}` || request.headers.origin !== origin) { response.writeHead(403); response.end(); return; }
     response.setHeader('Access-Control-Allow-Origin', origin);
     response.setHeader('Vary', 'Origin');
     const send = (status: number, body: unknown) => { response.writeHead(status, { 'Content-Type': 'application/json' }); response.end(JSON.stringify(body)); };
@@ -35,6 +37,7 @@ export function createDecisionServer(service: Pick<DecisionService, 'run'>, exte
     } catch { send(503, { error: 'Local decision unavailable' }); }
     finally { active--; }
   });
+  return server;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const extensionId = process.env.DECISION_EXTENSION_ID || createHash('sha256').update(await realpath('dist')).digest('hex').slice(0, 32).replace(/[0-9a-f]/g, char => 'abcdefghijklmnop'[parseInt(char, 16)]!);

@@ -19,7 +19,8 @@ function citationView(citation: Citation): HTMLElement {
       : citation.source === 'embedded-structured-data' ? 'Structured data in embedded frame · Verify against the displayed role'
       : citation.source === 'official-overview' ? 'Official job overview · Matched role'
         : 'Structured page data · Verify against the displayed role';
-  container.append(textElement('p', [source, timingLabels[citation.timing]].filter(Boolean).join(' · '), 'source'));
+  const roleTag = citation.citationRole === 'context' ? 'Adjacent context' : '';
+  container.append(textElement('p', [source, timingLabels[citation.timing], roleTag].filter(Boolean).join(' · '), 'source'));
   if (citation.sourceUrl) {
     const url = new URL(citation.sourceUrl);
     if (url.protocol === 'https:' && !url.username && !url.password) {

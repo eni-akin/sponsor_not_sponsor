@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "contract": "laya-policy-v2",
+  "corpusVersion": "contextual-v1-2026-10-10",
+  "keys": [
+    "job_title",
+    "employer",
+    "country",
+    "previous_status",
+    "previous",
+    "TARGET",
+    "next",
+    "next_status"
+  ],
+  "serialization": "json.dumps(state, ensure_ascii=False, separators=(',', ':'))",
+  "nullHandling": "JSON null for missing/boundary neighbors; empty strings prohibited for absent neighbors",
+  "statusValues": [
+    "present",
+    "boundary",
+    "missing"
+  ]
+}

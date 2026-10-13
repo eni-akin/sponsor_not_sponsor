@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 2,
+  "contract": "laya-policy-v2",
+  "corpusVersion": "contextual-v2-2026-10-12",
+  "status": "annotation-blind-review-complete-predictions-unopened",
+  "unexposedToOptimizerTraining": true,
+  "predictionsOpenedDuringFreshReview": false,
+  "knownExposure": [
+    "Aggregate fresh label counts were exposed before independent review; individual labels were not exposed before blind labels were saved."
+  ],
+  "trainingRunApproved": false
+}
