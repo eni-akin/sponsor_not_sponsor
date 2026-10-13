@@ -16,35 +16,52 @@ const blocksTemporaryAuthorization = (text: string) =>
   || /\b(?:f-?1|j-?1|international students?|temporary visa|student visa)\b.{0,50}\b(?:not eligible|ineligible|excluded|not accepted|not permitted|not allowed)\b/i.test(text)
   || /\b(?:not eligible|ineligible|excluded|not accepted|not permitted|not allowed)\b.{0,50}\b(?:f-?1|j-?1|international students?|temporary visa|student visa)\b/i.test(text);
 
-const statesConditionalRefusal = (text: string) =>
-  /\b(?:sponsorship\s+(?:is\s+)?(?:unavailable|not available)|(?:do not|does not|will not)\s+sponsor|(?:cannot|unable to)\s+(?:offer|provide|support)\s+[^.]{0,30}sponsorship)\b/i.test(text);
-
-/** Turn detailed evidence into the single practical answer shown to the user. */
+/** Turn detailed evidence into the single practical answer shown to the user according to the V2 precedence rules. */
 export function mainDecision(role: JobRecord, interpretation: Interpretation): MainDecision {
+  // Precedence 1: Pending/error service state, partial v2 processing, or incomplete extraction
   if (interpretation.decision?.state === 'pending' || interpretation.decision?.state === 'error')
     return result('could-not-verify', interpretation.decision.message);
+  if (interpretation.decision?.processingStatus === 'partial')
+    return result('could-not-verify', 'Local model processing was partial. Review the cited passages and original posting.', interpretation.sponsorship.citations);
   if (role.completeness === 'incomplete')
     return result('could-not-verify', 'The job description was incomplete, so the posting could not be checked safely.');
-  if (interpretation.sponsorship.requiresReview)
-    return result('could-not-verify', 'The posting contains conflicting or uncertain sponsorship wording. Review the cited passages.', interpretation.sponsorship.citations);
 
   const restrictions = interpretation.restrictions.filter(item => item.kind === 'export-control' || blocksTemporaryAuthorization(item.text));
-  const exclusions = [interpretation.cpt, interpretation.opt].filter(item => item.status === 'explicitly-excluded');
-  const conditionalRefusal = interpretation.sponsorship.status === 'conditional'
-    && interpretation.sponsorship.citations.some(citation => statesConditionalRefusal(citation.quote));
-  if (interpretation.sponsorship.status === 'unavailable' || conditionalRefusal || restrictions.length || exclusions.length) {
+  const exclusions = [interpretation.cpt, interpretation.opt].filter(item => !item.requiresReview && item.status === 'explicitly-excluded');
+
+  const definitiveSponsorshipUnavailable = !interpretation.sponsorship.requiresReview
+    && (interpretation.sponsorship.status === 'unavailable'
+        || (!interpretation.sponsorshipByTiming?.now?.requiresReview && interpretation.sponsorshipByTiming?.now?.status === 'unavailable')
+        || (!interpretation.sponsorshipByTiming?.future?.requiresReview && interpretation.sponsorshipByTiming?.future?.status === 'unavailable'));
+
+  // Precedence 2: Definitive blocker found
+  if (definitiveSponsorshipUnavailable || exclusions.length || restrictions.length) {
     const citations = [
-      ...(['unavailable', 'conditional'].includes(interpretation.sponsorship.status) ? interpretation.sponsorship.citations : []),
+      ...(definitiveSponsorshipUnavailable ? interpretation.sponsorship.citations : []),
       ...restrictions.flatMap(item => item.citations),
       ...exclusions.flatMap(item => item.citations),
     ];
     const exportControl = restrictions.some(item => item.kind === 'export-control');
     const exportExplanation = exportControl
-      ? `The posting states a country-scoped export-license obstacle to accessing controlled information. The citations show the affected group and any stated deadline or exceptions.${interpretation.sponsorship.status === 'unavailable' ? ' Sponsorship is also unavailable.' : conditionalRefusal ? ' Sponsorship is also conditional.' : ''}`
+      ? `The posting states a country-scoped export-license obstacle to accessing controlled information. The citations show the affected group and any stated deadline or exceptions.${definitiveSponsorshipUnavailable ? ' Sponsorship is also unavailable.' : ''}`
       : 'The posting states a sponsorship, citizenship, residency, or visa-status restriction.';
     return result('explicit-blocker', exportExplanation, citations);
   }
+
+  // Precedence 3: No definitive blocker, but conflicting or unresolved sponsorship, CPT, or OPT finding
+  if (interpretation.sponsorship.requiresReview || interpretation.cpt.requiresReview || interpretation.opt.requiresReview) {
+    const citations = [
+      ...(interpretation.sponsorship.requiresReview ? interpretation.sponsorship.citations : []),
+      ...(interpretation.cpt.requiresReview ? interpretation.cpt.citations : []),
+      ...(interpretation.opt.requiresReview ? interpretation.opt.citations : []),
+    ];
+    return result('could-not-verify', 'The posting contains conflicting or unresolved immigration/eligibility wording. Review the cited passages.', citations);
+  }
+
+  // Precedence 4: Sponsorship stated (available or conditional)
   if (interpretation.sponsorship.status === 'available' || interpretation.sponsorship.status === 'conditional')
     return result('sponsorship-stated', 'The posting explicitly offers or considers sponsorship. Read the cited conditions.', interpretation.sponsorship.citations);
+
+  // Precedence 5: Complete evidence and processing with no explicit blocker or sponsorship statement
   return result('no-blocker', 'No explicit blocker or sponsorship statement was found in the complete posting. The role may be worth applying to, but sponsorship is not proven.');
 }

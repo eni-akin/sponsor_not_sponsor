@@ -2,6 +2,22 @@
 
 The authoritative labeling and headline rules are in [DECISION_LOGIC.md](../../DECISION_LOGIC.md).
 
+## Current two-stage candidate — October 12
+
+[Contextual v2](contextual-v2-2026-10-12/README.md) is now the active data candidate. It reproducibly applies the independent review to frozen contextual v1, restores the exact WTW blocks, removes unresolved gold from active splits, withholds copied-policy fresh evidence, and pins the full runtime question objects. Its manifest is `candidate` with `trainingRunApproved: false`.
+
+Active counts: 165 training, 51 development, 54 calibration and 121 fresh-test records; 52 additional records are accounted for in `review-holds.json`. Fresh coverage remains insufficient, 30 restored WTW targets need new labels, and human signoff is absent. Do not train, calibrate, or open fresh predictions.
+
+Rebuild and validate with:
+
+```bash
+python3 scripts/build_contextual_v2.py
+python3 scripts/validate_laya_contextual.py --dataset-dir evaluation/laya-training/contextual-v2-2026-10-12 --allow-candidate
+python3 -m unittest discover -s tests -p 'test_laya_contextual*.py'
+```
+
+The October 9 operational model and contextual v1 sections below are historical state, retained for audit and rollback.
+
 ## Operational freeze and completed training — October 9
 
 The owner's subsequent instruction authorized necessary preparation and completing local fine-tuning. [Operational v2](operational-v2-2026-10-09/manifest.json) now freezes 87 training, 44 calibration and 12 held-out test passages, with an independently reviewed split ledger and dataset-level hashes. Earlier originals and frozen v1 remain unchanged. Latest submissions are additive, not replacements. Common short industry wording is permitted; actual employer/template overlap and duplicate evidence cannot cross splits. Think Academy remains calibration-only and Boeing training-only. Four fresh role-level conditional examples were added before locking the test.

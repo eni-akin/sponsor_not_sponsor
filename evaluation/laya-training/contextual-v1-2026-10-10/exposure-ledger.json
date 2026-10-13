@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "contract": "laya-policy-v2",
+  "corpusVersion": "contextual-v1-2026-10-10",
+  "status": "isolated-and-unexposed",
+  "reviewer": "independent-data-reviewer",
+  "curatedAt": "2026-10-10",
+  "blindSeparationMaintained": true,
+  "unexposedToOptimizerTraining": true,
+  "freshTestSummary": {
+    "totalPostings": 25,
+    "totalTargets": 141,
+    "noPolicySubsetPostings": 10,
+    "distinctEmployers": 25,
+    "distinctPolicyFamilies": 25,
+    "operationalChallengesCount": 3
+  },
+  "isolationControls": [
+    "Fresh-test postings and targets were collected, structured, and labeled in a strictly separate role execution context.",
+    "No fresh-test examples, targets, or annotations were exposed to optimizer training pipelines or weight adjustments.",
+    "Zero overlap exists between fresh-test employers and historical train, calibration, test, or current contextual train/development/calibration splits.",
+    "No fresh-test examples are derived from authored development design fixtures or the WTW exposed regression.",
+    "Fresh-test target data is excluded from export in prepare_laya_contextual.py; split ownership enforcement rejects fresh-test records in optimizer exporters.",
+    "Gold headlines and supporting citations were annotated independently based strictly on DECISION_LOGIC.md and TWO-STAGE-SCREENING-CONTEXT-2026-10-10.md."
+  ],
+  "exposureEvents": []
+}

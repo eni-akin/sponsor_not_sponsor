@@ -39,7 +39,7 @@ def write_json(path, value):
 def questions():
     return json.loads(subprocess.check_output([
         "node", "--import", "tsx", "--input-type=module", "-e",
-        "import {decisionQuestions} from './server/decision-questions.ts'; console.log(JSON.stringify(decisionQuestions));",
+        "import {decisionQuestionsV1} from './server/decision-questions.ts'; console.log(JSON.stringify(decisionQuestionsV1));",
     ], cwd=ROOT, text=True))
 
 

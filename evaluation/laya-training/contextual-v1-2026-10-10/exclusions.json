@@ -1,0 +1,44 @@
+[
+  {
+    "id": "excl-001",
+    "source": "live-job-tests/wtw-202605435/request.json",
+    "category": "exposed-regression",
+    "reason": "WTW vacancy 202605435 is preserved in development; never exposed to fresh held-out evaluation."
+  },
+  {
+    "id": "excl-002",
+    "source": "granite-defense-incomplete",
+    "category": "operational-challenge",
+    "reason": "Posting gd-incomplete has missing start boundary; correctly produces screening unsupported."
+  },
+  {
+    "id": "excl-003",
+    "source": "cesiumastro-gap-challenge",
+    "category": "operational-challenge",
+    "reason": "Posting ca-gap has position gap; derived context is missing; prechecked unsupported."
+  },
+  {
+    "id": "excl-004",
+    "source": "historical-operational-v2",
+    "category": "historical-preservation",
+    "reason": "Passage-only operational-v2 records without verified whole-posting context are held out from contextual v2 optimizer export."
+  },
+  {
+    "id": "excl-005",
+    "source": "ft-post-023",
+    "category": "operational-challenge",
+    "reason": "Fresh-test operational challenge ft-post-023 (Wildflower Software) has incomplete crawler capture; must yield partial processing and honest uncertainty."
+  },
+  {
+    "id": "excl-006",
+    "source": "ft-post-024",
+    "category": "operational-challenge",
+    "reason": "Fresh-test operational challenge ft-post-024 (Xenon Cloud) has internal extraction gap at position 1; missing-context target must produce screening unsupported."
+  },
+  {
+    "id": "excl-007",
+    "source": "ft-post-025",
+    "category": "operational-challenge",
+    "reason": "Fresh-test operational challenge ft-post-025 (YieldFlow Capital) has oversized target block exceeding 32,000 characters; must return unsupported context-too-long."
+  }
+]

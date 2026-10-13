@@ -1,0 +1,1493 @@
+{
+  "schemaVersion": 2,
+  "status": "passed",
+  "trainingStarted": false,
+  "qualityEvaluation": false,
+  "hardware": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "model": "Mac17,3",
+    "physical_memory_bytes": 17179869184,
+    "device": "cpu",
+    "threads": 4,
+    "precision": "float32 (CPU default)",
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "torch_laya_versions": "2.14.0 0.3.21",
+    "batch": "system_one sequential per target"
+  },
+  "source": {
+    "gitHead": "2b787835551d62e7553ac585a45b2d219eee0879",
+    "workerSha256": "6188e3871e7e9cc2b0a98bfb9b7661094662a24a0f305bf0a94b070992e09907",
+    "benchmarkSha256": "afcf61d0af4d68a2f780dc948e08d65427a3dab46681f890072f8efa5a28c97a",
+    "serviceSha256": "4108d12490087d9e6a0d50604552718d345f44eb29cddf5e6c0994275c9cadd6",
+    "model": "convaiinnovations/laya-multilingual@e4e9ddf21a7b1903b7acffd8814ad4307bf63a67",
+    "checkpointFiles": {
+      "model.safetensors": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+      "rl_agent_config.json": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6",
+      "encoder/config.json": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+      "tokenizer/tokenizer_config.json": "6c6b2d8e3c84ce0e671c129cd6b374b235d6f9863042a5836358d00a89bbb5a1",
+      "tokenizer/tokenizer.json": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f"
+    },
+    "sourceCheckpointUnchanged": true,
+    "postingsSha256": "ff6a71f5ea6156a8f6c69b96a212830d3c47a9af98137ed56e954a758b2b7e3b",
+    "benchmarkRequestsSha256": "deef3b6e18f04ac3ce0a6c0d799517a724ab75d0eeef12c1ac682ec0b6445c57",
+    "cases": [
+      {
+        "id": "post-dev-002",
+        "blocks": 5
+      },
+      {
+        "id": "post-dev-004",
+        "blocks": 6
+      },
+      {
+        "id": "post-dev-001",
+        "blocks": 31
+      }
+    ],
+    "configuration": {
+      "questionsSha256": "251ad577b698859f92da14c7ad253206b825504001294b43172fbd523eca9c17",
+      "contextSha256": "972d785462a48bb8129a074f1fcb7504a9999611a84bdb458f296d5d558f5395",
+      "parametersSha256": "ae89a67e83002ed02ab0a4e72ef565c72b09ae0f5965da4d35010a55e1d41bc3"
+    }
+  },
+  "limits": {
+    "worker_response_sec": 150.0,
+    "warm_ratio": 2,
+    "cold_load_sec": 60,
+    "sampled_peak_worker_mb": 4096,
+    "registeredBeforeTraining": true
+  },
+  "gates": {
+    "zero_operational_failures": true,
+    "warm_ratio": true,
+    "warm_timeout": true,
+    "cold_budget": true,
+    "memory_budget": true
+  },
+  "cold": [
+    {
+      "start": 0,
+      "load_ready": {
+        "path": "v2",
+        "phase": "cold-load-ready",
+        "seconds": 3.108849042095244,
+        "blocks": 0,
+        "status": "complete",
+        "processing": {
+          "status": "complete",
+          "inputCount": 0,
+          "context": {
+            "complete": 0,
+            "missing": 0
+          },
+          "screening": {
+            "success": 0,
+            "failed": 0,
+            "unsupported": 0
+          },
+          "interpretation": {
+            "interpreted": 0,
+            "skipped": 0,
+            "failed": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "first_job": {
+        "path": "v2",
+        "phase": "cold-first-job",
+        "seconds": 2.013474333100021,
+        "blocks": 5,
+        "status": "complete",
+        "processing": {
+          "status": "complete",
+          "inputCount": 5,
+          "context": {
+            "complete": 5,
+            "missing": 0
+          },
+          "screening": {
+            "success": 5,
+            "failed": 0,
+            "unsupported": 0
+          },
+          "interpretation": {
+            "interpreted": 5,
+            "skipped": 0,
+            "failed": 0,
+            "unsupported": 0
+          }
+        }
+      }
+    },
+    {
+      "start": 1,
+      "load_ready": {
+        "path": "v2",
+        "phase": "cold-load-ready",
+        "seconds": 2.7034604579675943,
+        "blocks": 0,
+        "status": "complete",
+        "processing": {
+          "status": "complete",
+          "inputCount": 0,
+          "context": {
+            "complete": 0,
+            "missing": 0
+          },
+          "screening": {
+            "success": 0,
+            "failed": 0,
+            "unsupported": 0
+          },
+          "interpretation": {
+            "interpreted": 0,
+            "skipped": 0,
+            "failed": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "first_job": {
+        "path": "v2",
+        "phase": "cold-first-job",
+        "seconds": 2.024996958905831,
+        "blocks": 5,
+        "status": "complete",
+        "processing": {
+          "status": "complete",
+          "inputCount": 5,
+          "context": {
+            "complete": 5,
+            "missing": 0
+          },
+          "screening": {
+            "success": 5,
+            "failed": 0,
+            "unsupported": 0
+          },
+          "interpretation": {
+            "interpreted": 5,
+            "skipped": 0,
+            "failed": 0,
+            "unsupported": 0
+          }
+        }
+      }
+    },
+    {
+      "start": 2,
+      "load_ready": {
+        "path": "v2",
+        "phase": "cold-load-ready",
+        "seconds": 2.473487958079204,
+        "blocks": 0,
+        "status": "complete",
+        "processing": {
+          "status": "complete",
+          "inputCount": 0,
+          "context": {
+            "complete": 0,
+            "missing": 0
+          },
+          "screening": {
+            "success": 0,
+            "failed": 0,
+            "unsupported": 0
+          },
+          "interpretation": {
+            "interpreted": 0,
+            "skipped": 0,
+            "failed": 0,
+            "unsupported": 0
+          }
+        }
+      },
+      "first_job": {
+        "path": "v2",
+        "phase": "cold-first-job",
+        "seconds": 1.9926404999569058,
+        "blocks": 5,
+        "status": "complete",
+        "processing": {
+          "status": "complete",
+          "inputCount": 5,
+          "context": {
+            "complete": 5,
+            "missing": 0
+          },
+          "screening": {
+            "success": 5,
+            "failed": 0,
+            "unsupported": 0
+          },
+          "interpretation": {
+            "interpreted": 5,
+            "skipped": 0,
+            "failed": 0,
+            "unsupported": 0
+          }
+        }
+      }
+    }
+  ],
+  "memory": [
+    {
+      "phase": "cold",
+      "before_load_mb": 6.171875,
+      "after_load_mb": 943.890625,
+      "sampled_peak_mb": 1790.890625,
+      "samples": 47
+    },
+    {
+      "phase": "cold",
+      "before_load_mb": 0.125,
+      "after_load_mb": 1020.921875,
+      "sampled_peak_mb": 1573.625,
+      "samples": 43
+    },
+    {
+      "phase": "cold",
+      "before_load_mb": 2.28125,
+      "after_load_mb": 1823.234375,
+      "sampled_peak_mb": 2244.828125,
+      "samples": 41
+    },
+    {
+      "phase": "warm-all-forward",
+      "before_load_mb": 2.28125,
+      "after_load_mb": 1971.109375,
+      "sampled_peak_mb": 2008.46875,
+      "samples": 3086
+    }
+  ],
+  "warm": {
+    "v1": {
+      "samples": 30,
+      "p50_sec": 1.7425784170627594,
+      "p95_sec": 11.165305959060788,
+      "max_sec": 11.518392999889329
+    },
+    "v2": {
+      "samples": 30,
+      "p50_sec": 2.3134335840586573,
+      "p95_sec": 15.207830499857664,
+      "max_sec": 17.00314970803447
+    }
+  },
+  "failureCounts": {},
+  "observations": [
+    {
+      "path": "v2",
+      "phase": "cold-load-ready",
+      "seconds": 3.108849042095244,
+      "blocks": 0,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 0,
+        "context": {
+          "complete": 0,
+          "missing": 0
+        },
+        "screening": {
+          "success": 0,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 0,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v2",
+      "phase": "cold-first-job",
+      "seconds": 2.013474333100021,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v2",
+      "phase": "cold-load-ready",
+      "seconds": 2.7034604579675943,
+      "blocks": 0,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 0,
+        "context": {
+          "complete": 0,
+          "missing": 0
+        },
+        "screening": {
+          "success": 0,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 0,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v2",
+      "phase": "cold-first-job",
+      "seconds": 2.024996958905831,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v2",
+      "phase": "cold-load-ready",
+      "seconds": 2.473487958079204,
+      "blocks": 0,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 0,
+        "context": {
+          "complete": 0,
+          "missing": 0
+        },
+        "screening": {
+          "success": 0,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 0,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v2",
+      "phase": "cold-first-job",
+      "seconds": 1.9926404999569058,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v2",
+      "phase": "warm-load-ready",
+      "seconds": 2.4040869590826333,
+      "blocks": 0,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 0,
+        "context": {
+          "complete": 0,
+          "missing": 0
+        },
+        "screening": {
+          "success": 0,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 0,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm-up",
+      "seconds": 1.4972095000557601,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm-up",
+      "seconds": 1.950312083819881,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.4652752080000937,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 1.9469113750383258,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.7388217090629041,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.2537979998160154,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 10.408411040902138,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 13.629800332942978,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.4819743330590427,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 1.9653542910236865,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.7312005839776248,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.3037514579482377,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 10.405195707920939,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 13.486056291963905,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.5106998330447823,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 1.9660037499852479,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.7261426248587668,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.264397791819647,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 10.474444625200704,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 13.422836625017226,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.5022972079459578,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 1.9553217499051243,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.737325666937977,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.3134335840586573,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 10.508664541877806,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 13.43924329103902,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.5578552919905633,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 1.9681750000454485,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.7425784170627594,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.296466042054817,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 10.641288249986246,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 14.299620916834101,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.6762027498334646,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.244408917147666,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.929190875031054,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.7023255419917405,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 11.518392999889329,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 13.825816333061084,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.550552292028442,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 1.9914893750101328,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.808301999932155,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.4717037500813603,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 11.112516958964989,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 14.427062874892727,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.534757874906063,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.014088209019974,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.8102807919494808,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.3349969589617103,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 10.989855332998559,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 15.207830499857664,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.5633242919575423,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.0678981670644134,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 2.3238369999453425,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.5414902500342578,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 11.165305959060788,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 17.00314970803447,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 1.5875958339311182,
+      "blocks": 5,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.0965065420605242,
+      "blocks": 5,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 5,
+        "context": {
+          "complete": 5,
+          "missing": 0
+        },
+        "screening": {
+          "success": 5,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 5,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 2.003497374942526,
+      "blocks": 6,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 2.372616874985397,
+      "blocks": 6,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 6,
+        "context": {
+          "complete": 6,
+          "missing": 0
+        },
+        "screening": {
+          "success": 6,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 6,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    },
+    {
+      "path": "v1",
+      "phase": "warm",
+      "seconds": 10.987991166999564,
+      "blocks": 31,
+      "status": "complete"
+    },
+    {
+      "path": "v2",
+      "phase": "warm",
+      "seconds": 14.246838084189221,
+      "blocks": 31,
+      "status": "complete",
+      "processing": {
+        "status": "complete",
+        "inputCount": 31,
+        "context": {
+          "complete": 31,
+          "missing": 0
+        },
+        "screening": {
+          "success": 31,
+          "failed": 0,
+          "unsupported": 0
+        },
+        "interpretation": {
+          "interpreted": 31,
+          "skipped": 0,
+          "failed": 0,
+          "unsupported": 0
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Direct worker IPC bypasses service caches; browser/service integration checked separately.",
+    "V1 is the current compatibility branch, not an exact historical worker reconstruction.",
+    "Cold load includes process/import/model startup plus empty request; first nonempty job timed separately.",
+    "Worker RSS sampled every 100ms; transient peaks may be missed. A worker exit is not automatically an OOM.",
+    "Cold 60s limit leaves >=50% response-time margin; 4GiB worker limit leaves browser/OS RAM. Limits fixed before training."
+  ]
+}

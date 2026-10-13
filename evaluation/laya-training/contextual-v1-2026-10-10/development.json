@@ -1,0 +1,4115 @@
+{
+  "schemaVersion": 1,
+  "contract": "laya-policy-v2",
+  "corpusVersion": "contextual-v1-2026-10-10",
+  "split": "development",
+  "records": 81,
+  "recordsData": [
+    {
+      "id": "ctx-dev-001",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-01",
+        "kind": "text",
+        "text": "With 49,000 colleagues in over 140 countries, we help organisations measure, manage and mitigate risk, explore new opportunities and unlock potential. Join us and discover a career that connects you with industry-leading expertise and global opportunities.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-02",
+          "kind": "text",
+          "text": "Our ICT team combines deep consulting expertise with innovative software to help clients navigate risk and capitalise on opportunities. We design, build and deploy market-leading solutions that solve complex financial and operational challenges.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "db74f4df87784312223b989f5fa8149d930c5e41be640b1b1e913172fc094d50"
+    },
+    {
+      "id": "ctx-dev-002",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-02",
+        "kind": "text",
+        "text": "Our ICT team combines deep consulting expertise with innovative software to help clients navigate risk and capitalise on opportunities. We design, build and deploy market-leading solutions that solve complex financial and operational challenges.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-01",
+          "kind": "text",
+          "text": "With 49,000 colleagues in over 140 countries, we help organisations measure, manage and mitigate risk, explore new opportunities and unlock potential. Join us and discover a career that connects you with industry-leading expertise and global opportunities.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-03",
+          "kind": "text",
+          "text": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "aeb859f4fbeb6a03f7e7b036590c8a4a3ed55f50eb43fae8cec2e27feed630f6"
+    },
+    {
+      "id": "ctx-dev-003",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-03",
+        "kind": "text",
+        "text": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-02",
+          "kind": "text",
+          "text": "Our ICT team combines deep consulting expertise with innovative software to help clients navigate risk and capitalise on opportunities. We design, build and deploy market-leading solutions that solve complex financial and operational challenges.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-04",
+          "kind": "text",
+          "text": "At WTW, we believe difference makes us stronger. We want our workforce to reflect the different and varied markets we operate in and to build a culture of inclusivity that makes colleagues feel welcome, valued and empowered to bring their whole selves to work every day. We are an equal opportunity employer committed to fostering an inclusive work environment throughout our organisation. We embrace all types of diversity.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "350d74460c45f5998d06101dbe4e478aa2fb3b9bced13df9886a28a6b397d897"
+    },
+    {
+      "id": "ctx-dev-004",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-04",
+        "kind": "text",
+        "text": "At WTW, we believe difference makes us stronger. We want our workforce to reflect the different and varied markets we operate in and to build a culture of inclusivity that makes colleagues feel welcome, valued and empowered to bring their whole selves to work every day. We are an equal opportunity employer committed to fostering an inclusive work environment throughout our organisation. We embrace all types of diversity.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-03",
+          "kind": "text",
+          "text": "Our 1,700 ICT colleagues in 35 markets share one mission – to innovate and transform insurance. To make this a reality, we deliver solutions that help our clients better select, finance and manage risk and capital. We develop software solutions that support insurance companies and other businesses that require sophisticated machine modelling and analytics processes as they confront volatile markets and regulatory changes. Our work underpins complex financial activities ranging from asset-liability modelling, pricing and reserving to economic capital aggregation and allocation.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-05",
+          "kind": "text",
+          "text": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+          "contextGroup": "post-dev-001:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Equal-opportunity and diversity wording does not state immigration or sponsorship policy.",
+      "tags": [
+        "wtw-passage",
+        "wtw-regression",
+        "ordinary-negative",
+        "diversity"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "0a5370fcc3053a8ccd77f1ff51385f3d3293c19b2e3830e7a20e66b7eb9b6014"
+    },
+    {
+      "id": "ctx-dev-005",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-05",
+        "kind": "text",
+        "text": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+        "contextGroup": "post-dev-001:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-04",
+          "kind": "text",
+          "text": "At WTW, we believe difference makes us stronger. We want our workforce to reflect the different and varied markets we operate in and to build a culture of inclusivity that makes colleagues feel welcome, valued and empowered to bring their whole selves to work every day. We are an equal opportunity employer committed to fostering an inclusive work environment throughout our organisation. We embrace all types of diversity.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 3
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-06",
+          "kind": "text",
+          "text": "Applying modern software engineering practices, techniques and tools to build, test and maintain our products and services.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 5
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "c1f628ff7b6e240fc35d593d84b3af59620e9ab89b793c26b945efcc324fa10e"
+    },
+    {
+      "id": "ctx-dev-006",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-06",
+        "kind": "text",
+        "text": "Applying modern software engineering practices, techniques and tools to build, test and maintain our products and services.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 5
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-05",
+          "kind": "text",
+          "text": "Joining us for eight weeks, you’ll build invaluable real-world experience at the heart of our Insurance Technology business. You’ll work with and learn from our industry-leading experts, while:",
+          "contextGroup": "post-dev-001:visible",
+          "position": 4
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-07",
+          "kind": "text",
+          "text": "Writing clean, readable and tested code in Python, C# or JavaScript.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 6
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Day to day developer duties have no immigration relevance.",
+      "tags": [
+        "wtw-passage",
+        "ordinary-negative",
+        "duties"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "091c585d6833a48b6f22da79e0a339e2d716acad9e0dd79adf61bbbe3395c786"
+    },
+    {
+      "id": "ctx-dev-007",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-07",
+        "kind": "text",
+        "text": "Writing clean, readable and tested code in Python, C# or JavaScript.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 6
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-06",
+          "kind": "text",
+          "text": "Applying modern software engineering practices, techniques and tools to build, test and maintain our products and services.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 5
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-08",
+          "kind": "text",
+          "text": "Partnering with teams across the software development lifecycle to deliver value to our clients.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 7
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Day to day developer duties have no immigration relevance.",
+      "tags": [
+        "wtw-passage",
+        "ordinary-negative",
+        "duties"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "b2e6d1a219073b2003c7e32202c4bada30a88f2c2bbd6dd6d99312599efa5704"
+    },
+    {
+      "id": "ctx-dev-008",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-08",
+        "kind": "text",
+        "text": "Partnering with teams across the software development lifecycle to deliver value to our clients.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 7
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-07",
+          "kind": "text",
+          "text": "Writing clean, readable and tested code in Python, C# or JavaScript.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 6
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-09",
+          "kind": "text",
+          "text": "Engaging with a global team across different locations and cultures.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 8
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Day to day developer duties have no immigration relevance.",
+      "tags": [
+        "wtw-passage",
+        "ordinary-negative",
+        "duties"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "4b225132e903eda54b71d8e251fa7e459ef3395029a2ea8618caa8f5c0b5117e"
+    },
+    {
+      "id": "ctx-dev-009",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-09",
+        "kind": "text",
+        "text": "Engaging with a global team across different locations and cultures.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 8
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-08",
+          "kind": "text",
+          "text": "Partnering with teams across the software development lifecycle to deliver value to our clients.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 7
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-10",
+          "kind": "text",
+          "text": "A continuous learning mindset with a desire to learn, grow and develop your capabilities as a software developer.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 9
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Day to day developer duties have no immigration relevance.",
+      "tags": [
+        "wtw-passage",
+        "ordinary-negative",
+        "duties"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "e5af4c3fe3914f03775c34617854c9d5c976545c0c2d0c7e8c135be83a7a9c4b"
+    },
+    {
+      "id": "ctx-dev-010",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-10",
+        "kind": "text",
+        "text": "A continuous learning mindset with a desire to learn, grow and develop your capabilities as a software developer.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 9
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-09",
+          "kind": "text",
+          "text": "Engaging with a global team across different locations and cultures.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 8
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-11",
+          "kind": "text",
+          "text": "Strong problem-solving and critical thinking skills.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 10
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "04aa7058158a81382739c1a6e0a35c8e2b3a8dfc0926b2d14569c2afd42d9dbf"
+    },
+    {
+      "id": "ctx-dev-011",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-11",
+        "kind": "text",
+        "text": "Strong problem-solving and critical thinking skills.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 10
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-10",
+          "kind": "text",
+          "text": "A continuous learning mindset with a desire to learn, grow and develop your capabilities as a software developer.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 9
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-12",
+          "kind": "text",
+          "text": "The ability to communicate complex ideas clearly and constructively, both orally and in writing.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 11
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "ecaedb113fe0dbb04e19409eb9a8f8087fe1660eca912decee30258a5dfb2644"
+    },
+    {
+      "id": "ctx-dev-012",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-12",
+        "kind": "text",
+        "text": "The ability to communicate complex ideas clearly and constructively, both orally and in writing.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 11
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-11",
+          "kind": "text",
+          "text": "Strong problem-solving and critical thinking skills.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 10
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-13",
+          "kind": "text",
+          "text": "Demonstrated ability to write code in an object-oriented or functional language such as Python, C# or Java.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 12
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "c41c8d5159e7fe50ac59af73b24f70b674fb8ae8e09e4b66beda8b17e659f07b"
+    },
+    {
+      "id": "ctx-dev-013",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-13",
+        "kind": "text",
+        "text": "Demonstrated ability to write code in an object-oriented or functional language such as Python, C# or Java.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 12
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-12",
+          "kind": "text",
+          "text": "The ability to communicate complex ideas clearly and constructively, both orally and in writing.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 11
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-14",
+          "kind": "text",
+          "text": "Demonstrated understanding of core software engineering fundamentals such as data structures, algorithms and version control (e.g., Git).",
+          "contextGroup": "post-dev-001:visible",
+          "position": 13
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Degree or programming qualification applies to the role but has no immigration relevance.",
+      "tags": [
+        "wtw-passage",
+        "ordinary-negative",
+        "qualification"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "4b6d35f77e1f92832e01e811017a3b189f97dcce88a467984c96cb4d2dc8c6ec"
+    },
+    {
+      "id": "ctx-dev-014",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-14",
+        "kind": "text",
+        "text": "Demonstrated understanding of core software engineering fundamentals such as data structures, algorithms and version control (e.g., Git).",
+        "contextGroup": "post-dev-001:visible",
+        "position": 13
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-13",
+          "kind": "text",
+          "text": "Demonstrated ability to write code in an object-oriented or functional language such as Python, C# or Java.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 12
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-15",
+          "kind": "text",
+          "text": "A bachelor's degree or equivalent in Computer Science, Software Engineering, STEM or related disciplines.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 14
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Degree or programming qualification applies to the role but has no immigration relevance.",
+      "tags": [
+        "wtw-passage",
+        "ordinary-negative",
+        "qualification"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "b553d4641d0a54f6fb97810bd2690412785134a8389c8ac45bdd03d485f38348"
+    },
+    {
+      "id": "ctx-dev-015",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-15",
+        "kind": "text",
+        "text": "A bachelor's degree or equivalent in Computer Science, Software Engineering, STEM or related disciplines.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 14
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-14",
+          "kind": "text",
+          "text": "Demonstrated understanding of core software engineering fundamentals such as data structures, algorithms and version control (e.g., Git).",
+          "contextGroup": "post-dev-001:visible",
+          "position": 13
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-16",
+          "kind": "text",
+          "text": "Experience building personal or academic software projects.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 15
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Degree or programming qualification applies to the role but has no immigration relevance.",
+      "tags": [
+        "wtw-passage",
+        "ordinary-negative",
+        "qualification"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "0cda4fcaa5c257d61d0fb599a37b556bd80d4f0de9b88a8d2a0db79e62bdfb18"
+    },
+    {
+      "id": "ctx-dev-016",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-16",
+        "kind": "text",
+        "text": "Experience building personal or academic software projects.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 15
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-15",
+          "kind": "text",
+          "text": "A bachelor's degree or equivalent in Computer Science, Software Engineering, STEM or related disciplines.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 14
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-17",
+          "kind": "text",
+          "text": "A competitive compensation package.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 16
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "0da58cf0a2387f6ce3806d02ef05933b1a14eabf94081f7b4e028984f0261b38"
+    },
+    {
+      "id": "ctx-dev-017",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-17",
+        "kind": "text",
+        "text": "A competitive compensation package.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 16
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-16",
+          "kind": "text",
+          "text": "Experience building personal or academic software projects.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 15
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-18",
+          "kind": "text",
+          "text": "Comprehensive health and wellness benefits covering medical and dental expenses.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 17
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "3cac3d9aa608a7c2bb3ed7900ad75bb29be4ca637d068f044e45df0684a7499c"
+    },
+    {
+      "id": "ctx-dev-018",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-18",
+        "kind": "text",
+        "text": "Comprehensive health and wellness benefits covering medical and dental expenses.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 17
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-17",
+          "kind": "text",
+          "text": "A competitive compensation package.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 16
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-19",
+          "kind": "text",
+          "text": "Company pension scheme with generous matching contributions.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 18
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "6ca643cc130bfc1c905aaf76606937c0c49e31f3a87d704668f91e0f51aa7f88"
+    },
+    {
+      "id": "ctx-dev-019",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-19",
+        "kind": "text",
+        "text": "Company pension scheme with generous matching contributions.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 18
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-18",
+          "kind": "text",
+          "text": "Comprehensive health and wellness benefits covering medical and dental expenses.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 17
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-20",
+          "kind": "text",
+          "text": "25 days of annual leave plus bank holidays.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 19
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "5a5b6e016b2aca9c0a12fb8246538df5f1cbaa88e5d57103e9b9935714e1227b"
+    },
+    {
+      "id": "ctx-dev-020",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-20",
+        "kind": "text",
+        "text": "25 days of annual leave plus bank holidays.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 19
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-19",
+          "kind": "text",
+          "text": "Company pension scheme with generous matching contributions.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 18
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-21",
+          "kind": "text",
+          "text": "Flexible working arrangements supporting hybrid work.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 20
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "3d66fd6da06164021a7bb70643e551b9b2ac0e8df1cedbe5249e3276de663f89"
+    },
+    {
+      "id": "ctx-dev-021",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-21",
+        "kind": "text",
+        "text": "Flexible working arrangements supporting hybrid work.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 20
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-20",
+          "kind": "text",
+          "text": "25 days of annual leave plus bank holidays.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 19
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-22",
+          "kind": "text",
+          "text": "Closing Date: 15 November",
+          "contextGroup": "post-dev-001:visible",
+          "position": 21
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "a79dacb3eed1b8bcf83d3e0c9f1811b7c5ecd9d74f7bcdc6855da9e9e783ace5"
+    },
+    {
+      "id": "ctx-dev-022",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-22",
+        "kind": "text",
+        "text": "Closing Date: 15 November",
+        "contextGroup": "post-dev-001:visible",
+        "position": 21
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-21",
+          "kind": "text",
+          "text": "Flexible working arrangements supporting hybrid work.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 20
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-23",
+          "kind": "text",
+          "text": "*** Please note that we do not accept multiple applications and you should only select and apply to one programme per year***",
+          "contextGroup": "post-dev-001:visible",
+          "position": 22
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Application deadline has no immigration or eligibility policy.",
+      "tags": [
+        "wtw-passage",
+        "wtw-regression",
+        "ordinary-negative",
+        "deadline"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "d64df689d63fb1c25674f65d5172023034f20c0ee4d65d62a22c58dbf32fcfa0"
+    },
+    {
+      "id": "ctx-dev-023",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-23",
+        "kind": "text",
+        "text": "*** Please note that we do not accept multiple applications and you should only select and apply to one programme per year***",
+        "contextGroup": "post-dev-001:visible",
+        "position": 22
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-22",
+          "kind": "text",
+          "text": "Closing Date: 15 November",
+          "contextGroup": "post-dev-001:visible",
+          "position": 21
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-24",
+          "kind": "text",
+          "text": "Stage 1: Online application form and CV submission.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 23
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "95c2d78750522b47968846efd991892619fa82463da4742ab0879dadb486b78d"
+    },
+    {
+      "id": "ctx-dev-024",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-24",
+        "kind": "text",
+        "text": "Stage 1: Online application form and CV submission.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 23
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-23",
+          "kind": "text",
+          "text": "*** Please note that we do not accept multiple applications and you should only select and apply to one programme per year***",
+          "contextGroup": "post-dev-001:visible",
+          "position": 22
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-25",
+          "kind": "text",
+          "text": "Stage 2: An interactive digital assessment.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 24
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "e832573694651d8fd4c14cc74d916b5d27380d349c8142e3f4c60365bed81435"
+    },
+    {
+      "id": "ctx-dev-025",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-25",
+        "kind": "text",
+        "text": "Stage 2: An interactive digital assessment.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 24
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-24",
+          "kind": "text",
+          "text": "Stage 1: Online application form and CV submission.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 23
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-26",
+          "kind": "text",
+          "text": "Stage 3: A video interview assessing strengths and values.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 25
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "bc670c3ef0ad486b521503a220d88959c16116880345c0585483a3e9dd454795"
+    },
+    {
+      "id": "ctx-dev-026",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-26",
+        "kind": "text",
+        "text": "Stage 3: A video interview assessing strengths and values.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 25
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-25",
+          "kind": "text",
+          "text": "Stage 2: An interactive digital assessment.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 24
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-27",
+          "kind": "text",
+          "text": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 26
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "c32dc4af63138758d55c348373b261f3776bef96fcb317692285004210826394"
+    },
+    {
+      "id": "ctx-dev-027",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-27",
+        "kind": "text",
+        "text": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 26
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-26",
+          "kind": "text",
+          "text": "Stage 3: A video interview assessing strengths and values.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 25
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-28",
+          "kind": "text",
+          "text": "Stage 5: Offer and onboarding",
+          "contextGroup": "post-dev-001:visible",
+          "position": 27
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "97a00224fe3984e40fc162e184601ec3a1d09a7e2cf68e3edeecaf41cd8b6b99"
+    },
+    {
+      "id": "ctx-dev-028",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-28",
+        "kind": "text",
+        "text": "Stage 5: Offer and onboarding",
+        "contextGroup": "post-dev-001:visible",
+        "position": 27
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-27",
+          "kind": "text",
+          "text": "Stage 4: A virtual assessment centre, where you’ll get to meet members of the team.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 26
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-29",
+          "kind": "text",
+          "text": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+          "contextGroup": "post-dev-001:visible",
+          "position": 28
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Onboarding heading does not offer sponsorship or state eligibility policy.",
+      "tags": [
+        "wtw-passage",
+        "wtw-regression",
+        "ordinary-negative",
+        "onboarding"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "aa8a8b79d9ec40cceb4767a796f3f4a141e4bf8fe2aa7dae2f6a94ea436f8ff1"
+    },
+    {
+      "id": "ctx-dev-029",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-29",
+        "kind": "text",
+        "text": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+        "contextGroup": "post-dev-001:visible",
+        "position": 28
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-28",
+          "kind": "text",
+          "text": "Stage 5: Offer and onboarding",
+          "contextGroup": "post-dev-001:visible",
+          "position": 27
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-30",
+          "kind": "text",
+          "text": "WTW is a global advisory, broking and solutions company that provides data-driven, insight-led solutions in the areas of people, risk and capital.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 29
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "bbea814690a114f01e68ae55178a50e7a9652f6399bac3b6bf83f0a7df13d7a8"
+    },
+    {
+      "id": "ctx-dev-030",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-30",
+        "kind": "text",
+        "text": "WTW is a global advisory, broking and solutions company that provides data-driven, insight-led solutions in the areas of people, risk and capital.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 29
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-29",
+          "kind": "text",
+          "text": "We’re committed to equal employment opportunity and provide application, interview and workplace adjustments and accommodations to all applicants. If you foresee any barriers, from the application process through to joining WTW, please email candidatehelpdesk@wtwco.com",
+          "contextGroup": "post-dev-001:visible",
+          "position": 28
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "wtw-31",
+          "kind": "text",
+          "text": "Thank you for your interest in WTW early careers programmes.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 30
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "788923a87ea4aa86f3bb15225e14b89a88faad2028d62c54c43ee779346b78ea"
+    },
+    {
+      "id": "ctx-dev-031",
+      "postingId": "post-dev-001",
+      "employer": "WTW",
+      "employerGroup": "wtw",
+      "policyFamily": "wtw",
+      "jobTitle": "2027 Software Developer Internship – Reigate",
+      "country": "United Kingdom",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "wtw-31",
+        "kind": "text",
+        "text": "Thank you for your interest in WTW early careers programmes.",
+        "contextGroup": "post-dev-001:visible",
+        "position": 30
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "wtw-30",
+          "kind": "text",
+          "text": "WTW is a global advisory, broking and solutions company that provides data-driven, insight-led solutions in the areas of people, risk and capital.",
+          "contextGroup": "post-dev-001:visible",
+          "position": 29
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "General overview or process text with no immigration relevance.",
+      "tags": [
+        "wtw-passage"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "c9caa874af5615d35bf026a4fa80b2c3ba5373a257eedcfc3be0feec3ee86f6e"
+    },
+    {
+      "id": "ctx-dev-032",
+      "postingId": "post-dev-002",
+      "employer": "Northstar Analytics",
+      "employerGroup": "northstar analytics",
+      "policyFamily": "northstar analytics",
+      "jobTitle": "Software Engineering Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ns-01",
+        "kind": "text",
+        "text": "Northstar Analytics is seeking a Software Engineering Intern to join our cloud data infrastructure team.",
+        "contextGroup": "post-dev-002:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "ns-02",
+          "kind": "text",
+          "text": "You will design scalable ETL pipelines, write unit and integration tests, and collaborate with data scientists on telemetry.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary vacancy text without immigration content.",
+      "tags": [
+        "no-policy-dev"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "8c6770c8100edfd7d96daeca421c6750d97335e92d2f63566611f00276229998"
+    },
+    {
+      "id": "ctx-dev-033",
+      "postingId": "post-dev-002",
+      "employer": "Northstar Analytics",
+      "employerGroup": "northstar analytics",
+      "policyFamily": "northstar analytics",
+      "jobTitle": "Software Engineering Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ns-02",
+        "kind": "text",
+        "text": "You will design scalable ETL pipelines, write unit and integration tests, and collaborate with data scientists on telemetry.",
+        "contextGroup": "post-dev-002:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ns-01",
+          "kind": "text",
+          "text": "Northstar Analytics is seeking a Software Engineering Intern to join our cloud data infrastructure team.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ns-03",
+          "kind": "text",
+          "text": "Proficiency in Python or Go, familiarity with SQL, and current enrollment in a Computer Science degree are required.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary vacancy text without immigration content.",
+      "tags": [
+        "no-policy-dev"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "5723d23139d6ef84b25b0b40f6ef2c352aaf7651e4d3bfb68e7ce3736f09c942"
+    },
+    {
+      "id": "ctx-dev-034",
+      "postingId": "post-dev-002",
+      "employer": "Northstar Analytics",
+      "employerGroup": "northstar analytics",
+      "policyFamily": "northstar analytics",
+      "jobTitle": "Software Engineering Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ns-03",
+        "kind": "text",
+        "text": "Proficiency in Python or Go, familiarity with SQL, and current enrollment in a Computer Science degree are required.",
+        "contextGroup": "post-dev-002:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ns-02",
+          "kind": "text",
+          "text": "You will design scalable ETL pipelines, write unit and integration tests, and collaborate with data scientists on telemetry.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ns-04",
+          "kind": "text",
+          "text": "We offer comprehensive health benefits, mentor matching, and catered lunches in our Chicago office.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary vacancy text without immigration content.",
+      "tags": [
+        "no-policy-dev"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "a87fc5a084658382798a932f9ef13f011e81873f32f3ec687f33015cab23354f"
+    },
+    {
+      "id": "ctx-dev-035",
+      "postingId": "post-dev-002",
+      "employer": "Northstar Analytics",
+      "employerGroup": "northstar analytics",
+      "policyFamily": "northstar analytics",
+      "jobTitle": "Software Engineering Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ns-04",
+        "kind": "text",
+        "text": "We offer comprehensive health benefits, mentor matching, and catered lunches in our Chicago office.",
+        "contextGroup": "post-dev-002:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ns-03",
+          "kind": "text",
+          "text": "Proficiency in Python or Go, familiarity with SQL, and current enrollment in a Computer Science degree are required.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ns-05",
+          "kind": "text",
+          "text": "Applications close March 1st. Northstar is an equal opportunity employer.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary vacancy text without immigration content.",
+      "tags": [
+        "no-policy-dev"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "8ff4e2e4b9acd1c5162615f00556c2a45f353874267e58259362a4c26fe1c79b"
+    },
+    {
+      "id": "ctx-dev-036",
+      "postingId": "post-dev-002",
+      "employer": "Northstar Analytics",
+      "employerGroup": "northstar analytics",
+      "policyFamily": "northstar analytics",
+      "jobTitle": "Software Engineering Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ns-05",
+        "kind": "text",
+        "text": "Applications close March 1st. Northstar is an equal opportunity employer.",
+        "contextGroup": "post-dev-002:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ns-04",
+          "kind": "text",
+          "text": "We offer comprehensive health benefits, mentor matching, and catered lunches in our Chicago office.",
+          "contextGroup": "post-dev-002:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary vacancy text without immigration content.",
+      "tags": [
+        "no-policy-dev"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "c8c8024dec13418c9eafd5d1c4f9516f6c083141d2f966e87afe347225b23392"
+    },
+    {
+      "id": "ctx-dev-037",
+      "postingId": "post-dev-003",
+      "employer": "Harbor Robotics",
+      "employerGroup": "harbor robotics",
+      "policyFamily": "harbor robotics",
+      "jobTitle": "Autonomous Controls Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "hr-01",
+        "kind": "text",
+        "text": "Harbor Robotics develops autonomous marine navigation systems for commercial and naval vessels.",
+        "contextGroup": "post-dev-003:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "hr-02",
+          "kind": "text",
+          "text": "Interns will write C++ control algorithms, assist with simulation testing, and participate in dock trials.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Standard role qualifications or company overview.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "a121344ddbd1014d7babeeff41ef5454a29ad1db1565f579441727478eeec257"
+    },
+    {
+      "id": "ctx-dev-038",
+      "postingId": "post-dev-003",
+      "employer": "Harbor Robotics",
+      "employerGroup": "harbor robotics",
+      "policyFamily": "harbor robotics",
+      "jobTitle": "Autonomous Controls Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "hr-02",
+        "kind": "text",
+        "text": "Interns will write C++ control algorithms, assist with simulation testing, and participate in dock trials.",
+        "contextGroup": "post-dev-003:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "hr-01",
+          "kind": "text",
+          "text": "Harbor Robotics develops autonomous marine navigation systems for commercial and naval vessels.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "hr-03",
+          "kind": "text",
+          "text": "Applicants must possess strong mathematics fundamentals and working knowledge of Linux environments.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Standard role qualifications or company overview.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "d947d4180f7b2b21dda129e3ec12d2a81c5ee370656ef4e3e7f4c159956e6031"
+    },
+    {
+      "id": "ctx-dev-039",
+      "postingId": "post-dev-003",
+      "employer": "Harbor Robotics",
+      "employerGroup": "harbor robotics",
+      "policyFamily": "harbor robotics",
+      "jobTitle": "Autonomous Controls Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "hr-03",
+        "kind": "text",
+        "text": "Applicants must possess strong mathematics fundamentals and working knowledge of Linux environments.",
+        "contextGroup": "post-dev-003:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "hr-02",
+          "kind": "text",
+          "text": "Interns will write C++ control algorithms, assist with simulation testing, and participate in dock trials.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "hr-04",
+          "kind": "text",
+          "text": "U.S. citizenship is required for this position due to Department of Defense contract compliance.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Standard role qualifications or company overview.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "8a4a2b24831b5bc96832999811fee44033d338fcaed71bab43ab204eadd0551e"
+    },
+    {
+      "id": "ctx-dev-040",
+      "postingId": "post-dev-003",
+      "employer": "Harbor Robotics",
+      "employerGroup": "harbor robotics",
+      "policyFamily": "harbor robotics",
+      "jobTitle": "Autonomous Controls Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "hr-04",
+        "kind": "text",
+        "text": "U.S. citizenship is required for this position due to Department of Defense contract compliance.",
+        "contextGroup": "post-dev-003:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "hr-03",
+          "kind": "text",
+          "text": "Applicants must possess strong mathematics fundamentals and working knowledge of Linux environments.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "hr-05",
+          "kind": "text",
+          "text": "We provide competitive compensation, relocation stipends, and full medical coverage.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "relevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Citizenship requirement is relevant to eligibility but leaves sponsorship unclear under DECISION_LOGIC.md.",
+      "tags": [
+        "citizenship-blocker"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "2d773559be5e976de20a747d1e950dc9822463c66b6b24bac047d4b1f4cb5488"
+    },
+    {
+      "id": "ctx-dev-041",
+      "postingId": "post-dev-003",
+      "employer": "Harbor Robotics",
+      "employerGroup": "harbor robotics",
+      "policyFamily": "harbor robotics",
+      "jobTitle": "Autonomous Controls Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "hr-05",
+        "kind": "text",
+        "text": "We provide competitive compensation, relocation stipends, and full medical coverage.",
+        "contextGroup": "post-dev-003:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "hr-04",
+          "kind": "text",
+          "text": "U.S. citizenship is required for this position due to Department of Defense contract compliance.",
+          "contextGroup": "post-dev-003:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Standard role qualifications or company overview.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "b32cfab16554e453c8a193f3abfde8aee80cda65ce9bcc3a6433337fbdf654ff"
+    },
+    {
+      "id": "ctx-dev-042",
+      "postingId": "post-dev-004",
+      "employer": "Lakeview Systems",
+      "employerGroup": "lakeview systems",
+      "policyFamily": "lakeview systems",
+      "jobTitle": "Product Management Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ls-01",
+        "kind": "text",
+        "text": "Lakeview Systems is looking for a Summer Product Management Intern to support enterprise analytics tooling.",
+        "contextGroup": "post-dev-004:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "ls-02",
+          "kind": "text",
+          "text": "You will gather customer feedback, define user stories, and track feature velocity across agile sprints.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Event sponsorship and ordinary duties have no immigration relevance.",
+      "tags": [
+        "event-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "2a354c18db0ae41c489572c6709f9978b6a12be93a3fb2c125d7dddbe50caa44"
+    },
+    {
+      "id": "ctx-dev-043",
+      "postingId": "post-dev-004",
+      "employer": "Lakeview Systems",
+      "employerGroup": "lakeview systems",
+      "policyFamily": "lakeview systems",
+      "jobTitle": "Product Management Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ls-02",
+        "kind": "text",
+        "text": "You will gather customer feedback, define user stories, and track feature velocity across agile sprints.",
+        "contextGroup": "post-dev-004:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ls-01",
+          "kind": "text",
+          "text": "Lakeview Systems is looking for a Summer Product Management Intern to support enterprise analytics tooling.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ls-03",
+          "kind": "text",
+          "text": "Candidates should be enrolled in an undergraduate business, engineering, or design curriculum.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Event sponsorship and ordinary duties have no immigration relevance.",
+      "tags": [
+        "event-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "7237bcb336b1387a5dc5d9935b8b3b4e2853151cbc476d8b93ba51c42667b706"
+    },
+    {
+      "id": "ctx-dev-044",
+      "postingId": "post-dev-004",
+      "employer": "Lakeview Systems",
+      "employerGroup": "lakeview systems",
+      "policyFamily": "lakeview systems",
+      "jobTitle": "Product Management Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ls-03",
+        "kind": "text",
+        "text": "Candidates should be enrolled in an undergraduate business, engineering, or design curriculum.",
+        "contextGroup": "post-dev-004:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ls-02",
+          "kind": "text",
+          "text": "You will gather customer feedback, define user stories, and track feature velocity across agile sprints.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ls-04",
+          "kind": "text",
+          "text": "Our company proudly sponsors the annual community robotics competition and national youth hackathons.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Event sponsorship and ordinary duties have no immigration relevance.",
+      "tags": [
+        "event-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "c7576e50e626f16f0532b88b1db487fce7702eb494b8d2a866c0b5b253c19a23"
+    },
+    {
+      "id": "ctx-dev-045",
+      "postingId": "post-dev-004",
+      "employer": "Lakeview Systems",
+      "employerGroup": "lakeview systems",
+      "policyFamily": "lakeview systems",
+      "jobTitle": "Product Management Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ls-04",
+        "kind": "text",
+        "text": "Our company proudly sponsors the annual community robotics competition and national youth hackathons.",
+        "contextGroup": "post-dev-004:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ls-03",
+          "kind": "text",
+          "text": "Candidates should be enrolled in an undergraduate business, engineering, or design curriculum.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ls-05",
+          "kind": "text",
+          "text": "Lakeview offers hybrid flexibility, transit passes, and professional mentoring.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Event sponsorship and ordinary duties have no immigration relevance.",
+      "tags": [
+        "event-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "cfab3de17964ce29ee7a0ad11eb98feecf2f3e7975cd97c617625630fc656783"
+    },
+    {
+      "id": "ctx-dev-046",
+      "postingId": "post-dev-004",
+      "employer": "Lakeview Systems",
+      "employerGroup": "lakeview systems",
+      "policyFamily": "lakeview systems",
+      "jobTitle": "Product Management Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ls-05",
+        "kind": "text",
+        "text": "Lakeview offers hybrid flexibility, transit passes, and professional mentoring.",
+        "contextGroup": "post-dev-004:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ls-04",
+          "kind": "text",
+          "text": "Our company proudly sponsors the annual community robotics competition and national youth hackathons.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 3
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ls-06",
+          "kind": "text",
+          "text": "All applicants will be considered without regard to race, religion, gender, or disability.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 5
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Event sponsorship and ordinary duties have no immigration relevance.",
+      "tags": [
+        "event-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "19cf989c4db55d2cfd486e25e68b5dcce34c42182c09e36aa5381febb14a97f9"
+    },
+    {
+      "id": "ctx-dev-047",
+      "postingId": "post-dev-004",
+      "employer": "Lakeview Systems",
+      "employerGroup": "lakeview systems",
+      "policyFamily": "lakeview systems",
+      "jobTitle": "Product Management Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ls-06",
+        "kind": "text",
+        "text": "All applicants will be considered without regard to race, religion, gender, or disability.",
+        "contextGroup": "post-dev-004:visible",
+        "position": 5
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ls-05",
+          "kind": "text",
+          "text": "Lakeview offers hybrid flexibility, transit passes, and professional mentoring.",
+          "contextGroup": "post-dev-004:visible",
+          "position": 4
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Event sponsorship and ordinary duties have no immigration relevance.",
+      "tags": [
+        "event-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "8ad623ae566a14e9480e1492b4a076dcc816115eb019a726369a8a0d3968402f"
+    },
+    {
+      "id": "ctx-dev-048",
+      "postingId": "post-dev-005",
+      "employer": "Pine Labs",
+      "employerGroup": "pine labs",
+      "policyFamily": "pine labs",
+      "jobTitle": "Data Science Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "pl-01",
+        "kind": "text",
+        "text": "Pine Labs is hiring a Data Science Intern for our retail intelligence platform.",
+        "contextGroup": "post-dev-005:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "pl-02",
+          "kind": "text",
+          "text": "You will train regression models, clean transaction datasets, and present findings to product stakeholders.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Academic and skill qualifications have no immigration relevance.",
+      "tags": [
+        "academic-boundary"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "a4c87dccad999de51de9a939352a9ef4c7e2ed91208efcc3b30a06fc6bda1ad5"
+    },
+    {
+      "id": "ctx-dev-049",
+      "postingId": "post-dev-005",
+      "employer": "Pine Labs",
+      "employerGroup": "pine labs",
+      "policyFamily": "pine labs",
+      "jobTitle": "Data Science Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "pl-02",
+        "kind": "text",
+        "text": "You will train regression models, clean transaction datasets, and present findings to product stakeholders.",
+        "contextGroup": "post-dev-005:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "pl-01",
+          "kind": "text",
+          "text": "Pine Labs is hiring a Data Science Intern for our retail intelligence platform.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "pl-03",
+          "kind": "text",
+          "text": "Candidates must be enrolled in an accredited bachelor's or master's degree program in Statistics or CS.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Academic and skill qualifications have no immigration relevance.",
+      "tags": [
+        "academic-boundary"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "e416f49c660e19a420f152ba17cbd7c4f5795f5c4bb759f90b2c70acc7bf5e57"
+    },
+    {
+      "id": "ctx-dev-050",
+      "postingId": "post-dev-005",
+      "employer": "Pine Labs",
+      "employerGroup": "pine labs",
+      "policyFamily": "pine labs",
+      "jobTitle": "Data Science Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "pl-03",
+        "kind": "text",
+        "text": "Candidates must be enrolled in an accredited bachelor's or master's degree program in Statistics or CS.",
+        "contextGroup": "post-dev-005:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "pl-02",
+          "kind": "text",
+          "text": "You will train regression models, clean transaction datasets, and present findings to product stakeholders.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "pl-04",
+          "kind": "text",
+          "text": "Familiarity with scikit-learn, Pandas, and distributed query engines such as Presto is desired.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Academic and skill qualifications have no immigration relevance.",
+      "tags": [
+        "academic-boundary"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "e0890180d8cebe662c2f8d28bae3a2f98b88330648419e83d8ab24800d36061a"
+    },
+    {
+      "id": "ctx-dev-051",
+      "postingId": "post-dev-005",
+      "employer": "Pine Labs",
+      "employerGroup": "pine labs",
+      "policyFamily": "pine labs",
+      "jobTitle": "Data Science Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "pl-04",
+        "kind": "text",
+        "text": "Familiarity with scikit-learn, Pandas, and distributed query engines such as Presto is desired.",
+        "contextGroup": "post-dev-005:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "pl-03",
+          "kind": "text",
+          "text": "Candidates must be enrolled in an accredited bachelor's or master's degree program in Statistics or CS.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "pl-05",
+          "kind": "text",
+          "text": "We offer weekly tech talks, competitive hourly pay, and dedicated mentorship from senior researchers.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Academic and skill qualifications have no immigration relevance.",
+      "tags": [
+        "academic-boundary"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "34b55a80eeb76269f32ac5178ae5d29efccdd53d313c0c0e4ed45746780dbbb6"
+    },
+    {
+      "id": "ctx-dev-052",
+      "postingId": "post-dev-005",
+      "employer": "Pine Labs",
+      "employerGroup": "pine labs",
+      "policyFamily": "pine labs",
+      "jobTitle": "Data Science Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "pl-05",
+        "kind": "text",
+        "text": "We offer weekly tech talks, competitive hourly pay, and dedicated mentorship from senior researchers.",
+        "contextGroup": "post-dev-005:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "pl-04",
+          "kind": "text",
+          "text": "Familiarity with scikit-learn, Pandas, and distributed query engines such as Presto is desired.",
+          "contextGroup": "post-dev-005:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Academic and skill qualifications have no immigration relevance.",
+      "tags": [
+        "academic-boundary"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "2d3aee69fcbb1f2d8342b72e1a001a4f2012af12889e9929545088b590792464"
+    },
+    {
+      "id": "ctx-dev-053",
+      "postingId": "post-dev-006",
+      "employer": "Aspen AI",
+      "employerGroup": "aspen ai",
+      "policyFamily": "aspen ai",
+      "jobTitle": "Machine Learning Research Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "aa-01",
+        "kind": "text",
+        "text": "Aspen AI conducts foundational research into multi-modal transformer architectures.",
+        "contextGroup": "post-dev-006:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "aa-02",
+          "kind": "text",
+          "text": "Interns will implement novel attention mechanisms, evaluate scaling benchmarks, and author scientific papers.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary research duties or qualification.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "f4dd47daa11510cd0874e717267692db179a58416dc280eee30f159e51bd35e4"
+    },
+    {
+      "id": "ctx-dev-054",
+      "postingId": "post-dev-006",
+      "employer": "Aspen AI",
+      "employerGroup": "aspen ai",
+      "policyFamily": "aspen ai",
+      "jobTitle": "Machine Learning Research Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "aa-02",
+        "kind": "text",
+        "text": "Interns will implement novel attention mechanisms, evaluate scaling benchmarks, and author scientific papers.",
+        "contextGroup": "post-dev-006:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "aa-01",
+          "kind": "text",
+          "text": "Aspen AI conducts foundational research into multi-modal transformer architectures.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "aa-03",
+          "kind": "text",
+          "text": "Applicants should have published research or equivalent open-source contributions in generative modeling.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary research duties or qualification.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "32ddb5bcd94e5a662f6914423a2a1f76c50d12f8567a6e41e3cf67b0a8b030b5"
+    },
+    {
+      "id": "ctx-dev-055",
+      "postingId": "post-dev-006",
+      "employer": "Aspen AI",
+      "employerGroup": "aspen ai",
+      "policyFamily": "aspen ai",
+      "jobTitle": "Machine Learning Research Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "aa-03",
+        "kind": "text",
+        "text": "Applicants should have published research or equivalent open-source contributions in generative modeling.",
+        "contextGroup": "post-dev-006:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "aa-02",
+          "kind": "text",
+          "text": "Interns will implement novel attention mechanisms, evaluate scaling benchmarks, and author scientific papers.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "aa-04",
+          "kind": "text",
+          "text": "Visa sponsorship is available for this position.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary research duties or qualification.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "113de87814d18d06942523ef6467b0d273d0d4825b2b766167e197640fa0339e"
+    },
+    {
+      "id": "ctx-dev-056",
+      "postingId": "post-dev-006",
+      "employer": "Aspen AI",
+      "employerGroup": "aspen ai",
+      "policyFamily": "aspen ai",
+      "jobTitle": "Machine Learning Research Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "aa-04",
+        "kind": "text",
+        "text": "Visa sponsorship is available for this position.",
+        "contextGroup": "post-dev-006:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "aa-03",
+          "kind": "text",
+          "text": "Applicants should have published research or equivalent open-source contributions in generative modeling.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "aa-05",
+          "kind": "text",
+          "text": "We offer competitive compensation, comprehensive benefits, and computing clusters powered by H100 GPUs.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "relevant",
+        "scope": "role",
+        "sponsorship": "available",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Explicit statement that visa sponsorship is available for this role.",
+      "tags": [
+        "dev-available"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "6e7dd0d462dcf8d27f3ac442b142ff050e7c2073e852ee5a8f8b50b2fa1e382e"
+    },
+    {
+      "id": "ctx-dev-057",
+      "postingId": "post-dev-006",
+      "employer": "Aspen AI",
+      "employerGroup": "aspen ai",
+      "policyFamily": "aspen ai",
+      "jobTitle": "Machine Learning Research Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "aa-05",
+        "kind": "text",
+        "text": "We offer competitive compensation, comprehensive benefits, and computing clusters powered by H100 GPUs.",
+        "contextGroup": "post-dev-006:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "aa-04",
+          "kind": "text",
+          "text": "Visa sponsorship is available for this position.",
+          "contextGroup": "post-dev-006:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Ordinary research duties or qualification.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "534b34369f994b7f6db8dab5965d9f4847415c225cb4a31d72bf6b98083f7a74"
+    },
+    {
+      "id": "ctx-dev-058",
+      "postingId": "post-dev-007",
+      "employer": "Aegis Aerospace",
+      "employerGroup": "aegis aerospace",
+      "policyFamily": "aegis aerospace",
+      "jobTitle": "Embedded Software Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ae-01",
+        "kind": "text",
+        "text": "Aegis Aerospace develops flight avionics for low-Earth orbit satellites.",
+        "contextGroup": "post-dev-007:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "ae-02",
+          "kind": "text",
+          "text": "Interns will write embedded C/C++ firmware, debug SPI/I2C communication buses, and support environmental testing.",
+          "contextGroup": "post-dev-007:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Technical duties or benefits.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "d712403a16a64540f1f2f5ef1ab65e94ee90dd55de740b9f45dcc62a3d5c6cfc"
+    },
+    {
+      "id": "ctx-dev-059",
+      "postingId": "post-dev-007",
+      "employer": "Aegis Aerospace",
+      "employerGroup": "aegis aerospace",
+      "policyFamily": "aegis aerospace",
+      "jobTitle": "Embedded Software Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ae-02",
+        "kind": "text",
+        "text": "Interns will write embedded C/C++ firmware, debug SPI/I2C communication buses, and support environmental testing.",
+        "contextGroup": "post-dev-007:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ae-01",
+          "kind": "text",
+          "text": "Aegis Aerospace develops flight avionics for low-Earth orbit satellites.",
+          "contextGroup": "post-dev-007:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ae-03",
+          "kind": "text",
+          "text": "Due to export control laws and ITAR compliance, candidates must be a U.S. Person (U.S. citizen or lawful permanent resident).",
+          "contextGroup": "post-dev-007:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Technical duties or benefits.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "bfeb042af529629f513ca1c436b6ba336f751f62c89235639bff934986541105"
+    },
+    {
+      "id": "ctx-dev-060",
+      "postingId": "post-dev-007",
+      "employer": "Aegis Aerospace",
+      "employerGroup": "aegis aerospace",
+      "policyFamily": "aegis aerospace",
+      "jobTitle": "Embedded Software Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ae-03",
+        "kind": "text",
+        "text": "Due to export control laws and ITAR compliance, candidates must be a U.S. Person (U.S. citizen or lawful permanent resident).",
+        "contextGroup": "post-dev-007:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ae-02",
+          "kind": "text",
+          "text": "Interns will write embedded C/C++ firmware, debug SPI/I2C communication buses, and support environmental testing.",
+          "contextGroup": "post-dev-007:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ae-04",
+          "kind": "text",
+          "text": "Must be currently enrolled in an accredited Aerospace, Electrical, or Computer Engineering degree program.",
+          "contextGroup": "post-dev-007:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "relevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "ITAR U.S.-person restriction is relevant to eligibility but sponsorship remains unclear.",
+      "tags": [
+        "export-control"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "d2fc4e0de94dcdc88efec0a56fe512eb5f296438e2f58cf5c77f19784fd37d21"
+    },
+    {
+      "id": "ctx-dev-061",
+      "postingId": "post-dev-007",
+      "employer": "Aegis Aerospace",
+      "employerGroup": "aegis aerospace",
+      "policyFamily": "aegis aerospace",
+      "jobTitle": "Embedded Software Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ae-04",
+        "kind": "text",
+        "text": "Must be currently enrolled in an accredited Aerospace, Electrical, or Computer Engineering degree program.",
+        "contextGroup": "post-dev-007:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ae-03",
+          "kind": "text",
+          "text": "Due to export control laws and ITAR compliance, candidates must be a U.S. Person (U.S. citizen or lawful permanent resident).",
+          "contextGroup": "post-dev-007:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "ae-05",
+          "kind": "text",
+          "text": "Benefits include housing stipends, wellness programs, and hands-on lab experience.",
+          "contextGroup": "post-dev-007:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Technical duties or benefits.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "0f6f8fc852d2aa8eb9aa37678d919bc3f3a278df641eb23cbe4dbb1f4dae0eb4"
+    },
+    {
+      "id": "ctx-dev-062",
+      "postingId": "post-dev-007",
+      "employer": "Aegis Aerospace",
+      "employerGroup": "aegis aerospace",
+      "policyFamily": "aegis aerospace",
+      "jobTitle": "Embedded Software Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "ae-05",
+        "kind": "text",
+        "text": "Benefits include housing stipends, wellness programs, and hands-on lab experience.",
+        "contextGroup": "post-dev-007:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "ae-04",
+          "kind": "text",
+          "text": "Must be currently enrolled in an accredited Aerospace, Electrical, or Computer Engineering degree program.",
+          "contextGroup": "post-dev-007:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Technical duties or benefits.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "d53e8fe9609e67c2fd3c6a274178e41a894ba4bbde1e395f47657ccb351ea577"
+    },
+    {
+      "id": "ctx-dev-063",
+      "postingId": "post-dev-008",
+      "employer": "Copper Bank",
+      "employerGroup": "copper bank",
+      "policyFamily": "copper bank",
+      "jobTitle": "Quantitative Analyst Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "cb-01",
+        "kind": "text",
+        "text": "Copper Bank is seeking Quantitative Analyst Interns for our electronic market making desk.",
+        "contextGroup": "post-dev-008:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "cb-02",
+          "kind": "text",
+          "text": "You will build statistical arbitrage signals, backtest intraday alpha, and analyze tick-by-tick order books.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Quantitative duties or requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "8bd886e4f19e93a77b463dc6e5131bda3778e72963f393bbe37f6d5a710c744a"
+    },
+    {
+      "id": "ctx-dev-064",
+      "postingId": "post-dev-008",
+      "employer": "Copper Bank",
+      "employerGroup": "copper bank",
+      "policyFamily": "copper bank",
+      "jobTitle": "Quantitative Analyst Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "cb-02",
+        "kind": "text",
+        "text": "You will build statistical arbitrage signals, backtest intraday alpha, and analyze tick-by-tick order books.",
+        "contextGroup": "post-dev-008:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "cb-01",
+          "kind": "text",
+          "text": "Copper Bank is seeking Quantitative Analyst Interns for our electronic market making desk.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "cb-03",
+          "kind": "text",
+          "text": "Advanced coursework in probability, linear algebra, and high-performance C++ is required.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Quantitative duties or requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "f04a62bca9dc27e6d3fb05d239707af742d9a5487c06609b9d66caff74bcf0cd"
+    },
+    {
+      "id": "ctx-dev-065",
+      "postingId": "post-dev-008",
+      "employer": "Copper Bank",
+      "employerGroup": "copper bank",
+      "policyFamily": "copper bank",
+      "jobTitle": "Quantitative Analyst Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "cb-03",
+        "kind": "text",
+        "text": "Advanced coursework in probability, linear algebra, and high-performance C++ is required.",
+        "contextGroup": "post-dev-008:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "cb-02",
+          "kind": "text",
+          "text": "You will build statistical arbitrage signals, backtest intraday alpha, and analyze tick-by-tick order books.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "cb-04",
+          "kind": "text",
+          "text": "We are unable to provide visa sponsorship now or in the future for this position.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Quantitative duties or requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "30b81c0b567c5a4c97aca90792fdd83965425c2202535a404afbdc03aa104cab"
+    },
+    {
+      "id": "ctx-dev-066",
+      "postingId": "post-dev-008",
+      "employer": "Copper Bank",
+      "employerGroup": "copper bank",
+      "policyFamily": "copper bank",
+      "jobTitle": "Quantitative Analyst Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "cb-04",
+        "kind": "text",
+        "text": "We are unable to provide visa sponsorship now or in the future for this position.",
+        "contextGroup": "post-dev-008:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "cb-03",
+          "kind": "text",
+          "text": "Advanced coursework in probability, linear algebra, and high-performance C++ is required.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "cb-05",
+          "kind": "text",
+          "text": "Compensation is highly competitive and includes catered breakfast and lunch.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "relevant",
+        "scope": "role",
+        "sponsorship": "unavailable",
+        "timing": "now-and-future",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Explicit refusal stating sponsorship is unavailable now or in the future.",
+      "tags": [
+        "dev-refusal",
+        "timing-now-and-future"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "327d376a67de72a3b117b836f18ffe98f622969e58e90872fcbdefd258f81a66"
+    },
+    {
+      "id": "ctx-dev-067",
+      "postingId": "post-dev-008",
+      "employer": "Copper Bank",
+      "employerGroup": "copper bank",
+      "policyFamily": "copper bank",
+      "jobTitle": "Quantitative Analyst Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "cb-05",
+        "kind": "text",
+        "text": "Compensation is highly competitive and includes catered breakfast and lunch.",
+        "contextGroup": "post-dev-008:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "cb-04",
+          "kind": "text",
+          "text": "We are unable to provide visa sponsorship now or in the future for this position.",
+          "contextGroup": "post-dev-008:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Quantitative duties or requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "ed40aeccb233d9eeed7e6f0ce39fab9a5ac34f122df4c946465607c15a51ffbd"
+    },
+    {
+      "id": "ctx-dev-068",
+      "postingId": "post-dev-009",
+      "employer": "Voyager Research",
+      "employerGroup": "voyager research",
+      "policyFamily": "voyager research",
+      "jobTitle": "Bio-Computational Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "vr-01",
+        "kind": "text",
+        "text": "Voyager Research investigates high-throughput genomic variant calling pipelines.",
+        "contextGroup": "post-dev-009:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "vr-02",
+          "kind": "text",
+          "text": "Interns will optimize sequence alignment algorithms and analyze whole-genome sequencing outputs.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Genomics duties or compensation details.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "3d0467c5e1d0ce2ca56f3049b5c5ec995e7d94ea3bc26c94fc47983c8c030fed"
+    },
+    {
+      "id": "ctx-dev-069",
+      "postingId": "post-dev-009",
+      "employer": "Voyager Research",
+      "employerGroup": "voyager research",
+      "policyFamily": "voyager research",
+      "jobTitle": "Bio-Computational Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "vr-02",
+        "kind": "text",
+        "text": "Interns will optimize sequence alignment algorithms and analyze whole-genome sequencing outputs.",
+        "contextGroup": "post-dev-009:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "vr-01",
+          "kind": "text",
+          "text": "Voyager Research investigates high-throughput genomic variant calling pipelines.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "vr-03",
+          "kind": "text",
+          "text": "Required qualifications include proficiency in Rust or C++ and familiarity with genomics file formats.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Genomics duties or compensation details.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "4eb2eb94f521f964a3cb89d82c829b6dc40b5dfdc05dfb926eef3f0c947b6a06"
+    },
+    {
+      "id": "ctx-dev-070",
+      "postingId": "post-dev-009",
+      "employer": "Voyager Research",
+      "employerGroup": "voyager research",
+      "policyFamily": "voyager research",
+      "jobTitle": "Bio-Computational Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "vr-03",
+        "kind": "text",
+        "text": "Required qualifications include proficiency in Rust or C++ and familiarity with genomics file formats.",
+        "contextGroup": "post-dev-009:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "vr-02",
+          "kind": "text",
+          "text": "Interns will optimize sequence alignment algorithms and analyze whole-genome sequencing outputs.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "vr-04",
+          "kind": "text",
+          "text": "Visa sponsorship may be considered for exceptional candidates with specialized bioinformatics backgrounds.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Genomics duties or compensation details.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "02b80dde5f352d0ef3bea5b2d8b6e5a48b79f95d400037a1340946c77af17b07"
+    },
+    {
+      "id": "ctx-dev-071",
+      "postingId": "post-dev-009",
+      "employer": "Voyager Research",
+      "employerGroup": "voyager research",
+      "policyFamily": "voyager research",
+      "jobTitle": "Bio-Computational Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "vr-04",
+        "kind": "text",
+        "text": "Visa sponsorship may be considered for exceptional candidates with specialized bioinformatics backgrounds.",
+        "contextGroup": "post-dev-009:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "vr-03",
+          "kind": "text",
+          "text": "Required qualifications include proficiency in Rust or C++ and familiarity with genomics file formats.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "vr-05",
+          "kind": "text",
+          "text": "We provide comprehensive health coverage, relocation assistance, and conference travel grants.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "relevant",
+        "scope": "role",
+        "sponsorship": "conditional",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Stated condition under which vacancy may provide sponsorship for exceptional candidates.",
+      "tags": [
+        "dev-conditional"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "3ba41a12c500e093ff48b4851066f66f34143f3928cec035ec0f0fffda17225f"
+    },
+    {
+      "id": "ctx-dev-072",
+      "postingId": "post-dev-009",
+      "employer": "Voyager Research",
+      "employerGroup": "voyager research",
+      "policyFamily": "voyager research",
+      "jobTitle": "Bio-Computational Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "vr-05",
+        "kind": "text",
+        "text": "We provide comprehensive health coverage, relocation assistance, and conference travel grants.",
+        "contextGroup": "post-dev-009:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "vr-04",
+          "kind": "text",
+          "text": "Visa sponsorship may be considered for exceptional candidates with specialized bioinformatics backgrounds.",
+          "contextGroup": "post-dev-009:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Genomics duties or compensation details.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "f7a991709bddeb33b594cc71c273265fc10a60c78705874ccc87e5086c5010e1"
+    },
+    {
+      "id": "ctx-dev-073",
+      "postingId": "post-dev-010",
+      "employer": "Elm Networks",
+      "employerGroup": "elm networks",
+      "policyFamily": "elm networks",
+      "jobTitle": "Cloud Infrastructure Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "en-01",
+        "kind": "text",
+        "text": "Elm Networks manages software-defined global transit networks for enterprise customers.",
+        "contextGroup": "post-dev-010:visible",
+        "position": 0
+      },
+      "context": {
+        "previousStatus": "boundary",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "en-02",
+          "kind": "text",
+          "text": "You will automate BGP peering sessions, build telemetry monitoring dashboards, and write Go microservices.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 1
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Networking infrastructure duties and requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "fa4da5927c5337fdbc1d908a96c3b78b4044d1966c37a43f37793a7dd2b9a9ed"
+    },
+    {
+      "id": "ctx-dev-074",
+      "postingId": "post-dev-010",
+      "employer": "Elm Networks",
+      "employerGroup": "elm networks",
+      "policyFamily": "elm networks",
+      "jobTitle": "Cloud Infrastructure Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "en-02",
+        "kind": "text",
+        "text": "You will automate BGP peering sessions, build telemetry monitoring dashboards, and write Go microservices.",
+        "contextGroup": "post-dev-010:visible",
+        "position": 1
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "en-01",
+          "kind": "text",
+          "text": "Elm Networks manages software-defined global transit networks for enterprise customers.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 0
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "en-03",
+          "kind": "text",
+          "text": "Candidates should have strong TCP/IP networking fundamentals and familiarity with Linux kernel networking.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 2
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Networking infrastructure duties and requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "673a5afe6cc166b4252cdd31d76b819aba19e751ed3878e6b448056f1d7b0689"
+    },
+    {
+      "id": "ctx-dev-075",
+      "postingId": "post-dev-010",
+      "employer": "Elm Networks",
+      "employerGroup": "elm networks",
+      "policyFamily": "elm networks",
+      "jobTitle": "Cloud Infrastructure Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "en-03",
+        "kind": "text",
+        "text": "Candidates should have strong TCP/IP networking fundamentals and familiarity with Linux kernel networking.",
+        "contextGroup": "post-dev-010:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "en-02",
+          "kind": "text",
+          "text": "You will automate BGP peering sessions, build telemetry monitoring dashboards, and write Go microservices.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 1
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "en-04",
+          "kind": "text",
+          "text": "CPT and OPT eligible candidates are welcome to apply; however, future visa sponsorship is not available.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Networking infrastructure duties and requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "f5c6d4a61e7e67d7eb4a036f6ba23fcd625cecf5a48a1ce34c5c1c2e8edf8f5d"
+    },
+    {
+      "id": "ctx-dev-076",
+      "postingId": "post-dev-010",
+      "employer": "Elm Networks",
+      "employerGroup": "elm networks",
+      "policyFamily": "elm networks",
+      "jobTitle": "Cloud Infrastructure Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "en-04",
+        "kind": "text",
+        "text": "CPT and OPT eligible candidates are welcome to apply; however, future visa sponsorship is not available.",
+        "contextGroup": "post-dev-010:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "en-03",
+          "kind": "text",
+          "text": "Candidates should have strong TCP/IP networking fundamentals and familiarity with Linux kernel networking.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "en-05",
+          "kind": "text",
+          "text": "Elm Networks is an affirmative action employer offering medical, dental, and retirement benefits.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "relevant",
+        "scope": "role",
+        "sponsorship": "unavailable",
+        "timing": "future",
+        "cpt": "explicitly-accepted",
+        "opt": "explicitly-accepted"
+      },
+      "rationale": "CPT and OPT are explicitly accepted, but future sponsorship is explicitly unavailable.",
+      "tags": [
+        "cpt-accepted",
+        "opt-accepted",
+        "future-refusal"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "f3c0338352c5565b291c200ba108fde7620457f1d6b18d0e6ce52c3a7ef91c2f"
+    },
+    {
+      "id": "ctx-dev-077",
+      "postingId": "post-dev-010",
+      "employer": "Elm Networks",
+      "employerGroup": "elm networks",
+      "policyFamily": "elm networks",
+      "jobTitle": "Cloud Infrastructure Intern",
+      "country": "United States",
+      "coverage": "complete",
+      "split": "development",
+      "target": {
+        "id": "en-05",
+        "kind": "text",
+        "text": "Elm Networks is an affirmative action employer offering medical, dental, and retirement benefits.",
+        "contextGroup": "post-dev-010:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "en-04",
+          "kind": "text",
+          "text": "CPT and OPT eligible candidates are welcome to apply; however, future visa sponsorship is not available.",
+          "contextGroup": "post-dev-010:visible",
+          "position": 3
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Networking infrastructure duties and requirements.",
+      "tags": [
+        "dev-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "08423763d57b841032fa2b352a5e8f057838e131049e83f9c7722bf2d875734d"
+    },
+    {
+      "id": "ctx-dev-078",
+      "postingId": "post-dev-011",
+      "employer": "Granite Defense",
+      "employerGroup": "granite defense",
+      "policyFamily": "granite defense",
+      "jobTitle": "Avionics Software Intern",
+      "country": "United States",
+      "coverage": "incomplete",
+      "split": "development",
+      "target": {
+        "id": "gd-01",
+        "kind": "text",
+        "text": "Maintain legacy Ada flight controls.",
+        "contextGroup": "post-dev-011:visible",
+        "position": 2
+      },
+      "context": {
+        "previousStatus": "missing",
+        "previous": null,
+        "nextStatus": "present",
+        "next": {
+          "id": "gd-02",
+          "kind": "text",
+          "text": "Participate in sprint retrospectives.",
+          "contextGroup": "post-dev-011:visible",
+          "position": 3
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Incomplete extraction challenge block.",
+      "tags": [
+        "challenge-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "170a6117e51a42fb965838f15bcc68b21744a83411308ac0fb835a023ae06df5"
+    },
+    {
+      "id": "ctx-dev-079",
+      "postingId": "post-dev-011",
+      "employer": "Granite Defense",
+      "employerGroup": "granite defense",
+      "policyFamily": "granite defense",
+      "jobTitle": "Avionics Software Intern",
+      "country": "United States",
+      "coverage": "incomplete",
+      "split": "development",
+      "target": {
+        "id": "gd-02",
+        "kind": "text",
+        "text": "Participate in sprint retrospectives.",
+        "contextGroup": "post-dev-011:visible",
+        "position": 3
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "gd-01",
+          "kind": "text",
+          "text": "Maintain legacy Ada flight controls.",
+          "contextGroup": "post-dev-011:visible",
+          "position": 2
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "gd-03",
+          "kind": "text",
+          "text": "U.S. citizenship is required.",
+          "contextGroup": "post-dev-011:visible",
+          "position": 4
+        }
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Incomplete extraction challenge block.",
+      "tags": [
+        "challenge-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "58bd2389cda64c8b1283474756e1a0c1100c37962ad5ed3cabfcb15acb1fc8c3"
+    },
+    {
+      "id": "ctx-dev-080",
+      "postingId": "post-dev-011",
+      "employer": "Granite Defense",
+      "employerGroup": "granite defense",
+      "policyFamily": "granite defense",
+      "jobTitle": "Avionics Software Intern",
+      "country": "United States",
+      "coverage": "incomplete",
+      "split": "development",
+      "target": {
+        "id": "gd-03",
+        "kind": "text",
+        "text": "U.S. citizenship is required.",
+        "contextGroup": "post-dev-011:visible",
+        "position": 4
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "gd-02",
+          "kind": "text",
+          "text": "Participate in sprint retrospectives.",
+          "contextGroup": "post-dev-011:visible",
+          "position": 3
+        },
+        "nextStatus": "present",
+        "next": {
+          "id": "gd-04",
+          "kind": "text",
+          "text": "Competitive hourly rate.",
+          "contextGroup": "post-dev-011:visible",
+          "position": 5
+        }
+      },
+      "gold": {
+        "relevance": "relevant",
+        "scope": "role",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Citizenship requirement, but extraction is incomplete.",
+      "tags": [
+        "challenge-missing-context"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "1e8b0d6a18c2da6da850cc42cd8aec13c41825598b2c38add16cad81fcfd9f14"
+    },
+    {
+      "id": "ctx-dev-081",
+      "postingId": "post-dev-011",
+      "employer": "Granite Defense",
+      "employerGroup": "granite defense",
+      "policyFamily": "granite defense",
+      "jobTitle": "Avionics Software Intern",
+      "country": "United States",
+      "coverage": "incomplete",
+      "split": "development",
+      "target": {
+        "id": "gd-04",
+        "kind": "text",
+        "text": "Competitive hourly rate.",
+        "contextGroup": "post-dev-011:visible",
+        "position": 5
+      },
+      "context": {
+        "previousStatus": "present",
+        "previous": {
+          "id": "gd-03",
+          "kind": "text",
+          "text": "U.S. citizenship is required.",
+          "contextGroup": "post-dev-011:visible",
+          "position": 4
+        },
+        "nextStatus": "boundary",
+        "next": null
+      },
+      "gold": {
+        "relevance": "irrelevant",
+        "scope": "none",
+        "sponsorship": "unclear",
+        "timing": "unspecified",
+        "cpt": "unclear",
+        "opt": "unclear"
+      },
+      "rationale": "Incomplete extraction challenge block.",
+      "tags": [
+        "challenge-negative"
+      ],
+      "reviewState": "assistant-reviewed",
+      "reviewer": "assistant-contextual-curator",
+      "reviewedAt": "2026-10-10",
+      "evidenceSha256": "657a3d5a64f2c700f2e047aed82b13608d5f12320ee498d590148ad6c218b732"
+    }
+  ]
+}

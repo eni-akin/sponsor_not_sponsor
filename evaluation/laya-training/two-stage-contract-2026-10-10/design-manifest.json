@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "designVersion": "two-stage-design-2026-10-10",
+  "createdAt": "2026-10-10",
+  "timezone": "America/Chicago",
+  "repositoryBaseline": "2b78783",
+  "status": "design-complete",
+  "tasks": {
+    "1": "design-complete",
+    "2": "design-complete",
+    "3": "design-complete",
+    "4": "design-complete",
+    "5": "design-complete",
+    "6": "runbook-only",
+    "7": "not-started"
+  },
+  "trainingReady": false,
+  "modelQualityGates": "unmeasured",
+  "authors": {
+    "screeningContext": "gpt-5.6-sol",
+    "transportProjection": "gpt-5.6-sol",
+    "acceptance": "gpt-5.6-sol",
+    "orchestrator": "primary-agent"
+  },
+  "artifacts": [
+    {
+      "path": "evaluation/laya-training/TWO-STAGE-SCREENING-CONTEXT-2026-10-10.md",
+      "sha256": "90364151c5bfdd6119f9408a37b251d0b4eb636fe0f00539a8dde3a4a9b473ca"
+    },
+    {
+      "path": "evaluation/laya-training/TWO-STAGE-V2-CONTRACT-2026-10-10.md",
+      "sha256": "76a09ef969199f5bff0d172ba52dcdffec7f0f5802e12b9527dcbd306e1ec442"
+    },
+    {
+      "path": "evaluation/laya-training/TWO-STAGE-ACCEPTANCE-2026-10-10.md",
+      "sha256": "57e6c51ed501916af6432600cf0fcfdae5d3ba284ac45f81078ce83bc1157432"
+    },
+    {
+      "path": "evaluation/laya-training/TWO-STAGE-DETAILED-PLAN-2026-10-10.md",
+      "sha256": "645e607dcaf1946e3f04c3339b72efa89e18c6bf7c070164a7a03fcd4b66b87a"
+    },
+    {
+      "path": "evaluation/laya-training/TWO-STAGE-TASK-6-AGENT-RUNBOOK-2026-10-10.md",
+      "sha256": "396dbe1202e2a3f60e75f5f9a1250a6384edcbac07c2504822524d3d8ecad883"
+    },
+    {
+      "path": "evaluation/laya-training/TWO-STAGE-DESIGN-REVIEW-2026-10-10.md",
+      "sha256": "473ed5cdcea77ebcd5b0efbaac308c827d89128631a296750570ce204499c631"
+    },
+    {
+      "path": "evaluation/laya-training/two-stage-contract-2026-10-10/screening-context-fixtures.json",
+      "sha256": "7d34d422e8ee2ab59df16a7cbe2a84895ee1fadf038f36d5731bbe2e1490b8e9"
+    },
+    {
+      "path": "evaluation/laya-training/two-stage-contract-2026-10-10/transport-fixtures.json",
+      "sha256": "47568d1a3b88dfde7187e47c0ba729075e82c52a182d711cb26473f23c4d190e"
+    },
+    {
+      "path": "evaluation/laya-training/two-stage-contract-2026-10-10/verify-design.mjs",
+      "sha256": "70e4328916a57813d38b3ae3eac7c136275978dab2d0d75e3c3aa94a93e5c0ec"
+    }
+  ],
+  "checks": {
+    "referenceVerifier": {
+      "command": "node evaluation/laya-training/two-stage-contract-2026-10-10/verify-design.mjs",
+      "passed": true,
+      "screeningFixtures": 32,
+      "reviewChallenges": 1,
+      "contextDerivationCases": 4,
+      "exactWtwMatches": 4,
+      "validTransportFixtures": 6,
+      "rejectedReferenceMutations": 18,
+      "productionV2ParserTested": false
+    },
+    "historicalDatasetIntegrity": {
+      "command": "python3 scripts/validate_laya_operational.py",
+      "passed": true,
+      "counts": {
+        "train": 87,
+        "calibration": 44,
+        "test": 12
+      }
+    },
+    "trackedWhitespaceCheck": {
+      "command": "git diff --check",
+      "passed": true
+    }
+  },
+  "scope": {
+    "runtimeChanged": false,
+    "frozenDatasetsChanged": false,
+    "checkpointsLoaded": false,
+    "weightUpdates": false,
+    "calibrationFitting": false,
+    "freshTestInference": false,
+    "serviceDefaultsChanged": false,
+    "promotionApproved": false
+  },
+  "limitations": [
+    "Authored fixtures and reference assertions verify design consistency, not implemented runtime behavior or model accuracy.",
+    "Actual contextual data, independent gold review, class support and hardware latency remain task 6 outputs.",
+    "Calibration thresholds must be chosen later from calibration only after weights and questions are locked."
+  ]
+}
