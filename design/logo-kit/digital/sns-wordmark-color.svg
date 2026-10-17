@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 256" role="img" aria-labelledby="sns-title"><title id="sns-title">SNS — custom wordmark</title><g fill="#29232E">
+    <path transform="translate(32 0)" d="M112 48 H48 Q0 48 0 92 V100 Q0 144 48 144 H64 Q80 144 80 160 V164 Q80 180 64 180 H16 L0 196 V208 H64 Q112 208 112 164 V156 Q112 116 64 116 H48 Q32 116 32 100 V92 Q32 76 48 76 H96 L112 60 Z"/>
+    <path d="M168 208 V48 H200 L264 158.85 V48 H296 V208 H264 L200 97.15 V208 Z"/>
+    <path transform="translate(320 0)" d="M112 48 H48 Q0 48 0 92 V100 Q0 144 48 144 H64 Q80 144 80 160 V164 Q80 180 64 180 H16 L0 196 V208 H64 Q112 208 112 164 V156 Q112 116 64 116 H48 Q32 116 32 100 V92 Q32 76 48 76 H96 L112 60 Z"/>
+  </g></svg>

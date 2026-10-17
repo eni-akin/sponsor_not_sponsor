@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sponsor Not Sponsor</title><link rel="stylesheet" href="popup.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sponsor Not Sponsor</title><link rel="icon" href="icons/icon-32.png"><link rel="stylesheet" href="popup.css"></head>
 <body>
-  <header><span class="eyebrow">SPONSOR NOT SPONSOR</span><h1>Know what the page says.</h1><p class="intro">Preview · Evidence from the job posting</p></header>
+  <header><img class="brand-logo" src="icons/logo.svg" width="112" height="41" alt="SNS — Sponsor Not Sponsor"><h1>Know what the page says.</h1><p class="intro">Preview · Evidence from the job posting</p></header>
   <main>
     <section id="onboarding" class="onboarding" aria-label="Welcome and privacy" hidden>
-      <h2>A quick introduction</h2><p>Website access lets the extension recognize jobs automatically. A small badge appears for a detected role; click it for the evidence.</p><p>Page scanning stays in your browser. Application answers and uploads are excluded. Optional Local Laya sends job passages to a decision service on this computer when enabled below.</p><p>You can dismiss a badge for the current role, pause scanning, or disable it for a site. If a badge is dismissed or cannot fit safely, use “Show on page” below.</p>
+      <h2>A quick introduction</h2><p>Website access lets the extension recognize jobs automatically. A small badge appears for a detected role; click it for the evidence.</p><p>Page scanning stays in your browser. Application answers and uploads are excluded.</p><p>You can dismiss a badge for the current role, pause scanning, or disable it for a site. If a badge is dismissed or cannot fit safely, use “Show on page” below.</p>
       <button id="onboarding-done" type="button">Got it</button><button id="onboarding-pause" class="secondary" type="button">Pause scanning for now</button>
     </section>
     <section class="status-card" aria-live="polite"><span id="status" class="status">Connecting…</span><h2 id="title">Reading the current page</h2><p id="metadata"></p></section>
@@ -14,20 +14,13 @@
     <p class="notice">Expand a finding to read its evidence. Findings describe page wording, not personal eligibility.</p>
     <details id="evidence-section" hidden><summary class="section-label"><span>All extracted page text</span><span id="count"></span></summary><div id="evidence"></div></details>
     <p id="feedback" role="status"></p>
-    <details class="decision-settings"><summary>Decision engine · Local Laya</summary>
-      <p>Compare the deterministic result with a separate local model result for sponsorship, CPT and OPT. The compact badge continues to use deterministic rules.</p>
-      <p>Enabling sends the extracted job passages, job title and employer to the decision service on this computer. Application answers and uploads are excluded. Inference runs offline after model setup. Job text is not written to disk; decisions are cached in service memory for up to 15 minutes. Turning this off stops new requests; an already-started request may finish.</p>
-      <label class="setting"><input id="decision-enabled" type="checkbox"> Use Local Laya (preview)</label>
-      <p>Requires the local decision service. Pending, unavailable and disabled states are shown beside the deterministic result. Laya does not evaluate citizenship, work authorization, export controls or other rule restrictions. This preview has not established real-world accuracy.</p>
-      <p id="decision-feedback" role="status"></p>
-    </details>
   </main>
   <footer>
     <div class="toolbar"><button id="rescan" type="button">Scan again</button><button id="show-panel" class="secondary" type="button" disabled>Show on page</button></div>
     <p id="scan-feedback" role="status"></p>
     <label class="setting"><input id="pause" type="checkbox"> Pause scanning everywhere</label>
     <label class="setting"><input id="disable-site" type="checkbox" disabled> Disable on <span id="hostname">this site</span></label>
-    <p class="privacy">Page scanning stays local. Optional Local Laya sends job passages to the local decision service when enabled. Preferences are saved locally.</p>
+    <p class="privacy">Page scanning stays in your browser. Preferences are saved locally.</p>
     <p class="help-links"><a href="help.html" target="_blank" rel="noopener">Help &amp; limitations</a><span aria-hidden="true"> · </span><a href="privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a></p>
   </footer>
   <script src="popup.js"></script>

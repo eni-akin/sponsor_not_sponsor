@@ -52,9 +52,26 @@ test('informational export licensing is contextual while a denied country-scoped
   assert.ok(scoped.result!.interpretation!.restrictions[0]!.citations.some(citation => /Cuba, Iran, North Korea, Syria/.test(citation.quote)));
   assert.match(mainDecision(scoped.result!.role!, scoped.result!.interpretation!).explanation, /country-scoped export-license obstacle/);
 });
-test('conditional offers keep their practical direction under V2 projection', () => {
+test('conditional offers keep their practical direction', () => {
   assert.equal(badgeState(snapshot('Sponsorship may be considered.'))?.label, 'Sponsorship stated');
   assert.equal(badgeState(snapshot('Visa sponsorship is unavailable unless an exception is approved.'))?.label, 'Sponsorship stated');
+});
+test('future refusal remains a blocker alongside current sponsorship availability', () => {
+  const value = snapshot('Visa sponsorship is available now. Visa sponsorship is not available in the future.');
+  assert.equal(value.result!.interpretation!.sponsorshipByTiming.now.status, 'available');
+  assert.equal(value.result!.interpretation!.sponsorshipByTiming.future.status, 'unavailable');
+  assert.equal(badgeState(value)?.label, 'Explicit blocker found');
+});
+test('unresolved CPT and OPT findings prevent an absence conclusion', () => {
+  for (const topic of ['CPT', 'OPT']) {
+    const value = snapshot(`${topic} applicants are welcome only with manager approval.`);
+    assert.equal(badgeState(value)?.label, 'Could not verify');
+  }
+});
+test('an independent OPT exclusion remains a blocker when sponsorship requires review', () => {
+  const value = snapshot('We do not accept OPT applicants.');
+  value.result!.interpretation!.sponsorship.requiresReview = true;
+  assert.equal(badgeState(value)?.label, 'Explicit blocker found');
 });
 test('incomplete scans cannot produce a definitive result', () => {
   const value = snapshot('Visa sponsorship is available.');
@@ -67,9 +84,20 @@ test('ordinary pages and disabled scans have no badge', () => {
   value.state = 'disabled'; assert.equal(badgeState(value), null);
   value.state = 'ready'; value.result!.role = null; value.result!.kind = 'non-job'; assert.equal(badgeState(value), null);
 });
-test('badge stays in the bottom-right corner', () => {
+test('badge prefers bottom-right when clear and requires room inside the viewport', () => {
   assert.deepEqual(badgePosition(300, 44, { width: 1000, height: 800 }), { left: 684, top: 740 });
   assert.equal(badgePosition(300, 44, { width: 310, height: 800 }), null);
+});
+test('floating UI chooses another corner when the preferred corner is occupied', () => {
+  const viewport = { width: 1000, height: 800 };
+  assert.deepEqual(badgePosition(300, 44, viewport, ({ left }) => left > 500 ? 1 : 0), { left: 16, top: 740 });
+  assert.deepEqual(badgePosition(300, 44, viewport, ({ top }) => top > 400 ? 1 : 0), { left: 684, top: 16 });
+  assert.deepEqual(badgePosition(300, 44, viewport, ({ left, top }) => left > 500 || top > 400 ? 1 : 0), { left: 16, top: 16 });
+});
+test('floating UI chooses least obstruction when every corner is occupied and breaks ties consistently', () => {
+  const viewport = { width: 1000, height: 800 };
+  assert.deepEqual(badgePosition(300, 44, viewport, ({ left, top }) => (left > 500 ? 2 : 0) + (top > 400 ? 1 : 0) + 1), { left: 16, top: 16 });
+  assert.deepEqual(badgePosition(300, 44, viewport, () => 1), { left: 684, top: 740 });
 });
 test('report includes cited findings but excludes URL secrets and unreferenced extraction', () => {
   const value = snapshot('Visa sponsorship is available.');
@@ -78,5 +106,6 @@ test('report includes cited findings but excludes URL secrets and unreferenced e
   assert.equal(result.sourceUrl, 'https://example.com/jobs/1');
   assert.ok(!JSON.stringify(result).includes('PRIVATE'));
   assert.ok(!('evidence' in result.role!));
+  assert.ok(!('decisionComparison' in result));
   assert.match(JSON.stringify(result.findings), /Visa sponsorship is available/);
 });

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>SNS — screen-size and theme proofs</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:40px;background:#f3f0ed;color:#29232e;font:16px system-ui,sans-serif}h1{margin:0 0 8px}p{line-height:1.5}h2{font-size:18px;margin:0 0 20px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{padding:28px;background:#fff;border-radius:16px;min-height:260px}.dark{background:#29232e;color:#fff8f2}.row{display:flex;align-items:flex-end;gap:28px;min-height:128px}.item{display:flex;flex-direction:column;align-items:flex-start;gap:12px}small{font-size:12px;color:#776b77}.dark small{color:#d3c5cd}.lock{display:flex;align-items:center;gap:24px;min-height:150px}.pixel{image-rendering:pixelated;width:128px;height:128px}.transforms{display:flex;align-items:center;gap:30px}.mirror{transform:scaleX(-1)}.rotate{transform:rotate(180deg)}.blur{filter:blur(2px)}img{display:block}footer{margin-top:24px;color:#6f6470}
+</style>
+<h1>SNS / Between — screen proofs</h1>
+<p>Real exported PNGs at native CSS sizes. SVG lockups at proposed minimum sizes. These are local previews, not an installed extension.</p>
+<main class="grid">
+  <section class="panel"><h2>Chrome assets / light surface</h2><div class="row">
+    <div class="item"><img src="chrome/icon-16.png" width="16" height="16" alt="16 px icon"><small>16 px / small cut</small></div>
+    <div class="item"><img src="chrome/icon-32.png" width="32" height="32" alt="32 px icon"><small>32 px / small cut</small></div>
+    <div class="item"><img src="chrome/icon-48.png" width="48" height="48" alt="48 px icon"><small>48 px</small></div>
+    <div class="item"><img src="chrome/icon-128.png" width="128" height="128" alt="128 px icon"><small>128 px</small></div>
+  </div></section>
+  <section class="panel dark"><h2>Chrome assets / dark surface</h2><div class="row">
+    <div class="item"><img src="chrome/icon-16.png" width="16" height="16" alt="16 px icon"><small>16 px</small></div>
+    <div class="item"><img src="chrome/icon-32.png" width="32" height="32" alt="32 px icon"><small>32 px</small></div>
+    <div class="item"><img src="chrome/icon-48.png" width="48" height="48" alt="48 px icon"><small>48 px</small></div>
+    <div class="item"><img src="chrome/icon-128.png" width="128" height="128" alt="128 px icon"><small>128 px</small></div>
+  </div></section>
+  <section class="panel"><h2>README / light</h2><div class="item"><img src="digital/sns-horizontal-color.svg" width="280" alt="SNS horizontal logo"><small>280 px recommended</small><img src="digital/sns-horizontal-color.svg" width="112" alt="SNS horizontal logo at minimum"><small>112 px minimum</small></div></section>
+  <section class="panel dark"><h2>README / dark</h2><div class="item"><img src="digital/sns-horizontal-dark.svg" width="280" alt="SNS dark horizontal logo"><small>280 px recommended</small><img src="digital/sns-horizontal-dark.svg" width="112" alt="SNS dark horizontal logo at minimum"><small>112 px minimum</small></div></section>
+  <section class="panel"><h2>Alternate lockups / minimum size</h2><div class="lock"><div class="item"><img src="digital/sns-stacked-color.svg" width="80" height="80" alt="Stacked logo at 80 px"><small>Stacked / 80 px</small></div><div class="item"><img src="digital/sns-wordmark-color.svg" width="64" alt="Wordmark at 64 px"><small>Wordmark / 64 px</small></div><div class="item"><img src="source/sns-symbol-small.svg" width="16" height="16" alt="Small mark"><small>Small / 16 px</small></div></div></section>
+  <section class="panel dark"><h2>Reversed / minimum size</h2><div class="lock"><div class="item"><img src="digital/sns-stacked-dark.svg" width="80" height="80" alt="Stacked dark logo at 80 px"><small>Stacked / 80 px</small></div><div class="item"><img src="source/sns-symbol-reversed.svg" width="32" height="32" alt="White symbol"><small>White / 32 px</small></div><div class="item"><img src="source/sns-symbol-small-light.svg" width="16" height="16" alt="Small light symbol"><small>Small light / 16 px</small></div></div></section>
+  <section class="panel"><h2>Pixel test / 16 px PNG enlarged 8×</h2><img class="pixel" src="chrome/icon-16.png" alt="Enlarged exported 16 px icon"></section>
+  <section class="panel dark"><h2>Pixel test / 16 px PNG enlarged 8×</h2><img class="pixel" src="chrome/icon-16.png" alt="Enlarged exported 16 px icon on dark"></section>
+  <section class="panel"><h2>Reading and silhouette checks</h2><div class="transforms"><img src="source/sns-symbol.svg" width="80" alt="Original"><img class="mirror" src="source/sns-symbol.svg" width="80" alt="Mirrored"><img class="rotate" src="source/sns-symbol.svg" width="80" alt="Rotated"><img class="blur" src="source/sns-symbol.svg" width="80" alt="Blurred"></div><p>Rotational symmetry is intentional.</p></section>
+  <section class="panel dark"><h2>Favicon / cross-theme tile</h2><div class="row"><div class="item"><img src="web/favicon-16.png" width="16" height="16" alt="Exported web favicon"><small>16 px web favicon</small></div><img src="web/favicon.svg" width="64" height="64" alt="SVG favicon"></div></section>
+</main>
+<footer>Black artwork must not be placed directly on dark surfaces. Use the approved light version or icon tile. Colours and lockups are prepared for owner review.</footer>
+</html>

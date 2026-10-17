@@ -16,13 +16,9 @@ const blocksTemporaryAuthorization = (text: string) =>
   || /\b(?:f-?1|j-?1|international students?|temporary visa|student visa)\b.{0,50}\b(?:not eligible|ineligible|excluded|not accepted|not permitted|not allowed)\b/i.test(text)
   || /\b(?:not eligible|ineligible|excluded|not accepted|not permitted|not allowed)\b.{0,50}\b(?:f-?1|j-?1|international students?|temporary visa|student visa)\b/i.test(text);
 
-/** Turn detailed evidence into the single practical answer shown to the user according to the V2 precedence rules. */
+/** Turn detailed evidence into the single practical answer shown to the user. */
 export function mainDecision(role: JobRecord, interpretation: Interpretation): MainDecision {
-  // Precedence 1: Pending/error service state, partial v2 processing, or incomplete extraction
-  if (interpretation.decision?.state === 'pending' || interpretation.decision?.state === 'error')
-    return result('could-not-verify', interpretation.decision.message);
-  if (interpretation.decision?.processingStatus === 'partial')
-    return result('could-not-verify', 'Local model processing was partial. Review the cited passages and original posting.', interpretation.sponsorship.citations);
+  // Incomplete extraction prevents a complete-vacancy verdict.
   if (role.completeness === 'incomplete')
     return result('could-not-verify', 'The job description was incomplete, so the posting could not be checked safely.');
 

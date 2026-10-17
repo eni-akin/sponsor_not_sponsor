@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="sns-title"><title id="sns-title">SNS — stacked color</title><g transform="translate(48 0) scale(.625)"><path fill="#C94F32" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V56 L144 72 H112 A40 40 0 0 0 72 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V200 L112 184 H144 A40 40 0 0 0 184 144 V112 Z"/></g><g transform="translate(35.2 160) scale(.4)"><g fill="#29232E">
+    <path transform="translate(32 0)" d="M112 48 H48 Q0 48 0 92 V100 Q0 144 48 144 H64 Q80 144 80 160 V164 Q80 180 64 180 H16 L0 196 V208 H64 Q112 208 112 164 V156 Q112 116 64 116 H48 Q32 116 32 100 V92 Q32 76 48 76 H96 L112 60 Z"/>
+    <path d="M168 208 V48 H200 L264 158.85 V48 H296 V208 H264 L200 97.15 V208 Z"/>
+    <path transform="translate(320 0)" d="M112 48 H48 Q0 48 0 92 V100 Q0 144 48 144 H64 Q80 144 80 160 V164 Q80 180 64 180 H16 L0 196 V208 H64 Q112 208 112 164 V156 Q112 116 64 116 H48 Q32 116 32 100 V92 Q32 76 48 76 H96 L112 60 Z"/>
+  </g></g></svg>

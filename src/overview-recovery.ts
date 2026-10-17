@@ -83,8 +83,7 @@ export async function recoverOverview(
     const existing = new Set(current.evidence.map(block => identity(block.text)));
     const added = overview.role!.evidence.filter(block => block.kind === 'text' && block.text.length > 20 && !existing.has(identity(block.text)))
       .map((block, index) => ({ ...block, id: `overview-${index}-${hash(block.text)}`, source: 'official-overview' as const,
-        sourceUrl: candidate.href, locator: `overview:${block.locator}`,
-        contextGroup: 'official-overview', position: index }));
+        sourceUrl: candidate.href, locator: `overview:${block.locator}` }));
     const coverage: DescriptionCoverage = { status: 'description-found',
       sources: [...(current.coverage?.sources ?? []), { kind: 'official-overview', url: candidate.href, passages: added.length, descriptionFound: true }],
       gaps: (current.coverage?.gaps ?? []).filter(gap => gap !== 'description-not-found' && gap !== 'overview-unavailable'),

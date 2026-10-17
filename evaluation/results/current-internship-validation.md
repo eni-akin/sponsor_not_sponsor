@@ -45,7 +45,7 @@ Among the 11 open postings:
 
 ## What this changes
 
-1. Implement the blocker-first result before evaluating Laya. A complete readable role with no positive or negative policy becomes **No blocker found**.
+1. Implement the blocker-first result. A complete readable role with no positive or negative policy becomes **No blocker found**.
 2. Promote explicit citizenship, permanent-residency, no-sponsorship, and equivalent work-authorization exclusions into **Explicit blocker found**.
 3. Add the Thrivent, RTX, Lazard, and Johns Hopkins wording as blocker regression cases.
 4. Diagnose H&R Block and Neighbor as scanner/source-coverage work, separately from decision logic.

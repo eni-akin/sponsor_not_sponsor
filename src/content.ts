@@ -6,7 +6,6 @@ import { recoverOverview } from './overview-recovery';
 import { pageInputFingerprint, scanPage } from './scanner';
 import { interpretJob } from './interpreter';
 import { FrameCoordinator, type FrameAnnouncement } from './frame-coordinator';
-import { DecisionClient } from './decision-client';
 
 if (window.top !== window) {
   let frameSettings: Settings | null = null;
@@ -73,12 +72,10 @@ let settingsFailed = false;
 let pageUI: PageUI | undefined;
 let latest: ScannerSnapshot | undefined;
 let frames: FrameCoordinator | undefined;
-let refreshDecision: (() => void) | undefined;
-const decision = new DecisionClient(request => chrome.runtime.sendMessage({ type: 'DECISION', request }), () => refreshDecision?.());
 function start(settings: Settings): void {
   controller = new ScanController(document, window, settings, recoverOverview);
   pageUI = new PageUI({
-    rescan: () => { decision.reset(); frames?.clear(); frames?.refresh(); controller!.scan(); return latest ?? controller!.getSnapshot(); },
+    rescan: () => { frames?.clear(); frames?.refresh(); controller!.scan(); return latest ?? controller!.getSnapshot(); },
     pause: async () => {
       const saved = parseSettings((await chrome.storage.local.get('settings')).settings);
       await chrome.storage.local.set({ settings: { ...saved, paused: true } });
@@ -100,10 +97,9 @@ function start(settings: Settings): void {
     () => { if (controller) update(controller.getSnapshot()); });
   function update(snapshot: ScannerSnapshot): void {
     frames?.reset(location.href);
-    latest = decision.update(frames?.combine(snapshot) ?? snapshot);
+    latest = frames?.combine(snapshot) ?? snapshot;
     pageUI!.update(latest);
   }
-  refreshDecision = () => update(controller!.getSnapshot());
   controller.subscribe(snapshot => {
     update(snapshot);
   });
@@ -115,17 +111,15 @@ chrome.runtime.onMessage.addListener((message, _sender, respond) => {
     respond(latest ?? { state: settingsFailed ? 'error' : 'scanning', hostname: location.hostname, result: null });
   }
   if (message?.type === 'RESCAN') {
-    decision.reset(); frames?.clear(); frames?.refresh(); controller?.scan();
+    frames?.clear(); frames?.refresh(); controller?.scan();
     respond(latest ?? { state: settingsFailed ? 'error' : 'scanning', hostname: location.hostname, result: null });
   }
   if (message?.type === 'SHOW_PANEL') { pageUI?.show(); respond({ shown: !!latest?.result?.role }); }
 });
 
 let settingsRevision = 0;
-let decisionRevision = 0;
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local') return;
-  if (changes.decisionEnabled) { decisionRevision++; decision.setEnabled(changes.decisionEnabled.newValue === true); }
   if (!changes.settings) return;
   settingsRevision++;
   const settings = parseSettings(changes.settings.newValue);
@@ -137,8 +131,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
   else start(settings);
 });
 const initialRevision = settingsRevision;
-chrome.storage.local.get(['settings', 'decisionEnabled']).then(saved => {
-  if (decisionRevision === 0) decision.setEnabled(saved.decisionEnabled === true);
+chrome.storage.local.get('settings').then(saved => {
   if (initialRevision === settingsRevision) start(parseSettings(saved.settings));
 }).catch(() => {
   settingsFailed = true;

@@ -2,7 +2,7 @@
 
 ## Sponsor Not Sponsor domain sources
 
-For this repository, use `DECISION_LOGIC.md` as the authoritative domain contract and `docs/agents/laya-workflow.md` as the current operational model. Use the exact terms `relevance`, `scope`, `sponsorship`, `timing`, `cpt`, `opt`, `contextGroup`, `coverage`, `connected group`, `review hold`, `candidate`, `frozen`, `training-approved`, and `production-approved` as defined there.
+For this repository, use `DECISION_LOGIC.md` as the authoritative domain contract and `HANDOFF.md` for current workflow. Preserve the meanings of scope, sponsorship, timing, CPT, OPT, coverage, and the four vacancy headlines.
 
 Do not collapse these distinct concepts:
 
@@ -12,9 +12,9 @@ Do not collapse these distinct concepts:
 - applicant questions versus employer policy;
 - company, historical, or other-role policy versus named-role policy;
 - complete evidence versus missing/failed evidence;
-- validator success versus semantic review or approval.
+- automated regression success versus independent real-world validation.
 
-Versioned documents under `evaluation/laya-training/` are evidence for particular dates. `HANDOFF.md` identifies the current version; do not silently treat an older plan or manifest as current authority.
+Evaluation reports are evidence for their recorded dates. `HANDOFF.md` identifies current work; do not silently treat an older plan or report as current authority.
 
 How the engineering skills should consume this repo's domain documentation when exploring the codebase.
 

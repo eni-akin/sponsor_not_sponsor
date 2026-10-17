@@ -82,6 +82,6 @@ The current rules preserve high blocker precision in this sample but miss too ma
 
 ## Holdout status
 
-**Not final.** The CSV does not include the four blind additions—Northrop Grumman, MFS, Invesco, and HMH—selected to replace excluded rows. Freeze human-reviewed labels and test those four additions before using this as the rules-versus-Laya comparison set.
+**Not final.** The CSV does not include the four blind additions—Northrop Grumman, MFS, Invesco, and HMH—selected to replace excluded rows. Freeze human-reviewed labels and test those four additions before using this as a final evaluation set.
 
-No Laya comparison or rule changes were performed from this output.
+No rule changes were performed from this output.

@@ -12,7 +12,7 @@ To avoid concurrent agent edits contaminating the baseline, the committed tree w
 - `node --import tsx --test tests/*.test.ts`: 194 passed, zero failures.
 - Installed TypeScript compiler, `--noEmit`: passed.
 - `node scripts/build.mjs`: passed.
-- No fresh baseline browser or model-quality claim is made here. Historical browser checks and Laya results remain in their existing reports.
+- No fresh baseline browser or general accuracy claim is made here.
 
 ## Known failures and expected changes
 
@@ -23,6 +23,5 @@ To avoid concurrent agent edits contaminating the baseline, the committed tree w
 | Delayed/replaced/navigating frame; pause/site disable | Lifecycle browser coverage incomplete. | Invalidate stale evidence and refresh current verified documents; stop while disabled. |
 | Visible iframe in recognized posting | Generic unsupported-form warning. | Explain remaining unread coverage accurately. |
 | Waymo 8248060 export licensing policy | `require` plus `citizenship` becomes a generic citizenship blocker; scope and exceptions omitted. | Informational notices remain context; explicit licensing obstacles retain affected group, deadline, exemptions, and exact citations. |
-| Laya development probes | Existing configuration has no demonstrated useful quality advantage. | Evaluate separately against reviewed expectations; keep experimental unless acceptance gates are met. |
 
 Prior diagnostic probes and inspected live jobs are development material, not untouched holdout data. Source discovery and agent-proposed labels do not constitute independent human review.

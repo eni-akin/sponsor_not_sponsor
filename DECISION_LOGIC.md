@@ -4,7 +4,7 @@ Status: authoritative
 Version: 1  
 Effective: October 7, 2026
 
-This document is the stable source of truth for human labels, deterministic rules, Laya questions, evaluation, and user-facing decisions. Planning notes and historical datasets do not override it. A rule changes only through an explicit product decision accompanied by updated examples and tests.
+This document is the stable source of truth for human labels, deterministic rules, evaluation, and user-facing decisions. Planning notes and historical datasets do not override it. A rule changes only through an explicit product decision accompanied by updated examples and tests.
 
 ## Evidence boundary
 
@@ -80,7 +80,7 @@ Citizenship, U.S.-person, clearance, work-authorization, and export-control rest
 
 ## Data integrity
 
-Training records require an official source URL, vacancy and employer identity, retrieval date, evidence locator, capture/completeness status, reviewer, rationale, and source/evidence hashes. Applicant data is prohibited.
+Reviewed evaluation records require an official source URL, vacancy and employer identity, retrieval date, evidence locator, capture/completeness status, reviewer, rationale, and source/evidence hashes. Applicant data is prohibited.
 
-Deduplicate the same source vacancy and evidence. Normalize employer identities. Different vacancies may remain separate, but every record from the same employer or reused policy family must stay in one dataset split. Development examples exposed during rule design may be training data only, never calibration or held-out test data.
+Deduplicate the same source vacancy and evidence. Normalize employer identities. Different vacancies may remain separate, but every record from the same employer or reused policy family must stay in one dataset split. Examples exposed during rule design are development evidence, never an independent held-out test.
 

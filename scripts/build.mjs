@@ -11,7 +11,7 @@ await build({
   format: 'iife',
   target: 'chrome120',
   legalComments: 'none',
-  loader: { '.css': 'text' },
+  loader: { '.css': 'text', '.svg': 'text' },
 });
 for (const file of staticFiles) {
   await mkdir(dirname(`dist/${file}`), { recursive: true });

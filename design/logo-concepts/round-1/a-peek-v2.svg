@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="peek-title">
+  <title id="peek-title">SNS concept A — Peek, refined</title>
+  <g transform="translate(-3 -6)">
+    <path fill="#000000" fill-rule="evenodd" d="M220 64 C198 38 168 24 132 24 C74 24 36 48 36 92 C36 128 60 148 106 160 L148 171.25 C164 176 172 182 172 192 C172 204 158 212 136 212 C108 212 82 200 60 180 L32 208 C62 232 96 244 136 244 C194 244 230 220 230 180 C230 144 206 124 162 112 L116 99.67 C106 97 104 94 104 92 C104 88 114 86 132 86 C158 86 180 92 194 90 Z M116 44 H124 A8 8 0 0 1 132 52 V64 A8 8 0 0 1 124 72 H116 A8 8 0 0 1 108 64 V52 A8 8 0 0 1 116 44 Z M156 48 H164 A8 8 0 0 1 172 56 V68 A8 8 0 0 1 164 76 H156 A8 8 0 0 1 148 68 V56 A8 8 0 0 1 156 48 Z"/>
+  </g>
+</svg>

@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <rect x="16" y="16" width="96" height="96" rx="24" fill="#254d3e" stroke="#b4cbbd" stroke-width="2"/>
-  <path d="M43 37h30l14 14v40H43z" fill="#f5f6f2"/>
-  <path d="M73 37v15h14" fill="#b4cbbd"/>
-  <path d="M53 61h24M53 71h24M53 81h15" fill="none" stroke="#254d3e" stroke-width="5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="sns-icon-title">
+  <title id="sns-icon-title">SNS — Sponsor Not Sponsor</title>
+  <rect width="256" height="256" rx="56" fill="#29232E"/>
+  <path fill="#FFB38C" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V54 L144 70 H112 A42 42 0 0 0 70 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V202 L112 186 H144 A42 42 0 0 0 186 144 V112 Z"/>
 </svg>

@@ -26,20 +26,37 @@ try {
     viewport: { width: 420, height: 850 },
   });
   const errors = [];
+  const unexpectedRequests = [];
   context.on('weberror', error => errors.push(error.error().message));
+  context.on('request', request => {
+    if (/^https?:/.test(request.url()) && new URL(request.url()).origin !== origin) unexpectedRequests.push(request.url());
+  });
   const page = await context.newPage();
   await page.goto(`${origin}/structured-job`);
   const popup = await context.newPage();
   await page.bringToFront();
   await popup.goto(`chrome-extension://${extensionId}/popup.html`);
+  await popup.locator('.brand-logo').evaluate(image => image.decode());
+  assert.equal(await popup.locator('.brand-logo').getAttribute('alt'), 'SNS — Sponsor Not Sponsor');
+  assert.deepEqual(await popup.locator('html').evaluate(element => {
+    const style = getComputedStyle(element);
+    return [style.color, style.backgroundColor];
+  }), ['rgb(41, 35, 46)', 'rgb(255, 248, 242)']);
+  assert.equal(await popup.locator('#rescan').evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(201, 79, 50)');
+  assert.equal(await popup.locator('#rescan').evaluate(element => getComputedStyle(element).color), 'rgb(255, 255, 255)');
+  assert.equal(await popup.locator('a[href="help.html"]').evaluate(element => getComputedStyle(element).color), 'rgb(180, 67, 42)');
   await popup.locator('#onboarding').waitFor({ state: 'visible' });
   assert.equal(await popup.locator('.research-settings').count(), 0, 'Company research is outside the active extension UI');
-  assert.equal(await popup.locator('#decision-enabled').count(), 1, 'The Local Laya control remains available');
+  assert.equal(await popup.locator('.decision-settings').count(), 0, 'Only the deterministic result is available');
+  assert.equal(await popup.locator('[data-comparison-state]').count(), 0);
   assert.equal(await popup.locator('a[href="help.html"]').getAttribute('target'), '_blank');
   assert.equal(await popup.locator('a[href="privacy.html"]').getAttribute('target'), '_blank');
   await popup.locator('#onboarding-done').click();
   await popup.locator('#onboarding').waitFor({ state: 'hidden' });
   const status = async expected => popup.waitForFunction(value => document.querySelector('#status').textContent === value, expected, { timeout: 10000 });
+  // Upgrades ignore a saved opt-in from the removed classifier.
+  await popup.evaluate(() => chrome.storage.local.set({ decisionEnabled: true }));
+  await page.reload();
   await status('Job posting detected');
   const getScan = () => popup.evaluate(async () => {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -50,10 +67,13 @@ try {
   assert.match(await popup.locator('#evidence').textContent(), /Visa sponsorship is available/);
   assert.doesNotMatch(await popup.locator('#evidence').textContent(), /Accountant/);
   assert.equal(await popup.locator('[data-finding="main"]').getAttribute('data-status'), 'sponsorship-stated');
+  assert.equal(await popup.locator('[data-finding="main"] .finding-value').evaluate(element => getComputedStyle(element).color), 'rgb(35, 97, 61)');
   assert.match(await popup.locator('[data-finding="main"] blockquote').textContent(), /Visa sponsorship is available/);
   const badge = page.locator('#sponsor-not-sponsor-ui #toggle');
   const panel = page.locator('#sponsor-not-sponsor-ui #panel');
   await badge.waitFor({ state: 'visible' });
+  assert.equal(await badge.locator('.badge-logo svg').count(), 1);
+  assert.equal(await badge.locator('.badge-logo').getAttribute('aria-hidden'), 'true');
   assert.match(await badge.textContent(), /Sponsorship stated/);
   // React-style document hydration must not permanently remove the automatic badge.
   await page.locator('#sponsor-not-sponsor-ui').evaluate(element => element.remove());
@@ -65,6 +85,10 @@ try {
   await badge.focus();
   await page.keyboard.press('Enter');
   await panel.waitFor({ state: 'visible' });
+  assert.equal(await panel.locator('.brand svg title').textContent(), 'SNS — Sponsor Not Sponsor');
+  assert.equal(await panel.evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(255, 248, 242)');
+  assert.equal(await panel.locator('#rescan').evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(201, 79, 50)');
+  assert.equal(await panel.locator('#rescan').evaluate(element => getComputedStyle(element).color), 'rgb(255, 255, 255)');
   assert.equal(await page.locator('#sponsor-not-sponsor-ui #close').evaluate(element => element.getRootNode().activeElement === element), true);
   await page.locator('#sponsor-not-sponsor-ui [data-finding="main"] > summary').click();
   assert.match(await page.locator('#sponsor-not-sponsor-ui blockquote').first().textContent(), /Visa sponsorship is available/);
@@ -84,11 +108,12 @@ try {
   assert.equal(report.extensionVersion, JSON.parse(await readFile('extension/manifest.json', 'utf8')).version);
   assert.equal(report.findings.sponsorship.status, 'available');
   assert.ok(!('evidence' in report.role));
+  assert.ok(!('decisionComparison' in report));
   await page.keyboard.press('Escape');
   await panel.waitFor({ state: 'hidden' });
   assert.equal(await badge.evaluate(element => element.getRootNode().activeElement === element), true);
 
-  // Keep the badge in one predictable corner even when a page control is there.
+  // A fixed page control should not share the SNS badge's occupied corner.
   await page.evaluate(() => {
     const button = document.createElement('button');
     button.id = 'fixed-apply'; button.textContent = 'Apply';
@@ -99,7 +124,8 @@ try {
   await page.waitForFunction(() => {
     const host = document.querySelector('#sponsor-not-sponsor-ui');
     const badge = host.shadowRoot.getElementById('badge').getBoundingClientRect();
-    return badge.right === innerWidth - 16 && badge.bottom === innerHeight - 16;
+    const control = document.getElementById('fixed-apply').getBoundingClientRect();
+    return badge.right <= control.left || badge.left >= control.right || badge.bottom <= control.top || badge.top >= control.bottom;
   });
   await page.evaluate(() => { document.getElementById('fixed-apply').remove(); window.dispatchEvent(new Event('resize')); });
   await page.locator('#sponsor-not-sponsor-ui #dismiss').click();
@@ -199,7 +225,8 @@ try {
   assert.equal(await badge.isVisible(), false);
   assert.equal(await popup.locator('#evidence-section').isVisible(), false);
   assert.deepEqual(errors, []);
-  console.log('PASS: onboarding, fixed badge position, on-page panel, keyboard and focus behavior, style isolation, local report download, synthetic-click protection, dismissal/restore, cited findings, manual rescan, cosmetic-scroll filtering, pause/site preferences, input privacy, SPA navigation, and ordinary pages.');
+  assert.deepEqual(unexpectedRequests, [], 'Local fixture scans must not contact an analysis service');
+  console.log('PASS: onboarding, adaptive badge position, on-page panel, keyboard and focus behavior, style isolation, local report download, synthetic-click protection, dismissal/restore, cited findings, manual rescan, cosmetic-scroll filtering, pause/site preferences, input privacy, SPA navigation, and ordinary pages.');
   console.log('Popup screenshot: test-results/scanner-popup.png');
 } finally {
   await context?.close();

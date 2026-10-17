@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="840" viewBox="0 0 1600 840"><defs><filter id="grey"><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="1600" height="840" fill="#f7f7f4"/><text x="60" y="78" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#161616">SNS / Choose a direction</text><text x="60" y="116" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#6b6b6b">Three original concepts / shape first, colour after selection</text><rect x="60" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#161616" stroke-width="2"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="peek-title" viewBox="0 0 256 256" x="90" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c0-peek-title">SNS concept A — Peek, refined</title>
+  <g transform="translate(-3 -6)">
+    <path fill="#000000" fill-rule="evenodd" d="M220 64 C198 38 168 24 132 24 C74 24 36 48 36 92 C36 128 60 148 106 160 L148 171.25 C164 176 172 182 172 192 C172 204 158 212 136 212 C108 212 82 200 60 180 L32 208 C62 232 96 244 136 244 C194 244 230 220 230 180 C230 144 206 124 162 112 L116 99.67 C106 97 104 94 104 92 C104 88 114 86 132 86 C158 86 180 92 194 90 Z M116 44 H124 A8 8 0 0 1 132 52 V64 A8 8 0 0 1 124 72 H116 A8 8 0 0 1 108 64 V52 A8 8 0 0 1 116 44 Z M156 48 H164 A8 8 0 0 1 172 56 V68 A8 8 0 0 1 164 76 H156 A8 8 0 0 1 148 68 V56 A8 8 0 0 1 156 48 Z"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="peek-title" viewBox="0 0 256 256" x="90" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s064-peek-title">SNS concept A — Peek, refined</title>
+  <g transform="translate(-3 -6)">
+    <path fill="#000000" fill-rule="evenodd" d="M220 64 C198 38 168 24 132 24 C74 24 36 48 36 92 C36 128 60 148 106 160 L148 171.25 C164 176 172 182 172 192 C172 204 158 212 136 212 C108 212 82 200 60 180 L32 208 C62 232 96 244 136 244 C194 244 230 220 230 180 C230 144 206 124 162 112 L116 99.67 C106 97 104 94 104 92 C104 88 114 86 132 86 C158 86 180 92 194 90 Z M116 44 H124 A8 8 0 0 1 132 52 V64 A8 8 0 0 1 124 72 H116 A8 8 0 0 1 108 64 V52 A8 8 0 0 1 116 44 Z M156 48 H164 A8 8 0 0 1 172 56 V68 A8 8 0 0 1 164 76 H156 A8 8 0 0 1 148 68 V56 A8 8 0 0 1 156 48 Z"/>
+  </g>
+</svg>
+</g><text x="122" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="peek-title" viewBox="0 0 256 256" x="180" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s032-peek-title">SNS concept A — Peek, refined</title>
+  <g transform="translate(-3 -6)">
+    <path fill="#000000" fill-rule="evenodd" d="M220 64 C198 38 168 24 132 24 C74 24 36 48 36 92 C36 128 60 148 106 160 L148 171.25 C164 176 172 182 172 192 C172 204 158 212 136 212 C108 212 82 200 60 180 L32 208 C62 232 96 244 136 244 C194 244 230 220 230 180 C230 144 206 124 162 112 L116 99.67 C106 97 104 94 104 92 C104 88 114 86 132 86 C158 86 180 92 194 90 Z M116 44 H124 A8 8 0 0 1 132 52 V64 A8 8 0 0 1 124 72 H116 A8 8 0 0 1 108 64 V52 A8 8 0 0 1 116 44 Z M156 48 H164 A8 8 0 0 1 172 56 V68 A8 8 0 0 1 164 76 H156 A8 8 0 0 1 148 68 V56 A8 8 0 0 1 156 48 Z"/>
+  </g>
+</svg>
+</g><text x="196" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="peek-title" viewBox="0 0 256 256" x="238" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s016-peek-title">SNS concept A — Peek, refined</title>
+  <g transform="translate(-3 -6)">
+    <path fill="#000000" fill-rule="evenodd" d="M220 64 C198 38 168 24 132 24 C74 24 36 48 36 92 C36 128 60 148 106 160 L148 171.25 C164 176 172 182 172 192 C172 204 158 212 136 212 C108 212 82 200 60 180 L32 208 C62 232 96 244 136 244 C194 244 230 220 230 180 C230 144 206 124 162 112 L116 99.67 C106 97 104 94 104 92 C104 88 114 86 132 86 C158 86 180 92 194 90 Z M116 44 H124 A8 8 0 0 1 132 52 V64 A8 8 0 0 1 124 72 H116 A8 8 0 0 1 108 64 V52 A8 8 0 0 1 116 44 Z M156 48 H164 A8 8 0 0 1 172 56 V68 A8 8 0 0 1 164 76 H156 A8 8 0 0 1 148 68 V56 A8 8 0 0 1 156 48 Z"/>
+  </g>
+</svg>
+</g><text x="246" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">A · Peek</text><text x="90.0" y="664" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#161616" letter-spacing="1.5">RECOMMENDED</text><text x="90.0" y="698" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">An S with a curious, approachable face.</text><rect x="562.667" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="name-title" viewBox="0 0 256 256" x="592.667" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c1-name-title">SNS concept B — Name First, refined</title>
+  <g transform="translate(0 -16) scale(1 1.125)">
+    <path fill="#000000" d="M80 72 H44 Q16 72 16 100 V108 Q16 132 42 136 C48 138 52 138 56 140 Q62 142 62 150 V156 Q62 164 54 164 H16 V184 H56 Q84 184 84 156 V148 Q84 124 58 120 C52 118 48 118 44 116 Q38 114 38 106 V100 Q38 92 46 92 H80 Z M96 184 V72 H116 L140 132 V72 H160 V184 H140 L116 124 V184 Z M236 72 H200 Q172 72 172 100 V108 Q172 132 198 136 C204 138 208 138 212 140 Q218 142 218 150 V156 Q218 164 210 164 H172 V184 H212 Q240 184 240 156 V148 Q240 124 214 120 C208 118 204 118 200 116 Q194 114 194 106 V100 Q194 92 202 92 H236 Z"/>
+  </g>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="name-title" viewBox="0 0 256 256" x="592.667" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s164-name-title">SNS concept B — Name First, refined</title>
+  <g transform="translate(0 -16) scale(1 1.125)">
+    <path fill="#000000" d="M80 72 H44 Q16 72 16 100 V108 Q16 132 42 136 C48 138 52 138 56 140 Q62 142 62 150 V156 Q62 164 54 164 H16 V184 H56 Q84 184 84 156 V148 Q84 124 58 120 C52 118 48 118 44 116 Q38 114 38 106 V100 Q38 92 46 92 H80 Z M96 184 V72 H116 L140 132 V72 H160 V184 H140 L116 124 V184 Z M236 72 H200 Q172 72 172 100 V108 Q172 132 198 136 C204 138 208 138 212 140 Q218 142 218 150 V156 Q218 164 210 164 H172 V184 H212 Q240 184 240 156 V148 Q240 124 214 120 C208 118 204 118 200 116 Q194 114 194 106 V100 Q194 92 202 92 H236 Z"/>
+  </g>
+</svg>
+</g><text x="624.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="name-title" viewBox="0 0 256 256" x="682.667" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s132-name-title">SNS concept B — Name First, refined</title>
+  <g transform="translate(0 -16) scale(1 1.125)">
+    <path fill="#000000" d="M80 72 H44 Q16 72 16 100 V108 Q16 132 42 136 C48 138 52 138 56 140 Q62 142 62 150 V156 Q62 164 54 164 H16 V184 H56 Q84 184 84 156 V148 Q84 124 58 120 C52 118 48 118 44 116 Q38 114 38 106 V100 Q38 92 46 92 H80 Z M96 184 V72 H116 L140 132 V72 H160 V184 H140 L116 124 V184 Z M236 72 H200 Q172 72 172 100 V108 Q172 132 198 136 C204 138 208 138 212 140 Q218 142 218 150 V156 Q218 164 210 164 H172 V184 H212 Q240 184 240 156 V148 Q240 124 214 120 C208 118 204 118 200 116 Q194 114 194 106 V100 Q194 92 202 92 H236 Z"/>
+  </g>
+</svg>
+</g><text x="698.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="name-title" viewBox="0 0 256 256" x="740.667" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s116-name-title">SNS concept B — Name First, refined</title>
+  <g transform="translate(0 -16) scale(1 1.125)">
+    <path fill="#000000" d="M80 72 H44 Q16 72 16 100 V108 Q16 132 42 136 C48 138 52 138 56 140 Q62 142 62 150 V156 Q62 164 54 164 H16 V184 H56 Q84 184 84 156 V148 Q84 124 58 120 C52 118 48 118 44 116 Q38 114 38 106 V100 Q38 92 46 92 H80 Z M96 184 V72 H116 L140 132 V72 H160 V184 H140 L116 124 V184 Z M236 72 H200 Q172 72 172 100 V108 Q172 132 198 136 C204 138 208 138 212 140 Q218 142 218 150 V156 Q218 164 210 164 H172 V184 H212 Q240 184 240 156 V148 Q240 124 214 120 C208 118 204 118 200 116 Q194 114 194 106 V100 Q194 92 202 92 H236 Z"/>
+  </g>
+</svg>
+</g><text x="748.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="592.6666666666667" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">B · Name First</text><text x="592.6666666666667" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Custom SNS letters, direct and confident.</text><rect x="1065.33" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="between-title" viewBox="0 0 256 256" x="1095.33" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c2-between-title">SNS concept C — Between, refined</title>
+  <path fill="#000000" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V56 L144 72 H112 A40 40 0 0 0 72 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V200 L112 184 H144 A40 40 0 0 0 184 144 V112 Z"/>
+</svg>
+</g><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="between-title" viewBox="0 0 256 256" x="1095.33" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s264-between-title">SNS concept C — Between, refined</title>
+  <path fill="#000000" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V56 L144 72 H112 A40 40 0 0 0 72 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V200 L112 184 H144 A40 40 0 0 0 184 144 V112 Z"/>
+</svg>
+</g><text x="1127.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="between-title" viewBox="0 0 256 256" x="1185.33" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s232-between-title">SNS concept C — Between, refined</title>
+  <path fill="#000000" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V56 L144 72 H112 A40 40 0 0 0 72 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V200 L112 184 H144 A40 40 0 0 0 184 144 V112 Z"/>
+</svg>
+</g><text x="1201.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g filter="url(#grey)"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="between-title" viewBox="0 0 256 256" x="1243.33" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s216-between-title">SNS concept C — Between, refined</title>
+  <path fill="#000000" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V56 L144 72 H112 A40 40 0 0 0 72 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V200 L112 184 H144 A40 40 0 0 0 184 144 V112 Z"/>
+</svg>
+</g><text x="1251.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="1095.3333333333335" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">C · Between</text><text x="1095.3333333333335" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Opposing quotes leave an open route.</text></svg>

@@ -13,8 +13,16 @@ export function badgeState(snapshot: ScannerSnapshot): { label: string; tone: st
   return { label: decision.label, tone };
 }
 
-export function badgePosition(width: number, height: number, viewport: { width: number; height: number }): { left: number; top: number } | null {
+export function badgePosition(width: number, height: number, viewport: { width: number; height: number }, obstruction: (position: { left: number; top: number }) => number = () => 0): { left: number; top: number } | null {
   const margin = 16;
   if (viewport.width < width + margin * 2 || viewport.height < height + margin * 2) return null;
-  return { left: viewport.width - width - margin, top: viewport.height - height - margin };
+  const right = viewport.width - width - margin, bottom = viewport.height - height - margin;
+  const corners = [{ left: right, top: bottom }, { left: margin, top: bottom }, { left: right, top: margin }, { left: margin, top: margin }];
+  let best = corners[0]!, least = Infinity;
+  for (const corner of corners) {
+    const score = obstruction(corner);
+    if (score < least) { best = corner; least = score; }
+    if (score === 0) break;
+  }
+  return best;
 }

@@ -2,7 +2,6 @@ import { parseSettings } from './settings';
 import { renderFindings } from './findings-view';
 import { coverageLabel, evidenceSourceLabel } from './coverage-view';
 import type { ScannerSnapshot } from './types';
-import { DECISION_PERMISSION } from './decision';
 
 const element = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const pause = element<HTMLInputElement>('pause');
@@ -15,7 +14,6 @@ let previousEvidence = '';
 let previousFindings = '';
 let renderedRoleKey = '';
 let settings = parseSettings(null);
-const decisionEnabled = element<HTMLInputElement>('decision-enabled');
 const labels = { 'job-posting': 'Job posting detected', 'job-application': 'Application detected', 'multiple-jobs': 'Multiple roles on this page', 'non-job': 'No specific job detected', 'unreadable': 'Unable to identify the role' };
 
 function render(snapshot: ScannerSnapshot): void {
@@ -40,8 +38,8 @@ function render(snapshot: ScannerSnapshot): void {
   const evidence = role?.evidence ?? [];
   const findings = result?.interpretation;
   element('findings').hidden = !findings;
-  const findingsFingerprint = JSON.stringify([role?.key, findings, result?.decisionComparison]);
-  if (role && findings && findingsFingerprint !== previousFindings) renderFindings(element('findings'), role, findings, result!, result?.decisionComparison);
+  const findingsFingerprint = JSON.stringify([role?.key, findings]);
+  if (role && findings && findingsFingerprint !== previousFindings) renderFindings(element('findings'), role, findings, result!);
   previousFindings = findingsFingerprint;
   const sourceTime = element('findings').querySelector('time');
   if (sourceTime && result) { sourceTime.dateTime = result.scannedAt; sourceTime.textContent = new Date(result.scannedAt).toLocaleString(); }
@@ -114,21 +112,6 @@ async function saveSettings(change: 'pause' | 'site'): Promise<void> {
 }
 pause.addEventListener('change', () => void saveSettings('pause'));
 disable.addEventListener('change', () => void saveSettings('site'));
-decisionEnabled.addEventListener('change', event => {
-  if (!event.isTrusted) return;
-  const enabled = decisionEnabled.checked;
-  decisionEnabled.disabled = true;
-  void (async () => {
-    if (enabled && !await chrome.permissions.request({ origins: [DECISION_PERMISSION] })) {
-      decisionEnabled.checked = false;
-      element('decision-feedback').textContent = 'Local model access was not granted.'; return;
-    }
-    await chrome.storage.local.set({ decisionEnabled: enabled });
-    element('decision-feedback').textContent = enabled ? 'Comparison enabled. Start the local decision service to add Laya’s result.' : 'Comparison off. The deterministic result remains available.';
-    previous = ''; await refresh();
-  })().catch(() => { decisionEnabled.checked = !enabled; element('decision-feedback').textContent = 'Could not save the decision setting.'; })
-    .finally(() => { decisionEnabled.disabled = false; });
-});
 rescan.addEventListener('click', () => void refresh('RESCAN'));
 element('show-panel').addEventListener('click', async () => {
   if (tabId === undefined) return;
@@ -150,7 +133,6 @@ element('onboarding-done').addEventListener('click', () => void finishOnboarding
 element('onboarding-pause').addEventListener('click', () => void finishOnboarding(true));
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local') return;
-  if (changes.decisionEnabled) { decisionEnabled.checked = changes.decisionEnabled.newValue === true; previous = ''; void refresh(); }
   if (changes.onboardingSeen) element('onboarding').hidden = changes.onboardingSeen.newValue === true;
   if (changes.settings) {
     settings = parseSettings(changes.settings.newValue);
@@ -162,8 +144,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 async function start(): Promise<void> {
-  const saved = await chrome.storage.local.get(['settings', 'onboardingSeen', 'decisionEnabled']);
-  decisionEnabled.checked = saved.decisionEnabled === true;
+  const saved = await chrome.storage.local.get(['settings', 'onboardingSeen']);
   element('onboarding').hidden = saved.onboardingSeen === true;
   settings = parseSettings(saved.settings);
   pause.checked = settings.paused;

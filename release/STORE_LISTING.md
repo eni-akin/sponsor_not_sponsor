@@ -1,6 +1,6 @@
 # Chrome Web Store listing draft — 0.6.0
 
-Status: materials prepared for review; not submitted or published. Independent real-world beta validation remains open. This draft describes the current preview, not future detection or AI capabilities.
+Status: prepared for review; not submitted or published. Independent real-world validation remains open.
 
 ## Name
 
@@ -12,46 +12,42 @@ Read explicit sponsorship, CPT, and OPT statements in job postings, with local a
 
 ## Detailed description
 
-Read what a job posting says about visa sponsorship, CPT, and OPT, with the wording behind each finding.
+Sponsor Not Sponsor reads a supported job posting using deterministic text rules and shows a small badge: Explicit blocker found, Sponsorship stated, No blocker found, or Could not verify. Open the evidence panel to read exact quotations and source links.
 
-Sponsor Not Sponsor recognizes supported job pages and displays a small badge. Open the evidence panel to inspect separate findings, exact quotations, current/future sponsorship wording, and additional stated restrictions. If the wording is missing, unsupported, or conflicting, the result stays unclear or asks for review.
+The rules distinguish visa sponsorship from CPT, OPT, and separate citizenship, residency, work-authorization, or export-control restrictions. Application questions do not establish employer policy. No blocker found does not prove sponsorship is available.
 
-Core scanning runs locally in your browser without an account or AI service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report for your own review. Reports are never sent automatically.
+Analysis runs in your browser without an account, key, or analysis service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report. Reports are never sent automatically.
 
-Optional company research is an advanced local-service preview, off by default. It requires separately installing and running the service from the project source distribution. The browser package does not install it. The supplied registry currently covers Atlassian only, has no preloaded historical records or company policy pages, and needs a server-side Brave Search key for wider discovery. Research appears separately and never changes the posting's badge.
-
-This preview targets English-language U.S. job postings. It uses limited page and wording rules; some sites, embedded jobs, employer names, and phrases will not be recognized. It does not read PDFs or transfer findings to a separate application page. Independent real-world accuracy validation is pending. Findings describe employer wording, not personal eligibility or a guarantee of sponsorship.
+The extension targets English-language U.S. job postings. It supports bounded embedded-frame reading and matching Ashby overview recovery; unusual wording, inaccessible pages, PDFs, and unsupported layouts can remain unreadable or incomplete. It does not carry findings to an unrelated vacancy. Independent accuracy validation is pending. Findings describe posting wording, not personal eligibility.
 
 ## Images
 
-- Extension icon: `extension/icons/icon-128.png` (128×128 PNG with transparent padding).
+- Extension icon: `extension/icons/icon-128.png`.
 - Small promotional image: `release/store/promo-440x280.png`.
-- Screenshot 1: `release/store/01-job-badge-1280x800.png` — actual badge on a labeled fictional posting.
-- Screenshot 2: `release/store/02-quoted-evidence-1280x800.png` — actual evidence panel on the same posting.
-- Generate with `pnpm assets`, `pnpm build`, then `pnpm screenshots`. Screenshots contain no real applicant or employer claims.
+- Badge screenshot: `release/store/01-job-badge-1280x800.png`.
+- Evidence screenshot: `release/store/02-quoted-evidence-1280x800.png`.
 
-## Single purpose and permission explanations
+Screenshots show the actual extension on the labeled fictional `release/demo.html` posting. Generate them with `pnpm screenshots` after building.
 
-Single purpose: explain stated sponsorship, CPT, and OPT requirements for the job being viewed using traceable evidence.
+## Purpose and permissions
 
-- HTTP/HTTPS content-script access: detect jobs automatically from arbitrary links and read their requirements. The preview runs in the top document. It needs automatic access for this browsing workflow; users can pause or disable sites.
-- `storage`: persist controls/onboarding and manage optional research request state and caches.
-- Optional `http://127.0.0.1:4318/*`: communicate only with the user's local research service after opt-in. It is not required for local scanning.
-- All executable extension code is bundled. The service returns evidence data, not remote code.
+Single purpose: explain stated sponsorship and eligibility requirements for the vacancy being viewed using traceable evidence.
 
-## Privacy declarations to enter and review
+HTTP/HTTPS content scripts recognize supported jobs and read public text in the top document and verified frames. The `storage` permission saves scanning preferences and onboarding. There is no optional local-service permission. Executable extension code is bundled.
 
-Do not claim that the extension never accesses website content. It reads visible page text and job metadata locally. Do not claim that no information ever leaves the device: opt-in research can send job-related queries to Brave and fetch public sites. No analytics, advertising, sale of data, or general browsing-history upload is implemented.
+## Privacy declarations
 
-Describe website content and job-page addresses consistently with the bundled privacy page, including limited metadata retained in the separate local service cache. Review the current dashboard's category definitions when completing the declaration; use the actual behavior rather than copying an unverified checkbox list.
+The extension reads website content and job metadata. Analysis remains in tab memory. Standard form answers, uploads, and editable fields are excluded. Matched Ashby overview recovery can fetch the same vacancy's overview from the same website. No analytics, advertising, sale of data, or browsing-history upload is implemented.
 
-Before submission, supply a real publisher/support contact, a public privacy-policy URL reproducing the bundled disclosure, and an accessible source/setup URL for the optional service. None has been invented or published by this release preparation.
+Describe data use consistently with the bundled privacy page. Before submission, supply real publisher/support details and a public privacy-policy URL. These have not been invented or published by this preparation.
 
 ## Reviewer instructions
 
-Core use needs no login, payment, key, or service. Load the package, allow website access, and open a supported job page. For a reproducible demonstration, serve `release/demo.html` from a local HTTP server. It is explicitly fictional. Expect sponsorship unavailable, OPT explicitly accepted, CPT unclear, and exact quotations in the panel. Test pause, site disable, dismissal/restoration, and the local report download. Help and privacy links are in the popup.
+Load the extracted package, allow website access, and open an English-language U.S. job posting with a visible title, description, and Apply control. The badge should either show a result supported by quoted page text or stay hidden/report that it could not verify the posting. Test pause, site disable, dismissal/restoration, rescan, and local report download. Help and privacy links are in the popup. No account or credentials are required.
 
-Optional research setup is documented in `server/README.md`. Set `RESEARCH_EXTENSION_ID` to the actual installed ID, start the local service, and explicitly enable research. An unavailable service must not prevent local findings. The automated research smoke test uses fictitious sources and a disposable profile; it does not prove live employer coverage.
+Before submission, replace this general path with a stable public demonstration URL if one is available. Do not give reviewers the repository-only `release/demo.html`; it is not included in the submitted ZIP.
+
+Company research is deferred and has no active extension controls or requests.
 
 ## References checked September 26, 2026
 

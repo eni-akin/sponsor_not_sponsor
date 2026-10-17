@@ -1,4 +1,4 @@
-import type { Citation, Interpretation, JobRecord, ScanResult } from './types';
+import type { Citation, Interpretation, JobRecord } from './types';
 import { mainDecision } from './main-decision';
 
 const timingLabels = { unspecified: '', now: 'Current sponsorship', future: 'Future sponsorship', 'now-and-future': 'Now and in the future' };
@@ -19,8 +19,7 @@ function citationView(citation: Citation): HTMLElement {
       : citation.source === 'embedded-structured-data' ? 'Structured data in embedded frame · Verify against the displayed role'
       : citation.source === 'official-overview' ? 'Official job overview · Matched role'
         : 'Structured page data · Verify against the displayed role';
-  const roleTag = citation.citationRole === 'context' ? 'Adjacent context' : '';
-  container.append(textElement('p', [source, timingLabels[citation.timing], roleTag].filter(Boolean).join(' · '), 'source'));
+  container.append(textElement('p', [source, timingLabels[citation.timing]].filter(Boolean).join(' · '), 'source'));
   if (citation.sourceUrl) {
     const url = new URL(citation.sourceUrl);
     if (url.protocol === 'https:' && !url.username && !url.password) {
@@ -32,34 +31,24 @@ function citationView(citation: Citation): HTMLElement {
   return container;
 }
 
-function decisionView(role: JobRecord, interpretation: Interpretation, finding = 'main', label = 'Main result'): HTMLElement {
+function decisionView(role: JobRecord, interpretation: Interpretation): HTMLElement {
   const decision = mainDecision(role, interpretation);
   const details = document.createElement('details');
   details.className = 'finding';
-  details.dataset.finding = finding;
+  details.dataset.finding = 'main';
   details.dataset.status = decision.status;
   details.open = false;
   const summary = document.createElement('summary');
-  summary.append(textElement('span', label), textElement('span', decision.label, 'finding-value'));
+  summary.append(textElement('span', 'Main result'), textElement('span', decision.label, 'finding-value'));
   details.append(summary);
   details.append(textElement('p', decision.explanation, 'explanation'));
   decision.citations.forEach(citation => details.append(citationView(citation)));
   return details;
 }
 
-export function renderFindings(container: HTMLElement, role: JobRecord, interpretation: Interpretation, source?: { url: string; scannedAt: string }, comparison?: ScanResult['decisionComparison']): void {
+export function renderFindings(container: HTMLElement, role: JobRecord, interpretation: Interpretation, source?: { url: string; scannedAt: string }): void {
   const nodes: HTMLElement[] = [];
-  nodes.push(decisionView(role, interpretation, 'main', 'Deterministic result'));
-  if (comparison) {
-    const section = document.createElement('section');
-    section.dataset.comparisonState = comparison.state;
-    section.append(textElement('h3', 'Probabilistic result · Laya'));
-    section.append(textElement('p', comparison.message, 'source'));
-    if (comparison.state === 'ready' && comparison.interpretation) {
-      section.append(decisionView(role, comparison.interpretation, 'model-main', 'Laya result'));
-    }
-    nodes.push(section);
-  }
+  nodes.push(decisionView(role, interpretation));
   if (interpretation.context.length) {
     const details = document.createElement('details');
     details.className = 'context';

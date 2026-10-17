@@ -50,10 +50,7 @@ export function embeddedFrameResult(parent: ScanResult, child: ScanResult, match
   const sourceUrl = child.url;
   const childEvidence = child.role.evidence.map((block, index): EvidenceBlock => {
     const fromFrame = block.source === 'visible-page' || block.source === 'structured-data';
-    const contextGroup = `frame:${new URL(sourceUrl).pathname}:${block.contextGroup ?? block.source}`;
     return { ...block, id: `frame-${index}-${block.id}`,
-      contextGroup,
-      position: block.position ?? index,
       ...(fromFrame ? { sourceUrl, source: block.source === 'visible-page' ? 'embedded-frame' as const : 'embedded-structured-data' as const,
         locator: `iframe:${new URL(sourceUrl).pathname} > ${block.locator}` } : {}) };
   });

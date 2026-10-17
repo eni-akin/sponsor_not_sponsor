@@ -1,8 +1,38 @@
-# Section 4 evaluation and review
+# Evaluation and review
 
-The evaluation tooling and reliability fixes are implemented in version 0.4.0. Independent review of representative real-world examples remains outstanding. The current reports do not establish general accuracy or completion of that beta-validation requirement.
+This directory contains authored regression scenarios, exposed posting reviews, and a live installed-extension diagnostic audit. Independent human review of representative real-world examples remains outstanding; these reports do not establish general accuracy or release approval.
 
-## What is included
+## Live installed-extension audit — October 16, 2026
+
+The [audit report](live-2026-10-16/report.md) compares official-source AI reviewer decisions with observed results from the installed deterministic extension in the owner's existing Chrome session. Thirty distinct active vacancies across 21 employers came from the first 33 candidates in a frozen SimplifyJobs README order; three duplicate portals were excluded. Selection used listing age, not random sampling or official posting timestamps.
+
+| Evaluation view | Matches / cases | Rate | Denominator |
+| --- | ---: | ---: | --- |
+| All tested postings, disputed Qualcomm case treated as a blocker | 23/30 | 76.7% | Includes incomplete coverage and wrong-title results. |
+| All tested postings, disputed Qualcomm case treated as contextual | 24/30 | 80.0% | Same 30 cases; alternate reviewer label only. |
+| Undisputed headline agreement | 23/29 | 79.3% | Excludes only Qualcomm's unresolved label. |
+| Undisputed headline agreement with correct title | 22/29 | 75.9% | Wrong-title result remains in the denominator as a failure. |
+| Scannable decision-quality subset | 22/27 | 81.5% | Excludes the disputed label, incomplete Waabi source, and wrong-title Synopsys result. |
+| Supported English U.S. subset | 18/19 | 94.7% | Geographic subset; not the overall sample rate. |
+| Additional same-vacancy official-source evidence | 21/29 | 72.4% | Undisputed set with two Ryan alternate-portal policies included. |
+
+Against the undisputed first-linked-source labels, the extension detected 10 of 15 blockers and produced zero false blockers: **precision 10/10 (100%)**, **recall 10/15 (66.7%)**. Four misses share EA UK wording outside the intended U.S. scope; the fifth is Ryan U.S. case C27, still missed after expanding the source and rescanning. Including the two additional Ryan same-vacancy policies changes blocker recall to 10/17 (58.8%). These alternative views preserve the original observations rather than replacing source labels after seeing predictions.
+
+The extension marked descriptions complete on 29/30 tested pages; the remaining Waabi application page safely returned `Could not verify`. Correct titles were observed in 29/30 and correct public employer names in 13/30. Ten of ten displayed blocker decisions had source-bound quotations after whitespace normalization, while only six had complete main evidence under the review rubric. These are posting-level citation measures, not independent quote-unit or per-field sponsorship/CPT/OPT accuracy. No `Sponsorship stated` case occurred; that class remains untested.
+
+Use these artifacts together:
+
+- [Report](live-2026-10-16/report.md): definitions, confusion matrix, subgroup results, source sensitivity, and ranked findings.
+- [Selection log](live-2026-10-16/selection.md): frozen order, duplicate exclusions, and reserve candidates.
+- [Case log](live-2026-10-16/cases.md): chronological reviewer checkpoints and all 30 actual observations.
+- [Structured records](live-2026-10-16/results.json): per-case labels, scope, observations, and evidence-file/URL hashes.
+- [Verifier](live-2026-10-16/verify.mjs): checks saved IDs, records, hashes, and core counts; run `node evaluation/live-2026-10-16/verify.mjs` from the repository root.
+
+The verifier does not revisit websites, run the extension, establish semantic gold, or prove that current remote pages match the captures. Full HTML and exact HTTP retrieval timestamps were not archived. One known incidental badge exposure and the label/source disputes are documented. These reviewed cases are now exposed evidence; preserve the dated records and use new independent examples for later release claims. Thirty AI-reviewed cases do not satisfy the [registered human-reviewed release gates](part2/acceptance.md).
+
+## Historical authored regression scenarios
+
+The original Section 4 evaluation tooling and reliability fixes were implemented in version 0.4.0. Its recorded scores below describe that authored corpus, not the October 16 live audit.
 
 `corpus.ts` contains **160 AI-authored, constructed scenarios**, each with provisional expected labels and an explanation: 128 policy scenarios and 32 HTML page scenarios. There are 80 development cases and 80 originally reserved cases, with disjoint scenario families. They cover offers, exclusions, conditional wording, timing, application questions, context, CPT/OPT distinctions, restrictions, conflicts, extraction privacy, ordinary pages, and unsupported layouts.
 
@@ -43,7 +73,7 @@ The first reserved evaluation was run only after the development approval-condit
 - “U.S. persons” and “green card” restrictions reach the restriction classifier and preserve the cited wording.
 - Short windows and browser zoom allow the whole evidence panel to scroll, preventing the header and footer from squeezing out the evidence area. Long text wraps, the evidence region is keyboard-focusable, and popup source links receive a visible focus outline.
 
-No frame scanner, platform-specific reader, or generic detection expansion was implemented. Those remain in section 7.
+Those historical Section 4 results predate the subsequent frame-reading and detection improvements. See [the Part 2 verification](part2/verification.md) and the live audit above for later evidence; do not treat the older coverage figures as a measurement of the current build.
 
 ## Browser and accessibility checks
 

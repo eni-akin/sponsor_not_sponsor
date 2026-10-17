@@ -19,7 +19,7 @@ Three GPT-6 Luna agents performed read-only checks of nine exposed vacancies at 
 - Do not infer citizenship from Booz Allen's quoted clearance requirement.
 - Add official source URLs, verification date/status, short verified source excerpts, limitations, and correction/review status. Existing identity/completeness judgments are historical user-provided fields; the new verification columns describe this check.
 
-Twenty-three rows have substantive interpretation or quotation-format corrections. All records gain traceability columns. Assistant corrections await human confirmation before becoming training labels. The original 13-passage review file and model-training inputs were not changed.
+Twenty-three rows have substantive interpretation or quotation-format corrections. All records gain traceability columns. Assistant corrections await human confirmation before use as evaluation gold.
 
 ## Verification results
 

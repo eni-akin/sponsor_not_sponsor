@@ -6,9 +6,9 @@ Related roadmap: [PLAN.md](PLAN.md)
 
 ## Objective and sequence
 
-Finish reliable page reading, clarify how scoped restrictions are presented, establish a reviewed evaluation set, and then test whether Laya improves decisions.
+Finish reliable page reading, preserve scoped restriction explanations, and establish independently reviewed deterministic evaluation.
 
-Laya evaluation now proceeds alongside targeted extraction work, following the user's October 3 direction. Perfect support for every website is not a prerequisite for offline experiments. Model adoption still requires reviewed evidence and demonstrated improvement. See [Laya evaluation and fine-tuning plan](LAYA_FINE_TUNING_PLAN.md). Use minimal shared root-cause fixes, reuse existing infrastructure, and preserve historical captures.
+Use minimal shared root-cause fixes, reuse existing infrastructure, and preserve historical captures.
 
 ## Phase 1 — Establish the baseline
 
@@ -19,7 +19,6 @@ The baseline should include the corrected Greenhouse, Lever, and iCIMS behavior 
 - Embedded application content cannot supplement a job already identified on the parent page.
 - Some iframe lifecycle cases remain untested.
 - Export-control notices can become overly broad citizenship blockers.
-- Laya's current configuration has not demonstrated useful decision quality.
 
 Preserve historical evaluation captures so future results can be compared against them.
 
@@ -104,46 +103,11 @@ Record for each example:
 - exact supporting passages;
 - extraction completeness.
 
-Include straightforward statements, difficult scoped restrictions, application questions, silence, and conflicting evidence. Preserve a fresh unseen holdout for final evaluation. Examples used to tune rules or model questions become development examples.
+Include straightforward statements, difficult scoped restrictions, application questions, silence, and conflicting evidence. Preserve a fresh unseen holdout for final evaluation. Examples used to tune rules become development examples.
 
 **Completion criterion:** Disagreements can be traced to missing evidence or incorrect interpretation, and the holdout remains untouched.
 
-## Phase 6 — Evaluate Laya outside the extension
-
-Simplify Laya's questions to match the agreed decision contract. Its current sponsorship/CPT/OPT questions cannot directly resolve export restrictions; current rule-generated restrictions remain in the integrated result.
-
-Supply the complete relevant section and require decisions tied to extracted evidence. Start with existing installed configurations, change one variable at a time, and preserve each result. Reuse the existing evaluator rather than introducing another backend.
-
-Compare:
-
-1. Rules alone.
-2. Laya alone.
-3. Rules plus Laya reviewing ambiguous cases.
-
-| Measure | What it reveals |
-| --- | --- |
-| False blockers | Valid opportunities discouraged. |
-| Missed blockers | Explicit obstacles overlooked. |
-| Abstentions | How often the system cannot decide. |
-| Scope and exception accuracy | Whether the explanation identifies the affected group. |
-| Evidence accuracy | Whether cited passages support the conclusion. |
-| Latency and failures | Whether local inference is usable. |
-
-Set acceptance thresholds before inspecting holdout results. Do not lower confidence thresholds simply to obtain more definitive answers. The existing small diagnostic results are not a real-world accuracy estimate; see [Laya development results](evaluation/results/laya-development.md).
-
-**Completion criterion:** A configuration demonstrates measurable improvement on unseen examples. If none does, keep Laya experimental.
-
-## Phase 7 — Integrate proven behavior
-
-Proceed only if Phase 6 supports adoption. Reuse the existing opt-in connection.
-
-Keep extraction, source attribution, privacy exclusions, and response validation deterministic. Define how rule/model disagreements are handled; one engine must not silently erase contradictory evidence.
-
-Verify navigation, rescans, pause/resume, stale replies, model outages, and incomplete evidence.
-
-**Completion criterion:** Both decision quality and browser integration pass their checks.
-
-## Phase 8 — Run fresh live validation
+## Phase 6 — Run fresh live validation
 
 Select a new batch from the internship repository after rebuilding and reloading the extension. Compare human review with the displayed result, explanation, quotation, and source for each posting. Record closed or inaccessible postings separately.
 
@@ -158,7 +122,6 @@ Release decisions follow this validation, not merely successful automated tests.
 3. Agree on the scoped-restriction contract.
 4. Repair the shared Waymo interpretation and add regressions.
 5. Freeze reviewed development examples and a separate unseen holdout.
-6. Begin offline Laya experiments and training-data preparation alongside targeted extraction fixes; require evidence-backed evaluation before adoption.
 
 ## Progress checklist
 
@@ -166,13 +129,9 @@ Release decisions follow this validation, not merely successful automated tests.
 - [x] Phase 2: Automated reading/lifecycle checks pass; the project owner's accessible Pinterest session confirmed correct role, employer, complete description, and result. Identity-less forms remain an explicit limitation.
 - [x] Phase 3: Scoped-restriction contract authorized by the instruction to implement this plan; independent example review remains part of Phase 5.
 - [x] Phase 4: Shared rule fixes verified with exact Waymo text, negative controls, and live Waymo confirmation.
-- [ ] Phase 5: Four development cases human-reviewed. The 54-row Qwen3.7 submission and corrected extension-output CSV are now exposed development material, not an unseen model test set. Human label adjudication, captured inputs, and a fresh independent final test set remain required.
-- [ ] Phase 6: Laya quality evaluated.
-- [ ] Phase 7: Proven behavior integrated, if justified.
-- [ ] Phase 8: Fresh live validation and release assessment completed.
+- [ ] Phase 5: Four development cases human-reviewed. The 54-row Qwen3.7 submission and corrected extension-output CSV are now exposed development material, not an unseen test set. Human label adjudication, captured inputs, and a fresh independent final test set remain required.
+- [ ] Phase 6: Fresh live validation and release assessment completed.
 
 ### October 2 implementation checkpoint
 
-See [verification and remaining gates](evaluation/part2/verification.md). The current tree passes **208 tests**, typecheck, build, and all four Chromium suites. No dependency, model, confidence threshold, or release setting changed. Three GPT-6 Luna agents prepared frame, rule, and dataset work; the primary agent reconciled and verified it after agent usage limits interrupted their work.
-
-October 3 update: begin reproducible development-only model comparisons and training preparation now. Independently review and freeze fresh unseen data before making model-quality or deployment claims. The link-only candidates are not a reviewed holdout. See [Laya evaluation and fine-tuning plan](LAYA_FINE_TUNING_PLAN.md).
+See [verification and remaining gates](evaluation/part2/verification.md). The current tree passes **208 tests**, typecheck, build, and all four Chromium suites. No dependency or release setting changed. Three GPT-6 Luna agents prepared frame, rule, and dataset work; the primary agent reconciled and verified it after agent usage limits interrupted their work.

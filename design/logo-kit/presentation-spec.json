@@ -1,0 +1,39 @@
+{
+  "brand": "SNS",
+  "tagline": "Sponsor Not Sponsor",
+  "date": "2026-10-16",
+  "deck_title": "Between — identity kit for review",
+  "brief": "A fresh identity for an extension used by international students: professional but playful, bold but relaxed, simple enough for Chrome and recognizable in the project README.",
+  "adjectives": ["bold", "relaxed", "approachable", "precise"],
+  "criteria": "One recognisable silhouette; clear at 16–32 px; honest, neutral branding that never implies guaranteed sponsorship or official approval.",
+  "industry": "software",
+  "mockups": ["readme", "favicon-tab", "app-icon", "website", "social", "sticker"],
+  "nav": ["How it works", "Evidence", "Install"],
+  "brand_color": "#C94F32",
+  "tile_color": "#29232E",
+  "greyscale": false,
+  "final": true,
+  "concepts": [{
+    "name": "Between",
+    "symbol": "source/sns-symbol.svg",
+    "lockup": "digital/sns-horizontal-color.svg",
+    "stacked": "digital/sns-stacked-color.svg",
+    "avatar": "source/sns-symbol.svg",
+    "symbol_on_tile": "source/sns-symbol-dark.svg",
+    "symbol_on_dark": "source/sns-symbol-dark.svg",
+    "lockup_on_dark": "digital/sns-horizontal-dark.svg",
+    "stacked_on_tile": "digital/sns-stacked-dark.svg",
+    "idea": "Two opposing quotation forms leave room to see what the posting actually says.",
+    "rationale": [
+      "Keeps the chosen C silhouette and gives it warm, calm colour.",
+      "Custom SNS letters echo the mark's curved corners and cut terminals.",
+      "A simplified small cut and high-contrast icon tile support browser use."
+    ]
+  }],
+  "recommendation": "Ember on light surfaces; apricot and paper on ink for dark surfaces. Use the symbol alone in Chrome and the horizontal SNS lockup in the README.",
+  "next_steps": [
+    "Review the colour and lockups; existing Chrome and README branding is unchanged.",
+    "After approval, integrate the prepared 16/32/48/128 px assets and README treatment.",
+    "Complete trademark and reverse-image clearance before public launch."
+  ]
+}

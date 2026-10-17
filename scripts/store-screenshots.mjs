@@ -29,12 +29,19 @@ try {
   const sponsor = page.locator('#sponsor-not-sponsor-ui [data-finding="main"]');
   await sponsor.locator('summary').click();
   assert.equal(await sponsor.getAttribute('data-status'), 'explicit-blocker');
+  assert.equal(await sponsor.locator('.finding-value').evaluate(element => getComputedStyle(element).color), 'rgb(150, 59, 47)');
   await page.screenshot({ path: 'release/store/02-quoted-evidence-1280x800.png' });
   const help = await context.newPage();
   await mkdir('test-results', { recursive: true });
   for (const file of ['help', 'privacy']) {
     await help.goto(`chrome-extension://${id}/${file}.html`);
     await help.locator('h1').waitFor();
+    await help.locator('.brand-logo').evaluate(image => image.decode());
+    assert.equal(await help.locator('.brand-logo').getAttribute('alt'), 'SNS — Sponsor Not Sponsor');
+    assert.deepEqual(await help.locator('html').evaluate(element => {
+      const style = getComputedStyle(element);
+      return [style.color, style.backgroundColor];
+    }), ['rgb(41, 35, 46)', 'rgb(255, 248, 242)']);
     assert.equal(await help.locator('a').first().getAttribute('href'), file === 'help' ? 'privacy.html' : 'help.html');
     await help.setViewportSize({ width: 390, height: 844 });
     assert.ok(await help.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${file} must fit a narrow viewport`);

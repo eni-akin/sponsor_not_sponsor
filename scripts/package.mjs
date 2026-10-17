@@ -12,7 +12,8 @@ const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 assert.equal(manifest.version, pkg.version, 'Package and manifest versions must agree');
 assert.equal(manifest.manifest_version, 3);
 assert.deepEqual(manifest.permissions, ['storage']);
-assert.deepEqual(manifest.optional_host_permissions, ['http://127.0.0.1:4318/*']);
+assert.equal(manifest.optional_host_permissions, undefined);
+assert.equal(manifest.host_permissions, undefined);
 assert.ok(manifest.description.length <= 132);
 const references = [manifest.background.service_worker, manifest.action.default_popup,
   ...Object.values(manifest.icons), ...Object.values(manifest.action.default_icon),

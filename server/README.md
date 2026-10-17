@@ -1,6 +1,6 @@
 # Company research preview (Section 5)
 
-> Deferred as of September 29, 2026. The service and tests remain available for development, but the active extension no longer includes research settings, requests or results. The integration instructions below describe the historical preview and cannot be followed in the current popup. See [the active plan](../PLAN.md). Local Laya setup is separate in [DECISIONS.md](DECISIONS.md).
+> Deferred as of September 29, 2026. The service and tests remain available for development, but the active extension no longer includes research settings, requests or results. The integration instructions below describe the historical preview and cannot be followed in the current popup. See [the active plan](../PLAN.md).
 
 This local TypeScript service looks for the same official vacancy, then official hiring policies, then reviewed historical employer records. Research is displayed separately from the current posting. It never changes the page's sponsorship/CPT/OPT findings or badge based on company history or general policy.
 

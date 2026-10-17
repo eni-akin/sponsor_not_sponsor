@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="sns-title">
+  <title id="sns-title">SNS — small-size light symbol</title>
+  <path fill="#FFB38C" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V76 H112 A36 36 0 0 0 76 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V180 H144 A36 36 0 0 0 180 144 V112 Z"/>
+</svg>

@@ -1,4 +1,6 @@
 import styles from './page-ui.css';
+import logo from '../extension/icons/logo.svg';
+import mark from '../extension/icons/mark-small.svg';
 import { badgePosition, badgeState } from './badge-state';
 import { renderFindings } from './findings-view';
 import { downloadReport, reportReasons } from './report';
@@ -17,13 +19,18 @@ export class PageUI {
   private open = false;
   private frame = 0;
   private seenJob = false;
+  private arrivalKey = '';
+  private arrival: Animation | null = null;
   private priorFocus: HTMLElement | null = null;
-  private mountObserver = new MutationObserver(() => {
+  private placementTimer: number;
+  private sizeObserver = new ResizeObserver(() => this.reposition());
+  private mountObserver = new MutationObserver(records => {
     // Page hydration can replace the document's children after content-script startup.
     if (!this.host.isConnected && document.documentElement) {
       document.documentElement.append(this.host);
       this.reposition();
     }
+    if (records.some(record => record.target !== this.host && !this.host.contains(record.target))) this.reposition();
   });
 
   constructor(private actions: Actions) {
@@ -35,9 +42,9 @@ export class PageUI {
     this.host.hidden = true;
     // Static extension-owned markup only; page strings are always assigned with textContent.
     this.root.innerHTML = `<style>${styles}</style><div class="ui">
-      <div class="badge" id="badge"><button class="badge-main" id="toggle" type="button" aria-expanded="false" aria-controls="panel"><span class="dot" aria-hidden="true"></span><span id="badge-text"></span></button><button class="dismiss" id="dismiss" type="button" aria-label="Dismiss badge for this role" title="Dismiss for this role">×</button></div>
+      <div class="badge" id="badge"><svg class="arrival-trace" aria-hidden="true" focusable="false"><rect id="tracer" x="1" y="1" pathLength="100" /></svg><button class="badge-main" id="toggle" type="button" aria-expanded="false" aria-controls="panel"><span class="badge-logo" aria-hidden="true">${mark}</span><span class="dot" aria-hidden="true"></span><span id="badge-text"></span></button><button class="dismiss" id="dismiss" type="button" aria-label="Dismiss badge for this role" title="Dismiss for this role">×</button></div>
       <section class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="role-title" hidden>
-        <div class="panel-header"><button class="panel-close" id="close" type="button" aria-label="Close evidence panel">×</button><div class="brand">SPONSOR NOT SPONSOR</div><h2 id="role-title"></h2><p class="metadata" id="metadata"></p></div>
+        <div class="panel-header"><button class="panel-close" id="close" type="button" aria-label="Close evidence panel">×</button><div class="brand">${logo}</div><h2 id="role-title"></h2><p class="metadata" id="metadata"></p></div>
         <div class="panel-body" tabindex="0" role="region" aria-label="Evidence and explanations"><ul class="warnings" id="warnings"></ul><div id="findings"></div><p class="note">These findings describe page wording, not personal eligibility.</p>
           <div class="report" id="report-form" hidden><label for="reason">What looks wrong?</label><select id="reason"></select><p class="note">The report includes the role, findings, cited wording, and page address without its query or fragment. It excludes application answers and the full page text. Review the downloaded file before sharing. Nothing is sent automatically.</p><button id="download" type="button" class="primary">Download report</button></div>
         </div>
@@ -64,7 +71,11 @@ export class PageUI {
     window.addEventListener('scroll', this.reposition, { passive: true, capture: true });
     window.addEventListener('resize', this.reposition, { passive: true });
     document.documentElement.append(this.host);
-    this.mountObserver.observe(document, { childList: true, subtree: true });
+    this.mountObserver.observe(document, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style', 'hidden', 'open'] });
+    this.sizeObserver.observe(this.get('badge'));
+    this.sizeObserver.observe(this.get('panel'));
+    // Closed shadow roots and CSS animations do not emit document mutations.
+    this.placementTimer = window.setInterval(() => { if (!document.hidden) this.reposition(); }, 500);
   }
 
   private get<T extends HTMLElement = HTMLElement>(id: string): T { return this.root.getElementById(id) as T; }
@@ -77,31 +88,80 @@ export class PageUI {
   }
   private outside = (event: Event) => { if (this.open && !event.composedPath().includes(this.host)) this.close(false); };
   private focusOutside = (event: Event) => { this.outside(event); this.reposition(); };
-  private hide(): void { this.host.style.setProperty('display', 'none', 'important'); }
+  private hide(): void { this.arrival?.cancel(); this.host.style.setProperty('display', 'none', 'important'); }
   private reveal(): void { this.host.hidden = false; this.host.style.setProperty('display', 'block', 'important'); }
   private reposition = () => {
     if (this.frame) return;
     this.frame = requestAnimationFrame(() => { this.frame = 0; this.position(); });
   };
+  private obstructedAt(x: number, y: number, cache: Map<Element, boolean>): boolean {
+    for (let element of document.elementsFromPoint(x, y)) {
+      if (element === this.host || element === document.body || element === document.documentElement) continue;
+      // Inspect only the hit element in open roots, never page text or form values.
+      while (element.shadowRoot) {
+        const child = element.shadowRoot.elementFromPoint(x, y);
+        if (!child || child === element) break;
+        element = child;
+      }
+      let node: Element | null = element, blocked = false;
+      const ancestors: Element[] = [];
+      while (node && node !== document.body && node !== document.documentElement) {
+        if (cache.has(node)) { blocked = cache.get(node)!; break; }
+        ancestors.push(node);
+        const position = getComputedStyle(node).position;
+        if (position === 'fixed' || position === 'sticky' || node.matches(':modal, :popover-open')) { blocked = true; break; }
+        const root = node.getRootNode();
+        node = node.parentElement ?? (root instanceof ShadowRoot ? root.host : null);
+      }
+      for (const ancestor of ancestors) cache.set(ancestor, blocked);
+      if (blocked) return true;
+    }
+    return false;
+  }
   private position(): void {
     if (!this.snapshot || !badgeState(this.snapshot) || this.dismissed.has(this.lastKey) || (!this.seenJob && !this.snapshot.result?.role)) return;
-    if (this.open) {
-      this.get('panel').style.right = '16px';
-      this.get('panel').style.bottom = '16px';
-      return;
-    }
     this.reveal();
-    const size = this.get('badge').getBoundingClientRect();
-    const target = badgePosition(size.width, size.height, { width: innerWidth, height: innerHeight });
+    const size = this.get(this.open ? 'panel' : 'badge').getBoundingClientRect();
+    const cache = new Map<Element, boolean>();
+    const target = badgePosition(size.width, size.height, { width: innerWidth, height: innerHeight }, ({ left, top }) => {
+      let score = 0;
+      // shortcut: nine probes bound layout work; increase sampling if thin overlays slip between them.
+      for (const x of [4, size.width / 2, size.width - 4]) {
+        for (const y of [4, size.height / 2, size.height - 4]) {
+          if (this.obstructedAt(left + x, top + y, cache)) score++;
+        }
+      }
+      return score;
+    });
     if (!target) { this.hide(); return; }
-    this.host.style.setProperty('left', `${target.left}px`, 'important');
-    this.host.style.setProperty('top', `${target.top}px`, 'important');
+    const element = this.open ? this.get('panel') : this.host;
+    element.style.setProperty('left', `${target.left}px`, 'important');
+    element.style.setProperty('top', `${target.top}px`, 'important');
+    if (!this.open) {
+      const tracer = this.root.querySelector<SVGRectElement>('#tracer')!;
+      tracer.setAttribute('width', String(Math.max(0, size.width - 2)));
+      tracer.setAttribute('height', String(Math.max(0, size.height - 2)));
+      tracer.setAttribute('rx', String(Math.max(0, (size.height - 2) / 2)));
+      if (this.lastKey && this.arrivalKey !== this.lastKey) {
+        this.arrivalKey = this.lastKey;
+        this.arrival?.cancel();
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          this.arrival = tracer.animate([
+            { strokeDashoffset: '0', opacity: 0, offset: 0 },
+            { strokeDashoffset: '-8', opacity: 1, offset: .08 },
+            { strokeDashoffset: '-80', opacity: 1, offset: .8 },
+            { strokeDashoffset: '-100', opacity: 0, offset: 1 },
+          ], { duration: 1400, iterations: 1, easing: 'linear' });
+        }
+      }
+    }
   }
   show(): void {
     if (!this.snapshot?.result?.role || !this.snapshot.result.interpretation) return;
     this.dismissed.delete(this.lastKey);
     this.priorFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     this.open = true;
+    this.arrival?.cancel();
     this.reveal();
     this.get('panel').hidden = false;
     this.get('badge').hidden = true;
@@ -135,11 +195,11 @@ export class PageUI {
     this.get('badge').dataset.tone = state.tone;
     this.get<HTMLButtonElement>('toggle').disabled = !role;
     if (role && snapshot.result?.interpretation) {
-      const key = JSON.stringify([role.key, role.coverage, snapshot.result.interpretation, snapshot.result.decisionComparison, snapshot.result.warnings]);
+      const key = JSON.stringify([role.key, role.coverage, snapshot.result.interpretation, snapshot.result.warnings]);
       if (key !== this.lastContent) {
         this.get('role-title').textContent = role.title;
         this.get('metadata').textContent = [role.employer ?? 'Employer not identified', role.location, coverageLabel(role)].filter(Boolean).join(' · ');
-        renderFindings(this.get('findings'), role, snapshot.result.interpretation, snapshot.result, snapshot.result.decisionComparison);
+        renderFindings(this.get('findings'), role, snapshot.result.interpretation, snapshot.result);
         this.get('warnings').replaceChildren(...snapshot.result.warnings.map(text => { const li = document.createElement('li'); li.textContent = text; return li; }));
         this.lastContent = key;
         this.get('message').textContent = '';
@@ -151,7 +211,10 @@ export class PageUI {
     this.position();
   }
   dispose(): void {
+    this.arrival?.cancel();
     this.mountObserver.disconnect();
+    this.sizeObserver.disconnect();
+    window.clearInterval(this.placementTimer);
     document.removeEventListener('pointerdown', this.outside, true);
     document.removeEventListener('focusin', this.focusOutside, true);
     window.removeEventListener('scroll', this.reposition, true);

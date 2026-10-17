@@ -75,8 +75,6 @@ export function extractBlocks(root: Element, skipForms = false, includeNotices =
         source: 'visible-page',
         kind: element.matches('label,legend') || text.endsWith('?') ? 'application-question' : 'text',
         locator: locationHint(element, root),
-        contextGroup: 'visible-page',
-        position: index,
       };
     }),
   };
@@ -314,12 +312,12 @@ export function scanPage(doc: Document, href: string, depth = 0): ScanResult {
     const missing = structuredText.filter(block => block.text.length > 20 && !visible.includes(normalize(block.text).toLowerCase()));
     if (hasStructuredDescription && missing.length) {
       evidence.push(...missing.map((block, index): EvidenceBlock =>
-        ({ ...block, id: `structured-${index}-${hash(block.text)}`, source: 'structured-data', locator: 'JobPosting.description', contextGroup: 'structured-data', position: index })));
+        ({ ...block, id: `structured-${index}-${hash(block.text)}`, source: 'structured-data', locator: 'JobPosting.description' })));
       structuredPassages = missing.length;
       result.warnings.push('Additional description read from matching structured job data on this page; check its source when reviewing a finding.');
     } else if (!hasStructuredDescription && !hasVisibleDescription && structuredText.length) {
       evidence.push(...structuredText.map((block, index): EvidenceBlock =>
-        ({ ...block, id: `structured-${index}-${hash(block.text)}`, source: 'structured-data', locator: 'JobPosting.description', contextGroup: 'structured-data', position: index })));
+        ({ ...block, id: `structured-${index}-${hash(block.text)}`, source: 'structured-data', locator: 'JobPosting.description' })));
       structuredPassages = structuredText.length;
       result.warnings.push('Partial description comes from structured page data; verify it against the displayed vacancy.');
     }

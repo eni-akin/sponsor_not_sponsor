@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 1040" width="1440" height="1040">
+  <defs>
+    <path id="mark" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V56 L144 72 H112 A40 40 0 0 0 72 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V200 L112 184 H144 A40 40 0 0 0 184 144 V112 Z"/>
+    <path id="light" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V54 L144 70 H112 A42 42 0 0 0 70 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V202 L112 186 H144 A42 42 0 0 0 186 144 V112 Z"/>
+    <g id="letters">
+      <path transform="translate(32 0)" d="M112 48 H48 Q0 48 0 92 V100 Q0 144 48 144 H64 Q80 144 80 160 V164 Q80 180 64 180 H16 L0 196 V208 H64 Q112 208 112 164 V156 Q112 116 64 116 H48 Q32 116 32 100 V92 Q32 76 48 76 H96 L112 60 Z"/>
+      <path d="M168 208 V48 H200 L264 158.85 V48 H296 V208 H264 L200 97.15 V208 Z"/>
+      <path transform="translate(320 0)" d="M112 48 H48 Q0 48 0 92 V100 Q0 144 48 144 H64 Q80 144 80 160 V164 Q80 180 64 180 H16 L0 196 V208 H64 Q112 208 112 164 V156 Q112 116 64 116 H48 Q32 116 32 100 V92 Q32 76 48 76 H96 L112 60 Z"/>
+    </g>
+    <g id="icon">
+      <rect width="256" height="256" rx="56" fill="#29232E"/>
+      <path fill="#FFB38C" d="M32 144 V112 A80 80 0 0 1 112 32 H160 V76 H112 A36 36 0 0 0 76 112 V144 Z M224 112 V144 A80 80 0 0 1 144 224 H96 V180 H144 A36 36 0 0 0 180 144 V112 Z"/>
+    </g>
+    <g id="icon-detail">
+      <rect width="256" height="256" rx="56" fill="#29232E"/>
+      <use xlink:href="#light" fill="#FFB38C"/>
+    </g>
+  </defs>
+  <rect width="1440" height="1040" fill="#FFF8F2"/>
+  <g font-family="system-ui,-apple-system,Helvetica,Arial,sans-serif" fill="#29232E">
+    <text x="56" y="64" font-size="16" letter-spacing="3">SNS / IDENTITY KIT</text>
+    <text x="56" y="130" font-size="54" font-weight="700" letter-spacing="-2">Between.</text>
+    <text x="1384" y="118" font-size="19" text-anchor="end" fill="#6F6470">Bold in shape. Relaxed in tone.</text>
+
+    <rect x="56" y="168" width="840" height="368" rx="24" fill="#FFFFFF"/>
+    <g transform="translate(112 198)">
+      <use xlink:href="#mark" fill="#C94F32"/>
+      <use xlink:href="#letters" transform="translate(240 0)" fill="#29232E"/>
+    </g>
+    <text x="144" y="490" font-size="27">Sponsor Not Sponsor</text>
+
+    <rect x="920" y="168" width="464" height="368" rx="24" fill="#29232E"/>
+    <use xlink:href="#light" transform="translate(1024 202)" fill="#FFB38C"/>
+    <text x="952" y="498" font-size="18" fill="#FFF8F2">A warm signature on dark surfaces.</text>
+
+    <rect x="56" y="560" width="416" height="346" rx="24" fill="#FFFFFF"/>
+    <text x="84" y="602" font-size="14" letter-spacing="2" fill="#6F6470">BROWSER / ACTUAL SIZES</text>
+    <use xlink:href="#icon-detail" transform="translate(84 634) scale(.5)"/>
+    <use xlink:href="#icon-detail" transform="translate(240 698) scale(.25)"/>
+    <use xlink:href="#icon" transform="translate(328 730) scale(.125)"/>
+    <use xlink:href="#icon" transform="translate(384 746) scale(.0625)"/>
+    <text x="84" y="796" font-size="16" fill="#6F6470">128</text>
+    <text x="240" y="796" font-size="16" fill="#6F6470">64</text>
+    <text x="328" y="796" font-size="16" fill="#6F6470">32</text>
+    <text x="384" y="796" font-size="16" fill="#6F6470">16</text>
+    <text x="84" y="854" font-size="17">Simplified small cut. Same identity.</text>
+
+    <rect x="496" y="560" width="392" height="346" rx="24" fill="#FFFFFF"/>
+    <text x="524" y="602" font-size="14" letter-spacing="2" fill="#6F6470">PROPOSED PALETTE</text>
+    <rect x="524" y="628" width="152" height="68" rx="10" fill="#C94F32"/>
+    <rect x="708" y="628" width="152" height="68" rx="10" fill="#29232E"/>
+    <text x="524" y="724" font-size="17">Ember / #C94F32</text>
+    <text x="708" y="724" font-size="17">Ink / #29232E</text>
+    <rect x="524" y="754" width="152" height="68" rx="10" fill="#FFB38C"/>
+    <rect x="708" y="754" width="152" height="68" rx="10" fill="#FFF8F2" stroke="#EDE2D9"/>
+    <text x="524" y="852" font-size="17">Apricot / #FFB38C</text>
+    <text x="708" y="852" font-size="17">Paper / #FFF8F2</text>
+
+    <rect x="912" y="560" width="472" height="346" rx="24" fill="#FFFFFF"/>
+    <text x="940" y="602" font-size="14" letter-spacing="2" fill="#6F6470">README / DARK-MODE TREATMENT</text>
+    <rect x="940" y="628" width="416" height="238" rx="14" fill="#29232E"/>
+    <g transform="translate(960 644) scale(.44)">
+      <use xlink:href="#light" fill="#FFB38C"/>
+      <use xlink:href="#letters" transform="translate(240 0)" fill="#FFF8F2"/>
+    </g>
+    <text x="976" y="786" font-size="20" font-weight="600" fill="#FFF8F2">Sponsor Not Sponsor</text>
+    <text x="976" y="822" font-size="16" fill="#D3C5CD">Read the wording. See the evidence.</text>
+
+    <text x="56" y="970" font-size="19">Two opposing quotation forms. One clear, memorable silhouette.</text>
+    <text x="56" y="1008" font-size="15" fill="#6F6470">Prepared for review • existing extension and README assets remain unchanged • no sponsorship guarantee implied</text>
+  </g>
+</svg>

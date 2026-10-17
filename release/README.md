@@ -1,60 +1,51 @@
 # Release preparation — 0.6.0
 
-Section 6 prepares a reviewable private preview package. It does not certify independent accuracy or publish a store listing.
+This prepares a reviewable deterministic extension package. Store submission and independent accuracy validation remain separate steps.
 
 ## Build and install
 
-Run `pnpm check`, then `pnpm package`. The package command rebuilds the extension, verifies version/manifest assets/icon dimensions, archives only an explicit runtime allowlist, verifies the archive's entries and hashes, and writes:
+Run `pnpm check`, then `pnpm package`. Packaging rebuilds the extension, checks versions and manifest permissions/assets, and writes:
 
 - `release/sponsor-not-sponsor-0.6.0.zip`
 - `release/sponsor-not-sponsor-0.6.0.zip.sha256`
 - `release/sponsor-not-sponsor-0.6.0.zip.inventory.json`
 
-Unzip into a new folder and load that folder through Chrome's **Load unpacked** control. The manifest must be at the extracted folder's root. Existing development installs can continue loading `dist`; reload the extension and job tabs after rebuilding. The archive excludes source, tests, `.env`, API keys, node_modules, reports, and research caches. It contains no separate research backend.
+The archive contains 14 allowlisted runtime files, including the local logo SVG. Its entries and hashes are verified. It excludes source, tests, credentials, local environments, caches, and backend services.
 
-Icons are checked-in generated PNGs; ordinary builds do not require a browser. `pnpm assets` regenerates them from the code-native SVG and makes the promotional image. `pnpm screenshots` captures the real built UI on the labeled fictional demonstration. Browser tooling uses an isolated profile and local fixtures.
+Unzip into a new folder and load that folder in Chrome through **Load unpacked**. The manifest must be at the folder's root. Development installs can load `dist/`; reload the extension and job tabs after rebuilding.
 
-## Verification commands
+## Verification
 
 ```sh
 pnpm check
 pnpm test:browser
 pnpm test:popup
-pnpm test:research
 pnpm package
-pnpm screenshots
 pnpm release:verify
 ```
 
-`pnpm release:verify` rebuilds and packages, extracts into a fresh temporary directory, runs the browser/popup checks against that extracted copy, captures store screenshots, checks help/privacy layout, and records the archive hash in `release/validation.json`.
+`pnpm release:verify` tests a freshly extracted archive with seven checks: smoke, adaptive positioning, embedded-frame, overview, cross-origin, actual-toolbar-sizing, and screenshot/help/privacy. The positioning check covers late closed-shadow overlays, moving inner tools, transparent full-screen hosts, iframe helpers, removal, focus, viewport resizing, and the pill badge's one-shot 1.4-second arrival tracer. It also checks the shared ember button/glow accent, independence from website colour changes, unchanged result colours, reduced motion, and natural animation completion without replay on relocation or panel close. The run records the archive hash and completed checks in `release/validation.json`. Browser tools use disposable profiles and local fictional fixtures.
 
-The research smoke test needs port 4318 free. Do not stop another service without checking its owner. To test the archive itself, unpack it into a temporary directory and set `EXTENSION_DIR` for `pnpm test:browser` and `pnpm test:popup`. The default remains `dist`.
-
-## Changes
-
-- Version 0.6.0, extension/action icons, and minimum Chrome version 120.
-- Bundled help and privacy pages linked from the popup; onboarding and research consent retained.
-- User-facing preview description replaces internal section numbering.
-- Explicit-allowlist ZIP packaging with file inventory and SHA-256 checksum.
-- Store listing draft, permission explanations, reviewer instructions, real UI screenshots, and promotional artwork.
-- Major sponsorship wording recognition work recorded in section 7F for later implementation.
+Icons are checked-in PNGs. `pnpm assets` regenerates 16/32 px icons from `extension/icons/source-small.svg`, 48/128 px icons from `extension/icons/source.svg`, and the store promotion from `extension/icons/logo.svg`. `pnpm screenshots` captures the current built UI on the fictional demonstration. Ordinary builds require no asset regeneration. The approved SNS identity, light/dark README artwork, and usage rules are in the [logo kit](../design/logo-kit/GUIDE.md). Brand colours do not replace semantic result colours.
 
 ## Before public submission
 
-- Complete section 4's independently reviewed real-world beta and human accessibility review. Existing authored regression examples are not independent validation.
-- Review the declared limitations: employer identification (including the observed Atlassian miss), embedded jobs, bounded English interpretation, and research source access/coverage. The preview keeps these limits visible.
-- Supply the publisher identity/support contact, publish an accurate privacy-policy page, and provide optional-service setup/source access. Add those real URLs to the listing; no placeholder URL should be submitted.
-- Review the generated package, screenshots, listing, and dashboard data-use declarations. Decide the release audience and submit through the publisher's own account when ready.
+Complete independently reviewed real-world validation and human accessibility review. Review the limited English wording and layout coverage; authored regression results are not an independent accuracy estimate.
 
-These publication tasks remain open. No store submission, hosted backend, policy hosting, paid search, or broad accuracy claim is included.
+Supply the publisher identity/support contact and a public privacy-policy page matching the bundled disclosure. Review the package, current screenshots, [listing draft](STORE_LISTING.md), and dashboard data-use declarations before submitting through the publisher's account.
 
-## Validation recorded September 26, 2026
+Company research remains inactive in the extension. No local backend or optional service permission is needed.
 
-- TypeScript checks and all 147 automated tests pass; the production build succeeds.
-- The archive contains exactly 13 allowlisted runtime files. Version, manifest references, PNG dimensions, extracted bytes, and hashes pass verification.
-- The extracted ZIP passes the existing browser suite, including navigation, controls, evidence, privacy, narrow/short layouts, and zoom. Both new popup links are present.
-- Real toolbar width remains 400 pixels with onboarding visible and dismissed, with no horizontal overflow.
-- Actual UI screenshots, icons/promotional artwork, and narrow help/privacy renders were visually reviewed. Both document pages fit a 390-pixel viewport.
-- The additional research integration rerun could not bind port 4318 because a service was already using it. That service was left untouched. Research unit tests passed; prior section 5 integration results are not represented as a fresh run.
+## Current quality evidence
 
-This workstation's pnpm dependency preflight reports changed workspace structure after the package version update. Validation used `pnpm --config.verify-deps-before-run=false check` with the existing locked dependencies; browser/package scripts were invoked directly with Node. No dependencies or lockfile were changed. For a fresh checkout, run the documented frozen-lockfile install first. If retaining this installation until its dependency metadata is refreshed, `node scripts/package.mjs` builds the package without triggering pnpm's automatic reinstall.
+The [October 16 live audit](../evaluation/live-2026-10-16/report.md) completed 30 actual installed-extension comparisons. It recorded 23/29 undisputed headline agreements, five missed blockers, one safe incomplete-description abstention, a wrong-title result, and incomplete evidence in four of ten cited blocker decisions. Supported English U.S. headline agreement was 18/19; those 19 cases are a subset, not the entire audit.
+
+This audit is diagnostic evidence, not completion of the [human-reviewed acceptance gates](../evaluation/part2/acceptance.md). The minimum sample/reviewer requirements remain unmet. The observed first-source blocker recall was 10/15 (66.7%), below the registered 90% target; including additional official pages for two same-vacancy Ryan postings lowers it to 10/17 (58.8%). The gates apply to a properly frozen human-reviewed evaluation, so these figures identify risks without granting or replacing that approval.
+
+Before a quality claim, diagnose the supported-scope Ryan miss, resolve the disputed Qualcomm label and same-vacancy source boundary, and verify that identity and citation conditions are preserved. Four EA misses occurred outside intended U.S. scope and share one wording family; report that limitation rather than implying broad international support. No sponsorship-offer example was evaluated.
+
+Keep technical package validation in `release/validation.json` separate from these quality results. Rerunning `release:verify` checks the packaged extension on local fixtures; it does not repeat the live audit or establish real-world accuracy. Use the dated report when describing measured behavior in the listing, rather than an unqualified success-rate claim.
+
+## Existing dependency installation
+
+If this workstation's pnpm preflight reports changed workspace metadata, `pnpm --config.verify-deps-before-run=false check` uses the installed locked dependencies. `node scripts/package.mjs` and `node scripts/release-verify.mjs` also run directly. For a fresh checkout, install with `pnpm install --frozen-lockfile`.
