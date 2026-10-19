@@ -2,48 +2,52 @@
 
 Updated: October 17, 2026
 Release candidate: Sponsor Not Sponsor 0.6.0
-Current decision: **No-go until every required row below is complete.**
+Current decision: **No-go until every required owner row in Lane B is complete.**
 
-| Order | Required | Action | Owner | Completion evidence | Status |
-| ---: | :---: | --- | --- | --- | --- |
-| 1 | Yes | Publish the current privacy disclosure at a stable public HTTPS URL. It must describe webpage content, URLs, local settings, same-site overview recovery, optional report downloads, retention/deletion, recipients, and Limited Use. | Publisher | Public URL loads without authentication and matches `extension/privacy.html`. | Open |
-| 2 | Yes | Confirm the publisher account is registered, the contact email is verified and monitored, and two-step verification is enabled. | Publisher | Developer Dashboard account page reviewed. | Open |
-| 3 | Yes | Complete the Privacy tab against the exact 0.6.0 ZIP. | Publisher | Saved dashboard fields reviewed against the declaration matrix below. | Open |
-| 4 | Yes | Complete the Store Listing and Distribution tabs: category, language, mature-content answer, visibility, countries, support details, and automatic or deferred publishing. | Publisher | Dashboard shows no incomplete required fields. | Open |
-| 5 | Yes | Complete the registered independent human-reviewed real-world validation gate. | Product owner / human reviewers | Acceptance record meets `evaluation/part2/acceptance.md`; limitations remain documented. | Open |
-| 6 | Yes | Complete a human accessibility review of popup, badge, panel, help, and privacy surfaces. | Human reviewer | Signed checklist covering keyboard, focus, zoom, contrast, reduced motion, forced colours, and screen-reader clarity. | Open |
-| 7 | Yes | Approve publisher identity, support route, trademark clearance, listing copy, screenshots, privacy declarations, and the exact upload archive. | Product owner | Dated owner sign-off identifying version and SHA-256. | Open |
-| 8 | Recommended | Publish a stable fictional demonstration page and use it in reviewer instructions. Do not reference repository-only `release/demo.html`. | Publisher | Public URL works without login and produces a predictable extension result. | Open |
-| 9 | Recommended | Review the 128×128 icon against Chrome's recommended visual weight and transparent padding. Change only if the current full-canvas mark looks oversized beside Store icons. | Brand owner | Store-scale comparison approved; regenerate assets if changed. | Open |
-| 10 | Yes | Run final verification after every package-affecting change. | Release owner | `pnpm --config.verify-deps-before-run=false check`, `node scripts/release-verify.mjs`, and `git diff --check` pass. | Complete for current ZIP |
-| 11 | Yes | Upload only the verified archive and recheck the dashboard's parsed manifest and permission list before submission. | Release owner / publisher | Uploaded version is 0.6.0 and local SHA-256 is recorded as `5d30101744f569e14217d957cf571c8223f0a61ea53a4f856bc0ab729805c777`. | Open |
-| 12 | Yes | Submit for review and monitor the verified publisher email for questions or rejection notices. | Publisher | Submission receipt and review status recorded. | Open |
+Use the paste-ready [Developer Dashboard submission worksheet](CHROME_WEB_STORE_DASHBOARD_WORKSHEET.md) for the exact fields prepared from the current package and policy audit.
 
-## Privacy-tab declaration matrix
+## Lane A — agent-executable work
 
-| Dashboard field | Submission text or selection to verify |
-| --- | --- |
-| Single purpose | Explain stated sponsorship and eligibility requirements for the vacancy being viewed using traceable evidence. |
-| `storage` | Saves scanning preferences, disabled sites, and onboarding state locally. |
-| HTTP/HTTPS host access | Required for the advertised automatic cross-site job-posting scanner, including verified embedded frames. Users can pause scanning, disable individual sites, and further restrict access with Chrome controls. |
-| Remote code | **No.** All executable extension logic is bundled in the submitted package. |
-| Website content | **Disclose.** The extension locally inspects visible job-posting text and job metadata. |
-| Web browsing activity | **Disclose.** The extension observes the current page address and content only to recognize and analyze the vacancy being viewed. It does not build or upload browsing history. |
-| Form and sensitive input | Standard form values, editable answers, uploads, and hidden content are excluded; do not claim this guarantees that public webpage text never contains personal information. |
-| Network behavior | A narrowly matched Ashby application may fetch the same vacancy's official overview from the same website. Extracted text is not sent to an analysis service. |
-| Local storage and retention | Settings persist in Chrome local storage. Scan text and findings remain in tab memory and are replaced on navigation or rescan. |
-| Reports | An incorrect-result report is created only when the user downloads it. It includes role details, findings, quotations, scan time, and a sanitized page URL; it is not automatically submitted. |
-| Sharing and monetization | No developer collection, analytics, advertising, sale, or unrelated third-party transfer is implemented. |
-| Limited Use | Certify compliance and use the same Limited Use statement as the public privacy policy. |
-| Privacy-policy URL | Enter the final public HTTPS policy URL and confirm it matches the extension and all dashboard selections. |
+These tasks can be completed from the repository without publisher credentials or an owner policy decision.
+
+| Required | Work | Status | Evidence |
+| :---: | --- | --- | --- |
+| Yes | Build, package, and test the exact release candidate. | **Complete for current ZIP** | `release/sponsor-not-sponsor-0.6.0.zip`; `release/validation.json`; SHA-256 `2d545d6f309d6894347ffe79ca018eac308eabf9e469addb4ca81f8ea30ddbf4`. Typecheck, 208 unit tests, production build, and seven extracted-package checks passed. |
+| Yes | Audit manifest permissions, bundled code, privacy disclosure, listing copy, screenshots, and package contents against official Chrome Web Store policy. | **Complete for current ZIP** | `docs/chrome-web-store-publication-readiness.md` records the October 17 audit. Manifest V3, bundled executable code, `storage`, broad HTTP/HTTPS content-script access, assets, and disclosure coverage were checked. |
+| Yes | Prepare accurate listing and dashboard text without unsupported quality claims. | **Complete** | `release/STORE_LISTING.md` and `release/CHROME_WEB_STORE_DASHBOARD_WORKSHEET.md`. Independent validation remains explicitly pending. |
+| Yes | Prepare host-ready privacy, support, homepage, and fictional reviewer-demo pages without publishing them. | **Complete; owner values required before deployment** | `release/public-site/`; template validation passes and `--release` intentionally blocks until publisher name and support email are supplied. |
+| Yes | Complete the automated accessibility preflight and document the remaining human-only review. | **Complete** | `docs/accessibility-preflight-2026-10-17.md`; popup, badge/panel, help, and privacy checks cover keyboard behavior, focus, reflow, contrast, reduced motion, and forced colours. |
+| Recommended | Audit the 128×128 Store icon against Chrome's visual-weight guidance. | **Complete** | The approved regular tile is exported at 96×96 with a 16 px transparent inset. Generated copies match and the packaged alpha bounds are regression-tested. |
+| Yes | Regenerate package evidence after any package-affecting change. | **Complete after Store-icon correction** | `pnpm --config.verify-deps-before-run=false check`, `node scripts/release-verify.mjs`, and `git diff --check` passed; the regenerated archive SHA-256 is recorded above. |
+
+Lane A completion does not authorize upload, submission, publication, quality claims, or changes to the publisher account.
+
+## Lane B — explicit owner input or action
+
+These tasks require publisher credentials, a human review, a public hosting decision, or explicit owner approval. An agent may prepare materials but cannot truthfully complete them from repository evidence.
+
+| Order | Required | Owner action/input | Completion evidence | Status |
+| ---: | :---: | --- | --- | --- |
+| 1 | Yes | Complete the registered independent human-reviewed real-world validation gate. | Acceptance record meets `evaluation/part2/acceptance.md`; limitations remain documented. | **Open** |
+| 2 | Yes | Complete a human accessibility review of popup, badge, evidence panel, help, and privacy surfaces. | Signed checklist covers keyboard, focus, zoom, contrast, reduced motion, forced colours, and screen-reader clarity. | **Open** |
+| 3 | Yes | Confirm publisher registration, verified and monitored contact email, accepted agreements, and two-step verification. | Developer Dashboard account settings reviewed by the publisher. | **Open** |
+| 4 | Yes | Choose the HTTPS hosting destination; approve and publish the prepared `release/public-site/site/` pages. Publisher: Eniola Akinpelumi. Support: eni.akinpel@gmail.com. | `node release/public-site/validate.mjs --release` passes and the public privacy/support/demo URLs load without authentication. | **Waiting on hosting choice** |
+| 5 | Yes | Decide whether to provide optional separate support and homepage URLs beyond the prepared public site. | Publisher name and monitored support email are supplied; any additional public URLs load without authentication. | **Publisher identity/contact complete; URL choice open** |
+| 6 | Yes | Review and save every Store Listing, Privacy, and Distribution field using the submission worksheet and exact 0.6.0 ZIP. | Dashboard has no incomplete required fields and saved values match the worksheet/package. | **Open** |
+| 7 | Yes | Choose visibility, geographic distribution, and automatic or deferred publishing. | Choices are recorded in the worksheet and dashboard. | **Open** |
+| 8 | Recommended | Approve the prepared fictional demonstration page and provide its deployed URL for reviewer instructions. | Public URL works without login and produces the documented **Explicit blocker found** result. | **Open** |
+| 9 | Recommended | Review the 128×128 icon at Store scale and decide whether the approved full-canvas mark needs more transparent padding. | **Agent audit complete:** the regular rounded-square tile did not qualify for Chrome's irregular-mark exception. The unchanged approved artwork is now a 96×96 footprint with 16 px transparent padding; generated copies match and the packaged PNG alpha bounds are regression-tested. Owner approval remains part of row 10. | **Complete** |
+| 10 | Yes | Confirm trademark/name/logo/screenshot rights and approve the listing copy, declarations, screenshots, and exact archive. | Dated owner sign-off names version 0.6.0 and the current SHA-256. | **Open** |
+| 11 | Yes | Upload only the approved archive and confirm the dashboard parsed version and permissions correctly. | Dashboard shows version 0.6.0, `storage`, and HTTP/HTTPS page access; uploaded archive matches the signed-off SHA-256. | **Open** |
+| 12 | Yes | Submit for review and monitor the verified publisher email. | Submission receipt and review status are recorded; reviewer questions are answered. | **Open** |
 
 ## Final go/no-go gate
 
 Submit only when:
 
-- every **Required** row is complete;
+- every required Lane B row is complete;
 - public disclosures, dashboard answers, listing copy, screenshots, and the uploaded ZIP describe the same behavior;
-- the final archive passes all automated checks and has a newly recorded SHA-256;
-- the owner has approved the exact archive and selected automatic or deferred publishing.
+- any package-affecting change has triggered a fresh Lane A verification and SHA-256;
+- the owner has approved the exact archive and chosen the publication timing.
 
-Passing automated tests does not replace Chrome Web Store review, human accessibility review, or the project's independent real-world validation gate.
+Automated tests and the AI-reviewed diagnostic audit do not replace Chrome Web Store review, human accessibility review, or the registered independent real-world validation gate.

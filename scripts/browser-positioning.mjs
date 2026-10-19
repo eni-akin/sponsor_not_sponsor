@@ -152,7 +152,15 @@ try {
     await animation.finished;
   });
   assert.equal(await page.locator('#sponsor-not-sponsor-ui #tracer').evaluate(el => el.getAnimations().length), 0, 'The sweep must finish naturally without looping');
-  console.log('PASS: faster one-shot pill tracer, shared ember button/glow accent, website-colour independence, reduced motion, unchanged result colours, dynamic badge/panel corners, shadow/iframe tools, focus, and resize.');
+  await page.emulateMedia({ forcedColors: 'active' });
+  assert.equal(await page.locator('#sponsor-not-sponsor-ui .arrival-trace').evaluate(el => getComputedStyle(el).display), 'none');
+  await badge.focus();
+  assert.equal(await badge.evaluate(el => el.matches(':focus-visible') && getComputedStyle(el).outlineStyle !== 'none'), true, 'Badge focus must remain visible in forced colours');
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#sponsor-not-sponsor-ui #close').evaluate(el => el.getRootNode().activeElement === el && el.matches(':focus-visible') && getComputedStyle(el).outlineStyle !== 'none'), true, 'Panel focus must remain visible in forced colours');
+  await page.keyboard.press('Escape');
+  await page.emulateMedia({ forcedColors: 'none' });
+  console.log('PASS: faster one-shot pill tracer, shared ember button/glow accent, website-colour independence, reduced motion, forced colours, unchanged result colours, dynamic badge/panel corners, shadow/iframe tools, focus, and resize.');
 } finally {
   await context?.close();
   await new Promise(done => server.close(done));

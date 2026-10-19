@@ -1,5 +1,25 @@
 import assert from 'node:assert/strict';
 
+function contrastRatio(foreground, background) {
+  const luminance = color => {
+    const channels = color.match(/[\d.]+/g)?.slice(0, 3).map(Number);
+    assert.equal(channels?.length, 3, `Expected an RGB colour, got ${color}`);
+    const [red, green, blue] = channels.map(channel => {
+      const value = channel / 255;
+      return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4;
+    });
+    return .2126 * red + .7152 * green + .0722 * blue;
+  };
+  const [lighter, darker] = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+  return (lighter + .05) / (darker + .05);
+}
+
+async function assertTextContrast(text, background, label) {
+  const foreground = await text.evaluate(element => getComputedStyle(element).color);
+  const backgroundColor = await background.evaluate(element => getComputedStyle(element).backgroundColor);
+  assert.ok(contrastRatio(foreground, backgroundColor) >= 4.5, `${label} must meet 4.5:1 text contrast`);
+}
+
 /** Section 4 checks run inside the existing isolated extension test browser. */
 export async function checkBetaUI({ page, popup, origin, getScan }) {
   await page.goto(`${origin}/structured-job`);
@@ -9,6 +29,26 @@ export async function checkBetaUI({ page, popup, origin, getScan }) {
   const longTitle = 'Senior Research Engineer — Distributed Systems and International Infrastructure '.repeat(2).trim();
   await page.locator('h1').evaluate((element, title) => { element.textContent = title; }, longTitle);
   await page.waitForFunction(title => document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot.getElementById('role-title').textContent === title, longTitle);
+  assert.equal(await popup.getByRole('checkbox', { name: 'Pause scanning everywhere' }).count(), 1);
+  assert.equal(await popup.getByRole('checkbox', { name: /Disable on/ }).count(), 1);
+  const popupRescan = popup.getByRole('button', { name: 'Scan again' });
+  await popupRescan.focus();
+  await popup.keyboard.press('Enter');
+  await popup.waitForFunction(() => document.querySelector('#scan-feedback').textContent.startsWith('Scan complete'));
+  await popup.keyboard.press('Tab');
+  assert.equal(await popup.locator('#show-panel').evaluate(element => document.activeElement === element), true, 'Popup actions must remain in keyboard order');
+  const popupEvidence = popup.locator('#evidence-section > summary');
+  await popupEvidence.focus();
+  await popup.keyboard.press('Enter');
+  assert.equal(await popup.locator('#evidence-section').getAttribute('open'), '');
+  await popup.keyboard.press('Enter');
+  await assertTextContrast(popupRescan, popupRescan, 'Popup primary action');
+  await assertTextContrast(popup.locator('.privacy'), popup.locator('html'), 'Popup supporting text');
+  await assertTextContrast(popup.locator('a[href="help.html"]'), popup.locator('html'), 'Popup link');
+  await popup.emulateMedia({ forcedColors: 'active' });
+  await popupRescan.focus();
+  assert.equal(await popupRescan.evaluate(element => element.matches(':focus-visible') && getComputedStyle(element).outlineStyle !== 'none'), true, 'Popup focus must remain visible in forced colours');
+  await popup.emulateMedia({ forcedColors: 'none' });
   const checks = [];
   for (const viewport of [{ width: 320, height: 568 }, { width: 640, height: 360 }, { width: 320, height: 256 }]) {
     await page.setViewportSize(viewport);
@@ -26,6 +66,11 @@ export async function checkBetaUI({ page, popup, origin, getScan }) {
     assert.equal(geometry.fits, true, `Panel must fit ${JSON.stringify(viewport)}`);
     assert.equal(geometry.horizontalOverflow, false, `No horizontal overflow ${JSON.stringify(viewport)}`);
     assert.ok(geometry.bodyHeight >= 48, `Evidence must remain reachable ${JSON.stringify(viewport)}: ${JSON.stringify(geometry)}`);
+    if (!checks.length) {
+      await assertTextContrast(panel.locator('#rescan'), panel.locator('#rescan'), 'Panel primary action');
+      await assertTextContrast(panel.locator('.note').first(), panel, 'Panel supporting text');
+      await assertTextContrast(panel.locator('.finding-value'), panel.locator('.finding'), 'Panel result text');
+    }
     // Every visible panel action must have a label and be large enough to target.
     for (const button of await panel.locator('button:visible').all()) {
       assert.ok(await button.evaluate(el => (el.getAttribute('aria-label') || el.textContent).trim().length > 0));
@@ -72,5 +117,5 @@ export async function checkBetaUI({ page, popup, origin, getScan }) {
   await panel.waitFor({ state: 'hidden' });
   assert.doesNotMatch(JSON.stringify(await getScan()), /PRIVATE BETA ANSWER/);
   await page.setViewportSize({ width: 420, height: 850 });
-  return { checks, browserZoom: '200%', keyboard: 'passed', privateAnswers: 'excluded' };
+  return { checks, browserZoom: '200%', contrast: 'WCAG AA text pairs passed', keyboard: 'popup and panel passed', forcedColors: 'popup passed', privateAnswers: 'excluded' };
 }

@@ -17,7 +17,7 @@ Two opposing quotation forms leave an open centre: a compact identifier for read
 | Chrome toolbar | `chrome/icon-16.png`, `icon-32.png`, `icon-48.png`, `icon-128.png` |
 | Web icons | `web/favicon.svg`, `favicon.ico`, touch/PWA PNGs, sample manifest and head snippet |
 
-Use `small` masters at 16–24 px: their cuts are simplified and weight increased. Chrome exports use this cut at 16/32 px because the symbol is inset in a tile; 48/128 px use the detailed mark. Horizontal and stacked black, white, and ember-mono lockups are also included. The 1024 px app icon uses the detailed mark. Raster exports are RGB PNG; SVG is the editable master format.
+Use `small` masters at 16–24 px: their cuts are simplified and weight increased. Chrome exports use this cut at 16/32 px because the symbol is inset in a tile; 48/128 px use the detailed mark. The 128 px Chrome Web Store export centres the 96 px tile with 16 px of transparent padding on every side; smaller runtime icons retain their full canvas for toolbar legibility. Horizontal and stacked black, white, and ember-mono lockups are also included. The 1024 px app icon uses the detailed mark. Raster exports are RGB PNG; SVG is the editable master format.
 
 ## Space and size
 

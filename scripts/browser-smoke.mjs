@@ -36,6 +36,24 @@ try {
   const popup = await context.newPage();
   await page.bringToFront();
   await popup.goto(`chrome-extension://${extensionId}/popup.html`);
+  assert.deepEqual(await popup.evaluate(async () => {
+    const image = new Image();
+    image.src = chrome.runtime.getURL('icons/icon-128.png');
+    await image.decode();
+    const canvas = document.createElement('canvas');
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+    const context = canvas.getContext('2d');
+    context.drawImage(image, 0, 0);
+    const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+    let left = canvas.width, top = canvas.height, right = 0, bottom = 0;
+    for (let y = 0; y < canvas.height; y += 1) for (let x = 0; x < canvas.width; x += 1) {
+      if (pixels[(y * canvas.width + x) * 4 + 3] === 0) continue;
+      left = Math.min(left, x); top = Math.min(top, y);
+      right = Math.max(right, x + 1); bottom = Math.max(bottom, y + 1);
+    }
+    return [canvas.width, canvas.height, left, top, right, bottom];
+  }), [128, 128, 16, 16, 112, 112], 'Store icon keeps Chrome\'s recommended 16 px transparent inset');
   await popup.locator('.brand-logo').evaluate(image => image.decode());
   assert.equal(await popup.locator('.brand-logo').getAttribute('alt'), 'SNS — Sponsor Not Sponsor');
   assert.deepEqual(await popup.locator('html').evaluate(element => {

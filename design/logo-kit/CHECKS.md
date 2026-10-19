@@ -38,6 +38,10 @@ Prepared October 16, 2026. The owner subsequently approved the palette/kit and a
 
 Trademark clearance, independent audience/accuracy validation, and human accessibility review remain outstanding. The earlier “not performed” integration items describe the original kit checkpoint, not the current integration status.
 
+## Chrome Web Store icon footprint — completed October 17, 2026
+
+The approved rounded-square tile previously occupied the full 128×128 canvas. Because it is a regular tile rather than an irregular mark, the Store icon now follows Chrome's documented 96×96 visual footprint: `pnpm assets` centres the unchanged detailed artwork with 16 px of transparent padding on each side. The 16/32/48 px runtime exports are unchanged so toolbar and extension-management legibility is not reduced. The generated `extension/icons/icon-128.png` and logo-kit copy are byte-identical, and the packaged-browser smoke check decodes the actual PNG and asserts an alpha bounding box of `(16, 16)–(112, 112)`.
+
 ## UI palette — completed October 17, 2026
 
 The owner requested matching UI/button colours after logo integration. Updated the popup, on-page badge/panel, and help/privacy styles to paper/ink surfaces, ember primary buttons, warm secondary controls, matching links, and ink focus outlines. Added explicit hover colours. Sponsorship labels/colours, warnings, layout, fonts, permissions, and analysis logic were preserved; no dark-mode interface was added.
