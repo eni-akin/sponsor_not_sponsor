@@ -2,12 +2,18 @@
 
 `site/` is a buildless static site for the Sponsor Not Sponsor homepage, privacy policy, support route, and stable fictional reviewer demo. It has no runtime dependencies, analytics, forms, remote assets, or deployment identity. Serve or upload the contents of `site/` without changing its directory structure.
 
+Published with HTTPS enforced:
+
+- Homepage: `https://eni-akin.github.io/sponsor_not_sponsor/`
+- Privacy: `https://eni-akin.github.io/sponsor_not_sponsor/privacy.html`
+- Support: `https://eni-akin.github.io/sponsor_not_sponsor/support.html`
+- Reviewer demo: `https://eni-akin.github.io/sponsor_not_sponsor/demo.html`
+
 ## Owner inputs before deployment
 
-1. Choose the final HTTPS origin. Keep these stable public paths: `/privacy.html`, `/support.html`, and `/demo.html` (or record the equivalent subdirectory URLs if the site is not hosted at the origin root).
-2. Confirm the hosting provider's own request logging and privacy terms. Add host-specific disclosure if the owner determines it is required; this package adds no analytics or form submission.
-3. Review publisher identity, trademark clearance, policy wording, and the demo result. The repository's human accessibility and independent real-world validation gates remain separate release blockers.
-4. Deploy only after the owner approves the exact content. Then enter the public privacy and support URLs in the Chrome Web Store dashboard and use the demo URL in reviewer instructions.
+1. Confirm GitHub Pages' request logging and privacy terms. Add host-specific disclosure if the owner determines it is required; this package adds no analytics or form submission.
+2. Review trademark clearance, policy wording, and the demo result. The repository's human accessibility and independent real-world validation gates remain separate release blockers.
+3. Enter the published privacy and support URLs in the Chrome Web Store dashboard and use the demo URL in reviewer instructions.
 
 ## Local check and preview
 

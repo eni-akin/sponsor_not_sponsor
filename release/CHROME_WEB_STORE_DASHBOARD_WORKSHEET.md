@@ -49,9 +49,9 @@ The screenshots show the current extension on a labeled fictional posting. They 
 | --- | --- |
 | Publisher/display name | Eniola Akinpelumi |
 | Support email | eni.akinpel@gmail.com |
-| Support URL | `[OWNER: PUBLIC HTTPS SUPPORT URL, OR CONFIRM OMIT]` |
-| Homepage URL | `[OWNER: PUBLIC HTTPS HOMEPAGE URL, OR CONFIRM OMIT]` |
-| Privacy-policy URL | `[OWNER: PUBLIC HTTPS PRIVACY-POLICY URL]` |
+| Support URL | https://eni-akin.github.io/sponsor_not_sponsor/support.html |
+| Homepage URL | https://eni-akin.github.io/sponsor_not_sponsor/ |
+| Privacy-policy URL | https://eni-akin.github.io/sponsor_not_sponsor/privacy.html |
 
 ## Privacy tab
 
@@ -122,7 +122,7 @@ Confirm every dashboard certification stating that:
 Public privacy-policy URL:
 
 ```text
-[OWNER: PUBLIC HTTPS PRIVACY-POLICY URL]
+https://eni-akin.github.io/sponsor_not_sponsor/privacy.html
 ```
 
 ## Reviewer instructions
@@ -133,7 +133,7 @@ Public privacy-policy URL:
 No account, payment, credentials, or special configuration is required.
 
 1. Install the submitted extension and allow its requested website access.
-2. Open [OWNER: PUBLIC FICTIONAL DEMONSTRATION URL].
+2. Open https://eni-akin.github.io/sponsor_not_sponsor/demo.html.
 3. The page presents one English-language U.S. job posting. The extension should show a small badge. Open it to see the result, exact quoted evidence, and source link.
 4. Use the toolbar popup to pause and resume scanning and to disable and re-enable the site.
 5. Dismiss the on-page badge, then restore it from the toolbar popup and choose Scan again.
