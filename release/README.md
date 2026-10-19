@@ -1,4 +1,4 @@
-# Release preparation — 0.6.0
+# Release preparation — 1.0.0
 
 This prepares a reviewable deterministic extension package. Store submission and independent accuracy validation remain separate steps.
 
@@ -6,9 +6,9 @@ This prepares a reviewable deterministic extension package. Store submission and
 
 Run `pnpm check`, then `pnpm package`. Packaging rebuilds the extension, checks versions and manifest permissions/assets, and writes:
 
-- `release/sponsor-not-sponsor-0.6.0.zip`
-- `release/sponsor-not-sponsor-0.6.0.zip.sha256`
-- `release/sponsor-not-sponsor-0.6.0.zip.inventory.json`
+- `release/sponsor-not-sponsor-1.0.0.zip`
+- `release/sponsor-not-sponsor-1.0.0.zip.sha256`
+- `release/sponsor-not-sponsor-1.0.0.zip.inventory.json`
 
 The archive contains 14 allowlisted runtime files, including the local logo SVG. Its entries and hashes are verified. It excludes source, tests, credentials, local environments, caches, and backend services.
 

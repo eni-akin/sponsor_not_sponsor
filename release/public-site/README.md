@@ -39,7 +39,7 @@ Then open `http://127.0.0.1:4173/`. Stop the server when review is complete.
 
 ## Reviewer path after deployment
 
-1. Install Sponsor Not Sponsor 0.6.0 and allow access to the deployed demo origin.
+1. Install Sponsor Not Sponsor 1.0.0 and allow access to the deployed demo origin.
 2. Open `/demo.html` and reload once after installation if needed.
 3. Expect **Explicit blocker found**, supported by “Visa sponsorship is not available for this position.”
 4. Open the evidence panel to review the quotation, then test pause, site disable, Scan again, and the optional local report download.

@@ -72,11 +72,11 @@ The highest avoidable rejection risks are an inaccurate privacy/data declaration
 
 ## 5. Sponsor Not Sponsor assessment
 
-Assessment date: October 17, 2026. Audited artifact: `release/sponsor-not-sponsor-0.6.0.zip`.
+Assessment date: October 18, 2026. Audited artifact: `release/sponsor-not-sponsor-1.0.0.zip`.
 
 ### Passes verified from the repository
 
-- [x] The 48 KB ZIP contains 14 allowlisted runtime files with `manifest.json` at its root. Its SHA-256 matches `release/validation.json` and `release/sponsor-not-sponsor-0.6.0.zip.sha256`.
+- [x] The 48 KB ZIP contains 14 allowlisted runtime files with `manifest.json` at its root. Its SHA-256 matches `release/validation.json` and `release/sponsor-not-sponsor-1.0.0.zip.sha256`.
 - [x] The manifest is valid Manifest V3 and includes a concise name, increasing version, 128-pixel icon, and a 112-character description.
 - [x] The package contains bundled JavaScript only. No remotely hosted script, fetched executable logic, `eval`, or `new Function` use was found.
 - [x] `storage` supports saved scan preferences and onboarding. HTTP/HTTPS content-script access directly supports automatic job-page recognition and analysis; no unrelated permission is declared.

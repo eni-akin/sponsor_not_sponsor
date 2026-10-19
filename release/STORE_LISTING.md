@@ -1,4 +1,4 @@
-# Chrome Web Store listing draft — 0.6.0
+# Chrome Web Store listing draft — 1.0.0
 
 Status: prepared for review; not submitted or published. Independent real-world validation remains open.
 
