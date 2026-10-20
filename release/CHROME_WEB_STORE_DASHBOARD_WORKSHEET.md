@@ -1,9 +1,9 @@
 # Chrome Web Store Developer Dashboard submission worksheet
 
-Prepared: October 18, 2026
-Package: `release/sponsor-not-sponsor-1.0.0.zip`
-Version: `1.0.0`
-SHA-256: `b18f37588e30bcc47642480c8328e8dcb7682059e7159722e6e35ff6c56f2b38`
+Updated for 1.0.1: October 20, 2026
+Package: `release/sponsor-not-sponsor-1.0.1.zip`
+Version: `1.0.1`
+SHA-256: `0ccbef3f7e84af2f42836a9b71bb2796c8690a1609de3af9887bf449f2081055`
 
 This worksheet is paste-ready for the current verified package. Rebuild and re-audit it after any package-affecting change. Text in `[OWNER: ...]` brackets requires genuine owner or publisher input; do not submit the brackets.
 
@@ -15,7 +15,7 @@ This worksheet is paste-ready for the current verified package. Rebuild and re-a
 | --- | --- |
 | Name | Sponsor Not Sponsor |
 | Summary | Read explicit sponsorship, CPT, and OPT statements in job postings, with local analysis and supporting evidence. |
-| Category | Productivity |
+| Category | Workflow & Planning |
 | Language | English |
 | Mature content | No |
 
@@ -163,8 +163,8 @@ Deferred publishing is the cautious option because approval will not immediately
 - [ ] `[OWNER/HUMAN REVIEWERS]` Registered independent real-world validation and human accessibility review are complete.
 - [ ] `[OWNER]` Product name, logo, screenshots, and website-content rights/trademark clearance are approved.
 - [ ] `[OWNER]` Listing copy, screenshots, privacy selections, permissions, and distribution choices match the uploaded ZIP.
-- [ ] `[OWNER]` Exact archive approval: version `1.0.0`, SHA-256 `b18f37588e30bcc47642480c8328e8dcb7682059e7159722e6e35ff6c56f2b38`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`.
-- [ ] `[PUBLISHER]` Uploaded manifest shows version 1.0.0, `storage`, and HTTP/HTTPS content-script access.
+- [ ] `[OWNER]` Exact archive approval: version `1.0.1`, SHA-256 `0ccbef3f7e84af2f42836a9b71bb2796c8690a1609de3af9887bf449f2081055`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`.
+- [ ] `[PUBLISHER]` Uploaded manifest shows version 1.0.1, `storage`, and HTTP/HTTPS content-script access.
 - [ ] `[PUBLISHER]` Submission receipt/status and any reviewer correspondence are recorded.
 
 Do not submit until all required items in `release/PUBLISHING_ACTION_PLAN.md` Lane B are complete.

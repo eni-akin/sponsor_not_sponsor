@@ -102,6 +102,51 @@ try {
     window.positioningObstacle = tool;
   });
   assert.equal(await isClear('badge'), true, 'Closed-shadow tool should not block unrelated corners');
+  // Normal page content in an open shadow root can sit underneath the relocated UI.
+  await page.evaluate(() => {
+    document.getElementById('floating-tool').remove();
+    const host = document.createElement('div');
+    host.id = 'floating-tool';
+    host.style.cssText = 'position:fixed;right:0;top:0;width:360px;height:100vh;z-index:2147483647';
+    const tool = document.createElement('button');
+    tool.textContent = 'Floating helper';
+    tool.style.cssText = 'position:fixed;right:0;top:0;width:360px;height:100vh;z-index:2147483647';
+    host.attachShadow({ mode: 'closed' }).append(tool);
+    document.body.append(host);
+    window.positioningObstacle = tool;
+    const content = document.createElement('div');
+    content.id = 'shadow-content';
+    content.style.cssText = 'position:absolute;left:0;top:0;width:400px;height:100vh';
+    content.attachShadow({ mode: 'open' }).innerHTML = '<div style="height:100%">Page content</div>';
+    document.body.append(content);
+  });
+  const stableLeft = async id => {
+    await page.waitForTimeout(600);
+    const positions = await page.evaluate(async id => {
+      const element = document.querySelector('#sponsor-not-sponsor-ui').shadowRoot.getElementById(id);
+      const positions = [];
+      for (let i = 0; i < 75; i++) {
+        await new Promise(requestAnimationFrame);
+        const { left, top } = element.getBoundingClientRect();
+        positions.push({ left, top });
+      }
+      return positions;
+    }, id);
+    assert.equal(new Set(positions.map(p => JSON.stringify(p))).size, 1, `${id} must not bounce between left corners`);
+    assert.equal(positions[0].left, 16);
+  };
+  await stableLeft('badge');
+  await badge.click();
+  await stableLeft('panel');
+  await page.keyboard.press('Escape');
+  await stableLeft('badge');
+  await page.evaluate(() => {
+    document.getElementById('shadow-content').remove();
+    document.getElementById('floating-tool').style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:2147483647';
+    window.positioningObstacle.style.height = '220px';
+    window.positioningObstacle.style.top = 'auto';
+    window.positioningObstacle.style.bottom = '0';
+  });
   // Only the closed-root child changes: the periodic check must catch it.
   await page.evaluate(() => {
     window.positioningObstacle.style.right = 'auto';

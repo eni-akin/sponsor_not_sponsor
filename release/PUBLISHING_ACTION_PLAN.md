@@ -1,5 +1,7 @@
 # Chrome Web Store publishing action plan
 
+For the current 1.0.1 patch package and update steps, see [UPDATE-1.0.1.md](UPDATE-1.0.1.md). The original 1.0.0 preparation checklist below is historical; the owner reports its dashboard submission steps completed.
+
 Updated: October 18, 2026
 Release candidate: Sponsor Not Sponsor 1.0.0
 Current decision: **No-go until every required owner row in Lane B is complete.**

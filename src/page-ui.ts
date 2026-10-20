@@ -103,6 +103,8 @@ export class PageUI {
         if (!child || child === element) break;
         element = child;
       }
+      // A shadow hit-test can return SNS painted above unrelated page content.
+      if (element === this.host || element.getRootNode() === this.root) continue;
       let node: Element | null = element, blocked = false;
       const ancestors: Element[] = [];
       while (node && node !== document.body && node !== document.documentElement) {

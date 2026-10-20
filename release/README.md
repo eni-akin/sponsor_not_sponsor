@@ -1,4 +1,6 @@
-# Release preparation — 1.0.0
+# Release preparation — 1.0.1
+
+Patch 1.0.1 fixes the on-page badge/panel bouncing between left corners when shadow-DOM page content sits beneath it. See [update notes and upload steps](UPDATE-1.0.1.md).
 
 This prepares a reviewable deterministic extension package. Store submission and independent accuracy validation remain separate steps.
 
@@ -6,9 +8,9 @@ This prepares a reviewable deterministic extension package. Store submission and
 
 Run `pnpm check`, then `pnpm package`. Packaging rebuilds the extension, checks versions and manifest permissions/assets, and writes:
 
-- `release/sponsor-not-sponsor-1.0.0.zip`
-- `release/sponsor-not-sponsor-1.0.0.zip.sha256`
-- `release/sponsor-not-sponsor-1.0.0.zip.inventory.json`
+- `release/sponsor-not-sponsor-1.0.1.zip`
+- `release/sponsor-not-sponsor-1.0.1.zip.sha256`
+- `release/sponsor-not-sponsor-1.0.1.zip.inventory.json`
 
 The archive contains 14 allowlisted runtime files, including the local logo SVG. Its entries and hashes are verified. It excludes source, tests, credentials, local environments, caches, and backend services.
 
@@ -24,7 +26,7 @@ pnpm package
 pnpm release:verify
 ```
 
-`pnpm release:verify` tests a freshly extracted archive with seven checks: smoke, adaptive positioning, embedded-frame, overview, cross-origin, actual-toolbar-sizing, and screenshot/help/privacy. The positioning check covers late closed-shadow overlays, moving inner tools, transparent full-screen hosts, iframe helpers, removal, focus, viewport resizing, and the pill badge's one-shot 1.4-second arrival tracer. It also checks the shared ember button/glow accent, independence from website colour changes, unchanged result colours, reduced motion, and natural animation completion without replay on relocation or panel close. The run records the archive hash and completed checks in `release/validation.json`. Browser tools use disposable profiles and local fictional fixtures.
+`pnpm release:verify` tests a freshly extracted archive with seven checks: smoke, adaptive positioning, embedded-frame, overview, cross-origin, actual-toolbar-sizing, and screenshot/help/privacy. The positioning check covers stable badge/panel expansion and closing above normal shadow-DOM content, late closed-shadow overlays, moving inner tools, transparent full-screen hosts, iframe helpers, removal, focus, viewport resizing, and the pill badge's one-shot 1.4-second arrival tracer. It also checks the shared ember button/glow accent, independence from website colour changes, unchanged result colours, reduced motion, and natural animation completion without replay on relocation or panel close. The run records the archive hash and completed checks in `release/validation.json`. Browser tools use disposable profiles and local fictional fixtures.
 
 Icons are checked-in PNGs. `pnpm assets` regenerates 16/32 px icons from `extension/icons/source-small.svg`, 48/128 px icons from `extension/icons/source.svg`, and the store promotion from `extension/icons/logo.svg`. `pnpm screenshots` captures the current built UI on the fictional demonstration. Ordinary builds require no asset regeneration. The approved SNS identity, light/dark README artwork, and usage rules are in the [logo kit](../design/logo-kit/GUIDE.md). Brand colours do not replace semantic result colours.
 
