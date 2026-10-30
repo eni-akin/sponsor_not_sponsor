@@ -37,6 +37,59 @@ An agent's `wrangler d1 info sns-reporting --config reporting/wrangler.public.pr
 
 ## Official documentation reviewed October 30, 2026
 
+### Live account review — October 30, approximately 10:40–10:43 a.m. America/Chicago
+
+The agent inspected the authenticated dashboard read-only and used filtered
+Wrangler deployment metadata. No secrets, report contents, bookmarks, or private
+log entries were retrieved. These replace historical account snapshots only for
+the fields explicitly checked:
+
+- Workers plans: **Free — Current plan**, 100,000 requests/day, 10 ms CPU/request,
+  100 Workers, and 5 Cron Triggers/account shown in the account plan view.
+- Workers inventory: exactly four reporting Workers. Daily account usage showed
+  **49 / 100,000 requests** and **0 / 200,000 observability events**. Per-Worker
+  overview metrics use a different last-24-hours window and must not be summed
+  into UTC-day usage. Production public/admin overviews showed zero errors;
+  displayed CPU metrics were 807 microseconds and 3 ms respectively, not worst-case
+  CPU guarantees.
+- D1 daily account usage: **3 / 10 databases**, **24 / 5,000,000 rows read**,
+  **6 / 100,000 rows written**, and **307.2 kB / 5 GB total storage**. Individual
+  database sizes were 102.4 kB. A listing's table-count column showed zero despite
+  earlier CLI/schema evidence, so that column is not evidence of empty content.
+- Production D1 Time Travel: seven-day policy shown, with the actual selectable
+  restore window beginning at database creation **October 29, 13:10** and ending
+  at **October 30, 10:40** in the dashboard's displayed time. No restore or bookmark
+  retrieval was performed. A young database cannot demonstrate seven days of history.
+- Production public/admin and staging admin overview pages explicitly showed
+  Workers Logs and Traces **Disabled**. Both admin overviews showed one trigger;
+  the checked-in schedules are hourly. No logging or trigger settings were changed.
+- Production admin Access: **All traffic**, requiring login on every production
+  and preview URL; only `eni.akinpel@gmail.com` appeared in the allow policy.
+  Its AUD matched the production config. Earlier second-user-denial evidence remains
+  owner-reported; it was not repeated during this review.
+- Cloudflare One settings: **Zero Trust Free**, **1 of 50 available seats**,
+  $0/month. The owner account has the Super Administrator role. Account credentials
+  and MFA recovery material were not inspected.
+- Filtered current deployment bindings across all four inventory Workers: staging
+  public namespace **1001**, production public namespace **1002**, both 5/60 seconds;
+  neither admin has a rate limiter. With four Workers in the account inventory,
+  no namespace collision was found among the account's deployed Workers.
+- Platform Notifications → Account & billing → Usage based billing still stated
+  **No eligible usage-based products are available on this account**. No alert was
+  saved. This does not rule out other alert types or establish undocumented D1-specific
+  notification support. Manual early-warning review remains the operating choice.
+
+Provider security/internal metadata and rate-limit-key retention remain **unknown**
+where the cited official documentation provides no guarantee. Access/audit retention
+is described by the official documentation below, not inferred from disabled Worker
+logging. No exact provider-wide erasure promise is approved by this account review.
+
+The account review task has recorded the relevant observable settings, capacity,
+recovery availability, and alert limitation. Recheck usage/settings at launch and
+on the operating cadence; this is not a continuing availability guarantee.
+
+## Official documentation snapshot
+
 The limits below are documentation claims, not measurements of this account.
 
 | Product | Current documented Free allowance relevant here | Operational consequence |

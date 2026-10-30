@@ -75,6 +75,26 @@ the master-branch Pages workflow would publish the changed public-site drafts.
 
 ## Owner and external gates
 
+### Subsequent launch work
+
+The [launch progress record](REPORTING_LAUNCH_PROGRESS_2026-10-30.md) supersedes
+the earlier preparation checkpoint for current remaining work. Account checks
+and disposable encrypted recovery validation are recorded there. Wording review
+now clarifies technical requests before submission, optional role identifier,
+first-closure retention, and the 14-day minimal deletion ledger. Public form and
+schema notice versions are `2026-10-30`; stale notices are rejected and browser
+notice parity is checked. Both typechecks, all 226 tests, build, reporting browser
+checks, public-site release validation, and whitespace checks passed afterward.
+These are local changes only. **The earlier ZIP/hash above is historical and
+does not contain the latest privacy wording.** A subsequent rebuild passed all
+226 tests and seven extracted-package checks; current provisional `1.0.1` ZIP
+SHA-256 is `bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af`.
+Final Store version confirmation and owner approval remain required. Synthetic
+form/inbox keyboard evidence and the older installed-extension limitation are
+recorded in the launch progress file. The owner instructed **do not use VoiceOver**
+and **do not do final publishing**. No screen-reader pass is claimed; no push,
+Store submission or real intake enablement is authorized.
+
 - Account-only facts not available through safe authenticated read-only tooling:
   current capacity/usage, actual alert eligibility, MFA/recovery access, and any
   unresolved provider metadata guarantees. Record evidence without secrets.
