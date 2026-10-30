@@ -18,7 +18,7 @@ test('real local D1: concurrent cap/retries, private inbox, revision checks, ret
       for (const statement of statements) await db.prepare(statement).run();
     }
     const env: PublicEnv = {REPORTS:db,INTAKE_ENABLED:'true',PUBLIC_ORIGIN:'https://reports.example',TURNSTILE_SECRET:'test',NETWORK_KEY_SECRET:'fictional-network-key',TURNSTILE_EXPECTED_HOSTNAME:'reports.example',TURNSTILE_EXPECTED_ACTION:'report-submit',DAILY_ACCEPTANCE_CAP:'2',BURST_LIMITER:{async limit(){return {success:true}}}};
-    const draft = (key:string,email='reporter@example.com') => ({schemaVersion:1,noticeVersion:'2026-10-27',submissionKey:key,turnstileToken:'test',category:'other',expectedOutcome:'Missing badge',explanation:'Fictional report',relevantPassage:'No public passage available',posting:{url:'https://example.com/jobs/1'},email});
+    const draft = (key:string,email='reporter@example.com') => ({schemaVersion:1,noticeVersion:'2026-10-30',submissionKey:key,turnstileToken:'test',category:'other',expectedOutcome:'Missing badge',explanation:'Fictional report',relevantPassage:'No public passage available',posting:{url:'https://example.com/jobs/1'},email});
     const request = (body:unknown) => new Request(env.PUBLIC_ORIGIN+'/api/reports',{method:'POST',headers:{origin:env.PUBLIC_ORIGIN,'content-type':'application/json','cf-connecting-ip':'192.0.2.1'},body:JSON.stringify(body)});
     const same = await Promise.all(Array.from({length:4},()=>handlePublicRequest(request(draft('same')),env,async()=>true)));
     assert.ok(same.every(result=>[200,201].includes(result.status)));

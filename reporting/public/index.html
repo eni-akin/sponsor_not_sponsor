@@ -10,7 +10,7 @@
 <body>
   <main>
     <header><p class="eyebrow">Sponsor Not Sponsor</p><h1>Report an incorrect result</h1></header>
-    <p>Import an SNS diagnostic or enter the vacancy manually. Selecting a file does not upload it; nothing is sent until you review the fields and press Submit report.</p>
+    <p>Import an SNS diagnostic or enter the vacancy manually. Selecting a file does not upload it; report contents are sent only after you review the fields and press Submit report. Visiting this site makes ordinary web requests, and Cloudflare Turnstile processes technical signals for visitor verification when reporting is enabled.</p>
     <div id="errors" class="errors" role="alert" tabindex="-1" hidden></div>
 
     <form id="report-form">
@@ -64,7 +64,8 @@
         <textarea id="diagnostic-editor" hidden spellcheck="false" aria-describedby="diagnostic-help"></textarea>
         <p id="diagnostic-help">Review all diagnostic fields here. Editing or removing them marks the report partial. Imported values are claims, not verified results.</p>
         <button id="remove-diagnostic" type="button" hidden>Remove diagnostic fields</button>
-        <p>Your report, optional email, public posting information, and reviewed diagnostic fields will be sent to Eniola and stored privately using Cloudflare. Data is deleted within a day of the earlier of 180 days after receipt or 90 days after closure. Recovery copies may persist temporarily. Temporary network information is processed for abuse prevention. Sanitized confirmed issues may be retained in GitHub. No automatic email is sent. For support or a deletion request, contact eni.akinpel@gmail.com and provide your receipt; possession of a receipt alone does not verify ownership.</p>
+        <p>Your report, optional email, public posting information, and reviewed diagnostic fields will be sent to Eniola and stored privately using Cloudflare. Report contents and contact details are deleted within a day of the earlier of 180 days after receipt or 90 days after first closure. Recovery copies may persist temporarily. Temporary network information is processed for abuse prevention. Sanitized confirmed issues may be retained in GitHub without reporter identity. No automatic email is sent. For support or a deletion request, contact eni.akinpel@gmail.com and provide your receipt; possession of a receipt alone does not verify ownership.</p>
+        <p>After report contents are removed, a minimal deletion record containing only the random receipt ID and deletion/expiry times is retained for recovery for 14 days, then removed by scheduled cleanup. Cloudflare recovery and operational metadata may persist under provider practices.</p>
         <p>Removing URL queries does not remove sensitive information in URL paths. Review the posting and citation URLs and remove any personal identifiers.</p>
         <label class="confirm"><input id="notice-confirmed" type="checkbox" required> I reviewed these fields and understand what will be submitted.</label>
       </section>

@@ -1,6 +1,6 @@
 export const MAX_REPORT_BYTES = 256 * 1024;
 export const REPORT_SCHEMA_VERSION = 1;
-export const REPORT_NOTICE_VERSION = '2026-10-27';
+export const REPORT_NOTICE_VERSION = '2026-10-30';
 
 export const reportCategories = [
   'sponsorship', 'cpt-opt', 'role-employer', 'evidence', 'missing-badge', 'other',

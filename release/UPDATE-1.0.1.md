@@ -2,6 +2,17 @@
 
 Prepared October 20, 2026 (America/Chicago).
 
+October 30 reporting follow-up: the patch-only record below is historical.
+The current local candidate also adds the separate optional reporting-form link
+and revised disclosures; its SHA-256 is
+`bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af`.
+All 226 tests and seven extracted-package checks passed. Use the current
+[worksheet](CHROME_WEB_STORE_DASHBOARD_WORKSHEET.md) and
+[launch record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md), not the old
+privacy/upload instructions below. The Store's current version is unconfirmed,
+so `1.0.1` remains provisional. The owner explicitly prohibited final publishing;
+no push, Store submission or real intake enablement is authorized.
+
 ## Changes
 
 Fixed the floating badge and evidence panel bouncing between top-left and bottom-left when another tool occupies the right side and normal shadow-DOM page content sits underneath SNS. Shadow-root hit testing now excludes SNS itself after looking through page content.

@@ -18,7 +18,7 @@ class FakeDatabase {
 
 const submission = () => ({
   schemaVersion: 1,
-  noticeVersion: '2026-10-27',
+  noticeVersion: '2026-10-30',
   submissionKey: 'retry-123',
   turnstileToken: 'challenge-token',
   category: 'sponsorship',

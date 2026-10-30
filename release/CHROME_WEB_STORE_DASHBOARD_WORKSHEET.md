@@ -3,7 +3,7 @@
 Reporting-flow draft: October 30, 2026
 Package: `release/sponsor-not-sponsor-1.0.1.zip`
 Version: `1.0.1`
-SHA-256: `c8d959af6a3817c24ba540e4b9d67ac722c52fe74cc2170521cc487177146186`
+SHA-256: `bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af`
 
 This worksheet is a review draft for the reporting flow. The package and hash above identify the October 30 local candidate, which passed all seven extracted-package checks. Version 1.0.1 is retained for local review; the final upload version must be checked against the Store before submission. Public disclosures have not been published, and intake remains paused. Data-use selections require publisher review in the dashboard. Text in `[OWNER: ...]` brackets requires genuine owner or publisher input; do not submit the brackets.
 
@@ -106,7 +106,7 @@ For selected data types, select **App functionality** as the purpose. Do not sel
 ### Data handling and retention explanation
 
 ```text
-Analysis runs locally in the browser. Scan text and findings remain in tab memory and are replaced on navigation or rescan. Settings persist in Chrome local storage until changed or the extension is uninstalled. A narrowly matched Ashby application may request the same vacancy's official overview from the same website; extracted text is not sent to an analysis service. Download report creates a local JSON file. Opening the separate reporting form sends no report or job details, though the visit makes an ordinary web request; the user must import or enter details, review them, and press Submit report. A submitted correction can include the public posting URL and details, explanation, relevant passage, reviewed diagnostic, and optional separately stored email. Eniola receives it through Cloudflare. Temporary network information is processed for abuse prevention. Reports and contacts are deleted within a day of the earlier of 180 days after receipt or 90 days after closure; temporary recovery copies and provider metadata may persist. Sanitized confirmed issues may be retained without reporter identity. There is no analytics, advertising, sale, or unrelated transfer mechanism.
+Analysis runs locally in the browser. Scan text and findings remain in tab memory and are replaced on navigation or rescan. Settings persist in Chrome local storage until changed or the extension is uninstalled. A narrowly matched Ashby application may request the same vacancy's official overview from the same website; extracted text is not sent to an analysis service. Download report creates a local JSON file. Opening the separate reporting form sends no report or job details, though the visit makes an ordinary web request; the user must import or enter details, review them, and press Submit report. A submitted correction can include the public posting URL, title, employer, location, role identifier, category, expected outcome, explanation, relevant passage, reviewed diagnostic, and optional separately stored email. Eniola receives it through Cloudflare. When reporting is enabled, Cloudflare Turnstile processes technical signals for visitor verification. Temporary network information is processed for abuse prevention. Reports and contacts are deleted within a day of the earlier of 180 days after receipt or 90 days after first closure. A minimal deletion record containing only the random receipt ID and deletion/expiry times is retained for recovery for 14 days, then removed by scheduled cleanup. Temporary recovery copies and provider metadata may persist. Sanitized confirmed issues may be retained without reporter identity. There is no analytics, advertising, sale, or unrelated transfer mechanism.
 ```
 
 ### Limited Use and disclosure certifications
@@ -163,7 +163,7 @@ Deferred publishing is the cautious option because approval will not immediately
 - [ ] `[OWNER/HUMAN REVIEWERS]` Registered independent real-world validation and human accessibility review are complete.
 - [ ] `[OWNER]` Product name, logo, screenshots, and website-content rights/trademark clearance are approved.
 - [ ] `[OWNER]` Listing copy, screenshots, privacy selections (including optional email and submitted content), permissions, and distribution choices match the uploaded ZIP and separate form.
-- [ ] `[OWNER]` Exact archive approval: version `1.0.1`, SHA-256 `c8d959af6a3817c24ba540e4b9d67ac722c52fe74cc2170521cc487177146186`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`.
+- [ ] `[OWNER]` Exact archive approval: provisional version `1.0.1`, SHA-256 `bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`. Confirm the current Store version first; do not publish under the owner's October 30 hold.
 - [ ] `[PUBLISHER]` Uploaded manifest shows version 1.0.1, `storage`, and HTTP/HTTPS content-script access.
 - [ ] `[PUBLISHER]` Submission receipt/status and any reviewer correspondence are recorded.
 

@@ -6,7 +6,7 @@ import type { JobRecord } from '../src/types';
 
 const valid = () => ({
   schemaVersion: 1,
-  noticeVersion: '2026-10-27',
+  noticeVersion: '2026-10-30',
   submissionKey: 'retry-123',
   turnstileToken: 'test-token',
   category: 'sponsorship',
@@ -33,6 +33,7 @@ test('submission contract returns only allowed bounded fields and sanitizes the 
 });
 
 test('submission contract rejects unknown and admin-controlled fields', () => {
+  assert.throws(() => parseReportSubmission({ ...valid(), noticeVersion: '2026-10-27' }), /current privacy notice/);
   assert.throws(() => parseReportSubmission({ ...valid(), status: 'closed' }), /status is not allowed/);
   assert.throws(() => parseReportSubmission({ ...valid(), posting: { ...valid().posting, issueUrl: 'https://example.com' } }), /issueUrl is not allowed/);
 });

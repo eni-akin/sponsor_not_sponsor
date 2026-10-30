@@ -1,7 +1,7 @@
 {
   "version": "1.0.1",
-  "verifiedAt": "2026-10-30T05:31:14.163Z",
-  "archiveSha256": "c8d959af6a3817c24ba540e4b9d67ac722c52fe74cc2170521cc487177146186",
+  "verifiedAt": "2026-10-30T16:52:27.674Z",
+  "archiveSha256": "bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af",
   "checks": [
     "browser-smoke.mjs",
     "browser-positioning.mjs",

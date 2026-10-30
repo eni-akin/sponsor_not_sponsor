@@ -1,6 +1,6 @@
 import { parseReportSubmission, sanitizeReportUrl } from './schema.js';
 const MAX_BYTES = 256 * 1024;
-const NOTICE_VERSION = '2026-10-27';
+const NOTICE_VERSION = '2026-10-30';
 const form = document.querySelector('#report-form');
 const file = document.querySelector('#report-file');
 const errors = document.querySelector('#errors');

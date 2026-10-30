@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, resolve } from 'node:path';
 import { adminHtml, adminCss, adminJs } from '../reporting/admin-ui.ts';
+import { REPORT_NOTICE_VERSION } from '../shared/report-schema.ts';
 
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve('node_modules/.cache/playwright');
 const { chromium } = await import('playwright');
@@ -66,6 +67,7 @@ try {
   await page.locator('#submit').click();
   await page.locator('#submit-status').filter({ hasText: 'test-receipt' }).waitFor();
   assert.equal(submitted.turnstileToken, 'test-token');
+  assert.equal(submitted.noticeVersion, REPORT_NOTICE_VERSION, 'Form and backend use the same reviewed notice');
   assert.equal(submitted.posting.roleIdentifier, 'REQ-42');
   assert.equal(submitted.diagnostic.displayedDecision.status, 'no-blocker');
   assert.equal(submitted.diagnostic.partial,false);
