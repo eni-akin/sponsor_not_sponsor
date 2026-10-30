@@ -1,11 +1,11 @@
 # Chrome Web Store Developer Dashboard submission worksheet
 
-Updated for 1.0.1: October 20, 2026
+Reporting-flow draft: October 30, 2026
 Package: `release/sponsor-not-sponsor-1.0.1.zip`
 Version: `1.0.1`
-SHA-256: `0ccbef3f7e84af2f42836a9b71bb2796c8690a1609de3af9887bf449f2081055`
+SHA-256: `c8d959af6a3817c24ba540e4b9d67ac722c52fe74cc2170521cc487177146186`
 
-This worksheet is paste-ready for the current verified package. Rebuild and re-audit it after any package-affecting change. Text in `[OWNER: ...]` brackets requires genuine owner or publisher input; do not submit the brackets.
+This worksheet is a review draft for the reporting flow. The package and hash above identify the October 30 local candidate, which passed all seven extracted-package checks. Version 1.0.1 is retained for local review; the final upload version must be checked against the Store before submission. Public disclosures have not been published, and intake remains paused. Data-use selections require publisher review in the dashboard. Text in `[OWNER: ...]` brackets requires genuine owner or publisher input; do not submit the brackets.
 
 ## Store listing
 
@@ -26,7 +26,7 @@ Sponsor Not Sponsor reads a supported job posting using deterministic text rules
 
 The rules distinguish visa sponsorship from CPT, OPT, and separate citizenship, residency, work-authorization, or export-control restrictions. Application questions do not establish employer policy. No blocker found does not prove sponsorship is available.
 
-Analysis runs in your browser without an account, key, or analysis service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report. Reports are never sent automatically.
+Analysis runs in your browser without an account, key, or analysis service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report. A separate reporting form lets you import and review the file and explicitly submit it. Reports are never sent automatically.
 
 The extension targets English-language U.S. job postings. It supports bounded embedded-frame reading and matching Ashby overview recovery; unusual wording, inaccessible pages, PDFs, and unsupported layouts can remain unreadable or incomplete. It does not carry findings to an unrelated vacancy. Independent accuracy validation is pending. Findings describe posting wording, not personal eligibility.
 ```
@@ -87,13 +87,13 @@ All executable extension logic is bundled in the submitted Manifest V3 package. 
 
 ### Data-use selections
 
-Select only the applicable data types below.
+Review these draft selections against the final package, form, and current dashboard definitions before saving them. The optional email and submitted correction are collected only after a user explicitly submits them on the separate site.
 
 | Dashboard data type | Select | Explanation |
 | --- | :---: | --- |
 | Website content | **Yes** | Locally reads visible job-posting text and job metadata to recognize and analyze the vacancy. Public page text can contain personal information even though standard form values, editable answers, uploads, and hidden content are excluded. |
 | Web history / web browsing activity | **Yes** | Observes the current page address and content only to recognize and analyze the vacancy being viewed. It does not build or upload a browsing-history profile. |
-| Personally identifiable information | **No** | The extension does not request or create an account or intentionally collect identity data. Do not use this answer to imply that public website content can never contain personal information. |
+| Personally identifiable information | **Yes — review** | The separate optional form accepts an email address for manual follow-up. It is stored separately from the report. The extension itself does not request an account or transmit identity automatically. |
 | Health information | **No** | Not used. |
 | Financial and payment information | **No** | Not used. |
 | Authentication information | **No** | Credentials are not read or used. |
@@ -106,7 +106,7 @@ For selected data types, select **App functionality** as the purpose. Do not sel
 ### Data handling and retention explanation
 
 ```text
-Analysis runs locally in the browser. Scan text and findings remain in tab memory and are replaced on navigation or rescan. Settings persist in Chrome local storage until changed or the extension is uninstalled. A narrowly matched Ashby application may request the same vacancy's official overview from the same website; extracted text is not sent to an analysis service. An incorrect-result report is created only when the user downloads it and remains wherever the user saves it. Reports are not automatically submitted. The package implements no developer collection, analytics, advertising, sale, or unrelated third-party transfer.
+Analysis runs locally in the browser. Scan text and findings remain in tab memory and are replaced on navigation or rescan. Settings persist in Chrome local storage until changed or the extension is uninstalled. A narrowly matched Ashby application may request the same vacancy's official overview from the same website; extracted text is not sent to an analysis service. Download report creates a local JSON file. Opening the separate reporting form sends no report or job details, though the visit makes an ordinary web request; the user must import or enter details, review them, and press Submit report. A submitted correction can include the public posting URL and details, explanation, relevant passage, reviewed diagnostic, and optional separately stored email. Eniola receives it through Cloudflare. Temporary network information is processed for abuse prevention. Reports and contacts are deleted within a day of the earlier of 180 days after receipt or 90 days after closure; temporary recovery copies and provider metadata may persist. Sanitized confirmed issues may be retained without reporter identity. There is no analytics, advertising, sale, or unrelated transfer mechanism.
 ```
 
 ### Limited Use and disclosure certifications
@@ -137,7 +137,7 @@ No account, payment, credentials, or special configuration is required.
 3. The page presents one English-language U.S. job posting. The extension should show a small badge. Open it to see the result, exact quoted evidence, and source link.
 4. Use the toolbar popup to pause and resume scanning and to disable and re-enable the site.
 5. Dismiss the on-page badge, then restore it from the toolbar popup and choose Scan again.
-6. Open the evidence panel and choose Report incorrect result. The extension downloads a local JSON report; it does not upload or submit the report.
+6. Open the evidence panel and choose Report incorrect result. Download report creates a local JSON file. Open reporting form opens the fixed separate site without sending report or job details; the visit makes an ordinary web request. The user can import and review the file, then explicitly press Submit report. The form may be paused during prelaunch review; local download still works.
 7. Open Help and Privacy from the toolbar popup.
 
 The extension can return Could not verify when a page is incomplete or unsupported. Company research is deferred and has no active controls or network requests.
@@ -162,8 +162,8 @@ Deferred publishing is the cautious option because approval will not immediately
 - [ ] `[OWNER]` Publisher identity, support route, public URLs, and any official publisher website verification are correct.
 - [ ] `[OWNER/HUMAN REVIEWERS]` Registered independent real-world validation and human accessibility review are complete.
 - [ ] `[OWNER]` Product name, logo, screenshots, and website-content rights/trademark clearance are approved.
-- [ ] `[OWNER]` Listing copy, screenshots, privacy selections, permissions, and distribution choices match the uploaded ZIP.
-- [ ] `[OWNER]` Exact archive approval: version `1.0.1`, SHA-256 `0ccbef3f7e84af2f42836a9b71bb2796c8690a1609de3af9887bf449f2081055`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`.
+- [ ] `[OWNER]` Listing copy, screenshots, privacy selections (including optional email and submitted content), permissions, and distribution choices match the uploaded ZIP and separate form.
+- [ ] `[OWNER]` Exact archive approval: version `1.0.1`, SHA-256 `c8d959af6a3817c24ba540e4b9d67ac722c52fe74cc2170521cc487177146186`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`.
 - [ ] `[PUBLISHER]` Uploaded manifest shows version 1.0.1, `storage`, and HTTP/HTTPS content-script access.
 - [ ] `[PUBLISHER]` Submission receipt/status and any reviewer correspondence are recorded.
 

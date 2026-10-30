@@ -44,12 +44,12 @@ try {
     }), ['rgb(41, 35, 46)', 'rgb(255, 248, 242)']);
     assert.equal(await help.getByRole('main').count(), 1);
     assert.equal(await help.getByRole('heading', { level: 1 }).count(), 1);
-    assert.equal(await help.locator('a').first().getAttribute('href'), file === 'help' ? 'privacy.html' : 'help.html');
+    assert.equal(await help.locator('footer a').first().getAttribute('href'), file === 'help' ? 'privacy.html' : 'help.html');
     await help.setViewportSize({ width: 320, height: 640 });
     assert.ok(await help.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${file} must reflow at 320 CSS pixels`);
     await help.emulateMedia({ forcedColors: 'active' });
-    await help.locator('a').first().focus();
-    assert.equal(await help.locator('a').first().evaluate(link => link.matches(':focus-visible') && getComputedStyle(link).outlineStyle !== 'none'), true, `${file} link focus must remain visible in forced colours`);
+    await help.locator('footer a').first().focus();
+    assert.equal(await help.locator('footer a').first().evaluate(link => link.matches(':focus-visible') && getComputedStyle(link).outlineStyle !== 'none'), true, `${file} link focus must remain visible in forced colours`);
     await help.emulateMedia({ forcedColors: 'none' });
     await help.setViewportSize({ width: 390, height: 844 });
     assert.ok(await help.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${file} must fit a narrow viewport`);

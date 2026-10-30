@@ -16,7 +16,7 @@ Sponsor Not Sponsor reads a supported job posting using deterministic text rules
 
 The rules distinguish visa sponsorship from CPT, OPT, and separate citizenship, residency, work-authorization, or export-control restrictions. Application questions do not establish employer policy. No blocker found does not prove sponsorship is available.
 
-Analysis runs in your browser without an account, key, or analysis service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report. Reports are never sent automatically.
+Analysis runs in your browser without an account, key, or analysis service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report. A separate form lets you import, review, and explicitly submit a correction. Reports are never sent automatically.
 
 The extension targets English-language U.S. job postings. It supports bounded embedded-frame reading and matching Ashby overview recovery; unusual wording, inaccessible pages, PDFs, and unsupported layouts can remain unreadable or incomplete. It does not carry findings to an unrelated vacancy. Independent accuracy validation is pending. Findings describe posting wording, not personal eligibility.
 
@@ -37,13 +37,13 @@ HTTP/HTTPS content scripts recognize supported jobs and read public text in the 
 
 ## Privacy declarations
 
-The extension reads website content and job metadata. Analysis remains in tab memory. Standard form answers, uploads, and editable fields are excluded. Matched Ashby overview recovery can fetch the same vacancy's overview from the same website. No analytics, advertising, sale of data, or browsing-history upload is implemented.
+The extension reads website content and job metadata. Analysis remains in tab memory. Standard form answers, uploads, and editable fields are excluded. Matched Ashby overview recovery can fetch the same vacancy's overview from the same website. Optional reports can be explicitly submitted through a separate form, including an optional email address. No analytics, advertising, sale of data, or browsing-history upload is implemented.
 
 Describe data use consistently with the bundled privacy page. Before submission, supply real publisher/support details and a public privacy-policy URL. These have not been invented or published by this preparation.
 
 ## Reviewer instructions
 
-Load the extracted package, allow website access, and open an English-language U.S. job posting with a visible title, description, and Apply control. The badge should either show a result supported by quoted page text or stay hidden/report that it could not verify the posting. Test pause, site disable, dismissal/restoration, rescan, and local report download. Help and privacy links are in the popup. No account or credentials are required.
+Load the extracted package, allow website access, and open an English-language U.S. job posting with a visible title, description, and Apply control. The badge should either show a result supported by quoted page text or stay hidden/report that it could not verify the posting. Test pause, site disable, dismissal/restoration, rescan, and local report download. Open reporting form is a separate link; visiting it sends no report or job details but makes an ordinary web request. Import and review the downloaded file, then explicitly submit if intake is available. Help and privacy links are in the popup. No account or credentials are required.
 
 Before submission, replace this general path with a stable public demonstration URL if one is available. Do not give reviewers the repository-only `release/demo.html`; it is not included in the submitted ZIP.
 
