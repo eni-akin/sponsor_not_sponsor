@@ -1,6 +1,6 @@
 # Chrome Web Store publishing action plan
 
-For the current owner-selected 1.2 candidate, see the [release README](README.md) and [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md). The owner confirmed human validation complete on October 30; this is owner-reported evidence, not new agent-verified metrics or a screen-reader pass. Store declarations will be completed together. Publishing remains on hold. The original 1.0.0 checklist below is historical and must not be used as the current candidate sign-off.
+For current owner-selected 1.2 status, see the [release README](README.md) and [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md). The owner confirmed human validation and Store submission with automatic publishing after approval. These are owner-reported, not new agent-verified metrics or a screen-reader pass. The authorized GitHub push and live public privacy/support verification completed; Google approval/publication remains unverified and reporting intake remains paused. The original 1.0.0 checklist below is historical and must not be used as the current candidate sign-off.
 
 Updated: October 18, 2026
 Release candidate: Sponsor Not Sponsor 1.0.0

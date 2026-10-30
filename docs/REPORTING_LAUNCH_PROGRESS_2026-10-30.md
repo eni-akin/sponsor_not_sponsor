@@ -19,7 +19,7 @@ VoiceOver or enable real reporting intake.** No Worker deployment is requested.
 | 4. Keyboard and screen reader | Keyboard flows exercised; screen reader not performed at owner request | Current local form/inbox keyboard flows exercised on synthetic data. Existing SNS was reloaded from this repo's dist; native keyboard exercised reason selection, completed local download and opened the new form link, which showed paused intake. Current packaged controls also pass automated browser checks. No screen-reader pass claimed. |
 | 5. Final version | Owner selected `1.2`; local candidate verified | All 226 tests and seven extracted-package checks passed; current ZIP/hash below. Owner reports dashboard items complete and submission made; uploaded manifest/hash were not independently inspected. |
 | 6. Exact candidate approval | Owner proceeded with submission | Owner reports submission after the 1.2 candidate was supplied. This is not independent proof of which ZIP/hash Google received. |
-| 7. Public pages | Push authorized; deployment verification pending | Owner explicitly requested all GitHub pushes. Live privacy/support were still old at the pre-push check; verify Pages after pushing master. |
+| 7. Public pages | Pushed and live-verified | Master push through `9757bc8` succeeded. Pages run `41116697519` completed successfully; live privacy/support returned HTTP 200 and exactly matched committed source, including privacy version 1.2. |
 | 8. Store and real intake | Store review submitted, auto-publish selected; intake remains paused | Owner reports Google submission and automatic publishing after approval. Approval/publication is not yet verified. No separate approval to enable real intake. |
 | 9. Maintenance | Read-only schedule active; first scheduled run pending | SNS reporting maintenance runs Mondays/Thursdays at 09:00 local app time (currently Chicago); Thursday includes weekly provider review. Baseline aggregate check passed. Owner privately reviews claims; no automated production changes. |
 
@@ -212,3 +212,15 @@ lacked the new form flow. Both differed from prepared local files. At
 `2026-10-30T19:35:45.696Z`, production `/api/config` returned HTTP 200 and
 `available: false`. Public page publication is therefore needed to align the
 live disclosures with the submitted candidate, without changing intake.
+
+### GitHub push and Pages verification completed
+
+The push to `https://github.com/eni-akin/sponsor_not_sponsor.git` advanced master
+from `6acde59` through `9757bc8`. GitHub Actions run `41116697519`
+(`Deploy extension website`) completed successfully with no pending environment
+approval. At `2026-10-30T19:37:31.986Z`, both public privacy/support URLs returned
+HTTP 200 and byte-for-byte matched the prepared committed source. Privacy shows
+version 1.2 and the reporting/email/retention/deletion-ledger disclosures; support
+describes the separate form. Production `/api/config` still had `available: false`.
+No Worker deployment, Store action or intake enablement was performed. Unrelated
+dirty `HANDOFF.md` and untracked `HANDOFF-2026-10-20.md` were preserved and excluded.

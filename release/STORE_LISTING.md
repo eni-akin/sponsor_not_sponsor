@@ -1,6 +1,6 @@
 # Chrome Web Store listing draft — 1.2
 
-Status: prepared for review; not submitted or published. Owner confirmed human validation complete on October 30, 2026. No new accuracy metrics or independent agent verification are claimed. Store declarations will be completed together with the owner.
+Status: owner reports submission for review with automatic publishing after approval, October 30, 2026. Approval/publication and exact saved dashboard text are not independently verified. Owner confirmed human validation complete. No new accuracy metrics or independent agent verification are claimed. Revised public privacy/support pages are published and live-verified; reporting intake remains paused.
 
 ## Name
 

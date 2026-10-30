@@ -1,6 +1,6 @@
 # Release preparation — 1.2
 
-Version 1.2 includes the optional separate reporting-form link and revised disclosures, alongside the earlier positioning fix. The owner selected this version and confirmed human validation complete on October 30, 2026. Store declarations will be completed together; publishing remains on hold. The [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md) tracks current evidence. The [1.0.1 patch notes](UPDATE-1.0.1.md) are historical.
+Version 1.2 includes the optional separate reporting-form link and revised disclosures, alongside the earlier positioning fix. The owner selected this version and confirmed human validation complete on October 30, 2026, then reported Store submission with automatic publishing after approval. The later authorized GitHub push published revised privacy/support pages, verified against committed source. Google approval/publication and the uploaded archive hash are not independently verified; reporting intake remains paused. The [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md) tracks current evidence. The [1.0.1 patch notes](UPDATE-1.0.1.md) are historical.
 
 This prepares a reviewable deterministic extension package. Store submission and independent accuracy validation remain separate steps.
 

@@ -1,12 +1,12 @@
 # Chrome Web Store Developer Dashboard submission worksheet
 
-Reporting-flow draft: October 30, 2026
+Reporting-flow submission record: October 30, 2026
 Owner update: dashboard items completed and submitted for review, with automatic publishing after approval. This is owner-reported; Google approval, publication and the exact uploaded archive have not been independently verified. The later explicit GitHub push request authorizes Pages publication, not enabling reporting intake.
 Package: `release/sponsor-not-sponsor-1.2.zip`
 Version: `1.2`
 SHA-256: `f5283d07235179e1cf950dbdddb841c6e9bf085a6cc9f8af9711e3c3bab1f6b2`
 
-This worksheet is a review draft for the reporting flow. The owner selected version 1.2 and confirmed human validation complete on October 30. The rebuilt candidate passed both typechecks, all 226 tests, build and all seven extracted-package checks. The current uploaded Store version remains unverified; do not claim an upload occurred. Public disclosures have not been published, and intake remains paused. The owner and agent will complete Store declarations together. Text in `[OWNER: ...]` brackets requires genuine owner or publisher input; do not submit the brackets.
+The owner selected version 1.2, confirmed human validation complete, then reported dashboard items complete and submission for review with automatic publishing after approval. The rebuilt candidate passed both typechecks, all 226 tests, build and all seven extracted-package checks. The uploaded Store manifest and archive hash have not been independently inspected. Revised public privacy/support pages were pushed and live-verified after successful Pages deployment; intake remains paused. Remaining `[OWNER: ...]` entries below were not independently captured from the dashboard and must not be mistaken for submitted values.
 
 ## Store listing
 
