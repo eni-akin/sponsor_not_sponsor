@@ -13,7 +13,7 @@
     "run_worker_first": ["/api/*", "/health"]
   },
   "vars": {
-    "INTAKE_ENABLED": "false",
+    "INTAKE_ENABLED": "true",
     "TURNSTILE_SITEKEY": "0x4AAAAAAFregK469f_n6UmO",
     "TURNSTILE_EXPECTED_HOSTNAME": "sns-report.sponsor-not-sponsor.workers.dev",
     "TURNSTILE_EXPECTED_ACTION": "report-submit",
