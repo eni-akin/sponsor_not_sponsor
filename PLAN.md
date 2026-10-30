@@ -29,7 +29,15 @@ Application questions, employer history, other vacancies, and silence do not est
 
 Company research is deferred. Its backend remains available for separate development.
 
+## Planned incorrect-result reporting
+
+The owner selected a private web form backed by Cloudflare for optional incorrect-result submissions, with the owner as the initial reviewer. The [Cloudflare reporting implementation plan](docs/CLOUDFLARE_REPORTING_PLAN.md) describes the architecture. Staging and production fictional workflows passed, and the production pilot data was deleted. The [October 30 execution record](docs/REPORTING_EXECUTION_2026-10-30.md) records the locally verified extension integration and disclosure drafts. Intake remains disabled pending the remaining provider/recovery, human review, publication, and explicit launch-approval gates.
+
 ## Evidence and remaining validation
+
+Reporting polish is deferred until the full end-to-end flow is working: a separate
+successful-submission closeout page and general UI improvements. See the
+[deferred reporting checklist](docs/CLOUDFLARE_SETUP_HANDOFF.md#deferred-polish--after-the-full-end-to-end-flow-is-working).
 
 The [Part 2 plan](IMPROVEMENT_PLAN_PART_2.md) and [verification](evaluation/part2/verification.md) record the retained frame and scoped-restriction work. [Evaluation guidance](evaluation/README.md) distinguishes authored scenarios, exposed reviews, and an independent holdout.
 

@@ -2,6 +2,12 @@
 
 Updated: October 17, 2026 (America/Chicago)
 
+Reporting preparation update, October 30: start with
+[the execution record](docs/REPORTING_EXECUTION_2026-10-30.md) and
+[the production workflow handoff](docs/REPORTING_HANDOFF_2026-10-29.md).
+The fictional production workflow passed; real intake remains paused. The
+publication history below predates the optional reporting integration draft.
+
 For the latest session checkpoint, final ember glow/1.4-second animation, verified package, and remaining owner decisions, start with [HANDOFF-2026-10-17.md](HANDOFF-2026-10-17.md). The history below provides the earlier cleanup and implementation context.
 
 ## Current direction
