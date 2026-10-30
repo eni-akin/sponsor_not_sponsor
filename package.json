@@ -10,9 +10,11 @@
     "package": "node scripts/package.mjs",
     "release:verify": "node scripts/release-verify.mjs",
     "screenshots": "node scripts/store-screenshots.mjs",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc -p reporting/tsconfig.json",
     "test": "tsx --test tests/*.test.ts",
     "test:browser": "node scripts/browser-smoke.mjs && node scripts/browser-positioning.mjs && node scripts/browser-embedded.mjs && node scripts/browser-overview.mjs && node scripts/browser-cross-origin.mjs",
+    "test:reporting": "node scripts/build-reporting.mjs && node --import tsx scripts/browser-reporting.mjs",
+    "build:reporting": "node scripts/build-reporting.mjs",
     "test:browser:embedded": "node scripts/browser-embedded.mjs",
     "test:popup": "node scripts/popup-sizing.mjs",
     "research:serve": "node --env-file-if-exists=.env --import tsx server/index.ts",
@@ -26,8 +28,10 @@
     "@types/node": "^22.0.0",
     "esbuild": "^0.25.0",
     "jsdom": "^26.0.0",
+    "miniflare": "5.20261023.0-beta",
     "playwright": "^1.55.0",
     "tsx": "^4.20.0",
-    "typescript": "^5.9.0"
+    "typescript": "^5.9.0",
+    "wrangler": "4.153.0"
   }
 }

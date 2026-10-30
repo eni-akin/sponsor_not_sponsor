@@ -1,0 +1,20 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "sns-report-admin-staging",
+  "main": "admin.ts",
+  "compatibility_date": "2026-10-27",
+  "preview_urls": false,
+  "observability": { "enabled": false },
+  "vars": {
+    "OWNER_EMAIL": "eni.akinpel@gmail.com",
+    "ACCESS_AUD": "1f0ebfb0a3ebc535052f91ebecfb82e5ede050474ba4c3be96cfad42cd0f5409",
+    "ADMIN_ORIGIN": "https://sns-report-admin-staging.sponsor-not-sponsor.workers.dev"
+  },
+  "triggers": { "crons": ["17 * * * *"] },
+  "d1_databases": [{
+    "binding": "REPORTS",
+    "database_name": "sns-reporting-staging",
+    "database_id": "a4a48c1c-be4b-4aa2-9955-fc5c650f3ddb",
+    "migrations_dir": "migrations"
+  }]
+}

@@ -13,6 +13,13 @@ test-results/
 *.log
 .DS_Store
 .research-cache/
+.wrangler/
+.dev.vars
+reporting/*.sqlite*
+reporting/*.jsonl
+reporting/public/schema.js
+reporting/.dev.vars*
+reporting/.wrangler/
 release/*.zip
 release/*.zip.sha256
 release/*.zip.inventory.json

@@ -1,0 +1,30 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "sns-report",
+  "main": "public.ts",
+  "compatibility_date": "2026-10-27",
+  "preview_urls": false,
+  "build": { "command": "node scripts/build-reporting.mjs", "cwd": "." },
+  "observability": { "enabled": false },
+  "ratelimits": [{ "name": "BURST_LIMITER", "namespace_id": "1002", "simple": { "limit": 5, "period": 60 } }],
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/health"]
+  },
+  "vars": {
+    "INTAKE_ENABLED": "false",
+    "TURNSTILE_SITEKEY": "0x4AAAAAAFregK469f_n6UmO",
+    "TURNSTILE_EXPECTED_HOSTNAME": "sns-report.sponsor-not-sponsor.workers.dev",
+    "TURNSTILE_EXPECTED_ACTION": "report-submit",
+    "PUBLIC_ORIGIN": "https://sns-report.sponsor-not-sponsor.workers.dev",
+    "DAILY_ACCEPTANCE_CAP": "100",
+    "MAX_REQUEST_BYTES": "262144"
+  },
+  "d1_databases": [{
+    "binding": "REPORTS",
+    "database_name": "sns-reporting",
+    "database_id": "6662c8f8-655e-4569-9e71-1be712be9512",
+    "migrations_dir": "migrations"
+  }]
+}

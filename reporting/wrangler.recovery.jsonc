@@ -1,0 +1,11 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "sns-reporting-recovery-rehearsal-local-only",
+  "compatibility_date": "2026-10-27",
+  "d1_databases": [{
+    "binding": "REPORTS",
+    "database_name": "sns-reporting-recovery-20261029",
+    "database_id": "e8b49205-75de-421b-85a1-99532adb1a40",
+    "migrations_dir": "migrations"
+  }]
+}

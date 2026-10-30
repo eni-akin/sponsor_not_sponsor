@@ -1,0 +1,30 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "sns-report-staging",
+  "main": "public.ts",
+  "compatibility_date": "2026-10-27",
+  "preview_urls": false,
+  "build": { "command": "node scripts/build-reporting.mjs", "cwd": "." },
+  "observability": { "enabled": false },
+  "ratelimits": [{ "name": "BURST_LIMITER", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }],
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/health"]
+  },
+  "vars": {
+    "INTAKE_ENABLED": "false",
+    "TURNSTILE_SITEKEY": "0x4AAAAAAFoOBa5dWOLh2Knr",
+    "TURNSTILE_EXPECTED_HOSTNAME": "sns-report-staging.sponsor-not-sponsor.workers.dev",
+    "TURNSTILE_EXPECTED_ACTION": "report-submit",
+    "PUBLIC_ORIGIN": "https://sns-report-staging.sponsor-not-sponsor.workers.dev",
+    "DAILY_ACCEPTANCE_CAP": "100",
+    "MAX_REQUEST_BYTES": "262144"
+  },
+  "d1_databases": [{
+    "binding": "REPORTS",
+    "database_name": "sns-reporting-staging",
+    "database_id": "a4a48c1c-be4b-4aa2-9955-fc5c650f3ddb",
+    "migrations_dir": "migrations"
+  }]
+}

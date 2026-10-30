@@ -99,13 +99,27 @@ test('floating UI chooses least obstruction when every corner is occupied and br
   assert.deepEqual(badgePosition(300, 44, viewport, ({ left, top }) => (left > 500 ? 2 : 0) + (top > 400 ? 1 : 0) + 1), { left: 16, top: 16 });
   assert.deepEqual(badgePosition(300, 44, viewport, () => 1), { left: 684, top: 740 });
 });
-test('report includes cited findings but excludes URL secrets and unreferenced extraction', () => {
+test('report includes the displayed decision and sanitized cited findings but excludes unreferenced extraction', () => {
   const value = snapshot('Visa sponsorship is available.');
+  value.result!.url = 'https://user:secret@example.com/jobs/1?candidate=private#application';
+  value.result!.role!.identifier = 'REQ-42';
+  value.result!.interpretation!.sponsorship.citations[0]!.sourceUrl = 'https://user:secret@example.com/jobs/1?token=private#evidence';
   value.result!.role!.evidence.push({ id: 'e2', source: 'visible-page', kind: 'text', text: 'UNRELATED PRIVATE CONTENT', locator: 'p' });
   const result = reportData(value.result!, '0.3.0', 'Sponsorship finding looks wrong');
+  assert.equal(result.formatVersion, 2);
   assert.equal(result.sourceUrl, 'https://example.com/jobs/1');
+  assert.equal(result.role?.identifier, 'REQ-42');
+  assert.equal(result.displayedDecision?.label, mainDecision(value.result!.role!, value.result!.interpretation!).label);
+  assert.equal(result.findings?.sponsorship.citations[0]?.sourceUrl, 'https://example.com/jobs/1');
   assert.ok(!JSON.stringify(result).includes('PRIVATE'));
   assert.ok(!('evidence' in result.role!));
   assert.ok(!('decisionComparison' in result));
   assert.match(JSON.stringify(result.findings), /Visa sponsorship is available/);
+});
+
+test('report rejects non-web posting and citation URLs', () => {
+  const value = snapshot('Visa sponsorship is available.').result!;
+  assert.throws(() => reportData({ ...value, url: 'file:///private/job.html' }, 'test', 'Other problem'), /HTTP or HTTPS/);
+  value.interpretation!.sponsorship.citations[0]!.sourceUrl = 'javascript:alert(1)';
+  assert.throws(() => reportData(value, 'test', 'Other problem'), /HTTP or HTTPS/);
 });

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report an incorrect SNS result</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">Sponsor Not Sponsor</p><h1>Report an incorrect result</h1></header>
+    <p>Import an SNS diagnostic or enter the vacancy manually. Selecting a file does not upload it; nothing is sent until you review the fields and press Submit report.</p>
+    <div id="errors" class="errors" role="alert" tabindex="-1" hidden></div>
+
+    <form id="report-form">
+      <fieldset>
+        <legend>Optional diagnostic</legend>
+        <label for="report-file">Import SNS report</label>
+        <input id="report-file" type="file" accept="application/json,.json">
+        <p class="hint">Maximum 256 KiB. The file is parsed only in this tab and is not uploaded by selecting it.</p>
+        <p id="import-status" role="status"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Vacancy and correction</legend>
+        <label for="posting-url">Public posting URL <span aria-hidden="true">*</span></label>
+        <input id="posting-url" name="postingUrl" type="url" maxlength="2048" required>
+        <div class="grid">
+          <p><label for="title">Role title</label><input id="title" name="title" maxlength="300"></p>
+          <p><label for="employer">Employer</label><input id="employer" name="employer" maxlength="300"></p>
+          <p><label for="location">Location</label><input id="location" name="location" maxlength="300"></p>
+          <p><label for="role-identifier">Role identifier</label><input id="role-identifier" name="roleIdentifier" maxlength="300"></p>
+        </div>
+        <label for="category">What looks wrong? <span aria-hidden="true">*</span></label>
+        <select id="category" name="category" required>
+          <option value="sponsorship">Sponsorship result</option>
+          <option value="cpt-opt">CPT or OPT result</option>
+          <option value="role-employer">Wrong role or employer</option>
+          <option value="evidence">Missing or incorrect evidence</option>
+          <option value="missing-badge">Missing badge or result</option>
+          <option value="other">Other problem</option>
+        </select>
+        <label for="expected-outcome">What did you expect? (optional)</label>
+        <textarea id="expected-outcome" name="expectedOutcome" maxlength="1000"></textarea>
+        <label for="explanation">What went wrong? <span aria-hidden="true">*</span></label>
+        <textarea id="explanation" name="explanation" maxlength="2000" required></textarea>
+        <label for="relevant-passage">Relevant public passage (if available)</label>
+        <textarea id="relevant-passage" name="relevantPassage" maxlength="8000"></textarea>
+        <p class="hint">Do not include application answers, immigration status, résumé details, or other personal information.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Optional follow-up</legend>
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" maxlength="254" autocomplete="email">
+        <p class="hint">Stored separately and used only if manual follow-up is needed. No automatic email is sent.</p>
+      </fieldset>
+
+      <section aria-labelledby="review-heading">
+        <h2 id="review-heading">Review before submitting</h2>
+        <p id="diagnostic-summary">No diagnostic imported. This will be submitted as a manual report.</p>
+        <label for="diagnostic-editor">Diagnostic fields to submit (editable JSON)</label>
+        <textarea id="diagnostic-editor" hidden spellcheck="false" aria-describedby="diagnostic-help"></textarea>
+        <p id="diagnostic-help">Review all diagnostic fields here. Editing or removing them marks the report partial. Imported values are claims, not verified results.</p>
+        <button id="remove-diagnostic" type="button" hidden>Remove diagnostic fields</button>
+        <p>Your report, optional email, public posting information, and reviewed diagnostic fields will be sent to Eniola and stored privately using Cloudflare. Data is deleted within a day of the earlier of 180 days after receipt or 90 days after closure. Recovery copies may persist temporarily. Temporary network information is processed for abuse prevention. Sanitized confirmed issues may be retained in GitHub. No automatic email is sent. For support or a deletion request, contact eni.akinpel@gmail.com and provide your receipt; possession of a receipt alone does not verify ownership.</p>
+        <p>Removing URL queries does not remove sensitive information in URL paths. Review the posting and citation URLs and remove any personal identifiers.</p>
+        <label class="confirm"><input id="notice-confirmed" type="checkbox" required> I reviewed these fields and understand what will be submitted.</label>
+      </section>
+
+      <div id="turnstile"></div>
+      <button id="submit" type="submit" disabled>Submit report</button>
+      <p id="submit-status" role="status" tabindex="-1"></p>
+      <p class="hint">If submission fails, keep this tab open to retain the draft. Closing or reloading it discards the unsent draft.</p>
+    </form>
+  </main>
+</body>
+</html>
