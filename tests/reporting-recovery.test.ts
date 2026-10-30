@@ -59,6 +59,16 @@ test('isolated recovery reapplies the deletion ledger before restored data is ex
     };
     await deleteReports(source, ['previously-deleted'], new Date('2026-01-03T00:00:00.000Z'));
     const ledger = (await source.prepare('SELECT * FROM deletion_ledger').all<Record<string, unknown>>()).results;
+    await source.prepare(insertReport).bind(...report('post-bookmark', '2027-01-01T00:00:00.000Z')).run();
+    await source.prepare('INSERT INTO report_contacts(report_id,email,expires_at) VALUES (?,?,?)').bind('post-bookmark', 'post-bookmark@example.com', '2027-01-01T00:00:00.000Z').run();
+    await source.prepare("INSERT INTO report_events(report_id,occurred_at,actor,event_type) VALUES ('post-bookmark','2026-01-03T00:00:00.000Z','fixture','created')").run();
+    await source.prepare("UPDATE reports SET status='reviewing',revision=1 WHERE id='surviving-duplicate'").run();
+    await source.prepare("INSERT INTO report_events(report_id,occurred_at,actor,event_type) VALUES ('surviving-duplicate','2026-01-03T00:00:00.000Z','fixture','review')").run();
+    const newest = (await source.prepare("SELECT * FROM reports WHERE id='post-bookmark'").all<Record<string, unknown>>()).results;
+    const newContact = (await source.prepare("SELECT * FROM report_contacts WHERE report_id='post-bookmark'").all<Record<string, unknown>>()).results;
+    const newEvent = (await source.prepare("SELECT * FROM report_events WHERE report_id='post-bookmark'").all<Record<string, unknown>>()).results.map(({ id: _id, ...row }: Record<string, unknown>) => row);
+    const reviewEvent = (await source.prepare("SELECT * FROM report_events WHERE report_id='surviving-duplicate'").all<Record<string, unknown>>()).results.map(({ id: _id, ...row }: Record<string, unknown>) => row);
+    assert.equal((await source.prepare("SELECT accepted FROM intake_counters WHERE day='2026-01-01'").first<{ accepted: number }>())!.accepted, 4);
 
     // Restore the older snapshot into an isolated database, then merge the current ledger.
     await recovered.prepare("INSERT INTO intake_counters(day,accepted,acceptance_cap) VALUES ('2026-01-01',0,100)").run();
@@ -66,20 +76,31 @@ test('isolated recovery reapplies the deletion ledger before restored data is ex
     await insertRows(recovered, 'report_contacts', snapshot.contacts);
     await insertRows(recovered, 'report_events', snapshot.events);
     await insertRows(recovered, 'deletion_ledger', ledger);
+    await insertRows(recovered, 'reports', newest);
+    await insertRows(recovered, 'report_contacts', newContact);
+    await insertRows(recovered, 'report_events', [...newEvent, ...reviewEvent]);
+    await recovered.prepare("UPDATE reports SET status='reviewing',revision=1 WHERE id='surviving-duplicate' AND revision=0").run();
+    // Import triggers count inserts, but the latest source counter is authoritative even for deleted accepts.
+    await recovered.prepare("UPDATE intake_counters SET accepted=4 WHERE day='2026-01-01'").run();
 
     await recovered.prepare("CREATE TRIGGER rehearsal_cleanup_failure BEFORE DELETE ON reports BEGIN SELECT RAISE(ABORT,'synthetic recovery failure'); END").run();
     await assert.rejects(cleanup({ REPORTS: recovered }, new Date('2026-01-04T00:00:00.000Z')), /Retention cleanup failed/);
     assert.ok(await recovered.prepare("SELECT failed_at FROM operational_health WHERE name='cleanup' AND failed_at IS NOT NULL").first());
-    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM reports').first<{ count: number }>())!.count, 3);
+    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM reports').first<{ count: number }>())!.count, 4);
 
     await recovered.prepare('DROP TRIGGER rehearsal_cleanup_failure').run();
     assert.equal(await cleanup({ REPORTS: recovered }, new Date('2026-01-04T00:00:00.000Z')), 2);
     assert.equal(await recovered.prepare("SELECT id FROM reports WHERE id IN ('expired-primary','previously-deleted')").first(), null);
     assert.equal((await recovered.prepare("SELECT duplicate_of FROM reports WHERE id='surviving-duplicate'").first<{ duplicate_of: string | null }>())!.duplicate_of, null);
-    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM report_contacts').first<{ count: number }>())!.count, 0);
-    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM report_events').first<{ count: number }>())!.count, 0);
+    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM report_contacts').first<{ count: number }>())!.count, 1);
+    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM report_events').first<{ count: number }>())!.count, 2);
     assert.equal((await recovered.prepare("SELECT deleted_count FROM operational_health WHERE name='cleanup'").first<{ deleted_count: number }>())!.deleted_count, 2);
     assert.ok(await recovered.prepare("SELECT report_id FROM deletion_ledger WHERE report_id='previously-deleted'").first());
+    assert.deepEqual(await recovered.prepare("SELECT status,revision FROM reports WHERE id='surviving-duplicate'").first(), { status: 'reviewing', revision: 1 });
+    assert.ok(await recovered.prepare("SELECT id FROM reports WHERE id='post-bookmark'").first());
+    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM report_contacts').first<{ count: number }>())!.count, 1);
+    assert.equal((await recovered.prepare('SELECT COUNT(*) AS count FROM report_events').first<{ count: number }>())!.count, 2);
+    assert.equal((await recovered.prepare("SELECT accepted FROM intake_counters WHERE day='2026-01-01'").first<{ accepted: number }>())!.accepted, 4);
   } finally {
     await mf.dispose();
   }

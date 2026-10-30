@@ -172,6 +172,67 @@ checked-in rehearsal script is hard-pinned to its now-used disposable target and
 must not be rerun blindly. There is no tested production clone/historical
 isolated-restore procedure or live data export in this repository.
 
+For a current-state capture during an approved recovery exercise, create a
+dedicated outside-repository directory with mode 0700, record its exact absolute
+path, and use an owner-held passphrase entered in a private terminal. Confirm the
+source config has exactly one D1 binding and independently check its database
+name, UUID, jurisdiction, and paused intake before running this command:
+
+Freeze owner/admin review writes and scheduled cleanup for the capture window,
+or verify no such write occurred between the chosen recovery point and the
+completed export. If any write occurred, repeat the capture before a destructive
+restore; otherwise the archive is not the latest authoritative state. Keep the
+freeze until the incident reconciliation boundary is recorded. The capture
+directory must be outside the repository, including through symlinks.
+
+```sh
+node scripts/reporting-recovery-capture.mjs capture reporting/wrangler.public.production.jsonc sns-reporting 6662c8f8-655e-4569-9e71-1be712be9512 /ABSOLUTE/PRIVATE/0700/DIR /ABSOLUTE/PRIVATE/0700/DIR/current.snsd1
+```
+
+This reads the full remote D1 schema and data. Wrangler warns that export can
+make D1 briefly unavailable; schedule it with intake paused. The script checks
+the configured and remote UUID, streams export SQL through a private FIFO into
+AES-256-GCM, suppresses Wrangler logs containing its temporary signed URL, and
+never stores plaintext SQL. It refuses an existing archive. Keep the passphrase
+separate from the archive; losing it makes the archive unrecoverable. Record the
+source UUID and capture time in the restricted incident record. The archive
+does not itself prove which historical point it represents.
+
+To examine or import an archive, first verify that the **destination is a mounted,
+encrypted volume** with a mode-0700 operator directory. FileVault was off on
+the checked Mac on October 30, so an ordinary directory there is not suitable
+for decrypted reporting data. Decrypt only to that encrypted volume:
+
+```sh
+node scripts/reporting-recovery-capture.mjs decrypt /ABSOLUTE/PRIVATE/0700/DIR/current.snsd1 /ENCRYPTED/VOLUME/PRIVATE/0700/DIR/current.sql 6662c8f8-655e-4569-9e71-1be712be9512 --encrypted-volume-confirmed
+```
+
+The flag records an operator assertion; the command cannot detect encryption.
+The output directory must be mode 0700 and outside the repository.
+Wrong passphrase, wrong source UUID, or tampering publishes no SQL. The target
+file must not exist. Keep the decrypted file restricted and delete it after
+verification, including after a failed import; deletion is not secure erasure.
+Use a separate, explicitly named/configured D1 target. Before import, verify its
+remote name, UUID, jurisdiction, and that `sqlite_master` has no user tables or
+reporting rows. Never point an import at the source or an existing disposable
+database. Only then import the full SQL with `wrangler d1 execute TARGET --remote
+--file /ENCRYPTED/VOLUME/PRIVATE/0700/DIR/current.sql --config TARGET_CONFIG`
+and compare tables, row counts, IDs, ledger, contacts, events, counters, and
+health to the source privately. The imported database remains isolated; this
+command does not deploy a Worker or switch bindings.
+
+If an older snapshot is restored in a separate approved recovery path, use the
+latest capture to reconcile before exposing a recovered inbox: apply every
+unexpired deletion-ledger ID, remove reports already expired under their original
+deadlines, preserve post-snapshot reports and contacts, and apply later review
+revisions/events exactly once. Check ID/submission-key conflicts manually.
+Restoring report rows fires acceptance triggers; replace/reconcile each UTC day's
+counter with the authoritative latest accepted total, including accepts later
+deleted, rather than counting surviving reports. Verify contact/event cascades,
+duplicate links, ledger expiry, cleanup health, and report/acceptance counts
+against the latest capture. The local tests cover these invariants with fictional
+data; they do not automate a production merge or authorize a Time Travel restore.
+
 1. Pause and verify the correct public Worker as above. Keep admin access
    restricted and avoid review writes during recovery. Record the incident time,
    selected database name/UUID/jurisdiction, both Workers' current D1 bindings,

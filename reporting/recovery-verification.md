@@ -69,3 +69,44 @@ Preserved sns-reporting-recovery-20261029 (e8b49205-75de-421b-85a1-99532adb1a40)
 - Wrangler executes the mirrored SQL remotely, but this run does not independently prove the application's `db.batch()` atomicity or cleanup failure recording. The existing Miniflare integration and recovery tests cover transactional batches, rollback/failure health, cascades, and ledger behavior with the same migrations.
 - The exercise proves one current bookmark restore and application-level reconciliation on a disposable database. It does not prove recovery at every point in the documented retention window, provider availability during an incident, or absence of deleted content from Cloudflare recovery/security systems.
 - Time Travel still overwrites its target in place and does not clone to an isolated database. A real incident requires paused intake, a separately controlled recovery target/export strategy, the latest deletion ledger, and explicit reconciliation of records newer than the recovery point before any binding switch.
+
+## Current-state capture validation — October 30
+
+`scripts/reporting-recovery-capture.mjs` is a separate, read-only export path. It checks the exact database name/UUID against a single-binding config and remote `d1 info`, then sends Wrangler's full-schema/full-data export through a mode-0600 FIFO in a mode-0700 operator directory directly into AES-256-GCM encryption. Scrypt derives the key from a hidden, twice-entered owner passphrase. The source UUID is authenticated as GCM associated data; decryption requires that exact UUID. Wrangler's output, including its temporary signed download URL, is discarded, and its disk logging is disabled for these subprocesses. The tool publishes the archive with an atomic no-overwrite link. It has no restore or binding-switch command.
+
+Disposable tests passed with the installed Wrangler: a local D1 exported through the FIFO, authenticated into SQL, and imported into a distinct empty local D1. Crypto tests covered wrong passphrase, changed ciphertext, wrong source UUID, output mode 0600, and no overwrite. The Miniflare test covered a later deletion, newer report/contact/event, review revision/event on an older report, expired primary, duplicate clearing, cascades, cleanup health, and the latest acceptance counter including the deleted report. These tests use only fictional records. The local Wrangler test required loopback access outside the restricted sandbox; no remote D1 was accessed.
+
+The actual Mac had FileVault **off** at the October 30 check. A separate native macOS rehearsal created a temporary 64 MiB AES-256 encrypted disk image with a fictional in-memory key, verified `hdiutil isencrypted` returned `YES`, round-tripped synthetic SQL through a mounted image, rejected a wrong passphrase, remounted with the correct passphrase, and then detached and removed the synthetic image. This proves a local encrypted-volume path can work; it did not establish an owner recovery key or capture real data. No production or staging capture or decrypted import has been run. The `decrypt` CLI requires an explicit encrypted-volume confirmation, but that flag is an operator attestation, not a filesystem encryption detector. The owner must establish and verify an encrypted mounted volume before decrypted SQL is written there. Wrangler remote import reads a file's size and content, so a FIFO cannot replace that protected SQL file. Removing plaintext later is ordinary deletion, not a secure-erasure guarantee. Cloudflare's temporary export/download and provider recovery copies remain subject to provider retention.
+
+The capture FIFO requires POSIX `mkfifo` on macOS or Linux; add a platform-specific capture path if Windows operation becomes necessary.
+
+A second disposable native rehearsal chained the full local path: streamed an archive, authenticated and decrypted it only into a private directory on an `hdiutil`-verified AES-256 image, and imported that SQL with the installed Wrangler into an isolated local D1 carrying the real migrations. Queries found one fictional report, contact, event, ledger entry and counter, with `accepted = 1`. The test files, archive and image were removed after detach; the fictional key stayed in memory. This did not involve production, staging, an owner key, or a remote import.
+
+The current-state archive preserves the latest ledger, reports, contacts, review events, counters, and health available in a full D1 export. It does not create a historical snapshot or prove an isolated historical restore. Cloudflare Time Travel restores in place. A real historical incident still needs a verified older archive or a separately approved in-place Time Travel restore, followed by reconciliation and private review before any binding switch.
+
+### Guarded remote capture and encrypted-volume import — October 30
+
+The parent subsequently checked the exact existing disposable database UUID and
+U.S. jurisdiction, then aggregate guards confirmed that its two reports had only
+the expected fixture IDs and `example.com` URLs, with two fictional contacts and
+two fixture-actor events. No report text was printed. It did not rerun the
+destructive Time Travel rehearsal or change the remote database.
+
+Using the actual installed Wrangler remote export path, the parent streamed that
+synthetic-only database through the capture FIFO into an authenticated encrypted
+archive. The archive had mode 0600. It was decrypted inside a separately verified
+AES-256 mounted disk image and imported with Wrangler into an explicitly empty,
+new local D1. Aggregate assertions passed: 2 reports, 2 contacts, 2 events,
+2 deletion-ledger entries, 0 duplicate links, and 4 accepted reports. This checks
+the current-state remote export/encryption/decrypt/import chain with real schema
+and fixture data, separately from the earlier remote historical restore drill.
+
+Wrangler disk logging and metrics were disabled for the subprocesses. Keys stayed
+in process memory; no signed URL, bookmark, passphrase, SQL body, or private report
+data was printed. The parent removed the generated synthetic local files and
+archive, detached the encrypted image, and removed that generated image. The
+remote synthetic source remains unchanged. No staging or production data was
+exported, restored, or imported. The owner still supplies a private passphrase
+and encrypted workspace when the procedure is actually used.
+
+Final project verification passed both typechecks, all **226 tests**, and build.
