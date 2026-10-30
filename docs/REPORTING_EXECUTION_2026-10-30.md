@@ -123,3 +123,13 @@ checks passed for the 14-file `release/sponsor-not-sponsor-1.2.zip`. SHA-256:
 `f5283d07235179e1cf950dbdddb841c6e9bf085a6cc9f8af9711e3c3bab1f6b2`.
 The launch progress file and Store worksheet identify this candidate.
 No publishing or intake launch is authorized.
+
+### Later owner updates
+
+The owner subsequently reported all dashboard items done and submission to Google
+for review with automatic publishing after approval. This records owner actions,
+not agent submission or independent verification of the uploaded ZIP/hash. The
+owner then explicitly authorized all GitHub pushes; that supersedes the earlier
+Pages hold and authorizes the master push's automatic website deployment. Verify
+the live privacy/support pages afterward. Real reporting intake remains paused
+and is not authorized to be enabled by this instruction.

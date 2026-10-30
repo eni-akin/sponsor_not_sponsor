@@ -1,6 +1,7 @@
 # Chrome Web Store Developer Dashboard submission worksheet
 
 Reporting-flow draft: October 30, 2026
+Owner update: dashboard items completed and submitted for review, with automatic publishing after approval. This is owner-reported; Google approval, publication and the exact uploaded archive have not been independently verified. The later explicit GitHub push request authorizes Pages publication, not enabling reporting intake.
 Package: `release/sponsor-not-sponsor-1.2.zip`
 Version: `1.2`
 SHA-256: `f5283d07235179e1cf950dbdddb841c6e9bf085a6cc9f8af9711e3c3bab1f6b2`
@@ -151,7 +152,7 @@ If no public demonstration page is supplied, the reviewer path remains less repr
 | --- | --- |
 | Visibility | `[OWNER: PUBLIC / UNLISTED / PRIVATE]` |
 | Geographic distribution | `[OWNER: ALL REGIONS OR SELECTED COUNTRIES]` |
-| Publishing | `[OWNER: AUTOMATIC OR DEFERRED]` |
+| Publishing | Automatic after approval — owner-confirmed October 30 |
 
 Deferred publishing is the cautious option because approval will not immediately make the extension public; an approved staged submission must be published within Chrome Web Store's allowed window.
 

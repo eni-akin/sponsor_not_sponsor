@@ -3,20 +3,24 @@
 This tracks the owner's nine-step goal beyond the local preparation checkpoint.
 Production intake remains paused until the final release and launch approvals.
 An item is complete only for its stated evidence scope.
-The owner's latest October 30 instructions are **do not use VoiceOver** and
-**do not do final publishing**. Continue local preparation only; do not push
-Pages changes, submit to the Store, or enable real intake.
+Latest owner updates on October 30: human validation is done; version `1.2` is
+selected; dashboard items are done; the owner submitted to Google for review
+with automatic publishing after approval; and **all completed GitHub work may
+now be pushed**, including the Pages deployment that push triggers. These are
+owner-reported Store facts, not an independent dashboard inspection. The earlier
+GitHub publishing hold is superseded by the explicit push request. **Do not use
+VoiceOver or enable real reporting intake.** No Worker deployment is requested.
 
 | Step | Status | Evidence / next action |
 | --- | --- | --- |
 | 1. Cloudflare account checks | Reviewed; known limitations recorded | Live read-only dashboard and filtered deployment audit in [provider verification](../reporting/provider-verification.md). Undocumented provider metadata/key retention stays unknown; no eligible usage alert was offered. Recheck at launch. |
 | 2. Recovery procedure | Validated with disposable data | Encrypted remote fixture capture, authenticated decrypt on a verified encrypted image, empty local D1 import, and deletion/newer-record/review/counter reconciliation passed. Owner supplies private passphrase/workspace at use; no live restore or private production export. See [recovery evidence](../reporting/recovery-verification.md). |
-| 3. Wording review | Technical review complete; owner approval pending | Reviewed extension help/privacy, public support/privacy, Store listing/worksheet and form against the implementation. Clarified pre-submit technical requests, role identifier, first-closure retention, and 14-day minimal deletion ledger. Notice version updated together; 226 tests and reporting browser checks passed. These are local drafts, not published policy or legal certification. |
+| 3. Wording review | Technical review complete; dashboard completion owner-reported | Local disclosures describe optional submission, email, first-closure retention and the 14-day ledger. The owner reports all dashboard items done. GitHub push/public page verification is now authorized; no legal certification is claimed. |
 | 4. Keyboard and screen reader | Keyboard flows exercised; screen reader not performed at owner request | Current local form/inbox keyboard flows exercised on synthetic data. Existing SNS was reloaded from this repo's dist; native keyboard exercised reason selection, completed local download and opened the new form link, which showed paused intake. Current packaged controls also pass automated browser checks. No screen-reader pass claimed. |
-| 5. Final version | Owner selected `1.2`; local candidate verified | Package and extension manifest updated together. All 226 tests and seven extracted-package checks passed; current ZIP/hash below. Store's uploaded version is still unverified; no upload is implied. |
-| 6. Exact candidate approval | Pending | Present the final version, ZIP/hash, evidence, wording, and limitations for owner approval. |
-| 7. Public pages | Held at owner's request | Do not push master or publish Pages. Later approval and live verification required. |
-| 8. Store and real intake | Declarations to be completed together; publishing held | Owner requested joint Store declaration work. Do not submit to the Store or enable real intake. Final dashboard choices and explicit launch approval remain open. |
+| 5. Final version | Owner selected `1.2`; local candidate verified | All 226 tests and seven extracted-package checks passed; current ZIP/hash below. Owner reports dashboard items complete and submission made; uploaded manifest/hash were not independently inspected. |
+| 6. Exact candidate approval | Owner proceeded with submission | Owner reports submission after the 1.2 candidate was supplied. This is not independent proof of which ZIP/hash Google received. |
+| 7. Public pages | Push authorized; deployment verification pending | Owner explicitly requested all GitHub pushes. Live privacy/support were still old at the pre-push check; verify Pages after pushing master. |
+| 8. Store and real intake | Store review submitted, auto-publish selected; intake remains paused | Owner reports Google submission and automatic publishing after approval. Approval/publication is not yet verified. No separate approval to enable real intake. |
 | 9. Maintenance | Read-only schedule active; first scheduled run pending | SNS reporting maintenance runs Mondays/Thursdays at 09:00 local app time (currently Chicago); Thursday includes weekly provider review. Baseline aggregate check passed. Owner privately reviews claims; no automated production changes. |
 
 ## Account review evidence
@@ -192,3 +196,19 @@ seven extracted-package checks passed. Public-site release validation and
 whitespace checks also passed. The manifest still declares only `storage`;
 no sponsorship logic, collection behavior, dependency or permission was changed.
 This candidate supersedes the historical 1.0.1 ZIP for the next joint Store review.
+
+## Owner submission and GitHub push authorization
+
+The owner subsequently confirmed all dashboard items complete, then explicitly
+reported submission for review with automatic publishing after approval. Do not
+report the extension as approved or published without later evidence. The owner
+then requested all GitHub pushes. Push the completed reporting/release commits
+on master and verify the automatic Pages deployment; preserve unrelated dirty
+handoff files. This does not authorize enabling reporting intake.
+
+The pre-push live privacy page returned HTTP 200 but still identified version
+1.0.0 and lacked optional submission/email/ledger disclosures; support likewise
+lacked the new form flow. Both differed from prepared local files. At
+`2026-10-30T19:35:45.696Z`, production `/api/config` returned HTTP 200 and
+`available: false`. Public page publication is therefore needed to align the
+live disclosures with the submitted candidate, without changing intake.
