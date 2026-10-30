@@ -12,7 +12,7 @@ Pages changes, submit to the Store, or enable real intake.
 | 1. Cloudflare account checks | Reviewed; known limitations recorded | Live read-only dashboard and filtered deployment audit in [provider verification](../reporting/provider-verification.md). Undocumented provider metadata/key retention stays unknown; no eligible usage alert was offered. Recheck at launch. |
 | 2. Recovery procedure | Validated with disposable data | Encrypted remote fixture capture, authenticated decrypt on a verified encrypted image, empty local D1 import, and deletion/newer-record/review/counter reconciliation passed. Owner supplies private passphrase/workspace at use; no live restore or private production export. See [recovery evidence](../reporting/recovery-verification.md). |
 | 3. Wording review | Technical review complete; owner approval pending | Reviewed extension help/privacy, public support/privacy, Store listing/worksheet and form against the implementation. Clarified pre-submit technical requests, role identifier, first-closure retention, and 14-day minimal deletion ledger. Notice version updated together; 226 tests and reporting browser checks passed. These are local drafts, not published policy or legal certification. |
-| 4. Keyboard and screen reader | Partial keyboard evidence; screen reader not performed at owner request | Current local form/inbox keyboard flows exercised on synthetic data; installed extension's older report controls exercised. Current packaged controls pass automated browser checks. Manual new-link check after extension reload remains open. No screen-reader pass claimed. |
+| 4. Keyboard and screen reader | Keyboard flows exercised; screen reader not performed at owner request | Current local form/inbox keyboard flows exercised on synthetic data. Existing SNS was reloaded from this repo's dist; native keyboard exercised reason selection, completed local download and opened the new form link, which showed paused intake. Current packaged controls also pass automated browser checks. No screen-reader pass claimed. |
 | 5. Final version | Provisional candidate rebuilt; Store version unconfirmed | Chrome refuses scripted Store access. Owner must confirm Package version; keep `1.0.1` provisional. Fresh ZIP/hash and all seven extracted-package checks recorded below. |
 | 6. Exact candidate approval | Pending | Present the final version, ZIP/hash, evidence, wording, and limitations for owner approval. |
 | 7. Public pages | Held at owner's request | Do not push master or publish Pages. Later approval and live verification required. |
@@ -105,11 +105,19 @@ contact or review was sent to Cloudflare.
   optional contact; the native status menu selected reviewing and Save review
   updated the list. Attempting deletion without the ID focused the safeguard
   message. No deletion was performed. Disabled pagination controls were skipped.
-- Installed SNS on a fictional local vacancy: keyboard opened the badge/panel,
-  reached reporting controls and focused the reason selector. This installed
-  copy had the older Download-only UI, not the new form link. Reload and manual
-  checking of the latest copy remain required; do not equate it with candidate
-  evidence. The packaged browser suite independently checks the new link.
+- The first installed-SNS check used an older Download-only copy, not candidate
+  evidence. A subsequent native Chrome check verified its existing unpacked
+  source was this repository's `dist`, version `1.0.1`, and reloaded it without
+  changing permissions. On the published fictional reviewer demo, Tab/Enter
+  opened the badge/panel and reporting controls. The native reason menu selected
+  Other problem; keyboard Download report produced a completed 2,748-byte local
+  `sponsor-not-sponsor-report.json` and the status "Nothing was sent." Tab reached
+  Open reporting form; Enter opened a separate production form tab with empty
+  fields, disabled Submit and "Reporting is temporarily unavailable." No report
+  was submitted. This confirms keyboard operation of the current installed
+  controls, not independent accuracy or screen-reader announcements. The live
+  form still has the old notice, as expected with the publishing hold. Visual
+  evidence is the ignored local `test-results/reporting-paused-keyboard.png`.
 - VoiceOver launch timed out and the app inventory showed it not running.
   The owner then explicitly instructed not to use it. No VoiceOver/screen-reader
   announcement or human accessibility certification is claimed.

@@ -90,8 +90,10 @@ does not contain the latest privacy wording.** A subsequent rebuild passed all
 226 tests and seven extracted-package checks; current provisional `1.0.1` ZIP
 SHA-256 is `bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af`.
 Final Store version confirmation and owner approval remain required. Synthetic
-form/inbox keyboard evidence and the older installed-extension limitation are
-recorded in the launch progress file. The owner instructed **do not use VoiceOver**
+form/inbox keyboard evidence is recorded in the launch progress file. A later
+native check reloaded existing SNS from this repo's `dist` and exercised current
+reason selection, completed local download and keyboard opening of the new form
+link; the live form remained empty and paused. The owner instructed **do not use VoiceOver**
 and **do not do final publishing**. No screen-reader pass is claimed; no push,
 Store submission or real intake enablement is authorized.
 
