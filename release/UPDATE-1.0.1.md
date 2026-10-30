@@ -1,5 +1,8 @@
 # Sponsor Not Sponsor 1.0.1 — patch update
 
+Historical record: superseded by the owner's October 30 version `1.2` decision.
+Use the [current release README](README.md) and [worksheet](CHROME_WEB_STORE_DASHBOARD_WORKSHEET.md), not the old ZIP/hash below.
+
 Prepared October 20, 2026 (America/Chicago).
 
 October 30 reporting follow-up: the patch-only record below is historical.

@@ -110,3 +110,16 @@ Store submission or real intake enablement is authorized.
 The separate success page and general UI redesign remain deferred enhancements.
 No new extension permissions, automatic diagnostic uploads, dependencies, or
 sponsorship-rule changes are part of this preparation.
+
+## Subsequent owner decision — version 1.2
+
+On October 30 the owner selected the exact version `1.2`, confirmed human
+validation complete, and requested that Store declarations be completed together.
+The version is updated in package and manifest together, with matching current
+release drafts. Human validation is owner-reported, not new agent-verified
+evaluation metrics or a screen-reader pass. The earlier 1.0.1 archive/hash is
+historical. Both typechecks, 226 tests, build and all seven extracted-package
+checks passed for the 14-file `release/sponsor-not-sponsor-1.2.zip`. SHA-256:
+`f5283d07235179e1cf950dbdddb841c6e9bf085a6cc9f8af9711e3c3bab1f6b2`.
+The launch progress file and Store worksheet identify this candidate.
+No publishing or intake launch is authorized.

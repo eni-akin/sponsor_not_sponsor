@@ -1,11 +1,11 @@
 # Chrome Web Store Developer Dashboard submission worksheet
 
 Reporting-flow draft: October 30, 2026
-Package: `release/sponsor-not-sponsor-1.0.1.zip`
-Version: `1.0.1`
-SHA-256: `bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af`
+Package: `release/sponsor-not-sponsor-1.2.zip`
+Version: `1.2`
+SHA-256: `f5283d07235179e1cf950dbdddb841c6e9bf085a6cc9f8af9711e3c3bab1f6b2`
 
-This worksheet is a review draft for the reporting flow. The package and hash above identify the October 30 local candidate, which passed all seven extracted-package checks. Version 1.0.1 is retained for local review; the final upload version must be checked against the Store before submission. Public disclosures have not been published, and intake remains paused. Data-use selections require publisher review in the dashboard. Text in `[OWNER: ...]` brackets requires genuine owner or publisher input; do not submit the brackets.
+This worksheet is a review draft for the reporting flow. The owner selected version 1.2 and confirmed human validation complete on October 30. The rebuilt candidate passed both typechecks, all 226 tests, build and all seven extracted-package checks. The current uploaded Store version remains unverified; do not claim an upload occurred. Public disclosures have not been published, and intake remains paused. The owner and agent will complete Store declarations together. Text in `[OWNER: ...]` brackets requires genuine owner or publisher input; do not submit the brackets.
 
 ## Store listing
 
@@ -28,7 +28,7 @@ The rules distinguish visa sponsorship from CPT, OPT, and separate citizenship, 
 
 Analysis runs in your browser without an account, key, or analysis service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report. A separate reporting form lets you import and review the file and explicitly submit it. Reports are never sent automatically.
 
-The extension targets English-language U.S. job postings. It supports bounded embedded-frame reading and matching Ashby overview recovery; unusual wording, inaccessible pages, PDFs, and unsupported layouts can remain unreadable or incomplete. It does not carry findings to an unrelated vacancy. Independent accuracy validation is pending. Findings describe posting wording, not personal eligibility.
+The extension targets English-language U.S. job postings. It supports bounded embedded-frame reading and matching Ashby overview recovery; unusual wording, inaccessible pages, PDFs, and unsupported layouts can remain unreadable or incomplete. It does not carry findings to an unrelated vacancy. Findings describe posting wording, not personal eligibility, and are not a guarantee of accuracy.
 ```
 
 ### Graphic assets
@@ -160,11 +160,12 @@ Deferred publishing is the cautious option because approval will not immediately
 - [ ] `[OWNER]` Developer account registration and fee are complete; current agreements/policies are accepted.
 - [ ] `[OWNER]` Publisher contact email is verified and monitored; two-step verification is enabled.
 - [ ] `[OWNER]` Publisher identity, support route, public URLs, and any official publisher website verification are correct.
-- [ ] `[OWNER/HUMAN REVIEWERS]` Registered independent real-world validation and human accessibility review are complete.
+- [x] `[OWNER]` Human validation confirmed complete on October 30, 2026. This records the owner's confirmation, not new agent-verified metrics or certification of the registered sample/reviewer requirements.
+- [ ] `[OWNER/HUMAN REVIEWERS]` Remaining accessibility evidence reviewed; screen-reader testing was not performed at the owner's request. The human-validation confirmation does not establish a screen-reader pass.
 - [ ] `[OWNER]` Product name, logo, screenshots, and website-content rights/trademark clearance are approved.
 - [ ] `[OWNER]` Listing copy, screenshots, privacy selections (including optional email and submitted content), permissions, and distribution choices match the uploaded ZIP and separate form.
-- [ ] `[OWNER]` Exact archive approval: provisional version `1.0.1`, SHA-256 `bce22afe01b49ace3951ee94fb58e855298ae1194a9bc7ca9bf3c16f3fcc77af`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`. Confirm the current Store version first; do not publish under the owner's October 30 hold.
-- [ ] `[PUBLISHER]` Uploaded manifest shows version 1.0.1, `storage`, and HTTP/HTTPS content-script access.
+- [ ] `[OWNER]` Exact archive approval: version `1.2`, SHA-256 `f5283d07235179e1cf950dbdddb841c6e9bf085a6cc9f8af9711e3c3bab1f6b2`, approved on `[OWNER: DATE]` by `[OWNER: NAME]`. Do not publish under the owner's October 30 hold.
+- [ ] `[PUBLISHER]` Uploaded manifest shows version 1.2, `storage`, and HTTP/HTTPS content-script access.
 - [ ] `[PUBLISHER]` Submission receipt/status and any reviewer correspondence are recorded.
 
 Do not submit until all required items in `release/PUBLISHING_ACTION_PLAN.md` Lane B are complete.

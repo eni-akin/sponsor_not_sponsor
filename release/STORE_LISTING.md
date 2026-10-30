@@ -1,6 +1,6 @@
-# Chrome Web Store listing draft — 1.0.1
+# Chrome Web Store listing draft — 1.2
 
-Status: prepared for review; not submitted or published. Independent real-world validation remains open.
+Status: prepared for review; not submitted or published. Owner confirmed human validation complete on October 30, 2026. No new accuracy metrics or independent agent verification are claimed. Store declarations will be completed together with the owner.
 
 ## Name
 
@@ -18,7 +18,7 @@ The rules distinguish visa sponsorship from CPT, OPT, and separate citizenship, 
 
 Analysis runs in your browser without an account, key, or analysis service. Pause scanning, disable individual sites, dismiss the badge, or download an incorrect-result report. A separate form lets you import, review, and explicitly submit a correction. Reports are never sent automatically.
 
-The extension targets English-language U.S. job postings. It supports bounded embedded-frame reading and matching Ashby overview recovery; unusual wording, inaccessible pages, PDFs, and unsupported layouts can remain unreadable or incomplete. It does not carry findings to an unrelated vacancy. Independent accuracy validation is pending. Findings describe posting wording, not personal eligibility.
+The extension targets English-language U.S. job postings. It supports bounded embedded-frame reading and matching Ashby overview recovery; unusual wording, inaccessible pages, PDFs, and unsupported layouts can remain unreadable or incomplete. It does not carry findings to an unrelated vacancy. Findings describe posting wording, not personal eligibility, and are not a guarantee of accuracy.
 
 ## Images
 

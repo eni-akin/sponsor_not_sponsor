@@ -1,6 +1,6 @@
-# Release preparation — 1.0.1
+# Release preparation — 1.2
 
-Patch 1.0.1 fixes the on-page badge/panel bouncing between left corners when shadow-DOM page content sits beneath it. See [update notes and upload steps](UPDATE-1.0.1.md).
+Version 1.2 includes the optional separate reporting-form link and revised disclosures, alongside the earlier positioning fix. The owner selected this version and confirmed human validation complete on October 30, 2026. Store declarations will be completed together; publishing remains on hold. The [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md) tracks current evidence. The [1.0.1 patch notes](UPDATE-1.0.1.md) are historical.
 
 This prepares a reviewable deterministic extension package. Store submission and independent accuracy validation remain separate steps.
 
@@ -8,9 +8,9 @@ This prepares a reviewable deterministic extension package. Store submission and
 
 Run `pnpm check`, then `pnpm package`. Packaging rebuilds the extension, checks versions and manifest permissions/assets, and writes:
 
-- `release/sponsor-not-sponsor-1.0.1.zip`
-- `release/sponsor-not-sponsor-1.0.1.zip.sha256`
-- `release/sponsor-not-sponsor-1.0.1.zip.inventory.json`
+- `release/sponsor-not-sponsor-1.2.zip`
+- `release/sponsor-not-sponsor-1.2.zip.sha256`
+- `release/sponsor-not-sponsor-1.2.zip.inventory.json`
 
 The archive contains 14 allowlisted runtime files, including the local logo SVG. Its entries and hashes are verified. It excludes source, tests, credentials, local environments, caches, and backend services.
 
@@ -32,17 +32,17 @@ Icons are checked-in PNGs. `pnpm assets` regenerates 16/32 px icons from `extens
 
 ## Before public submission
 
-Complete independently reviewed real-world validation and human accessibility review. Review the limited English wording and layout coverage; authored regression results are not an independent accuracy estimate.
+Human validation is owner-confirmed complete; no new sample, reviewer record or accuracy metrics were supplied with that confirmation. Screen-reader testing remains unperformed at the owner's request and must not be claimed as passed. Review the limited English wording and layout coverage; authored regression results are not an independent accuracy estimate.
 
 Supply the publisher identity/support contact and a public privacy-policy page matching the bundled disclosure. Review the package, current screenshots, [listing draft](STORE_LISTING.md), and dashboard data-use declarations before submitting through the publisher's account.
 
 Company research remains inactive in the extension. No local backend or optional service permission is needed.
 
-## Current quality evidence
+## Historical quality evidence
 
 The [October 16 live audit](../evaluation/live-2026-10-16/report.md) completed 30 actual installed-extension comparisons. It recorded 23/29 undisputed headline agreements, five missed blockers, one safe incomplete-description abstention, a wrong-title result, and incomplete evidence in four of ten cited blocker decisions. Supported English U.S. headline agreement was 18/19; those 19 cases are a subset, not the entire audit.
 
-This audit is diagnostic evidence, not completion of the [human-reviewed acceptance gates](../evaluation/part2/acceptance.md). The minimum sample/reviewer requirements remain unmet. The observed first-source blocker recall was 10/15 (66.7%), below the registered 90% target; including additional official pages for two same-vacancy Ryan postings lowers it to 10/17 (58.8%). The gates apply to a properly frozen human-reviewed evaluation, so these figures identify risks without granting or replacing that approval.
+This October 16 audit is diagnostic evidence, not completion of the [human-reviewed acceptance gates](../evaluation/part2/acceptance.md). That audit did not meet the minimum sample/reviewer requirements. The observed first-source blocker recall was 10/15 (66.7%), below the registered 90% target; including additional official pages for two same-vacancy Ryan postings lowers it to 10/17 (58.8%). The later owner confirmation of human validation supplies no new measurements that replace these historical figures.
 
 Before a quality claim, diagnose the supported-scope Ryan miss, resolve the disputed Qualcomm label and same-vacancy source boundary, and verify that identity and citation conditions are preserved. Four EA misses occurred outside intended U.S. scope and share one wording family; report that limitation rather than implying broad international support. No sponsorship-offer example was evaluated.
 
