@@ -99,6 +99,15 @@ before recording a confirmed issue. Keep sponsorship, CPT, OPT and separate
 eligibility restrictions distinct. Opening submitted URLs is deliberate and uses
 no opener or referrer; the service never fetches source URLs automatically.
 
+An October 30 local in-thread automation, **SNS reporting maintenance**, is active
+for Monday/Thursday at 09:00 local app time (currently America/Chicago); Thursday
+also includes the weekly provider check. Keep the computer/app running and verify
+the schedule after any timezone change. It checks public availability and private
+aggregate operational metadata only, escalating risks or missing access without
+changing production. It does not review report contents, decide claims or replace
+the owner's private inbox review. Its first scheduled run remains unverified;
+see the [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md).
+
 The inbox supports new/reviewing/closed states, severity, a closure resolution,
 bounded notes, manually confirmed duplicate links, GitHub issue URL and fixed
 version. Spam is deleted immediately. Revision checks prevent stale writes.
