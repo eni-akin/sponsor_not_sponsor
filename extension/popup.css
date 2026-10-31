@@ -19,7 +19,7 @@ main { padding: 0 24px 12px; overflow-y: auto; min-height: 0; }
 #warnings:empty { display: none; }
 .section-label { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; }
 .section-label h2 { font-size: 13px; margin: 0; }
-#count { color: #6F6470; font-size: 11px; }
+#count { color: #6F6470; font-size: 12px; }
 #evidence { max-height: 250px; overflow: auto; margin-top: 10px; border-top: 1px solid #E6D8CF; }
 .evidence { padding: 12px 0; border-bottom: 1px solid #E6D8CF; overflow-wrap: anywhere; white-space: pre-wrap; }
 .source { color: #6F6470; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; }
@@ -36,7 +36,7 @@ a { color: #B4432A; text-underline-offset: 2px; }
 #feedback { color: #8a342c; font-size: 12px; }
 [hidden] { display: none !important; }
 .finding { background: #fff; border: 1px solid #E6D8CF; border-radius: 10px; margin: 9px 0; padding: 12px; }
-summary { cursor: pointer; }
+summary { cursor: pointer; min-height: 44px; }
 .finding summary { display: flex; gap: 12px; align-items: baseline; justify-content: space-between; font-weight: 600; }
 .finding summary::after { content: '+'; color: #6F6470; }
 .finding[open] summary::after { content: '−'; }
@@ -49,9 +49,9 @@ blockquote { margin: 0; padding: 6px 0 6px 10px; border-left: 2px solid #D6AAA0;
 .citation .source { font-size: 9px; }
 .restrictions { background: #faf0df; border: 1px solid #dbc395; border-radius: 10px; padding: 12px; margin: 12px 0; }
 .restrictions h2 { font-size: 13px; margin: 0; }
-.review-label { font-size: 11px; font-weight: 650; color: #8a342c; }
+.review-label { font-size: 12px; font-weight: 650; color: #8a342c; }
 .context { font-size: 12px; margin: 14px 0; }
-#scan-feedback { font-size: 11px; color: #6F6470; margin: 0 0 6px; }
+#scan-feedback { font-size: 12px; color: #6F6470; margin: 0 0 6px; }
 #scan-feedback:empty { display: none; }
 .toolbar { display: flex; gap: 8px; }
 .toolbar button { flex: 1; }
@@ -59,3 +59,14 @@ blockquote { margin: 0; padding: 6px 0 6px 10px; border-left: 2px solid #D6AAA0;
 .secondary:not(:disabled):hover { background: #EAD6C8; }
 .onboarding { background: #FFF0E7; border: 1px solid #DABFB0; border-radius: 12px; padding: 14px; margin-bottom: 14px; font-size: 12px; }
 .onboarding button { margin-top: 8px; margin-bottom: 0; font-size: 12px; padding: 8px; }
+/* SNS 1.3: shared visual vocabulary; surfaces remain independently bundled. */
+:root { --sns-paper:#FFF8F2; --sns-ink:#29232E; --sns-accent:#C94F32; --sns-accent-hover:#B4432A; --sns-surface:#fff; --sns-soft:#F5E8DF; --sns-border:#DABFB0; --sns-muted:#665861; --sns-focus:#29232E; --sns-success:#23613D; --sns-warning:#735221; --sns-danger:#963B2F; --sns-space-1:4px; --sns-space-2:8px; --sns-space-3:12px; --sns-space-4:16px; --sns-space-6:24px; --sns-space-8:32px; --sns-radius:12px; --sns-shadow:0 8px 28px #29232e0a; }
+button, .button, input, select, textarea { min-height:44px; }
+button, .button { transition:background-color 140ms ease, box-shadow 140ms ease; }
+button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--sns-focus); outline-offset:3px; }
+button:disabled { cursor:not-allowed; }
+pre { white-space:pre-wrap; overflow-wrap:anywhere; }
+[hidden] { display:none !important; }
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { transition:none !important; scroll-behavior:auto !important; } }
+@media (forced-colors:active) { button,.button,input,select,textarea,fieldset,section { border-color:CanvasText; } }
+header{padding-top:20px}h1{font-size:23px}.intro{font-size:12px}.status-card,.finding{box-shadow:var(--sns-shadow)}.status{font-size:12px;padding:4px 8px}.source,.citation .source{font-size:12px;text-transform:none;letter-spacing:0}.privacy,.help-links,.explanation,.timing-summary,.finding-value{font-size:12px}.setting{min-height:44px;gap:10px}.setting input{min-height:0;width:18px;height:18px}.toolbar{gap:8px}.toolbar button{margin-bottom:4px}.finding summary{min-height:44px;align-items:center;flex-wrap:wrap}.finding summary::after{font-size:18px}#warnings:not(:empty){padding:12px 12px 12px 28px;background:#faf0df;border-radius:8px}.onboarding button{min-height:44px}footer{background:var(--sns-paper)}a{display:inline-block;min-height:44px;padding-block:12px}

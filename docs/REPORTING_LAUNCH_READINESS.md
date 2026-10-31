@@ -1,5 +1,13 @@
 # Reporting launch readiness
 
+October 31 current-status pointer: production reporting was enabled October 30;
+fresh read-only health/config probes returned `available: true`, and the admin
+root redirected anonymous traffic to Access. The public Store listing shows
+version 1.2. Use the [UI closeout plan](UI_REFRESH_CLOSEOUT_PLAN_2026-10-31.md)
+and [1.3 release worksheet](../release/RELEASE_1.3.md) for the current UI rollout.
+The October 30 verdict and evidence below preserve earlier checkpoints; they do
+not describe current intake or Store publication state.
+
 Updated: October 30, 2026 (America/Chicago)
 
 ## Current verdict

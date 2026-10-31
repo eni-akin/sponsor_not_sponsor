@@ -1,13 +1,17 @@
 # Private reporting operations
 
-Run commands from the repository root. Staging and separate production resources
-are deployed. The October 29 owner-run fictional production workflow passed
-challenge, submission/retry, contact, review and deletion; the owner confirmed
-zero remaining reports, contacts and events, plus one deletion-ledger entry.
-Cleanup health and the public pause were also checked. Both checked-in public
-configs have `INTAKE_ENABLED: "false"`; **real intake is not launched**. These
-are recorded checks, not a fresh cloud audit. Start with the
-[current handoff](../docs/REPORTING_HANDOFF_2026-10-29.md).
+Run commands from the repository root. Production intake was enabled October 30;
+read-only October 31 probes returned HTTP 200 and `available: true` on both
+`/health` and `/api/config`. The production admin root redirected anonymous
+traffic to Cloudflare Access. These probes do not verify private cleanup health,
+owner sign-in or current report counts. Staging remains separately configured.
+
+The 1.3 UI refresh is local and has not been deployed. Start with the
+[UI handoff](../docs/UI_REFRESH_HANDOFF_2026-10-31.md) and
+[closeout plan](../docs/UI_REFRESH_CLOSEOUT_PLAN_2026-10-31.md).
+The [October 29 workflow record](../docs/REPORTING_HANDOFF_2026-10-29.md)
+preserves fictional submission/retry/review/deletion evidence; its paused state
+is historical. Recheck live state and exact production bindings before changes.
 
 ## Checks and local development
 

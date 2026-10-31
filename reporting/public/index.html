@@ -15,7 +15,7 @@
 
     <form id="report-form">
       <fieldset>
-        <legend>Optional diagnostic</legend>
+        <legend>1 · Import a diagnostic (optional)</legend>
         <label for="report-file">Import SNS report</label>
         <input id="report-file" type="file" accept="application/json,.json">
         <p class="hint">Maximum 256 KiB. The file is parsed only in this tab and is not uploaded by selecting it.</p>
@@ -23,7 +23,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>Vacancy and correction</legend>
+        <legend>2 · Explain the correction</legend>
         <label for="posting-url">Public posting URL <span aria-hidden="true">*</span></label>
         <input id="posting-url" name="postingUrl" type="url" maxlength="2048" required>
         <div class="grid">
@@ -58,7 +58,7 @@
       </fieldset>
 
       <section aria-labelledby="review-heading">
-        <h2 id="review-heading">Review before submitting</h2>
+        <h2 id="review-heading">3 · Review and submit</h2>
         <p id="diagnostic-summary">No diagnostic imported. This will be submitted as a manual report.</p>
         <label for="diagnostic-editor">Diagnostic fields to submit (editable JSON)</label>
         <textarea id="diagnostic-editor" hidden spellcheck="false" aria-describedby="diagnostic-help"></textarea>
@@ -73,6 +73,7 @@
       <div id="turnstile"></div>
       <button id="submit" type="submit" disabled>Submit report</button>
       <p id="submit-status" role="status" tabindex="-1"></p>
+      <p class="hint">After acceptance, only the receipt ID and receipt time pass through this tab's session storage to the confirmation page. The transfer is consumed once and expires after 15 minutes; report contents and email are not stored there.</p>
       <p class="hint">If submission fails, keep this tab open to retain the draft. Closing or reloading it discards the unsent draft.</p>
     </form>
   </main>

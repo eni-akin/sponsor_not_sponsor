@@ -1,4 +1,15 @@
-# Release preparation — 1.2
+# Release preparation — 1.3
+
+October 31 checkpoint: 1.3 is a local UI candidate. Use the
+[closeout plan](../docs/UI_REFRESH_CLOSEOUT_PLAN_2026-10-31.md) and
+[1.3 release worksheet](RELEASE_1.3.md) for remaining work and final evidence.
+The public Chrome Web Store listing was read-only verified as version 1.2,
+updated October 31. Production reporting health/config returned available;
+the refreshed reporting UI and website have not been deployed. Pushes containing
+website files automatically publish Pages, so hold those changes until the
+Workers are verified. Final Store submission requires exact-candidate approval.
+
+## Historical 1.2 checkpoint
 
 Version 1.2 includes the optional separate reporting-form link and revised disclosures, alongside the earlier positioning fix. The owner selected this version and confirmed human validation complete on October 30, 2026, then reported Store submission with automatic publishing after approval. The later authorized GitHub push published revised privacy/support pages, verified against committed source. Google approval/publication and the uploaded archive hash are not independently verified; reporting intake remains paused. The [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md) tracks current evidence. The [1.0.1 patch notes](UPDATE-1.0.1.md) are historical.
 
@@ -8,9 +19,9 @@ This prepares a reviewable deterministic extension package. Store submission and
 
 Run `pnpm check`, then `pnpm package`. Packaging rebuilds the extension, checks versions and manifest permissions/assets, and writes:
 
-- `release/sponsor-not-sponsor-1.2.zip`
-- `release/sponsor-not-sponsor-1.2.zip.sha256`
-- `release/sponsor-not-sponsor-1.2.zip.inventory.json`
+- `release/sponsor-not-sponsor-1.3.zip`
+- `release/sponsor-not-sponsor-1.3.zip.sha256`
+- `release/sponsor-not-sponsor-1.3.zip.inventory.json`
 
 The archive contains 14 allowlisted runtime files, including the local logo SVG. Its entries and hashes are verified. It excludes source, tests, credentials, local environments, caches, and backend services.
 

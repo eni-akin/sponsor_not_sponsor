@@ -2,6 +2,20 @@ import { parseReportSubmission, sanitizeReportUrl } from './schema.js';
 const MAX_BYTES = 256 * 1024;
 const NOTICE_VERSION = '2026-10-30';
 const form = document.querySelector('#report-form');
+form.noValidate = true;
+const fields = [...form.querySelectorAll('input:not([type="file"]),textarea,select')];
+function validateField(field) {
+  let error = document.getElementById(field.id + '-error');
+  if (!error) {
+    error = document.createElement('p'); error.id = field.id + '-error'; error.className = 'field-error';
+    field.after(error);
+    field.setAttribute('aria-describedby', [field.getAttribute('aria-describedby'), error.id].filter(Boolean).join(' '));
+  }
+  error.textContent = field.validationMessage;
+  field.setAttribute('aria-invalid', String(!field.validity.valid));
+  return field.validity.valid;
+}
+fields.forEach(field => field.addEventListener('blur', () => validateField(field)));
 const file = document.querySelector('#report-file');
 const errors = document.querySelector('#errors');
 const importStatus = document.querySelector('#import-status');
@@ -30,6 +44,7 @@ function pauseSubmission(message) {
 }
 
 async function configureSubmission() {
+  submitStatus.textContent = 'Checking reporting availability…';
   try {
     const response = await fetch('/api/config', { cache: 'no-store', signal: AbortSignal.timeout(5000) });
     const config = await response.json();
@@ -39,6 +54,7 @@ async function configureSubmission() {
       return;
     }
     const script = document.createElement('script');
+    submitStatus.textContent = 'Loading verification…';
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
     script.async = true;
     await new Promise((resolve, reject) => {
@@ -146,7 +162,16 @@ form.addEventListener('submit', async event => {
   errors.hidden = true;
   submitStatus.textContent = '';
   if (!submissionEnabled) { fail('Reporting is temporarily unavailable. Keep this draft open and try again later.'); return; }
-  if (!form.reportValidity()) return;
+  const invalid = fields.filter(field => !validateField(field));
+  if (invalid.length) {
+    errors.replaceChildren();
+    const title = document.createElement('h2'); title.textContent = 'Check these fields'; errors.append(title);
+    for (const field of invalid) {
+      const link = document.createElement('a'); link.href = '#' + field.id; link.textContent = field.validationMessage;
+      link.onclick = event => { event.preventDefault(); field.focus(); }; errors.append(link, document.createElement('br'));
+    }
+    errors.hidden = false; errors.focus(); return;
+  }
   const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
   if (!token) { fail('Complete the verification challenge before submitting.'); return; }
   let reviewed;
@@ -159,16 +184,24 @@ form.addEventListener('submit', async event => {
   const body = {...reviewed,submissionKey};
   submittedSnapshot = current;
   submitButton.disabled = true;
+  submitButton.textContent = 'Submitting…';
+  form.setAttribute('aria-busy', 'true');
   try {
     const response = await fetch('/api/reports', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),signal:AbortSignal.timeout(15000) });
     const result = await response.json();
     if (!response.ok || result.accepted !== true || typeof result.reportId !== 'string') throw new Error(result.error || 'The report could not be submitted.');
     submitStatus.textContent = `Report received. Save this private receipt: ${result.reportId}`;
     submitStatus.focus();
+    try {
+      sessionStorage.setItem('sns.receipt.v1', JSON.stringify({reportId: result.reportId, receivedAt: new Date().toISOString()}));
+      location.assign('/received.html');
+    } catch { submitStatus.textContent += '. Receipt navigation is unavailable; copy the receipt above.'; }
   } catch (error) {
     fail(error instanceof Error ? error.message : 'The report could not be submitted. Keep this tab open and try again.');
   } finally {
     submitButton.disabled = !submissionEnabled;
+    submitButton.textContent = 'Submit report';
+    form.removeAttribute('aria-busy');
     globalThis.turnstile?.reset();
   }
 });

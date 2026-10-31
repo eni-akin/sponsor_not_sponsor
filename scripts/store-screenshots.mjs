@@ -30,6 +30,11 @@ try {
   await sponsor.locator('summary').click();
   assert.equal(await sponsor.getAttribute('data-status'), 'explicit-blocker');
   assert.equal(await sponsor.locator('.finding-value').evaluate(element => getComputedStyle(element).color), 'rgb(150, 59, 47)');
+  await page.waitForFunction(() => {
+    const panel = document.querySelector('#sponsor-not-sponsor-ui')?.shadowRoot.getElementById('panel');
+    const rect = panel?.getBoundingClientRect();
+    return rect && rect.left >= 0 && rect.top >= 0 && rect.right <= innerWidth && rect.bottom <= innerHeight;
+  });
   await page.screenshot({ path: 'release/store/02-quoted-evidence-1280x800.png' });
   const help = await context.newPage();
   await mkdir('test-results', { recursive: true });

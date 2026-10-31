@@ -20,6 +20,19 @@ async function assertTextContrast(text, background, label) {
   assert.ok(contrastRatio(foreground, backgroundColor) >= 4.5, `${label} must meet 4.5:1 text contrast`);
 }
 
+async function assertCompactSizing(root, label) {
+  const smallText = await root.locator('*:visible').evaluateAll(elements => elements
+    .filter(element => [...element.childNodes].some(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim()))
+    .filter(element => Number.parseFloat(getComputedStyle(element).fontSize) < 12)
+    .map(element => `${element.tagName}.${element.className}: ${getComputedStyle(element).fontSize}`));
+  assert.deepEqual(smallText, [], `${label} supporting text must be at least 12px`);
+  for (const target of await root.locator('button:visible, a:visible, summary:visible, select:visible, label.setting:visible').all()) {
+    const box = await target.boundingBox();
+    assert.ok(box.width >= 44 && box.height >= 44,
+      `${label} target must be at least 44×44px: ${await target.textContent()} (${box.width}×${box.height})`);
+  }
+}
+
 /** Section 4 checks run inside the existing isolated extension test browser. */
 export async function checkBetaUI({ page, popup, origin, getScan }) {
   await page.goto(`${origin}/structured-job`);
@@ -41,6 +54,7 @@ export async function checkBetaUI({ page, popup, origin, getScan }) {
   await popupEvidence.focus();
   await popup.keyboard.press('Enter');
   assert.equal(await popup.locator('#evidence-section').getAttribute('open'), '');
+  await assertCompactSizing(popup.locator('body'), 'Popup');
   await popup.keyboard.press('Enter');
   await assertTextContrast(popupRescan, popupRescan, 'Popup primary action');
   await assertTextContrast(popup.locator('.privacy'), popup.locator('html'), 'Popup supporting text');
@@ -71,19 +85,24 @@ export async function checkBetaUI({ page, popup, origin, getScan }) {
       await assertTextContrast(panel.locator('.note').first(), panel, 'Panel supporting text');
       await assertTextContrast(panel.locator('.finding-value'), panel.locator('.finding'), 'Panel result text');
     }
-    // Every visible panel action must have a label and be large enough to target.
+    await assertCompactSizing(panel, 'Panel');
+    // Every visible panel button must retain an accessible label.
     for (const button of await panel.locator('button:visible').all()) {
       assert.ok(await button.evaluate(el => (el.getAttribute('aria-label') || el.textContent).trim().length > 0));
-      const box = await button.boundingBox();
-      assert.ok(box.width >= 24 && box.height >= 24);
     }
     await page.locator(`${host} [data-finding="main"] > summary`).focus();
     await page.keyboard.press('Enter');
     assert.equal(await page.locator(`${host} [data-finding="main"]`).getAttribute('open'), '');
     const source = page.locator(`${host} a`).first();
+    await assertCompactSizing(panel, 'Expanded panel');
     await source.focus();
     assert.equal(await source.evaluate(element => element.getRootNode().activeElement === element), true);
     await panel.screenshot({ path: `test-results/beta-panel-${viewport.width}x${viewport.height}.png` });
+    if (viewport.height === 256) {
+      await panel.locator('#report').click();
+      await assertCompactSizing(panel, 'Short-viewport report controls');
+      assert.equal(await panel.evaluate(element => element.scrollWidth > element.clientWidth + 1), false, 'Report controls must not cause horizontal overflow');
+    }
     await page.keyboard.press('Escape');
     await panel.waitFor({ state: 'hidden' });
     assert.equal(await badge.evaluate(element => element.getRootNode().activeElement === element), true);

@@ -23,7 +23,8 @@ try {
   for (const welcomeSeen of [false, true]) {
     await helper.evaluate(async seen => {
       await chrome.storage.local.set({ onboardingSeen: seen });
-      await chrome.action.openPopup();
+      const window = await chrome.windows.getLastFocused();
+      await chrome.action.openPopup({ windowId: window.id });
     }, welcomeSeen);
     // Wait for the real popup to finish initial rendering and size negotiation.
     await helper.waitForFunction(() => {

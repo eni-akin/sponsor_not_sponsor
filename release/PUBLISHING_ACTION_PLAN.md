@@ -1,5 +1,10 @@
 # Chrome Web Store publishing action plan
 
+October 31 current-status pointer: use the [1.3 closeout plan](../docs/UI_REFRESH_CLOSEOUT_PLAN_2026-10-31.md)
+and [release worksheet](RELEASE_1.3.md). The public Store listing now shows 1.2;
+production reporting health/config are available. The 1.3 refresh is local.
+The following 1.2 summary and 1.0.0 checklist retain historical state only.
+
 For current owner-selected 1.2 status, see the [release README](README.md) and [launch progress record](../docs/REPORTING_LAUNCH_PROGRESS_2026-10-30.md). The owner confirmed human validation and Store submission with automatic publishing after approval. These are owner-reported, not new agent-verified metrics or a screen-reader pass. The authorized GitHub push and live public privacy/support verification completed; Google approval/publication remains unverified and reporting intake remains paused. The original 1.0.0 checklist below is historical and must not be used as the current candidate sign-off.
 
 Updated: October 18, 2026
