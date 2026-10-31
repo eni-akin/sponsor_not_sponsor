@@ -4,7 +4,13 @@ Prepared October 31, 2026 · America/Chicago. Local candidate; release pending.
 This is a separate sign-off from the historical
 [1.2 dashboard worksheet](CHROME_WEB_STORE_DASHBOARD_WORKSHEET.md).
 
-## Current external evidence
+Rollout update: source was pushed and both Workers deployed under explicit owner
+approval. The live fictional flow is waiting on normal Turnstile verification;
+website publication is held behind that gate. See the
+[rollout checkpoint](../docs/UI_REFRESH_ROLLOUT_2026-10-31.md) for exact deployments
+and current evidence. Earlier observations below retain their recorded context.
+
+## Earlier October 31 observations
 
 Read-only observations on October 31:
 
@@ -74,12 +80,12 @@ review against saved publisher values; this document does not certify them.
 
 - [x] Final automated local checks and tool-driven visual/keyboard review recorded.
 - [ ] Exact archive/hash/screenshots reviewed and approved for Store submission.
-- [ ] Default-branch push explicitly authorized; unrelated files kept separate.
-- [ ] Non-website source committed/pushed, remote commit recorded.
-- [ ] Existing admin/public deployment IDs and matching rollback source recorded.
-- [ ] Production deployment and fictional write/retry/review/delete test authorized.
-- [ ] Admin deployed first; Access, bindings and cleanup verified.
-- [ ] Public Worker/receipt assets deployed; notices, challenge and intake verified.
+- [x] Default-branch push explicitly authorized; unrelated files kept separate.
+- [x] Non-website source committed/pushed, remote commit `869c0ee` recorded.
+- [x] Existing admin/public deployment IDs and matching rollback source recorded.
+- [x] Production deployment and fictional write/retry/review/delete test authorized.
+- [x] Admin deployed first; Access, bindings and cleanup verified to recorded scope.
+- [ ] Public Worker/receipt assets deployed and source matched; live challenge still blocked.
 - [ ] Fictional test content removed; current operational health recorded.
 - [ ] Website commit pushed only after Workers pass; Pages/live pages verified.
 - [ ] Existing Store draft/review status reconciled, publishing behavior approved.
@@ -91,5 +97,6 @@ repository tests. Preserve the owner's no-VoiceOver instruction. Fixture success
 does not establish independent real-world accuracy or live Turnstile accessibility.
 Full-page CSS reflow was checked; actual browser zoom was exercised only on the
 extension surfaces. No native screen-reader or exhaustive human interaction audit
-is claimed. Private production cleanup, counts, current deployment IDs and the
-new live fictional flow remain to be checked during authorized rollout.
+is claimed. Production cleanup, counts and deployment IDs were subsequently
+checked to the scope in the rollout checkpoint. Retry confirmation, removal
+checks and post-test operational verification remain pending.

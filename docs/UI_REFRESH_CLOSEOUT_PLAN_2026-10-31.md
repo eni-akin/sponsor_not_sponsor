@@ -4,9 +4,11 @@ Prepared October 31, 2026 · America/Chicago.
 
 Execution checkpoint: local fixes and expanded verification in steps 1–3 have
 been completed to the scope recorded in the [1.3 release worksheet](../release/RELEASE_1.3.md).
-Current public Store status is 1.2 and public reporting is available. Commits,
-pushes, production rollout verification and 1.3 submission/publication remain
-pending; the operational gates below still apply.
+Current public Store status is 1.2 and public reporting is available. Source
+was committed/pushed and both Workers deployed under explicit owner approval;
+live workflow completion, website publication and Store 1.3 remain pending.
+See the [rollout checkpoint](UI_REFRESH_ROLLOUT_2026-10-31.md); the operational
+gates below still apply.
 
 The refresh exists locally, but UI acceptance and rollout remain incomplete.
 This plan follows the [UI handoff](UI_REFRESH_HANDOFF_2026-10-31.md),

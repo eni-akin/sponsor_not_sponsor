@@ -5,7 +5,9 @@ October 31 checkpoint: 1.3 is a local UI candidate. Use the
 [1.3 release worksheet](RELEASE_1.3.md) for remaining work and final evidence.
 The public Chrome Web Store listing was read-only verified as version 1.2,
 updated October 31. Production reporting health/config returned available;
-the refreshed reporting UI and website have not been deployed. Pushes containing
+the refreshed admin/public Workers are deployed under owner approval. The
+[rollout checkpoint](../docs/UI_REFRESH_ROLLOUT_2026-10-31.md) records the live
+fictional workflow; website publication is held until that gate passes. Pushes containing
 website files automatically publish Pages, so hold those changes until the
 Workers are verified. Final Store submission requires exact-candidate approval.
 

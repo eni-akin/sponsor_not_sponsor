@@ -6,7 +6,10 @@ read-only October 31 probes returned HTTP 200 and `available: true` on both
 traffic to Cloudflare Access. These probes do not verify private cleanup health,
 owner sign-in or current report counts. Staging remains separately configured.
 
-The 1.3 UI refresh is local and has not been deployed. Start with the
+The 1.3 admin/public UI was deployed October 31 under owner approval; the live
+fictional workflow is awaiting normal challenge verification. Website 1.3
+publication remains held behind that gate. Start with the
+[rollout checkpoint](../docs/UI_REFRESH_ROLLOUT_2026-10-31.md),
 [UI handoff](../docs/UI_REFRESH_HANDOFF_2026-10-31.md) and
 [closeout plan](../docs/UI_REFRESH_CLOSEOUT_PLAN_2026-10-31.md).
 The [October 29 workflow record](../docs/REPORTING_HANDOFF_2026-10-29.md)
