@@ -5,8 +5,10 @@ Prepared October 31, 2026 · America/Chicago.
 Subsequent October 31 local closeout and fresh evidence are recorded in the
 [1.3 release worksheet](../release/RELEASE_1.3.md). Its candidate hash supersedes
 the earlier checkpoint below. Read-only checks now confirm the public Store
-listing is 1.2 and reporting health/config are available. No 1.3 push, deployment
-or submission has been performed.
+listing is 1.2 and reporting health/config are available. The subsequent
+[authorized rollout checkpoint](UI_REFRESH_ROLLOUT_2026-10-31.md) records the
+1.3 source/website pushes, Worker deployments, retry confirmation and exact-test
+cleanup. No 1.3 Store submission has been performed by the agent.
 
 ## Current checkpoint
 

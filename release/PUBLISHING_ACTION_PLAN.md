@@ -3,7 +3,7 @@
 October 31 current-status pointer: use the [1.3 closeout plan](../docs/UI_REFRESH_CLOSEOUT_PLAN_2026-10-31.md)
 and [release worksheet](RELEASE_1.3.md). The public Store listing now shows 1.2;
 production reporting health/config are available. The 1.3 admin/public refresh
-is deployed; website publication awaits live workflow completion. See the
+and matching website are deployed, with fictional-test cleanup verified. See the
 [rollout checkpoint](../docs/UI_REFRESH_ROLLOUT_2026-10-31.md).
 The following 1.2 summary and 1.0.0 checklist retain historical state only.
 

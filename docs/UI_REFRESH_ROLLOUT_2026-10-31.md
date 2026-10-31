@@ -7,7 +7,7 @@ publication after verification. Store submission remains a separate final step.
 ## Completed
 
 - Source commit `869c0ee` was pushed to `origin/master` after explicit approval.
-  Website commit `8e374a0` is held locally until the live workflow gate passes.
+  Website commit `8e374a0` was pushed after the live workflow gate passed.
 - Local candidate checks and exact ZIP are recorded in
   [the 1.3 worksheet](../release/RELEASE_1.3.md). The ZIP SHA-256 remains
   `51ba08d8ab7ca49f8980e5828dd957bc242d46a88a19330d693103ffabc225bb`.
@@ -42,7 +42,7 @@ Admin deployment output confirmed the hourly `17 * * * *` trigger. Wrangler's
 inspected read-only metadata did not expose remote cron/observability settings;
 no independent dashboard settings audit is claimed.
 
-## Live workflow gate still open
+## Live workflow evidence and limitations
 
 A fresh Chrome tab was prepared with fictional vacancy text and a fictional
 example.com contact. No real report or personal information was imported.
@@ -71,26 +71,52 @@ saved successfully. An additional save occurred while locating the first tab;
 do not invent an exact event total without querying it. The browser's DOM
 inspection API timed out, so normal native Chrome controls were used instead.
 
-Unchanged same-receipt retry confirmation is pending with the owner before
-deleting the fictional record. No challenge bypass, test-key substitution,
-security-setting change, synthetic token or backend insertion was used. No
-unrelated private report was opened. The authenticated inbox and fictional draft
-tabs are marked for handoff.
+The owner subsequently confirmed that retrying the unchanged report returned
+the same receipt. Independent pre-deletion queries still found exactly one
+report, zero contacts and four events, all associated with the identified test.
+The receipt/retry comparison is owner-reported, not an independently observed
+network-response comparison. Dedicated receipt-page navigation was locally
+tested but was not independently observed during the owner's live submission.
+
+The agent deleted only the identified test through the authenticated inbox's
+typed-ID guard. An initial stale deletion was safely rejected; explicit refresh,
+retyping the same ID and retrying succeeded. The UI reported “Report deleted”
+and an empty inbox. Independent post-delete read-only queries confirmed:
+
+- Zero reports, contacts, events and expired reports in production.
+- Zero exact-test report/contact/event rows and one minimal deletion-ledger entry.
+- Cleanup succeeded `2026-10-31T16:17:25.815Z`, with no recorded failure and
+  scheduled-cleanup deleted count zero. Manual deletion is separate from that
+  scheduled counter. No synthetic contact had been submitted, so this live flow
+  does not independently exercise contact cascade deletion.
+- Public health/config remained HTTP 200 and `available: true`.
+
+No challenge bypass, test-key substitution, security-setting change, synthetic
+token or backend insertion was used. No unrelated private report was opened.
+
+## Website publication verified
+
+After retry confirmation and exact-test cleanup, commit `8e374a0` was pushed.
+[Pages run 41222439926](https://github.com/eni-akin/sponsor_not_sponsor/actions/runs/41222439926)
+completed successfully for `8e374a05a7973d00136061b88d293bb87ade4719`.
+All seven site files returned HTTP 200 and matched approved local source
+byte-for-byte: home, demo, privacy, support, CSS, logo and favicon.
+
+The coordinated Worker/site rollout is complete to the evidence scope above.
+This is not Store 1.3 publication or a claim of exhaustive human accessibility.
 
 ## Remaining, in order
 
-1. Verify an unchanged retry returns the same receipt without creating another
-   record. The owner's initial receipt confirmation is recorded above.
-2. Delete only that fictional record after retry verification and check
-   report/contact/event removal plus cleanup health. Review and revision recovery
-   have passed. Do not open any
-   unrelated report that arrives meanwhile.
-3. Push the held website commit only after the live gate passes, verify the
-   Pages deployment and matching live pages. Preserve unrelated root handoffs.
-4. Update this checkpoint with actual outcomes, then obtain final approval for
-   Store 1.3 submission of the exact candidate. The public Store currently
-   lists 1.2; no 1.3 Store action has been taken.
+1. Obtain final approval for Store 1.3 submission of the exact candidate and
+   publishing choice. Chrome rejected read-only scripted dashboard access with
+   “The extensions gallery cannot be scripted.” Do not bypass that restriction;
+   the owner must review saved declarations, upload and submit manually.
+2. Record actual Store submission/publication evidence. Public Store 1.2 was
+   the last verified listing; no 1.3 Store action has been taken by the agent.
+3. Obtain direction on the currently paused maintenance automation, reconcile
+   its obsolete hold prompt and verify the first successful unattended run.
 
-The rollout remains incomplete. Local fixture checks and public health probes
-do not replace the outstanding live workflow, provider review or human
-accessibility evidence. VoiceOver remains excluded by owner instruction.
+The full 1.3 release remains incomplete until its intended Store publication is
+verified. Local fixture checks, owner-reported receipt comparison and operational
+probes do not establish independent accuracy, provider settings coverage or human
+accessibility. VoiceOver remains excluded by owner instruction.

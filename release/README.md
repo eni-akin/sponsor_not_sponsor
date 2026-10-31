@@ -1,15 +1,16 @@
 # Release preparation — 1.3
 
-October 31 checkpoint: 1.3 is a local UI candidate. Use the
+October 31 checkpoint: 1.3 is the verified extension candidate; its reporting
+Workers and matching website are deployed. Use the
 [closeout plan](../docs/UI_REFRESH_CLOSEOUT_PLAN_2026-10-31.md) and
 [1.3 release worksheet](RELEASE_1.3.md) for remaining work and final evidence.
 The public Chrome Web Store listing was read-only verified as version 1.2,
 updated October 31. Production reporting health/config returned available;
 the refreshed admin/public Workers are deployed under owner approval. The
-[rollout checkpoint](../docs/UI_REFRESH_ROLLOUT_2026-10-31.md) records the live
-fictional workflow; website publication is held until that gate passes. Pushes containing
-website files automatically publish Pages, so hold those changes until the
-Workers are verified. Final Store submission requires exact-candidate approval.
+[rollout checkpoint](../docs/UI_REFRESH_ROLLOUT_2026-10-31.md) records the owner
+retry confirmation, production review/recovery, verified fictional-test deletion,
+successful Pages deployment and matching live files. Final Store submission
+requires exact-candidate approval and manual owner dashboard action.
 
 ## Historical 1.2 checkpoint
 

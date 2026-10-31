@@ -1,12 +1,13 @@
 # SNS 1.3 release worksheet
 
-Prepared October 31, 2026 · America/Chicago. Local candidate; release pending.
+Prepared October 31, 2026 · America/Chicago. Worker/site rollout verified;
+Store release pending.
 This is a separate sign-off from the historical
 [1.2 dashboard worksheet](CHROME_WEB_STORE_DASHBOARD_WORKSHEET.md).
 
 Rollout update: source was pushed and both Workers deployed under explicit owner
-approval. The live fictional flow is waiting on normal Turnstile verification;
-website publication is held behind that gate. See the
+approval. The owner confirmed same-receipt retry, production review/recovery and
+exact-test deletion passed, and matching website publication was verified. See the
 [rollout checkpoint](../docs/UI_REFRESH_ROLLOUT_2026-10-31.md) for exact deployments
 and current evidence. Earlier observations below retain their recorded context.
 
@@ -71,7 +72,7 @@ Privacy: https://eni-akin.github.io/sponsor_not_sponsor/privacy.html
 Public privacy now explicitly covers 1.2 and 1.3 and explains the receipt's
 one-time local session transfer. No additional submitted fields, recipients,
 server retention, permissions or automatic uploads were introduced. The
-`2026-10-30` notice/schema version and disclosure effective date are retained;
+notice version `2026-10-30`, report schema version `1`, and disclosure effective date are retained;
 this clarifies local confirmation storage, not new collection. Confirm the live
 policy matches this source before submission. Dashboard declarations still need
 review against saved publisher values; this document does not certify them.
@@ -85,9 +86,9 @@ review against saved publisher values; this document does not certify them.
 - [x] Existing admin/public deployment IDs and matching rollback source recorded.
 - [x] Production deployment and fictional write/retry/review/delete test authorized.
 - [x] Admin deployed first; Access, bindings and cleanup verified to recorded scope.
-- [ ] Public Worker/receipt assets deployed and source matched; live challenge still blocked.
-- [ ] Fictional test content removed; current operational health recorded.
-- [ ] Website commit pushed only after Workers pass; Pages/live pages verified.
+- [x] Public Worker/receipt assets deployed and source matched; owner live submission/retry confirmed with documented limits.
+- [x] Fictional test content removed; current operational health recorded.
+- [x] Website commit pushed after workflow checks; Pages run `41222439926` and live files verified.
 - [ ] Existing Store draft/review status reconciled, publishing behavior approved.
 - [ ] Exact 1.3 candidate submitted; dashboard version/permissions confirmed.
 - [ ] Actual Store publication outcome recorded; maintenance verified.
@@ -98,5 +99,18 @@ does not establish independent real-world accuracy or live Turnstile accessibili
 Full-page CSS reflow was checked; actual browser zoom was exercised only on the
 extension surfaces. No native screen-reader or exhaustive human interaction audit
 is claimed. Production cleanup, counts and deployment IDs were subsequently
-checked to the scope in the rollout checkpoint. Retry confirmation, removal
-checks and post-test operational verification remain pending.
+checked to the scope in the rollout checkpoint. Retry is owner-confirmed;
+exact-test removal and post-test availability were independently verified.
+Chrome blocks scripted Store dashboard access, so the owner must review saved
+declarations and complete the upload/submission manually after final approval.
+
+## Final Store handoff
+
+Upload only `release/sponsor-not-sponsor-1.3.zip` with SHA-256
+`51ba08d8ab7ca49f8980e5828dd957bc242d46a88a19330d693103ffabc225bb`.
+Confirm the dashboard parses version `1.3`, permission `storage` and the existing
+HTTP/HTTPS page access. Use the reviewed screenshots, privacy/support/demo URLs
+and release note above, not historical 1.2 status or placeholder instructions.
+Review saved data-use declarations against the existing optional reporting flow.
+Confirm the intended publishing choice before final submission. No final Store
+submission approval has been supplied yet, and no Store fields were changed.

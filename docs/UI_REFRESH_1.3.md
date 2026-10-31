@@ -4,8 +4,10 @@ October 31 closeout: the local inbox recovery, independent/stale cleanup-health
 feedback, readable duplicate/history summaries, and documented text/target sizes
 are implemented and covered by expanded regressions. Current exact candidate and
 fresh verification are in the [1.3 release worksheet](../release/RELEASE_1.3.md).
-Its hash supersedes the October 30 candidate below. Production rollout and Store
-1.3 submission remain pending explicit release authority.
+Its hash supersedes the October 30 candidate below. The authorized Worker/site
+rollout and fictional-test cleanup are verified in the
+[rollout checkpoint](UI_REFRESH_ROLLOUT_2026-10-31.md). Store 1.3 still requires
+final approval and manual owner dashboard action.
 
 The local 1.3 candidate refines the approved light SNS identity across the
 popup, injected evidence panel, help/privacy documents, public website and

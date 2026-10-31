@@ -6,7 +6,8 @@ Execution checkpoint: local fixes and expanded verification in steps 1–3 have
 been completed to the scope recorded in the [1.3 release worksheet](../release/RELEASE_1.3.md).
 Current public Store status is 1.2 and public reporting is available. Source
 was committed/pushed and both Workers deployed under explicit owner approval;
-live workflow completion, website publication and Store 1.3 remain pending.
+the owner confirmed same-receipt retry, exact-test cleanup was independently
+verified, and website publication passed. Store 1.3 remains pending.
 See the [rollout checkpoint](UI_REFRESH_ROLLOUT_2026-10-31.md); the operational
 gates below still apply.
 
